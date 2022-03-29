@@ -36,7 +36,10 @@ public class player_Car : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "start_stunt") 
+
+      
+
+        if (col.gameObject.tag == "start_stunt") 
 		{
             Debug.Log("Stunt On");
 			Player_Car_Camera.GetComponent<RCC_Camera> ().enabled = false;

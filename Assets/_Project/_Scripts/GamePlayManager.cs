@@ -8,7 +8,7 @@ public class GamePlayManager : MonoBehaviour {
 	public GameObject RcPanel,PausePanel,CarSelectionPanel,rccam,buybtn,Selectbtn,PurchasedText,LowCashText,LockImage,unlockcarbtn, addloading,Skip,Header,Footer;
     public GameObject GiftPanel,SelectionCamera;
 	public GameObject Startpoint,boundery,Boundry2, Boundry3, Boundry4;
-    public GameObject[] CarrierLevels,MegaLevels, CarModle, CarScpecification, Endpoint;
+    public GameObject[] CarrierLevels,MegaLevels, CarModle, CarScpecification/*, //Endpoint*/;
     public GameObject Car1, Car2, Car3, Car4, Car5, Car6, Car7, Car8, Car9,Car10;
     public GameObject[] CutScene_Cam;
     public GameObject[] Counting_Text;
@@ -238,9 +238,9 @@ public class GamePlayManager : MonoBehaviour {
 		if (Num == 0) 
 		{
 			CarrierLevels[0].SetActive (true);
-            Endpoint[4].SetActive(true);
-            Endpoint[4].transform.position = new Vector3(5323, 117, 67);
-            Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
+            //Endpoint[4].SetActive(true);
+            //Endpoint[4].transform.position = new Vector3(5323, 117, 67);
+            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
             //----------------------------------------------------------------------------//
             boundery.transform.position = new Vector3 (0, -71, 0);
             boundery.transform.rotation = Quaternion.Euler (0, 0, 0);
@@ -249,9 +249,9 @@ public class GamePlayManager : MonoBehaviour {
 		else if (Num == 1)
 		{
 			CarrierLevels [1].SetActive (true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3(4761.3f, 111.27f, 64);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.position = new Vector3(4761.3f, 111.27f, 64);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (0, -71, 0);
@@ -259,9 +259,9 @@ public class GamePlayManager : MonoBehaviour {
 		else if (Num == 2)
 		{
 			CarrierLevels [2].SetActive (true);
-            Endpoint[6].SetActive(true);
-            Endpoint[6].transform.position = new Vector3 (1113.7f, -270, -3425.2f);
-			Endpoint[6].transform.rotation = Quaternion.Euler (-90,-90,90);
+   //         Endpoint[6].SetActive(true);
+   //         Endpoint[6].transform.position = new Vector3 (1113.7f, -270, -3425.2f);
+			//Endpoint[6].transform.rotation = Quaternion.Euler (-90,-90,90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (0, -54, 161);
@@ -274,9 +274,9 @@ public class GamePlayManager : MonoBehaviour {
 		{
             Boundry2.SetActive(true);
             CarrierLevels[3].SetActive (true);
-            Endpoint[5].SetActive(true);
-            Endpoint[5].transform.position = new Vector3 (1598, 211.6f, 1634);
-			Endpoint[5].transform.rotation = Quaternion.Euler (-90, -180f, 0);
+            //Endpoint[5].SetActive(true);
+            //Endpoint[5].transform.position = new Vector3 (1598, 211.6f, 1634);
+			//Endpoint[5].transform.rotation = Quaternion.Euler (-90, -180f, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (0, -54, -706);
@@ -286,9 +286,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 4)
 		{
 			CarrierLevels [4].SetActive (true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3 (3664, -5.7f, 313);
-			Endpoint[3].transform.rotation = Quaternion.Euler (-91, 2.2f, -1.7f);
+           // Endpoint[3].SetActive(true);
+          //  Endpoint[3].transform.position = new Vector3 (3664, -5.7f, 313);
+			//Endpoint[3].transform.rotation = Quaternion.Euler (-91, 2.2f, -1.7f);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (0, -84, -706);
@@ -297,9 +297,9 @@ public class GamePlayManager : MonoBehaviour {
 		else if (Num == 5)
 		{
 			CarrierLevels [5].SetActive (true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3 (3800, 120.9f, 71);
-			Endpoint[1].transform.rotation = Quaternion.Euler (-90,0,-90);
+           /// Endpoint[1].SetActive(true);
+          //  Endpoint[1].transform.position = new Vector3 (3800, 120.9f, 71);
+			//Endpoint[1].transform.rotation = Quaternion.Euler (-90,0,-90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-3652, -6.4f, -706);
@@ -311,10 +311,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 6)
 		{
 			CarrierLevels [6].SetActive (true);
-            Endpoint[6].SetActive(true);
-            //Endpoint[6].transform.localScale = new Vector3(1, 1, 1);
-            Endpoint[6].transform.position = new Vector3 (3581.3f, 165.6f, 63);
-			Endpoint[6].transform.rotation = Quaternion.Euler (-90, -90, 0);
+   //         Endpoint[6].SetActive(true);
+   //         //Endpoint[6].transform.localScale = new Vector3(1, 1, 1);
+   //         Endpoint[6].transform.position = new Vector3 (3581.3f, 165.6f, 63);
+			//Endpoint[6].transform.rotation = Quaternion.Euler (-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-3530, -6.4f, -706);
@@ -327,9 +327,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 7)
 		{
 			CarrierLevels [7].SetActive (true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3 (836, 118.9f, -3806.3f);
-			Endpoint[3].transform.rotation = Quaternion.Euler (-91,90,0);
+   //         Endpoint[3].SetActive(true);
+   //         Endpoint[3].transform.position = new Vector3 (836, 118.9f, -3806.3f);
+			//Endpoint[3].transform.rotation = Quaternion.Euler (-91,90,0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-1121, -6.4f, -386);
@@ -341,10 +341,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 8)
 		{
 			CarrierLevels [8].SetActive (true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            Endpoint[1].transform.position = new Vector3 (5452, 367, -279);
-			Endpoint[1].transform.rotation = Quaternion.Euler (-87.857f, -90, -11);
+   //         Endpoint[1].SetActive(true);
+   //         Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
+   //         Endpoint[1].transform.position = new Vector3 (5452, 367, -279);
+			//Endpoint[1].transform.rotation = Quaternion.Euler (-87.857f, -90, -11);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-3166, -17, -386);
@@ -355,9 +355,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 9)
 		{
 			CarrierLevels [9].SetActive (true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3 (5369, 405, 595);
-			Endpoint[3].transform.rotation = Quaternion.Euler (-90, 81, -90);
+   //         Endpoint[3].SetActive(true);
+   //         Endpoint[3].transform.position = new Vector3 (5369, 405, 595);
+			//Endpoint[3].transform.rotation = Quaternion.Euler (-90, 81, -90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-3166, -17, -386);
@@ -368,9 +368,9 @@ public class GamePlayManager : MonoBehaviour {
 		else if (Num == 10)
 		{
 			CarrierLevels [10].SetActive (true);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.position = new Vector3 (6365, 212, 66.5f);
-			Endpoint[0].transform.rotation = Quaternion.Euler (-90, 0,0);
+   //         Endpoint[0].SetActive(true);
+   //         Endpoint[0].transform.position = new Vector3 (6365, 212, 66.5f);
+			//Endpoint[0].transform.rotation = Quaternion.Euler (-90, 0,0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (-1700, -17, 122);
@@ -381,9 +381,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 11)
 		{
 			CarrierLevels [11].SetActive (true);
-            Endpoint[7].SetActive(true);
-            Endpoint[7].transform.position = new Vector3 (10240, 164, 723);
-			Endpoint[7].transform.rotation = Quaternion.Euler (0, 103.629f, 0);
+   //         Endpoint[7].SetActive(true);
+   //         Endpoint[7].transform.position = new Vector3 (10240, 164, 723);
+			//Endpoint[7].transform.rotation = Quaternion.Euler (0, 103.629f, 0);
 			boundery.transform.position = new Vector3 (736, -17, 297);
             boundery.transform.rotation = Quaternion.Euler(0, -60, 0);
             Boundry2.SetActive(true);
@@ -393,10 +393,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 12)
 		{
 			CarrierLevels [12].SetActive (true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3 (7099.4f, 52.1f, 4694.7f);
-			Endpoint[3].transform.rotation = Quaternion.Euler (-90, 0, -22);
-			boundery.transform.position = new Vector3 (1046, -17, -383);
+   //         Endpoint[3].SetActive(true);
+   //         Endpoint[3].transform.position = new Vector3 (7099.4f, 52.1f, 4694.7f);
+			//Endpoint[3].transform.rotation = Quaternion.Euler (-90, 0, -22);
+			//boundery.transform.position = new Vector3 (1046, -17, -383);
             boundery.transform.rotation = Quaternion.Euler(0, -24, 0);
             Boundry2.SetActive(true);
             Boundry2.transform.position = new Vector3(7837, -141, 2290);
@@ -406,10 +406,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 13)
 		{
 			CarrierLevels [13].SetActive (true);
-            Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3 (7548, 20, -1602);
-			Endpoint[1].transform.rotation = Quaternion.Euler (-90, 0, 295);
+   //         Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
+   //         Endpoint[1].SetActive(true);
+   //         Endpoint[1].transform.position = new Vector3 (7548, 20, -1602);
+			//Endpoint[1].transform.rotation = Quaternion.Euler (-90, 0, 295);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (1362, -17, -383);
@@ -421,9 +421,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 14)
 		{
 			CarrierLevels [14].SetActive (true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3 (1980, 102, -6397);
-			Endpoint[3].transform.rotation = Quaternion.Euler (-90,0,90);
+   //         Endpoint[3].SetActive(true);
+   //         Endpoint[3].transform.position = new Vector3 (1980, 102, -6397);
+			//Endpoint[3].transform.rotation = Quaternion.Euler (-90,0,90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (1362, -10, -1124);
@@ -435,9 +435,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 15)
 		{
 			CarrierLevels [15].SetActive (true);
-            Endpoint[6].SetActive(true);
-            Endpoint[6].transform.position = new Vector3 (3579, 257.6f, -1475.1f);
-			Endpoint[6].transform.rotation = Quaternion.Euler (-77.86f, -252.5f, 0);
+   //         Endpoint[6].SetActive(true);
+   //         Endpoint[6].transform.position = new Vector3 (3579, 257.6f, -1475.1f);
+			//Endpoint[6].transform.rotation = Quaternion.Euler (-77.86f, -252.5f, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3 (1362, -10, 707);
@@ -450,9 +450,9 @@ public class GamePlayManager : MonoBehaviour {
         {
             CarrierLevels[16].SetActive(true);
             //Endpoint[5].transform.localScale = new Vector3(60, 60, 60);
-            Endpoint[4].SetActive(true);
-            Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
-            Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
+            //Endpoint[4].SetActive(true);
+            //Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
+            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(834, -75, -321);
@@ -464,10 +464,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 17)
         {
             CarrierLevels[17].SetActive(true);
-            Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
-            Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
+            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
+            //Endpoint[0].SetActive(true);
+            //Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
+            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
             //----------------------------------------------------------------------------//
             boundery.transform.position = new Vector3(-4720, -46, -321);
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -490,9 +490,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 18)
         {
             CarrierLevels[18].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
             boundery.transform.position = new Vector3(1329.4f, -10, -1034);
@@ -508,10 +508,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 19)
         {
             CarrierLevels[19].SetActive(true);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
-            Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
+            //Endpoint[0].SetActive(true);
+            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
+            //Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
+            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(1329, -10, 123);
@@ -531,10 +531,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 20)
         {
             CarrierLevels[20].SetActive(true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
-            Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
+            //Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
             boundery.transform.position = new Vector3(838, -10, 5519);
@@ -554,9 +554,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 21)
         {
             CarrierLevels[21].SetActive(true);
-            Endpoint[5].SetActive(true);
-            Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
-            Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
+            //Endpoint[5].SetActive(true);
+            //Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
+            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(812, -90, 192);
@@ -568,9 +568,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 22)
         {
             CarrierLevels[22].SetActive(true);
-            Endpoint[7].SetActive(true);
-            Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
-            Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
+            //Endpoint[7].SetActive(true);
+            //Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
+            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, -19.56f, 0);
             boundery.transform.position = new Vector3(812, -90, 192);
@@ -582,9 +582,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 23)
         {
             CarrierLevels[23].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 22.88f, 0);
             boundery.transform.position = new Vector3(1363, -19, 538);
@@ -604,9 +604,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 24)
         {
             CarrierLevels[24].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
             boundery.transform.position = new Vector3(0, -55f, 0);
         }
 
@@ -621,9 +621,9 @@ public class GamePlayManager : MonoBehaviour {
             //Endpoint[1].SetActive(true);
             //Endpoint[1].transform.position = new Vector3(5346.5f, 92, 67);
             //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            Endpoint[4].SetActive(true);
-            Endpoint[4].transform.position = new Vector3(5323, 117, 67);
-            Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
+            //Endpoint[4].SetActive(true);
+            //Endpoint[4].transform.position = new Vector3(5323, 117, 67);
+            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
             //----------------------------------------------------------------------------//
             boundery.transform.position = new Vector3(0, -71, 0);
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -632,9 +632,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 1)
         {
             MegaLevels[1].SetActive(true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3(4958.4f, 76, 64);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.position = new Vector3(4958.4f, 76, 64);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(0, -71, 0);
@@ -645,9 +645,9 @@ public class GamePlayManager : MonoBehaviour {
             //Endpoint[0].SetActive(true);
             //Endpoint[0].transform.position = new Vector3(1081.7f, -301.3f, -3439.93f);
             //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 90, 0);
-            Endpoint[6].SetActive(true);
-            Endpoint[6].transform.position = new Vector3(1113.7f, -270, -3425.2f);
-            Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 90);
+            //Endpoint[6].SetActive(true);
+            //Endpoint[6].transform.position = new Vector3(1113.7f, -270, -3425.2f);
+            //Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(0, -54, 161);
@@ -663,9 +663,9 @@ public class GamePlayManager : MonoBehaviour {
             //Endpoint[2].SetActive(true);
             //Endpoint[2].transform.position = new Vector3(1598, 140, 2395);
             //Endpoint[2].transform.rotation = Quaternion.Euler(0, -90f, 15.76f);
-            Endpoint[5].SetActive(true);
-            Endpoint[5].transform.position = new Vector3(1598, 211.6f, 1574.6f);
-            Endpoint[5].transform.rotation = Quaternion.Euler(-90, -180f, 0);
+            //Endpoint[5].SetActive(true);
+            //Endpoint[5].transform.position = new Vector3(1598, 211.6f, 1574.6f);
+            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -180f, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(0, -54, -706);
@@ -676,9 +676,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 4)
         {
             MegaLevels[4].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(3664, -5.7f, 313);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-91, 2.2f, -1.7f);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(3664, -5.7f, 313);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-91, 2.2f, -1.7f);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(0, -84, -706);
@@ -687,9 +687,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 5)
         {
             MegaLevels[5].SetActive(true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3(3800, 120.9f, 71);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -90);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.position = new Vector3(3800, 120.9f, 71);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-3652, -6.4f, -706);
@@ -701,13 +701,13 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 6)
         {
             MegaLevels[6].SetActive(true);
-            //Endpoint[2].SetActive(true);
-            //Endpoint[2].transform.localScale = new Vector3(1, 1, 1);
-            //Endpoint[2].transform.position = new Vector3(3874, 34.5f, 66);
-            //Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
-            Endpoint[6].SetActive(true);
-            Endpoint[6].transform.position = new Vector3(3581.3f, 165.6f, 63);
-            Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 0);
+            ////Endpoint[2].SetActive(true);
+            ////Endpoint[2].transform.localScale = new Vector3(1, 1, 1);
+            ////Endpoint[2].transform.position = new Vector3(3874, 34.5f, 66);
+            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
+            //Endpoint[6].SetActive(true);
+            //Endpoint[6].transform.position = new Vector3(3581.3f, 165.6f, 63);
+            //Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-3530, -6.4f, -706);
@@ -720,9 +720,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 7)
         {
             MegaLevels[7].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(836, 118.9f, -3806.3f);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-91, 90, 0);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(836, 118.9f, -3806.3f);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-91, 90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-1121, -6.4f, -386);
@@ -734,10 +734,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 8)
         {
             MegaLevels[8].SetActive(true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            Endpoint[1].transform.position = new Vector3(5452, 367, -279);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-87.857f, -90, -11);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
+            //Endpoint[1].transform.position = new Vector3(5452, 367, -279);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-87.857f, -90, -11);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-3166, -17, -386);
@@ -749,9 +749,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 9)
         {
             MegaLevels[9].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(5369, 405, 595);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 81, -90);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(5369, 405, 595);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 81, -90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-3166, -17, -386);
@@ -762,9 +762,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 10)
         {
             MegaLevels[10].SetActive(true);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.position = new Vector3(6365, 212, 66.5f);
-            Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 0);
+            //Endpoint[0].SetActive(true);
+            //Endpoint[0].transform.position = new Vector3(6365, 212, 66.5f);
+            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(-1700, -17, 122);
@@ -776,12 +776,12 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 11)
         {
             MegaLevels[11].SetActive(true);
-            //Endpoint[2].SetActive(true);
-            //Endpoint[2].transform.position = new Vector3(10644, -101, 624);
-            //Endpoint[2].transform.rotation = Quaternion.Euler(0, 14, 0);
-            Endpoint[7].SetActive(true);
-            Endpoint[7].transform.position = new Vector3(10240, 164, 723);
-            Endpoint[7].transform.rotation = Quaternion.Euler(0, 103.629f, 0);
+            ////Endpoint[2].SetActive(true);
+            ////Endpoint[2].transform.position = new Vector3(10644, -101, 624);
+            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 14, 0);
+            //Endpoint[7].SetActive(true);
+            //Endpoint[7].transform.position = new Vector3(10240, 164, 723);
+            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 103.629f, 0);
             boundery.transform.position = new Vector3(736, -17, 297);
             boundery.transform.rotation = Quaternion.Euler(0, -60, 0);
             Boundry2.SetActive(true);
@@ -792,9 +792,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 12)
         {
             MegaLevels[12].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(7099.4f, 52.1f, 4694.7f);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -22);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(7099.4f, 52.1f, 4694.7f);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -22);
             boundery.transform.position = new Vector3(1046, -17, -383);
             boundery.transform.rotation = Quaternion.Euler(0, -24, 0);
             Boundry2.SetActive(true);
@@ -805,10 +805,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 13)
         {
             MegaLevels[13].SetActive(true);
-            Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.position = new Vector3(7548, 20, -1602);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 295);
+            //Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.position = new Vector3(7548, 20, -1602);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 295);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(1362, -17, -383);
@@ -820,9 +820,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 14)
         {
             MegaLevels[14].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(1980, 102, -6397);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, 90);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(1980, 102, -6397);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, 90);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(1362, -10, -1124);
@@ -834,12 +834,12 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 15)
         {
             MegaLevels[15].SetActive(true);
-            //Endpoint[2].SetActive(true);
-            //Endpoint[2].transform.position = new Vector3(2946, -22, -1308);
-            //Endpoint[2].transform.rotation = Quaternion.Euler(0, -165, 0);
-            Endpoint[6].SetActive(true);
-            Endpoint[6].transform.position = new Vector3(3579, 257.6f, -1475.1f);
-            Endpoint[6].transform.rotation = Quaternion.Euler(-77.86f, -252.5f, 0);
+            ////Endpoint[2].SetActive(true);
+            ////Endpoint[2].transform.position = new Vector3(2946, -22, -1308);
+            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, -165, 0);
+            //Endpoint[6].SetActive(true);
+            //Endpoint[6].transform.position = new Vector3(3579, 257.6f, -1475.1f);
+            //Endpoint[6].transform.rotation = Quaternion.Euler(-77.86f, -252.5f, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(1362, -10, 707);
@@ -851,13 +851,13 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 16)
         {
             MegaLevels[16].SetActive(true);
-            //Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(11089, 46, -2078);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -99);
-            Endpoint[4].SetActive(true);
-            Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
-            Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
+            ////Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
+            ////Endpoint[1].SetActive(true);
+            ////Endpoint[1].transform.position = new Vector3(11089, 46, -2078);
+            ////Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -99);
+            //Endpoint[4].SetActive(true);
+            //Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
+            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(834, -75, -321);
@@ -869,10 +869,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 17)
         {
             MegaLevels[17].SetActive(true);
-            Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
-            Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
+            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
+            //Endpoint[0].SetActive(true);
+            //Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
+            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
             //----------------------------------------------------------------------------//
             boundery.transform.position = new Vector3(-4720, -46, -321);
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -895,9 +895,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 18)
         {
             MegaLevels[18].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
             boundery.transform.position = new Vector3(1329.4f, -10, -1034);
@@ -913,10 +913,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 19)
         {
             MegaLevels[19].SetActive(true);
-            Endpoint[0].SetActive(true);
-            Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
-            Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
+            //Endpoint[0].SetActive(true);
+            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
+            //Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
+            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(1329, -10, 123);
@@ -936,10 +936,10 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 20)
         {
             MegaLevels[20].SetActive(true);
-            Endpoint[1].SetActive(true);
-            Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
-            Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
-            Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
+            //Endpoint[1].SetActive(true);
+            //Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
+            //Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
+            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
             boundery.transform.position = new Vector3(838, -10, 5519);
@@ -959,12 +959,12 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 21)
         {
             MegaLevels[21].SetActive(true);
-            //Endpoint[2].SetActive(true);
-            //Endpoint[2].transform.position = new Vector3(8406, -237, -186.6f);
-            //Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
-            Endpoint[5].SetActive(true);
-            Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
-            Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
+            ////Endpoint[2].SetActive(true);
+            ////Endpoint[2].transform.position = new Vector3(8406, -237, -186.6f);
+            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
+            //Endpoint[5].SetActive(true);
+            //Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
+            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
             boundery.transform.position = new Vector3(812, -90, 192);
@@ -976,12 +976,12 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 22)
         {
             MegaLevels[22].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(7563, 48.9f, 4758.7f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, -7, 0);
-            Endpoint[7].SetActive(true);
-            Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
-            Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
+            ////Endpoint[3].SetActive(true);
+            ////Endpoint[3].transform.position = new Vector3(7563, 48.9f, 4758.7f);
+            ////Endpoint[3].transform.rotation = Quaternion.Euler(-90, -7, 0);
+            //Endpoint[7].SetActive(true);
+            //Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
+            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, -19.56f, 0);
             boundery.transform.position = new Vector3(812, -90, 192);
@@ -993,9 +993,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 23)
         {
             MegaLevels[23].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
             //----------------------------------------------------------------------------//
             boundery.transform.rotation = Quaternion.Euler(0, 22.88f, 0);
             boundery.transform.position = new Vector3(1363, -19, 538);
@@ -1015,9 +1015,9 @@ public class GamePlayManager : MonoBehaviour {
         else if (Num == 24)
         {
             MegaLevels[24].SetActive(true);
-            Endpoint[3].SetActive(true);
-            Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
-            Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
+            //Endpoint[3].SetActive(true);
+            //Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
+            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
             boundery.transform.position = new Vector3(0, -55f, 0);
         }
 

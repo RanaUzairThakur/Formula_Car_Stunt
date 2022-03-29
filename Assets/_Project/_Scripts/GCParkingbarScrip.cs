@@ -91,11 +91,11 @@ public class GCParkingbarScrip: MonoBehaviour {
 	{
 		if (Target.tag== "Player")
         {
-            if (GamePlayManager.inst.Endpoint[2].gameObject.activeInHierarchy== true)
-            {
-               // Debug.LogError("eeeeee");
-                GamePlayManager.inst.CarModle[PlayerPrefs.GetInt("MNum")].transform.localScale = new Vector3(4, 4, 4);
-            }
+            //if (GamePlayManager.inst.Endpoint[2].gameObject.activeInHierarchy== true)
+            //{
+            //   // Debug.LogError("eeeeee");
+            //    GamePlayManager.inst.CarModle[PlayerPrefs.GetInt("MNum")].transform.localScale = new Vector3(4, 4, 4);
+            //}
             RCC_CarControllerV3.instance.skid = true;
 			anim.SetBool ("cal", false);
 			rccam.SetActive (false);

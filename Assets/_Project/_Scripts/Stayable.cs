@@ -36,7 +36,7 @@ public class Stayable : MonoBehaviour
             {
                 var slopeRotation = Quaternion.FromToRotation(transform.up, hit.normal);
                 transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation * transform.rotation, 0.5f * Time.fixedDeltaTime);
-                rotationAmount = car.steerInput * -40f;
+                rotationAmount = car.steerInput * -10f;
                 rotationAmount *= Time.deltaTime;
                 float _X = carModel.transform.position.x;
                 float _y = carModel.transform.position.y;
@@ -65,7 +65,7 @@ public class Stayable : MonoBehaviour
         float _z = carModel.transform.position.z;
         _z += rotationAmount;
         carModel.transform.position  = new Vector3(_X ,_y,_z);
-        Invoke("Out", 1f);
+        Invoke("Out", 0f);
 
     }
     public void Out()

@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GCParkingbarScrip: MonoBehaviour {
 
 
-	public GameObject ParkingBar,CompletePanel,rcpanel,PointsPanel, addloading,SuccessCam;
-	public Slider PBar,TimeSlider,BonusSlider,StuntsSlider;
+	public GameObject CompletePanel,rcpanel,PointsPanel, addloading,SuccessCam;
+	public Slider TimeSlider,BonusSlider,StuntsSlider;
 	private bool unlockL,bslider=false,tslider=false,sslider=false;
 	public Animator anim;
-	public GameObject rccam, finalCam,shashka,driver;
+	public GameObject finalCam,shashka,driver;
 	public Text BBonusText, SStuntsText, TTimeText,cashEarned;
 	public int Timer, bonuser, stunter,dumpingvalue,cashnmber=300;
-	public GameObject winsound,GPSound,Star;
-    public GameObject[] EndCams;
+	public GameObject /*winsound,GPSound,*/Star;
+    //public GameObject[] EndCams;
     [HideInInspector]
     public int CashReward;
     public static bool Showads; 
     public static GCParkingbarScrip instance;
     public bool rotating;
+    public List<GameObject> Dummycars;
     void Start ()
     {
         instance = this;
@@ -91,51 +93,28 @@ public class GCParkingbarScrip: MonoBehaviour {
 	{
 		if (Target.tag== "Player")
         {
-            //if (GamePlayManager.inst.Endpoint[2].gameObject.activeInHierarchy== true)
-            //{
-            //   // Debug.LogError("eeeeee");
-            //    GamePlayManager.inst.CarModle[PlayerPrefs.GetInt("MNum")].transform.localScale = new Vector3(4, 4, 4);
-            //}
             RCC_CarControllerV3.instance.skid = true;
 			anim.SetBool ("cal", false);
-			rccam.SetActive (false);
-			finalCam.SetActive (true);
-			shashka.SetActive (true);
-			winsound.SetActive (true);
-            DemoManager.Instance.GP[0].SetActive(false);
-            DemoManager.Instance.GP[1].SetActive(false);
-            DemoManager.Instance.GP[2].SetActive(false);
-            DemoManager.Instance.GP[3].SetActive(false);
-            DemoManager.Instance.GP[4].SetActive(false);
-            GPSound.SetActive(false);
+            GamePlayManager.inst.Fadescreen.SetActive(true);		
 			rcpanel.SetActive (false);
-            driver.SetActive(true);
 			PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 300);
-
 			if (PlayerPrefs.GetInt ("level_number") > 4 && PlayerPrefs.GetInt ("level_number") < 9)
             {
                 CashReward = 200;
-
-                PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 200);
-				
+                PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 200);	
 			}
 			else 
 			{
                 CashReward = 700;
                 PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 700);
 			}
-
-          
-                StartCoroutine("Ddelay");
-            
+               StartCoroutine("Ddelay");
+            Invoke(nameof(Vehicle_withdriver),1.7f);
 		}
-
 	}
 	void OnTriggerExit(Collider Tragert)
 	{
 		anim.SetBool ("Paint", true);
-		PBar.value = 0;
-		ParkingBar.SetActive (false);
 	}
 
     public void Success()
@@ -156,13 +135,12 @@ public class GCParkingbarScrip: MonoBehaviour {
             finalCam.GetComponent<camorbit>().enabled = true;
         }
         yield return new WaitForSeconds (7f);
-        winsound.SetActive(false);
+        //winsound.SetActive(false);
 		tslider = true;
         finalCam.SetActive(false);
         SuccessCam.SetActive(true);
         PointsPanel.SetActive(true);
         StartCoroutine ("completed");
-
     }
     IEnumerator completed()
 	{
@@ -247,6 +225,17 @@ public class GCParkingbarScrip: MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         Time.timeScale = 0;
+    }
 
+    private void Vehicle_withdriver()
+    {
+
+        GamePlayManager.inst.set_CurrentVehiclestatus(false);
+        shashka.SetActive(true);
+        driver.SetActive(true);
+        foreach (GameObject g in Dummycars)
+            g.SetActive(false);
+        Dummycars[GamePlayManager.inst.ModleNum].SetActive(true);
+        finalCam.SetActive(true);
     }
 }

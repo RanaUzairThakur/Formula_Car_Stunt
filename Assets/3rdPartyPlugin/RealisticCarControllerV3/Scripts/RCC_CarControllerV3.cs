@@ -1162,11 +1162,12 @@ public class RCC_CarControllerV3 : MonoBehaviour
         if (skid)
         {
             canControl = false;
-            _gasInput = 1f;
-            brakeInput = 0f;
-            boostInput = 0.5f;
-            steerInput = 1f;
-            skid = false;
+            _gasInput = 0f;
+            brakeInput = 1f;
+            //boostInput = 0.5f;
+            // steerInput = 1f;
+            if (speed < 20)
+                skid = false;
         }
 
         if (canControl)

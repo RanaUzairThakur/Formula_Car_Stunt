@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class GamePlayManager : MonoBehaviour {
 	public GameObject RcPanel,PausePanel,CarSelectionPanel,rccam,buybtn,Selectbtn,PurchasedText,LowCashText,LockImage,unlockcarbtn, addloading,Skip,Header,Footer;
     public GameObject GiftPanel,SelectionCamera;
+    public GameObject Fadescreen;
 	public GameObject Startpoint,boundery,Boundry2, Boundry3, Boundry4;
     public GameObject[] CarrierLevels,MegaLevels, CarModle, CarScpecification/*, //Endpoint*/;
     public GameObject Car1, Car2, Car3, Car4, Car5, Car6, Car7, Car8, Car9,Car10;
     public GameObject[] CutScene_Cam;
     public GameObject[] Counting_Text;
     public Material[] Skyboxes;
-    private  int ModleNum;
+    public  int ModleNum;
     private int SpecificNum;
 	public static bool isnextClick=false;
    // public static bool Env;
@@ -1486,4 +1487,11 @@ public class GamePlayManager : MonoBehaviour {
     //{
     //    AdsManager.Instance.ShowRewardedInterstitialAd(1000);
     //}
+
+
+    public void set_CurrentVehiclestatus(bool val)
+    {
+        CarModle[ModleNum].SetActive(val);
+        rccam.SetActive(val);
+    }
 }

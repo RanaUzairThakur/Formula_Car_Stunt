@@ -94,7 +94,7 @@ public class GCParkingbarScrip: MonoBehaviour {
 		if (Target.tag== "Player")
         {
             RCC_CarControllerV3.instance.skid = true;
-			anim.SetBool ("cal", false);
+			//anim.SetBool ("cal", false);
             GamePlayManager.inst.Fadescreen.SetActive(true);		
 			rcpanel.SetActive (false);
 			PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 300);
@@ -114,7 +114,7 @@ public class GCParkingbarScrip: MonoBehaviour {
 	}
 	void OnTriggerExit(Collider Tragert)
 	{
-		anim.SetBool ("Paint", true);
+		//anim.SetBool ("Paint", true);
 	}
 
     public void Success()

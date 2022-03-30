@@ -4,7 +4,12 @@ public class PlayerTriggerListener : MonoBehaviour
 {
     public Vector3 Lastsaveposition;
     public int Totalcoins;
-
+    private HandleTyreGrip tyregrip ; 
+        private void Start()
+    {
+        if (!tyregrip)
+            tyregrip = this.gameObject.GetComponent<HandleTyreGrip>();
+    }
     void OnTriggerEnter(Collider col)
     {
 
@@ -24,6 +29,11 @@ public class PlayerTriggerListener : MonoBehaviour
             SoundsManager._instance.PlaySound(SoundsManager._instance.singleCoinsSound);
             col.gameObject.SetActive(false);
           //  Debug.Log("Stunt On");
+        }
+        if (col.tag == "downforce2")
+        {
+           tyregrip.tireGrip = 2500;
+           tyregrip.downforce = 10000;
         }
 
 

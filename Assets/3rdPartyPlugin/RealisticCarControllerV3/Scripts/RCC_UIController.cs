@@ -40,18 +40,22 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	private float sensitivity{get{return RCCSettings.UIButtonSensitivity;}}
 	private float gravity{get{return RCCSettings.UIButtonGravity;}}
 	public bool pressing;
-
+	private Rigidbody RCCV3rigidbody;
+	private RCC_CarControllerV3 RCCV3;
+	private bool brakeinput;
+	private bool brakepress;
 	void Awake(){
 
 		button = GetComponent<Button> ();
 		slider = GetComponent<Slider> ();
-
+		RCCV3rigidbody = RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
+		RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
 	}
 
 	public void OnPointerDown(PointerEventData eventData){
 		
 		pressing = true;
-
+		
 	}
 
 	public void OnPointerUp(PointerEventData eventData){
@@ -111,7 +115,19 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 		
 		if(input > 1f)
 			input = 1f;
-		
+
+		if (brakeinput && pressing)
+		{
+			if (RCCV3.direction == -1)
+				RCCV3rigidbody.drag = 0.05f;
+			else
+				RCCV3rigidbody.drag = 2.0f;
+		}
+		if (!brakeinput && brakepress)
+		{
+			RCCV3rigidbody.drag = 0.05f;
+			brakepress = false;
+		}
 	}
 
 	void OnDisable(){
@@ -121,4 +137,16 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
 	}
 
+
+	public void Onpress_Brake()
+	{
+		brakeinput = true;
+		print("Dir :"+RCCV3.direction);
+		
+	}
+	public void Onpress_ReleaseBrake()
+	{
+		brakeinput = false;
+		brakepress = true;
+	}
 }

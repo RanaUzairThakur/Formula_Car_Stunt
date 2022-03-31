@@ -913,6 +913,7 @@ GameObject:
   - component: {fileID: 6668145590406685743}
   - component: {fileID: 6668145590406685742}
   - component: {fileID: 6668145590406685722}
+  - component: {fileID: 330549123461701826}
   m_Layer: 0
   m_Name: FormulaCar (5)
   m_TagString: Player
@@ -927,7 +928,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6668145590406685736}
-  m_LocalRotation: {x: -0.000000015546181, y: 0.70287824, z: -0.000000015361888, w: 0.7113102}
+  m_LocalRotation: {x: -0, y: -0.7028799, z: 0, w: -0.71130854}
   m_LocalPosition: {x: 61.6, y: 31.45, z: 65.8}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
@@ -1397,6 +1398,20 @@ MonoBehaviour:
   Booseffect: {fileID: 8904724458632847928}
   nos_AirEffect: {fileID: 24839770887158475}
   TyreTrail: {fileID: 6668145589951491061}
+--- !u!114 &330549123461701826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668145590406685736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e676e1e53929c9459bc305311534db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lastsaveposition: {x: 0, y: 0, z: 0}
+  Totalcoins: 0
 --- !u!1 &6668145590413357194
 GameObject:
   m_ObjectHideFlags: 0

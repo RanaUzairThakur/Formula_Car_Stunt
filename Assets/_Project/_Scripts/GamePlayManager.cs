@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GamePlayManager : MonoBehaviour {
 	public GameObject RcPanel,PausePanel,CarSelectionPanel,rccam,buybtn,Selectbtn,PurchasedText,LowCashText,LockImage,unlockcarbtn, addloading,Skip,Header,Footer;
+    public GameObject CompletePanel, VictoryPanel;
+
     public GameObject GiftPanel,SelectionCamera;
     public GameObject Fadescreen;
 	public GameObject Startpoint/*,boundery,//Boundry2, //Boundry3, //Boundry4*/;
@@ -200,14 +202,14 @@ public class GamePlayManager : MonoBehaviour {
         }
         PlayerPrefs.SetInt("Gift", 1);
        // PlayerPrefs.SetInt("Carselection", 1);
-        GCParkingbarScrip.instance.CompletePanel.SetActive(false);
+         CompletePanel.SetActive(false);
         GiftPanel.SetActive(true);
     }
     public void Complete()
     {
-        GCParkingbarScrip.instance.Success();
+        set_StatusVictorPanel();
     }
-	public void toglee()
+    public void toglee()
 	{
 		if  (tfunction==false) 
 		{
@@ -1494,4 +1496,76 @@ public class GamePlayManager : MonoBehaviour {
         CarModle[ModleNum].SetActive(val);
         rccam.SetActive(val);
     }
+
+
+    #region Victory
+    public void set_StatusVictorPanel()
+    {
+        //Star.SetActive(false);
+        VictoryPanel.SetActive(false);
+        CompletePanel.SetActive(true);
+        //Level_Time.ispause = false;
+        Time.timeScale = 0;
+    }
+    public void Set_statusCongartulations()
+    {
+        VictoryPanel.SetActive(true);
+        CompletePanel.SetActive(false);
+       
+            PlayerPrefs.SetInt("level_number", PlayerPrefs.GetInt("level_number") + 1);
+            if (PlayerPrefs.GetInt("mode") == 0)
+            {
+                int min = PlayerPrefs.GetInt("level_number");
+                int max = PlayerPrefs.GetInt("compare");
+                if (max < min)
+                {
+                    PlayerPrefs.SetInt("compare", min);
+                }
+            }
+
+            if (PlayerPrefs.GetInt("mode") == 1)
+            {
+                int min1 = PlayerPrefs.GetInt("level_number");
+                int max1 = PlayerPrefs.GetInt("compare2");
+                if (max1 < min1)
+                {
+                    PlayerPrefs.SetInt("compare2", min1);
+
+                }
+            }
+            if (PlayerPrefs.GetInt("mode") == 2)
+            {
+                int min2 = PlayerPrefs.GetInt("level_number");
+                int max2 = PlayerPrefs.GetInt("compare3");
+                if (max2 < min2)
+                {
+                    PlayerPrefs.SetInt("compare3", min2);
+
+                }
+            }
+            if (PlayerPrefs.GetInt("mode") == 3)
+            {
+                int min2 = PlayerPrefs.GetInt("level_number");
+                int max2 = PlayerPrefs.GetInt("compare4");
+                if (max2 < min2)
+                {
+                    PlayerPrefs.SetInt("compare4", min2);
+
+                }
+            }
+            if (PlayerPrefs.GetInt("mode") == 4)
+            {
+                int min2 = PlayerPrefs.GetInt("level_number");
+                int max2 = PlayerPrefs.GetInt("compare5");
+                if (max2 < min2)
+                {
+                    PlayerPrefs.SetInt("compare5", min2);
+
+                }
+            }
+       
+        PlayerPrefs.SetInt("Weather", Random.Range(0, 5));
+        PlayerPrefs.SetInt("Gift", 0);
+    }
+    #endregion
 }

@@ -26,7 +26,7 @@ public class PlayerTriggerListener : MonoBehaviour
         if (col.gameObject.tag == "Coin")
         {
             Totalcoins++;
-            //SoundsManager._instance.PlaySound(SoundsManager._instance.singleCoinsSound);
+            SoundsManager._instance.PlaySound(SoundsManager._instance.singleCoinsSound);
             col.gameObject.SetActive(false);
           //  Debug.Log("Stunt On");
         }

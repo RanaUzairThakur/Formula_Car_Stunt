@@ -1084,6 +1084,7 @@ GameObject:
   - component: {fileID: 6659141573404098688}
   - component: {fileID: 6659141573404098689}
   - component: {fileID: 6659141573404098709}
+  - component: {fileID: 860194099249499225}
   m_Layer: 0
   m_Name: FormulaCar (7)
   m_TagString: Player
@@ -1098,7 +1099,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6659141573404098691}
-  m_LocalRotation: {x: -0.000000015546181, y: 0.70287824, z: -0.000000015361888, w: 0.7113102}
+  m_LocalRotation: {x: -0, y: -0.7028799, z: 0, w: -0.71130854}
   m_LocalPosition: {x: 61.6, y: 31.45, z: 65.8}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
@@ -1568,6 +1569,20 @@ MonoBehaviour:
   Booseffect: {fileID: 8895710253864679910}
   nos_AirEffect: {fileID: 51854396841413759}
   TyreTrail: {fileID: 6659141574400168678}
+--- !u!114 &860194099249499225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6659141573404098691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e676e1e53929c9459bc305311534db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lastsaveposition: {x: 0, y: 0, z: 0}
+  Totalcoins: 0
 --- !u!1 &6659141573421028060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,14 +2688,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f744e540302a48841bc6b889766d2e8a, type: 3}
---- !u!1 &8895710253864679910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2817543225292078546, guid: f744e540302a48841bc6b889766d2e8a, type: 3}
-  m_PrefabInstance: {fileID: 6659141572479730740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8895710253864679909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2817543225292078545, guid: f744e540302a48841bc6b889766d2e8a, type: 3}
+  m_PrefabInstance: {fileID: 6659141572479730740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8895710253864679910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2817543225292078546, guid: f744e540302a48841bc6b889766d2e8a, type: 3}
   m_PrefabInstance: {fileID: 6659141572479730740}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6659141572516921752

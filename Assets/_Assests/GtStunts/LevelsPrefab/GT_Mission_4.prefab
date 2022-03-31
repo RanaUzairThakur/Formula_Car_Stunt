@@ -20336,7 +20336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4293141554343133
 Transform:
   m_ObjectHideFlags: 0
@@ -61447,8 +61447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f41698c28ac6154fa932a49b835ae42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tyregrip: 1500
-  downforce: 3000
+  tyregrip: 3000
+  downforce: 40000
 --- !u!1 &2236165167205797350
 GameObject:
   m_ObjectHideFlags: 0
@@ -109855,28 +109855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7131b9ee8960d434f80b51697e45a4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CompletePanel: {fileID: 0}
-  rcpanel: {fileID: 0}
-  PointsPanel: {fileID: 0}
-  addloading: {fileID: 0}
-  SuccessCam: {fileID: 0}
-  TimeSlider: {fileID: 0}
-  BonusSlider: {fileID: 0}
-  StuntsSlider: {fileID: 0}
-  anim: {fileID: 0}
   finalCam: {fileID: 2236165167095980192}
   shashka: {fileID: 2236165168042889086}
   driver: {fileID: 1425703256230182149}
-  BBonusText: {fileID: 0}
-  SStuntsText: {fileID: 0}
-  TTimeText: {fileID: 0}
-  cashEarned: {fileID: 0}
-  Timer: 0
-  bonuser: 0
-  stunter: 0
-  dumpingvalue: 0
-  cashnmber: 200
-  Star: {fileID: 0}
   CashReward: 0
   rotating: 0
   Dummycars:

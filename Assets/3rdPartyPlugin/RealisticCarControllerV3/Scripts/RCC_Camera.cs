@@ -137,6 +137,10 @@ public class RCC_Camera : MonoBehaviour
     [HideInInspector]
     private CameraShake camerashaking;
 
+    #region camera stunt
+    public Vector3 stuntsiderotation = Vector3.zero;
+    #endregion
+
     void Awake()
     {
 

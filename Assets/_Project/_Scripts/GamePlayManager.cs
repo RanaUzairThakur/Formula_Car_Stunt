@@ -54,7 +54,7 @@ public class GamePlayManager : MonoBehaviour
 
         ModleNum = PlayerPrefs.GetInt("MNum");
         CarModle[ModleNum].SetActive(true);
-        RCC = CarModle[ModleNum].GetComponent<RCC_CarControllerV3>();
+        RCC = RCC_SceneManager.Instance.activePlayerVehicle;
         SpecificNum = PlayerPrefs.GetInt("MNum");
         CarScpecification[SpecificNum].SetActive(true);
         Time.timeScale = 1;
@@ -1144,6 +1144,7 @@ public class GamePlayManager : MonoBehaviour
     public void ActiveCar()
     {
         CarModle[ModleNum].SetActive(true);
+        RCC = RCC_SceneManager.Instance.activePlayerVehicle;
         SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
     }
     public void OneTwoThreeGo()
@@ -1256,8 +1257,11 @@ public class GamePlayManager : MonoBehaviour
     public void nos_Up()
     {
         //N = true;
-        if(!RCC)
-            RCC = CarModle[ModleNum].GetComponent<RCC_CarControllerV3>();
+        if (!RCC)
+        {
+            RCC = RCC_SceneManager.Instance.activePlayerVehicle;
+            Debug.LogWarning("Rcc is Null");
+        }
         RCC.nos_IsActive = true;
     }
     public void nos_Down()

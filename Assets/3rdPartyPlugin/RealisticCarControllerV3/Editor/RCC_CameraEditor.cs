@@ -66,6 +66,8 @@ public class RCC_CameraEditor : Editor {
 		EditorGUILayout.PropertyField (serializedObject.FindProperty ("useOrbitInTPSCameraMode"), new GUIContent ("Use Orbit", "Use Orbit In TPS Camera Mode."), false);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("useOcclusion"), new GUIContent("Use Occlusion", "Use Occlusion."), false);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("occlusionLayerMask"), new GUIContent("Occlusion LayerMask", "Occlusion LayerMask."), false);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("stuntsiderotation"), new GUIContent("Stunt Side Angle", "Stunt Side Angle."), false);
+
 
 		EditorGUILayout.Space ();
 		EditorGUILayout.EndVertical ();

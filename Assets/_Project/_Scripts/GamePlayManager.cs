@@ -1531,7 +1531,7 @@ public class GamePlayManager : MonoBehaviour
     {
         VictoryPanel.SetActive(true);
         CompletePanel.SetActive(false);
-
+        print("Set_statusCongartulations");
         PlayerPrefs.SetInt("level_number", PlayerPrefs.GetInt("level_number") + 1);
         if (PlayerPrefs.GetInt("mode") == 0)
         {

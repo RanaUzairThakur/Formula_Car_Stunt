@@ -95,107 +95,17 @@ public class GCParkingbarScrip: MonoBehaviour {
 			//anim.SetBool ("cal", false);
             GamePlayManager.inst.Fadescreen.SetActive(true);		
 			GamePlayManager.inst.RcPanel.SetActive (false);
-			PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 300);
-			if (PlayerPrefs.GetInt ("level_number") > 4 && PlayerPrefs.GetInt ("level_number") < 9)
-            {
-                CashReward = 200;
-                PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 200);	
-			}
-			else 
-			{
-                CashReward = 700;
-                PlayerPrefs.SetInt ("cashin", PlayerPrefs.GetInt ("cashin") + 700);
-			}
-               StartCoroutine("Ddelay");
             Invoke(nameof(Vehicle_withdriver),1.7f);
 		}
 	}
    
 
-	IEnumerator Ddelay()
+	private void complete()
 	{
-        yield return new WaitForSeconds(8f);
-        GamePlayManager.inst.Set_statusCongartulations();    
+        GamePlayManager.inst.Set_statusCongartulations(); 
+		CancelInvoke(nameof(complete));
     }
-    IEnumerator completed()
-	{
-
-        yield return new WaitForSeconds (1f);
-        if (unlockL && !Showads)
-        {
-            //if (PlayerPrefs.GetInt("mode") == 0)
-            //{
-            //    FirebaseHandler.instance.logLevelStarted("Success_M_T_L_", (PlayerPrefs.GetInt("level_number")).ToString());
-            //}
-            //if (PlayerPrefs.GetInt("mode") == 1)
-            //{
-            //    FirebaseHandler.instance.logLevelStarted("Success_M_C_L_", (PlayerPrefs.GetInt("level_number")).ToString());
-            //}
-            //if (PlayerPrefs.GetInt("mode") == 2)
-            //{
-            //    FirebaseHandler.instance.logLevelStarted("Success_M_M_L_", (PlayerPrefs.GetInt("level_number")).ToString());
-            //}
-            PlayerPrefs.SetInt ("level_number",PlayerPrefs.GetInt ("level_number")+1);
-            if (PlayerPrefs.GetInt("mode") == 0)
-            {
-                int min = PlayerPrefs.GetInt("level_number");
-                int max = PlayerPrefs.GetInt("compare");
-                if (max < min)
-                {
-                    PlayerPrefs.SetInt("compare", min);
-                }
-            }
-
-            if (PlayerPrefs.GetInt("mode") == 1)
-            {
-                int min1 = PlayerPrefs.GetInt("level_number");
-                int max1 = PlayerPrefs.GetInt("compare2");
-                if (max1 < min1)
-                {
-                    PlayerPrefs.SetInt("compare2", min1);
-
-                }
-            }
-            if (PlayerPrefs.GetInt("mode") == 2)
-            {
-                int min2 = PlayerPrefs.GetInt("level_number");
-                int max2 = PlayerPrefs.GetInt("compare3");
-                if (max2 < min2)
-                {
-                    PlayerPrefs.SetInt("compare3", min2);
-
-                }
-            }
-            if (PlayerPrefs.GetInt("mode") == 3)
-            {
-                int min2 = PlayerPrefs.GetInt("level_number");
-                int max2 = PlayerPrefs.GetInt("compare4");
-                if (max2 < min2)
-                {
-                    PlayerPrefs.SetInt("compare4", min2);
-
-                }
-            }
-            if (PlayerPrefs.GetInt("mode") == 4)
-            {
-                int min2 = PlayerPrefs.GetInt("level_number");
-                int max2 = PlayerPrefs.GetInt("compare5");
-                if (max2 < min2)
-                {
-                    PlayerPrefs.SetInt("compare5", min2);
-
-                }
-            }
-        }
-        PlayerPrefs.SetInt("Weather", Random.Range(0, 5));
-        finalCam.SetActive(false);
-		unlockL = false;
-        Showads = false;
-        AudioListener.volume = 1;
-        PlayerPrefs.SetInt("Gift", 0);
-        StopAllCoroutines();
-
-	}
+ 
     IEnumerator skid()
     {
         yield return new WaitForSeconds(1f);
@@ -212,5 +122,7 @@ public class GCParkingbarScrip: MonoBehaviour {
             g.SetActive(false);
         Dummycars[GamePlayManager.inst.ModleNum].SetActive(true);
         finalCam.SetActive(true);
-    }
+		Invoke(nameof(complete),7f);
+		CancelInvoke(nameof(Vehicle_withdriver));
+	}
 }

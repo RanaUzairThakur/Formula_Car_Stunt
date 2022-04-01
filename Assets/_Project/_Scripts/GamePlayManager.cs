@@ -123,12 +123,14 @@ public class GamePlayManager : MonoBehaviour
     {
 
         Application.OpenURL("https://play.google.com/store/apps/developer?id=Hi+Gamez");
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
     }
     public void OnPause()
     {
         RcPanel.SetActive(false);
         PausePanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
@@ -136,6 +138,7 @@ public class GamePlayManager : MonoBehaviour
     {
         RcPanel.SetActive(true);
         PausePanel.SetActive(false);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         Time.timeScale = 1;
         AudioListener.volume = 1;
     }
@@ -146,20 +149,24 @@ public class GamePlayManager : MonoBehaviour
     public void OnRestart()
     {
 
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         SceneManager.LoadScene("GameplayStunt");
     }
     public void OnCompleteRestart()
     {
+
         PlayerPrefs.SetInt("level_number", PlayerPrefs.GetInt("level_number") - 1);
         SceneManager.LoadScene("GameplayStunt");
     }
     public void OnHome()
     {
         isnextClick = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         SceneManager.LoadScene("MainStunt");
     }
     public void OnNext()
     {
+
         SceneManager.LoadScene("GameplayStunt");
         if (PlayerPrefs.GetInt("level_number") <= 9)
         {
@@ -206,11 +213,14 @@ public class GamePlayManager : MonoBehaviour
         // PlayerPrefs.SetInt("Carselection", 1);
         CompletePanel.SetActive(false);
         GiftPanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
     }
     public void Complete()
     {
         set_StatusVictorPanel();
     }
+
     public void toglee()
     {
         if (tfunction == false)
@@ -226,11 +236,12 @@ public class GamePlayManager : MonoBehaviour
             uianim.SetBool("Open", false);
 
         }
-
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
     }
     public void FirstSkipOn()
     {
         CancelInvoke(nameof(FirstSkipOn));
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         DemoManager.Instance.SkipButton.SetActive(true);
     }
     //---------------------------------------------------------------------------
@@ -1050,7 +1061,7 @@ public class GamePlayManager : MonoBehaviour
             SpecificNum = 0;
             CarCheck();
         }
-
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
     }
     public void PreviousModleBtn()
     {
@@ -1072,13 +1083,15 @@ public class GamePlayManager : MonoBehaviour
             SpecificNum = 9;
             CarCheck();
         }
-
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
     }
     public void ModleSelctionBtn()
     {
         StartCoroutine(Active_levelsandCar());
-        Invoke("FirstSkipOn", 5f);
+        SoundsManager._instance.Stop_PlayingMusic();
+        Invoke(nameof(FirstSkipOn), 5f);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
     }
 
     private IEnumerator Active_levelsandCar()
@@ -1125,11 +1138,13 @@ public class GamePlayManager : MonoBehaviour
         SelectionCamera.SetActive(false);
         addloading.SetActive(false);
         StopCoroutine(Active_levelsandCar());
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
     }
     public void ActiveCar()
     {
         CarModle[ModleNum].SetActive(true);
-
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
     }
     public void OneTwoThreeGo()
     {
@@ -1188,6 +1203,7 @@ public class GamePlayManager : MonoBehaviour
         Skip.SetActive(false);
         RcPanel.SetActive(true);
         rccam.SetActive(true);
+        SoundsManager._instance.PlayMusic_Game(Random.Range(0,SoundsManager._instance.gameBG.Length));
     }
     public void PreviousCar()
     {
@@ -1240,6 +1256,8 @@ public class GamePlayManager : MonoBehaviour
     public void nos_Up()
     {
         //N = true;
+        if(!RCC)
+            RCC = CarModle[ModleNum].GetComponent<RCC_CarControllerV3>();
         RCC.nos_IsActive = true;
     }
     public void nos_Down()
@@ -1390,6 +1408,7 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("car7", 1);
         PlayerPrefs.SetInt("car8", 1);
         PlayerPrefs.SetInt("car9", 1);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
         CarCheck();
     }
@@ -1491,6 +1510,7 @@ public class GamePlayManager : MonoBehaviour
         }
 
         CarCheck();
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
     }
     private void textoff()

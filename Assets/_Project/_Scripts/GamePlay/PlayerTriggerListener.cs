@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerTriggerListener : MonoBehaviour
 {
-    [HideInInspector]
+   // [HideInInspector]
     public Transform Lastsavepoint;
     public int Totalcoins;
     private HandleTyreGrip tyregrip ; 

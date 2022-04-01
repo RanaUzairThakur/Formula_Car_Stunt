@@ -22,7 +22,7 @@ public class SoundsManager : MonoBehaviour {
 
 	[Header("BG Clips")]
 	public AudioClip menuBG;
-	public AudioClip gameBG;
+	public AudioClip[] gameBG;
 
 	[Header("Sound Clips")]
 	//public AudioClip IntroAnimation;
@@ -40,7 +40,7 @@ public class SoundsManager : MonoBehaviour {
 	 // public AudioClip settingpopup;
 	//public AudioClip settingpopupOkclick;
 	 public AudioClip PlayButtonMainMenuclick;
-	 public AudioClip BackButtonAnySelectionclick;
+	//public AudioClip BackButtonAnySelectionclick;
 	// public AudioClip EquipGun;
 	// public AudioClip Modeselect;
 	//public AudioClip Luckyspinclik;
@@ -49,11 +49,12 @@ public class SoundsManager : MonoBehaviour {
 	//public AudioClip OnPressNextGun;
 	//public AudioClip OnPressPreviousGun;
 	//public AudioClip GamePLayPopup;
+	public AudioClip WinAppreciationsound;
 	public AudioClip GameUIclicks;
 	public AudioClip levelComplete;
 	public AudioClip levelFail;
-	public AudioClip letsgo;
-	public AudioClip GetReady;
+	//public AudioClip letsgo;
+	//public AudioClip GetReady;
 	public AudioClip Savepointclip;
 	public AudioClip singleCoinsSound;
 	//public AudioClip[] BossLevelSound;
@@ -108,9 +109,9 @@ public class SoundsManager : MonoBehaviour {
 		musicSource.Play();
 	}
 
-	public void PlayMusic_Game()
+	public void PlayMusic_Game(int i)
 	{
-		musicSource.clip = gameBG;
+		musicSource.clip = gameBG[i];
 		musicSource.Play();
 
 	}
@@ -120,17 +121,17 @@ public class SoundsManager : MonoBehaviour {
 	//	musicSource.clip = BossLevelSound[ran];
 	//	musicSource.Play();
 	//}
-	public void letGo_Sound()
-	{
-		musicSource.clip = letsgo;
-		musicSource.Play();
-	}
+	//public void letGo_Sound()
+	//{
+	//	musicSource.clip = letsgo;
+	//	musicSource.Play();
+	//}
 
-	public void getready_Sound()
-	{
-		musicSource.clip = GetReady;
-		musicSource.Play();
-	}
+	//public void getready_Sound()
+	//{
+	//	musicSource.clip = GetReady;
+	//	musicSource.Play();
+	//}
 	
 	public void Set_MusicStatus(bool _val) {
 

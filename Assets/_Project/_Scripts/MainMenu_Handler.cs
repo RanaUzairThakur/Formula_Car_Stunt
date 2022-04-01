@@ -29,6 +29,7 @@ public class MainMenu_Handler : MonoBehaviour
         Invoke("CrossDelay", 2f);
         Time.timeScale = 1;
         AudioListener.volume = 1;
+        SoundsManager._instance.PlayMusic_Menu();
         Cashin.text = ("" + PlayerPrefs.GetInt("cashin"));
 
         int unlok = PlayerPrefs.GetInt("compare");
@@ -107,7 +108,6 @@ public class MainMenu_Handler : MonoBehaviour
             CarrierLock[PlayerPrefs.GetInt("LevelVideo")].SetActive(false);
 
         }
-        GCParkingbarScrip.Showads = true;
     }
     public void Prefrence(int pref)
     {
@@ -122,6 +122,7 @@ public class MainMenu_Handler : MonoBehaviour
     {
         MainPanel.SetActive(false);
         ModeSelection.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         //CarrierLevel.SetActive(true);
         //Weather.SetActive(true);
     }
@@ -133,6 +134,8 @@ public class MainMenu_Handler : MonoBehaviour
         CarrierLevel.SetActive(false);
         Weather.SetActive(false);
         City.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         //StartCoroutine(Onload());
 
     }
@@ -140,6 +143,8 @@ public class MainMenu_Handler : MonoBehaviour
     {
         City.SetActive(false);
         LoadingPanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
 
     }
     public void WeatherBack()
@@ -168,6 +173,7 @@ public class MainMenu_Handler : MonoBehaviour
         {
             CarrierLevel.SetActive(true);
         }
+        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
 
     }
     public void Carrier()
@@ -187,6 +193,8 @@ public class MainMenu_Handler : MonoBehaviour
         }
         CarrierButtons[PlayerPrefs.GetInt("compare")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         CarrierButtons[PlayerPrefs.GetInt("compare")].gameObject.GetComponent<Animator>().enabled = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         print("compare :" + unlok);
     }
     public void TimeMode()
@@ -205,6 +213,8 @@ public class MainMenu_Handler : MonoBehaviour
         }
         TimeButtons[PlayerPrefs.GetInt("compare2")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         TimeButtons[PlayerPrefs.GetInt("compare2")].gameObject.GetComponent<Animator>().enabled = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         print("compare2 :" + unlok2);
     }
     public void Mega()
@@ -223,6 +233,8 @@ public class MainMenu_Handler : MonoBehaviour
         }
         MegaButtons[PlayerPrefs.GetInt("compare3")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         MegaButtons[PlayerPrefs.GetInt("compare3")].gameObject.GetComponent<Animator>().enabled = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         print("compare3 :" + unlok3);
     }
     public void Express()
@@ -241,6 +253,8 @@ public class MainMenu_Handler : MonoBehaviour
         }
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.GetComponent<Animator>().enabled = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         print("compare4 :" + unlok4);
     }
     public void Highway()
@@ -259,6 +273,8 @@ public class MainMenu_Handler : MonoBehaviour
         }
         HighwayButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         HighwayLock[PlayerPrefs.GetInt("compare4")].gameObject.GetComponent<Animator>().enabled = true;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
         print("compare5 :" + unlok5);
     }
     public void Free()
@@ -268,33 +284,45 @@ public class MainMenu_Handler : MonoBehaviour
         if (CarrierLevel)
             CarrierLevel.SetActive(true);
         PlayerPrefs.SetInt("mode", 5);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
     }
     public void OnQuit()
     {
         MainPanel.SetActive(false);
         QuitPanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+
     }
 
     public void OnQuitYes()
     {
 
         Application.Quit();
+        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+
     }
     public void OnQuitNo()
     {
 
         QuitPanel.SetActive(false);
         MainPanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+
     }
     public void rateUs()
     {
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.formula.car.mega.ramp.racing.game");
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
 
     }
     public void moreApps()
     {
 
         Application.OpenURL("https://play.google.com/store/apps/developer?id=Hi+Gamez");
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
 
     }
     public void LevelSelection(int num)
@@ -305,6 +333,8 @@ public class MainMenu_Handler : MonoBehaviour
         CarrierLevel.SetActive(false);
         MegaLevel.SetActive(false);
         Weather.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
 
         //isloading = true;
     }
@@ -317,6 +347,8 @@ public class MainMenu_Handler : MonoBehaviour
         HighwayLevel.SetActive(false);
         ExpressLevel.SetActive(false);
         ModeSelection.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+
     }
     public void UnloackLevels()
     {
@@ -341,6 +373,8 @@ public class MainMenu_Handler : MonoBehaviour
     public void SoundOn()
     {
         AudioListener.volume = 1;
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+
     }
     public void SoundOff()
     {

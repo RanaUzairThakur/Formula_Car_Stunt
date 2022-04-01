@@ -17,34 +17,34 @@ public class RewindPopUp : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!IsGrounded())
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, Value))
-            {
-                RewindButton.GetComponent<Animator>().enabled = false;
-                left.GetComponent<Animator>().enabled = false;
-                right.GetComponent<Animator>().enabled = false;
-            }                                                        
-            else
-            {                           
-                RewindButton.GetComponent<Animator>().enabled = true;
-                left.GetComponent<Animator>().enabled = true;
-                right.GetComponent<Animator>().enabled = true;
+        //if (!IsGrounded())
+        //{
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(transform.position, Vector3.down, out hit, Value))
+        //    {
+        //        RewindButton.GetComponent<Animator>().enabled = false;
+        //        left.GetComponent<Animator>().enabled = false;
+        //        right.GetComponent<Animator>().enabled = false;
+        //    }                                                        
+        //    else
+        //    {                           
+        //        RewindButton.GetComponent<Animator>().enabled = true;
+        //        left.GetComponent<Animator>().enabled = true;
+        //        right.GetComponent<Animator>().enabled = true;
 
-            }
-        }
+        //    }
+        //}
     }
 
     bool IsGrounded()
     {
 
-        foreach (WheelCollider w in Col)
-        {
-            if (w.GetGroundHit(out wheelTouch))
+        //foreach (WheelCollider w in Col)
+        //{
+        //    if (w.GetGroundHit(out wheelTouch))
 
-                return true;
-        }
-        return false;
+        //        return true;
+        //}
+        //return false;
     }
 }

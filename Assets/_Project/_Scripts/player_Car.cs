@@ -67,16 +67,16 @@ public class player_Car : MonoBehaviour {
             ProbsSounds.Play();
             Destroy(col.gameObject);
         }
-        if (col.gameObject.tag == "Check")
-        {
-            TimeRevive.Instance.timebutton.SetActive(true);
-            RewindCount++;
-            Rewind.text = RewindCount.ToString();
-            ProbsSounds.clip = CheckPointSound;
-            ProbsSounds.Play();
-            Destroy(col.gameObject);
+        //if (col.gameObject.tag == "Check")
+        //{
+        //    TimeRevive.Instance.timebutton.SetActive(true);
+        //    RewindCount++;
+        //    Rewind.text = RewindCount.ToString();
+        //    ProbsSounds.clip = CheckPointSound;
+        //    ProbsSounds.Play();
+        //    Destroy(col.gameObject);
 
-        }
+        //}
         if (col.gameObject.tag == "Star")
         {
 

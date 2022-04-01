@@ -36,15 +36,15 @@ public class RewindPopUp : MonoBehaviour
         //}
     }
 
-    bool IsGrounded()
-    {
+    //bool IsGrounded()
+    //{
 
-        //foreach (WheelCollider w in Col)
-        //{
-        //    if (w.GetGroundHit(out wheelTouch))
+    //    foreach (WheelCollider w in Col)
+    //    {
+    //        if (w.GetGroundHit(out wheelTouch))
 
-        //        return true;
-        //}
-        //return false;
-    }
+    //            return true;
+    //    }
+    //    return false;
+    //}
 }

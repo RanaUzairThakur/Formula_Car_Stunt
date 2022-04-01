@@ -80,4 +80,12 @@ public class HandleTyreGrip : MonoBehaviour
             }
         }
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag == "downforce2")
+    //    {
+    //        tireGrip = 2500;
+    //        downforce = 10000;
+    //    }
+    //}
 }

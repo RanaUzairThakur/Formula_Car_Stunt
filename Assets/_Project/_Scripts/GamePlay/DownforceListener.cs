@@ -9,7 +9,7 @@ public class DownforceListener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider col)
@@ -26,7 +26,8 @@ public class DownforceListener : MonoBehaviour
                     col.gameObject.GetComponent<HandleTyreGrip>().enabled = true;
                     col.gameObject.GetComponent<HandleTyreGrip>().tireGrip = tyregrip;
                     col.gameObject.GetComponent<HandleTyreGrip>().downforce = downforce;
-                }   
+
+                }
             }
            else if (this.tag == "DownForceOff")
             {
@@ -35,6 +36,8 @@ public class DownforceListener : MonoBehaviour
                     col.gameObject.GetComponent<HandleTyreGrip>().enabled = false;
                     col.gameObject.GetComponent<HandleTyreGrip>().tireGrip = tyregrip;
                     col.gameObject.GetComponent<HandleTyreGrip>().downforce = downforce;
+                    col.transform.rotation = Quaternion.Euler(0f, col.transform.eulerAngles.y, 0f);
+
                 }
             }
         }

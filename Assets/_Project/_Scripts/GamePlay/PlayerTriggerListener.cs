@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerTriggerListener : MonoBehaviour
 {
-    public Vector3 Lastsaveposition;
+    [HideInInspector]
+    public Transform Lastsavepoint;
     public int Totalcoins;
     private HandleTyreGrip tyregrip ; 
         private void Start()
@@ -18,7 +19,7 @@ public class PlayerTriggerListener : MonoBehaviour
         if (col.gameObject.tag == "SavePoint")
         {
 
-            Lastsaveposition = col.gameObject.transform.localPosition;
+            Lastsavepoint = col.gameObject.transform;
             SoundsManager._instance.PlaySound(SoundsManager._instance.Savepointclip);
             col.gameObject.SetActive(false);
            // Debug.Log("Stunt On");
@@ -40,6 +41,23 @@ public class PlayerTriggerListener : MonoBehaviour
         //    tyregrip.tireGrip = 10000;
         //    tyregrip.downforce = 25000;
         //}
+
+    }
+
+
+    public void set_StatusVehicleReset()
+    {
+        if (Lastsavepoint)
+        {
+            this.transform.position = Lastsavepoint.position;
+            this.transform.rotation = Lastsavepoint.rotation;
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            
+        }
 
     }
 

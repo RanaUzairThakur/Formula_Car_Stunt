@@ -18190,6 +18190,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &5346874416681168891
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112289411021312681}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 84d58ff1f9b53144aad31d20d878b980, type: 3}
+  m_Controller: {fileID: 9100000, guid: b70da925b8d7d0f4f91479f0db153921, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5346874414666429866
 GameObject:
   m_ObjectHideFlags: 0
@@ -149018,25 +149037,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5346874416681168891
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5112289411021312681}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 84d58ff1f9b53144aad31d20d878b980, type: 3}
-  m_Controller: {fileID: 9100000, guid: b70da925b8d7d0f4f91479f0db153921, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5346874416683068995
 GameObject:
   m_ObjectHideFlags: 0
@@ -150839,6 +150839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Check_Point-3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
+      propertyPath: m_TagString
+      value: SavePoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
 --- !u!4 &1237489415267225777 stripped
@@ -150962,6 +150966,10 @@ PrefabInstance:
     - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
       propertyPath: m_Name
       value: Check_Point-3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
+      propertyPath: m_TagString
+      value: SavePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
@@ -151273,6 +151281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Check_Point-3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
+      propertyPath: m_TagString
+      value: SavePoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
 --- !u!4 &1237489415831424843 stripped
@@ -151479,6 +151491,10 @@ PrefabInstance:
     - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
       propertyPath: m_Name
       value: Check_Point-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566138180433175338, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}
+      propertyPath: m_TagString
+      value: SavePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d41eb65ac8cbc242a4eadbc61bfbff4, type: 3}

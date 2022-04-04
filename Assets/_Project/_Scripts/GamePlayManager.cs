@@ -1613,10 +1613,18 @@ public class GamePlayManager : MonoBehaviour
     }
     #endregion
 
-    #region
+    #region Vehiclestatus
     public void Resetvehicle()
     {
         RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<PlayerTriggerListener>().set_StatusVehicleReset();
+    }
+    #endregion
+
+    #region ButtonListener
+    int i;
+    public void set_StatusRadioMusic()
+    {
+        
     }
     #endregion
 }

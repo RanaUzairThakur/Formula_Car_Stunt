@@ -1089,10 +1089,10 @@ public class GamePlayManager : MonoBehaviour
     public void ModleSelctionBtn()
     {
         StartCoroutine(Active_levelsandCar());
-        SoundsManager._instance.Stop_PlayingMusic();
         Invoke(nameof(FirstSkipOn), 5f);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         RenderSettings.skybox = Skyboxes[PlayerPrefs.GetInt("Weather")];
+        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager._instance.Stop_PlayingMusic();
 
     }
 
@@ -1133,10 +1133,10 @@ public class GamePlayManager : MonoBehaviour
         }
         CarModle[ModleNum].SetActive(false);
         PlayerPrefs.SetInt("MNum", ModleNum);
+        CarSelectionPanel.SetActive(false);
         //DemoManager.Instance.Demos[PlayerPrefs.GetInt("level_number")].SetActive(true);
         //DemoManager.Instance.Car_List[PlayerPrefs.GetInt("MNum")].SetActive(true);
         DemoManager.Instance.Swpan();
-        CarSelectionPanel.SetActive(false);
         SelectionCamera.SetActive(false);
         addloading.SetActive(false);
         StopCoroutine(Active_levelsandCar());

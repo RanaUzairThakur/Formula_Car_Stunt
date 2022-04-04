@@ -45,7 +45,7 @@ public class GamePlayManager : MonoBehaviour
         LevelText.text = (PlayerPrefs.GetInt("level_number", LevelNumber) + 1).ToString();
         //PlayerPrefs.SetInt("cashin",50000);
 
-        RenderSettings.skybox = Skyboxes[PlayerPrefs.GetInt("Weather")];
+        //RenderSettings.skybox = Skyboxes[PlayerPrefs.GetInt("Weather")];
 
         if (PlayerPrefs.GetInt("carunlock1") == 1)
         {
@@ -1092,6 +1092,8 @@ public class GamePlayManager : MonoBehaviour
         SoundsManager._instance.Stop_PlayingMusic();
         Invoke(nameof(FirstSkipOn), 5f);
         SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        RenderSettings.skybox = Skyboxes[PlayerPrefs.GetInt("Weather")];
+
     }
 
     private IEnumerator Active_levelsandCar()
@@ -1548,6 +1550,7 @@ public class GamePlayManager : MonoBehaviour
         //Star.SetActive(false);
         VictoryPanel.SetActive(false);
         CompletePanel.SetActive(true);
+        SoundsManager._instance.PlaySound(SoundsManager._instance.levelComplete);
         //Level_Time.ispause = false;
         Time.timeScale = 0;
     }

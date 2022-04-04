@@ -5,7 +5,7 @@ using UnityEngine;
 public class Vehicleselectionlistener : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public Material skybox;
     public List<GameObject> Disableobject;
     public List<GameObject> Enableaobject;
     public GameObject startstage;
@@ -15,6 +15,8 @@ public class Vehicleselectionlistener : MonoBehaviour
         foreach (GameObject g in Enableaobject)
             g.SetActive(true);
         startstage.SetActive(false);
+        RenderSettings.skybox = skybox;
+
     }
     private void OnDisable()
     {

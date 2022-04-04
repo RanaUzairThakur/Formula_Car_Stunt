@@ -41,7 +41,7 @@ public class GCParkingbarScrip: MonoBehaviour {
 
 	private void complete()
 	{
-        SoundsManager._instance.PlaySound(SoundsManager._instance.levelComplete);
+       
         GamePlayManager.inst.Set_statusCongartulations(); 
 		CancelInvoke(nameof(complete));
     }

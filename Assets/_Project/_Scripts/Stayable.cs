@@ -6,12 +6,15 @@ public class Stayable : MonoBehaviour
 {
     public WheelCollider[] WhellCol;
     WheelHit wheelHit;
-    public float number=4f;
+    public float dsitance=4f;
     public GameObject carModel;
     private float speed = 50f;
     private Vector3 forwardDirection;
     private float rotationAmount;
     RCC_CarControllerV3 car;
+    private float _X;
+    private float _y;
+    private float _z;
     bool check;
     // private RaycastHit hit;
     // public Transform raycastPoint;
@@ -26,7 +29,7 @@ public class Stayable : MonoBehaviour
         if (!IsGrounded())
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit,number))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, dsitance))
             {
                 if (!check)
                     check = true;
@@ -38,9 +41,9 @@ public class Stayable : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation * transform.rotation, 0.5f * Time.fixedDeltaTime);
                 rotationAmount = car.steerInput * -10f;
                 rotationAmount *= Time.deltaTime;
-                float _X = carModel.transform.position.x;
-                float _y = carModel.transform.position.y;
-                float _z = carModel.transform.position.z;
+                _X = carModel.transform.position.x;
+                _y = carModel.transform.position.y;
+                _z = carModel.transform.position.z;
                 _z += rotationAmount;
                 carModel.transform.position = new Vector3(_X, _y, _z);
                 if (check)

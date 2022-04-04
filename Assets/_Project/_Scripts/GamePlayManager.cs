@@ -1621,10 +1621,18 @@ public class GamePlayManager : MonoBehaviour
     #endregion
 
     #region ButtonListener
-    int i;
+     int i = 0;
     public void set_StatusRadioMusic()
     {
+        SoundsManager._instance.Stop_PlayingMusic();
         
+        SoundsManager._instance.PlaySound(SoundsManager._instance.gameBG[i]);
+        i++;
+        if (i >= SoundsManager._instance.gameBG.Length)
+        {
+            i = 0;
+        }
+        Debug.Log(i);
     }
     #endregion
 }

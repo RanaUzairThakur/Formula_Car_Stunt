@@ -14,6 +14,8 @@ public class GCFailScript : MonoBehaviour {
 	{
 		if (Target.tag== "Player") 
 		{
+            SoundsManager._instance.PlaySound(SoundsManager._instance.levelFail);
+            SoundsManager._instance.Stop_PlayingMusic();
             GamePlayManager.inst.TutorailPanel.SetActive(false);
              FailPanel.SetActive(true);
             //RevivePanel.SetActive(true);

@@ -63,8 +63,8 @@ public class player_Car : MonoBehaviour {
             // GamePlayManager.inst.N = true;
             //ProbsSounds.clip = NitroSound;
             //ProbsSounds.Play();
-            ProbsSounds.clip = CheckPointSound;
-            ProbsSounds.Play();
+           // ProbsSounds.clip = CheckPointSound;
+           // ProbsSounds.Play();
             Destroy(col.gameObject);
         }
         //if (col.gameObject.tag == "Check")
@@ -80,8 +80,8 @@ public class player_Car : MonoBehaviour {
         if (col.gameObject.tag == "Star")
         {
 
-            ProbsSounds.clip = Star;
-            ProbsSounds.Play();
+            //ProbsSounds.clip = Star;
+            //ProbsSounds.Play();
             Destroy(col.gameObject);
 
         }
@@ -117,15 +117,15 @@ public class player_Car : MonoBehaviour {
         if (collision.gameObject.tag == "Foot")
         {
 
-            ProbsSounds.clip = FootBall;
-            ProbsSounds.Play();
+            //ProbsSounds.clip = FootBall;
+            //ProbsSounds.Play();
            // StartCoroutine(FootBal());
 
         }
         if (collision.gameObject.tag == "Bowling")
         {
-            ProbsSounds.clip = Bowling;
-            ProbsSounds.Play();
+           // ProbsSounds.clip = Bowling;
+           // ProbsSounds.Play();
            // StartCoroutine(Bowl());
 
         }

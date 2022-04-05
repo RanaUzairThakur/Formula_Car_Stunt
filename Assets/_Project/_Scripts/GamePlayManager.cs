@@ -1175,7 +1175,7 @@ public class GamePlayManager : MonoBehaviour
         Counting_Text[1].SetActive(false);
         Counting_Text[2].SetActive(false);
         StopAllCoroutines();
-
+        SoundsManager._instance.PlayMusic_Game(Random.Range(0, SoundsManager._instance.gameBG.Length));
         //Header.SetActive(false);
         //Footer.SetActive(false);
 
@@ -1547,6 +1547,8 @@ public class GamePlayManager : MonoBehaviour
     #region Victory
     public void set_StatusVictorPanel()
     {
+        int ran = Random.Range(500,1000);
+        PlayerPrefs.SetInt("cashin", PlayerPrefs.GetInt("cashin") + ran);
         //Star.SetActive(false);
         VictoryPanel.SetActive(false);
         CompletePanel.SetActive(true);
@@ -1629,7 +1631,7 @@ public class GamePlayManager : MonoBehaviour
     {
         SoundsManager._instance.Stop_PlayingMusic();
         
-        SoundsManager._instance.PlaySound(SoundsManager._instance.gameBG[i]);
+        SoundsManager._instance.PlayMusic_Game(i);
         i++;
         if (i >= SoundsManager._instance.gameBG.Length)
         {

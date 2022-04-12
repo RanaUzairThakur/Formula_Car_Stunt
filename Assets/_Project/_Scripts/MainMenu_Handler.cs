@@ -8,7 +8,7 @@ public class MainMenu_Handler : MonoBehaviour
     private bool isloading = false;
     public static bool Env;
     public Button[] CarrierButtons, TimeButtons, MegaButtons, ExpressButtons, HighwayButtons, Mode_Button;
-    public Text Cashin;
+    public Text Cashin, modeCash;
     public static bool imposible = false;
     public GameObject ModeSelection, Weather, City, TimeLevel, CarrierLevel, MegaLevel, ExpressLevel, HighwayLevel;
     public GameObject[] CarrierLock, TimeLock, MegaLock, ExpressLock, HighwayLock, Mode_Lock_Images, StarsCarrier, StarsTime, MegaStar, StarExpress, StarHighway;
@@ -31,6 +31,7 @@ public class MainMenu_Handler : MonoBehaviour
         AudioListener.volume = 1;
         SoundsManager._instance.PlayMusic_Menu();
         Cashin.text = ("" + PlayerPrefs.GetInt("cashin"));
+        modeCash.text = ("" + PlayerPrefs.GetInt("cashin"));
 
         int unlok = PlayerPrefs.GetInt("compare");
         for (int k = 0; k <= unlok; k++)
@@ -214,11 +215,11 @@ public class MainMenu_Handler : MonoBehaviour
         {
             TimeButtons[k].interactable = true;
             TimeLock[k].SetActive(false);
-            //if (k < unlok2)
-            //{
-            //    TimeButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            //    TimeButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            //}
+            if (k < unlok2)
+            {
+                TimeButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                TimeButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
             //StarsTime[k].SetActive(true);
         }
         TimeButtons[PlayerPrefs.GetInt("compare2")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -238,11 +239,11 @@ public class MainMenu_Handler : MonoBehaviour
         for (int k = 0; k <= unlok3; k++)
         {
             MegaButtons[k].interactable = true;
-            //if(k< unlok3)
-            //{
-            //MegaButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            //MegaButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            //}
+            if (k < unlok3)
+            {
+                MegaButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                MegaButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
             MegaLock[k].SetActive(false);
             //MegaStar[k].SetActive(true);
         }
@@ -264,11 +265,11 @@ public class MainMenu_Handler : MonoBehaviour
         {
             ExpressButtons[k].interactable = true;
             ExpressLock[k].SetActive(false);
-            //if (k < unlok4)
-            //{
-            //    ExpressButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            //    ExpressButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            //}
+            if (k < unlok4)
+            {
+                ExpressButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                ExpressButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
             //StarExpress[k].SetActive(true);
         }
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -289,11 +290,11 @@ public class MainMenu_Handler : MonoBehaviour
         {
             HighwayButtons[k].interactable = true;
             HighwayLock[k].SetActive(false);
-            //if (k < unlok5)
-            //{
-            //    HighwayButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            //    HighwayButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            //}
+            if (k < unlok5)
+            {
+                HighwayButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                HighwayButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
             //StarHighway[k].SetActive(true);
         }
         HighwayButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);

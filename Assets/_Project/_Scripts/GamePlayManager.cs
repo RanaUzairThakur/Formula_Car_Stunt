@@ -12,7 +12,7 @@ public class GamePlayManager : MonoBehaviour
     public GameObject GiftPanel, SelectionCamera;
     public GameObject Fadescreen;
     public GameObject Startpoint/*,boundery,//Boundry2, //Boundry3, //Boundry4*/;
-    public GameObject[] CarrierLevels, MegaLevels, CarModle, CarScpecification/*, //Endpoint*/;
+    public GameObject[] CarrierLevels, MegaLevels, CarModle, carButton, CarScpecification/*, //Endpoint*/;
     public GameObject Car1, Car2, Car3, Car4, Car5, Car6, Car7, Car8, Car9, Car10;
     public GameObject[] CutScene_Cam;
     public GameObject[] Counting_Text;
@@ -21,7 +21,7 @@ public class GamePlayManager : MonoBehaviour
     private int SpecificNum;
     public static bool isnextClick = false;
     // public static bool Env;
-    public Text cash, CashRequired, LevelText;
+    public Text cash, modeCash, CashRequired, LevelText;
     public static GamePlayManager inst;
     public Animator SettingA, uianim;
     public static bool tfunction = false;
@@ -29,7 +29,7 @@ public class GamePlayManager : MonoBehaviour
     public GameObject Driver, DanceGirl;
     public bool Cars;
     public bool Testing;
-    public int LevelNumber;
+    public int LevelNumber, carIndex;
     RCC_CarControllerV3 RCC;
     void Awake()
     {
@@ -212,7 +212,7 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("Gift", 1);
         // PlayerPrefs.SetInt("Carselection", 1);
         CompletePanel.SetActive(false);
-        GiftPanel.SetActive(true);
+        //GiftPanel.SetActive(true);
         SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
     }
@@ -1228,6 +1228,8 @@ public class GamePlayManager : MonoBehaviour
         {
             CarScpecification[counter].SetActive(false);
         }
+        CarModle[carIndex].SetActive(false);
+
         CarModle[ModleNum].SetActive(false);
         ModleNum++;
         SpecificNum++;
@@ -1535,7 +1537,19 @@ public class GamePlayManager : MonoBehaviour
     //{
     //    AdsManager.Instance.ShowRewardedInterstitialAd(1000);
     //}
+    public void CarActiveOnButton(int index)
+    {
 
+        for(int k=0; k< carButton.Length; k++)
+        {
+            CarModle[k].SetActive(false);
+
+        }
+        CarModle[index].SetActive(true);
+        ModleNum = index;
+        CarCheck();
+        carIndex = index;
+    }
 
     public void set_CurrentVehiclestatus(bool val)
     {

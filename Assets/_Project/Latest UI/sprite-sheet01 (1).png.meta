@@ -58,7 +58,7 @@ TextureImporter:
     second: turbo
   - first:
       213: 565151975634433571
-    second: sprite-sheet01 (1)_18
+    second: mode5
   - first:
       213: 5528727969177742544
     second: levelnum
@@ -88,7 +88,7 @@ TextureImporter:
     second: Level
   - first:
       213: -5627988748558716450
-    second: sprite-sheet01 (1)_28
+    second: hover
   - first:
       213: -5697378670580509679
     second: Lock
@@ -100,16 +100,16 @@ TextureImporter:
     second: sprite-sheet01 (1)_31
   - first:
       213: 7863430200425816094
-    second: sprite-sheet01 (1)_32
+    second: mode2
   - first:
       213: 5316411876349907940
-    second: sprite-sheet01 (1)_33
+    second: spritADS
   - first:
       213: 661677207250326776
-    second: sprite-sheet01 (1)_34
+    second: mode4
   - first:
       213: -1354833450786691603
-    second: Exit
+    second: modes
   - first:
       213: -3856125109466134734
     second: restarticon
@@ -157,7 +157,7 @@ TextureImporter:
     second: back_b
   - first:
       213: 1216205378274263395
-    second: sprite-sheet01 (1)_51
+    second: mode1
   - first:
       213: 339220579863064698
     second: sprite-sheet01 (1)_53
@@ -268,12 +268,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 51
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_28
+      name: hover
       rect:
         serializedVersion: 2
         x: 530
@@ -910,7 +910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_32
+      name: mode2
       rect:
         serializedVersion: 2
         x: 1571
@@ -931,7 +931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_33
+      name: spritADS
       rect:
         serializedVersion: 2
         x: 3188
@@ -952,7 +952,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_34
+      name: mode4
       rect:
         serializedVersion: 2
         x: 938
@@ -973,7 +973,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Exit
+      name: modes
       rect:
         serializedVersion: 2
         x: 3329
@@ -1288,7 +1288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_51
+      name: mode1
       rect:
         serializedVersion: 2
         x: 2278
@@ -1309,7 +1309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet01 (1)_52
+      name: mode3
       rect:
         serializedVersion: 2
         x: 1604
@@ -1493,6 +1493,27 @@ TextureImporter:
       bones: []
       spriteID: 6d9d38239ea42bb20800000000000000
       internalID: 3148661454920735190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode5
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 342
+        width: 614
+        height: 383
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326fccf3ab2d7d700800000000000000
+      internalID: 565151975634433571
       vertices: []
       indices: 
       edges: []

@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Stayable : MonoBehaviour
 {
+
     public WheelCollider[] WhellCol;
     WheelHit wheelHit;
-    public float dsitance=4f;
+    public float dsitance = 4f;
     public GameObject carModel;
     private float speed = 50f;
     private Vector3 forwardDirection;
@@ -33,6 +32,11 @@ public class Stayable : MonoBehaviour
             {
                 if (!check)
                     check = true;
+                Debug.DrawRay(transform.position, Vector3.down, Color.green, dsitance);
+                if (hit.collider.gameObject.CompareTag("GameOver"))
+                    car.goingFalldown = true;
+                else
+                    car.goingFalldown = false;
                 return;
             }
             else
@@ -51,23 +55,19 @@ public class Stayable : MonoBehaviour
                     Rb.angularVelocity = Vector3.zero;
                     check = false;
                 }
-
             }
-           
-
         }
-
     }
     public void In()
     {
 
-        rotationAmount = car.steerInput* -40f;
+        rotationAmount = car.steerInput * -40f;
         rotationAmount *= Time.deltaTime;
         float _X = carModel.transform.position.x;
         float _y = carModel.transform.position.y;
         float _z = carModel.transform.position.z;
         _z += rotationAmount;
-        carModel.transform.position  = new Vector3(_X ,_y,_z);
+        carModel.transform.position = new Vector3(_X, _y, _z);
         Invoke("Out", 0f);
 
     }
@@ -86,5 +86,5 @@ public class Stayable : MonoBehaviour
         }
         return false;
     }
-    
+
 }

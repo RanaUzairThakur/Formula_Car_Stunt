@@ -456,6 +456,8 @@ public class RCC_CarControllerV3 : MonoBehaviour
     public bool useNOS = false;
     public bool nos_IsActive = false;
     public bool useTurbo = false;
+    public bool goingFalldown = false;
+
 
     // EVENTS
 

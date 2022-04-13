@@ -212,7 +212,7 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("Gift", 1);
         // PlayerPrefs.SetInt("Carselection", 1);
         CompletePanel.SetActive(false);
-        //GiftPanel.SetActive(true);
+        GiftPanel.SetActive(true);
         SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
 
     }
@@ -1214,6 +1214,8 @@ public class GamePlayManager : MonoBehaviour
         {
             CarScpecification[counter].SetActive(false);
         }
+        CarModle[carIndex].SetActive(false);
+
         CarModle[ModleNum].SetActive(false);
         ModleNum--;
         SpecificNum--;
@@ -1389,11 +1391,11 @@ public class GamePlayManager : MonoBehaviour
             }
             else if (ModleNum == 7)
             {
-                CashRequired.text = (" 1500");
+                CashRequired.text = (" 5000");
             }
             else if (ModleNum == 8)
             {
-                CashRequired.text = (" 5000");
+                CashRequired.text = (" 5500");
             }
             else if (ModleNum == 9)
             {
@@ -1546,9 +1548,12 @@ public class GamePlayManager : MonoBehaviour
 
         }
         CarModle[index].SetActive(true);
+        CarScpecification[index].SetActive(true);
+
         ModleNum = index;
-        CarCheck();
+        SpecificNum = index;
         carIndex = index;
+        CarCheck();
     }
 
     public void set_CurrentVehiclestatus(bool val)

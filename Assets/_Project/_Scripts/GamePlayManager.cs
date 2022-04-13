@@ -1545,6 +1545,7 @@ public class GamePlayManager : MonoBehaviour
         for(int k=0; k< carButton.Length; k++)
         {
             CarModle[k].SetActive(false);
+            CarScpecification[k].SetActive(false);
 
         }
         CarModle[index].SetActive(true);

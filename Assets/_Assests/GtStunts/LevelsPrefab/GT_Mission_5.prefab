@@ -6066,7 +6066,7 @@ Transform:
   m_GameObject: {fileID: 1273116600016760}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -28.656418, y: 32.57765, z: 68}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4231869396477226}
   - {fileID: 4875649910582343}
@@ -7138,7 +7138,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4884934430864708
 Transform:
@@ -8015,7 +8015,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4923435751962555
 Transform:
@@ -8445,7 +8445,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4071741094678625
 Transform:
@@ -8839,6 +8839,7 @@ GameObject:
   - component: {fileID: 33051862512746187}
   - component: {fileID: 23063067548945719}
   - component: {fileID: 64359228628823313}
+  - component: {fileID: 1295608344}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -8923,6 +8924,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370511947691100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &1370767516259733
 GameObject:
   m_ObjectHideFlags: 0
@@ -11031,7 +11045,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4845927632149522
 Transform:
@@ -12749,6 +12763,7 @@ GameObject:
   - component: {fileID: 33943960631113907}
   - component: {fileID: 23328654218087573}
   - component: {fileID: 64988495501573203}
+  - component: {fileID: 1295608345}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -12833,6 +12848,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608345
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513852347584375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &1515128988820033
 GameObject:
   m_ObjectHideFlags: 0
@@ -17490,7 +17518,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4978500848189188
 Transform:
@@ -17990,7 +18018,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4520806020785336
 Transform:
@@ -22231,7 +22259,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4877141692915837
 Transform:
@@ -85249,7 +85277,7 @@ GameObject:
   - component: {fileID: 7061890473553495573}
   m_Layer: 0
   m_Name: GameOver
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94386,6 +94414,7 @@ GameObject:
   - component: {fileID: 7095404810818964519}
   - component: {fileID: 7084913124649055540}
   - component: {fileID: 7126649469413616084}
+  - component: {fileID: 1295608277}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -94470,6 +94499,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062491741830741994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062491834466363946
 GameObject:
   m_ObjectHideFlags: 0
@@ -94512,6 +94554,7 @@ GameObject:
   - component: {fileID: 7094701233780930241}
   - component: {fileID: 7085418989968868332}
   - component: {fileID: 7126212789162156843}
+  - component: {fileID: 1295608261}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -94596,6 +94639,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062492163923822429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062498309174941172
 GameObject:
   m_ObjectHideFlags: 0
@@ -94669,6 +94725,7 @@ GameObject:
   - component: {fileID: 7094656668443885469}
   - component: {fileID: 7084970789450740109}
   - component: {fileID: 7125606874421684030}
+  - component: {fileID: 1295608284}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -94753,6 +94810,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062500705488000858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062502670176022166
 GameObject:
   m_ObjectHideFlags: 0
@@ -94877,6 +94947,7 @@ GameObject:
   - component: {fileID: 7095549808577147361}
   - component: {fileID: 7084975891003984496}
   - component: {fileID: 7126113303431776146}
+  - component: {fileID: 1295608301}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -94961,6 +95032,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062502914809023270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062504674041152551
 GameObject:
   m_ObjectHideFlags: 0
@@ -95766,6 +95850,7 @@ GameObject:
   - component: {fileID: 7095009251517340950}
   - component: {fileID: 7085343651244015758}
   - component: {fileID: 7125980141802362503}
+  - component: {fileID: 1295608310}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -95850,6 +95935,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062518526590355531}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062519699053641741
 GameObject:
   m_ObjectHideFlags: 0
@@ -97135,6 +97233,7 @@ GameObject:
   - component: {fileID: 7095053226757169583}
   - component: {fileID: 7085140524656490575}
   - component: {fileID: 7126131496687597242}
+  - component: {fileID: 1295608314}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -97219,6 +97318,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062596682628426767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062599036399966070
 GameObject:
   m_ObjectHideFlags: 0
@@ -97455,6 +97567,7 @@ GameObject:
   - component: {fileID: 7095356897949967554}
   - component: {fileID: 7085224594409659165}
   - component: {fileID: 7125982486805882168}
+  - component: {fileID: 1295608340}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -97539,6 +97652,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062603241105687254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062607329807158913
 GameObject:
   m_ObjectHideFlags: 0
@@ -97753,6 +97879,7 @@ GameObject:
   - component: {fileID: 7094775891181513821}
   - component: {fileID: 7084923533510033344}
   - component: {fileID: 7125561103753834188}
+  - component: {fileID: 1295608304}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -97837,6 +97964,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062626941906640124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062771771190412939
 GameObject:
   m_ObjectHideFlags: 0
@@ -97849,6 +97989,7 @@ GameObject:
   - component: {fileID: 7094774177013943324}
   - component: {fileID: 7084496759695933408}
   - component: {fileID: 7125954208356573126}
+  - component: {fileID: 1295608300}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -97933,6 +98074,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062771771190412939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062775595975820569
 GameObject:
   m_ObjectHideFlags: 0
@@ -97945,6 +98099,7 @@ GameObject:
   - component: {fileID: 7095140539376520254}
   - component: {fileID: 7085354045067820064}
   - component: {fileID: 7125615385412255918}
+  - component: {fileID: 1295608274}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -98029,6 +98184,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062775595975820569}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062775604421426574
 GameObject:
   m_ObjectHideFlags: 0
@@ -98715,6 +98883,7 @@ GameObject:
   - component: {fileID: 7095558234844272223}
   - component: {fileID: 7085065092048331817}
   - component: {fileID: 7126141280136354364}
+  - component: {fileID: 1295608278}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -98799,6 +98968,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608278
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062797617813967412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062806541399492208
 GameObject:
   m_ObjectHideFlags: 0
@@ -98811,6 +98993,7 @@ GameObject:
   - component: {fileID: 7095375392135645518}
   - component: {fileID: 7084839633372230574}
   - component: {fileID: 7126552019701107241}
+  - component: {fileID: 1295608269}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -98895,6 +99078,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062806541399492208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062810775164656595
 GameObject:
   m_ObjectHideFlags: 0
@@ -99161,6 +99357,7 @@ GameObject:
   - component: {fileID: 7094759707605586867}
   - component: {fileID: 7085402944960515341}
   - component: {fileID: 7125974780620672748}
+  - component: {fileID: 1295608336}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -99245,6 +99442,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062827737132929348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062827805014471407
 GameObject:
   m_ObjectHideFlags: 0
@@ -100044,6 +100254,7 @@ GameObject:
   - component: {fileID: 7095342717053518938}
   - component: {fileID: 7085527414039194056}
   - component: {fileID: 7126543176484677476}
+  - component: {fileID: 1295608302}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -100128,6 +100339,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062868201787345555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062870696435898903
 GameObject:
   m_ObjectHideFlags: 0
@@ -100252,6 +100476,7 @@ GameObject:
   - component: {fileID: 7095006135087971090}
   - component: {fileID: 7084853538315833718}
   - component: {fileID: 7126621794799352719}
+  - component: {fileID: 1295608330}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -100336,6 +100561,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062871727529443195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062872920416243007
 GameObject:
   m_ObjectHideFlags: 0
@@ -100429,6 +100667,7 @@ GameObject:
   - component: {fileID: 7094991717671866267}
   - component: {fileID: 7084842045166323401}
   - component: {fileID: 7126496451399993667}
+  - component: {fileID: 1295608329}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -100513,6 +100752,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062873377832969491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062878744877044734
 GameObject:
   m_ObjectHideFlags: 0
@@ -100719,6 +100971,7 @@ GameObject:
   - component: {fileID: 7094628695085649720}
   - component: {fileID: 7085104834579778130}
   - component: {fileID: 7125940547729178138}
+  - component: {fileID: 1295608339}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -100803,6 +101056,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062880641356687516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062881906238450101
 GameObject:
   m_ObjectHideFlags: 0
@@ -100815,6 +101081,7 @@ GameObject:
   - component: {fileID: 7095105027525826981}
   - component: {fileID: 7085275618247887476}
   - component: {fileID: 7125572299054495280}
+  - component: {fileID: 1295608290}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -100899,6 +101166,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062881906238450101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062884030395903805
 GameObject:
   m_ObjectHideFlags: 0
@@ -101053,6 +101333,7 @@ GameObject:
   - component: {fileID: 7094584549562724490}
   - component: {fileID: 7084959455211585295}
   - component: {fileID: 7125963525960271409}
+  - component: {fileID: 1295608268}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -101137,6 +101418,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608268
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062886733920178821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062889460981401493
 GameObject:
   m_ObjectHideFlags: 0
@@ -101707,6 +102001,7 @@ GameObject:
   - component: {fileID: 7095396723725321143}
   - component: {fileID: 7084746104007746069}
   - component: {fileID: 7126130079738162373}
+  - component: {fileID: 1295608328}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -101791,6 +102086,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062914247366229281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062921856098866523
 GameObject:
   m_ObjectHideFlags: 0
@@ -101803,6 +102111,7 @@ GameObject:
   - component: {fileID: 7095243543923956695}
   - component: {fileID: 7085310309003141283}
   - component: {fileID: 7126205930269221548}
+  - component: {fileID: 1295608318}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -101887,6 +102196,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062921856098866523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062922616931727690
 GameObject:
   m_ObjectHideFlags: 0
@@ -102198,6 +102520,7 @@ GameObject:
   - component: {fileID: 7094651332532777776}
   - component: {fileID: 7085074058879073441}
   - component: {fileID: 7126116771746657288}
+  - component: {fileID: 1295608276}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -102282,6 +102605,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062930875235649490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062933529646276124
 GameObject:
   m_ObjectHideFlags: 0
@@ -105470,6 +105806,7 @@ GameObject:
   - component: {fileID: 7095188291307014765}
   - component: {fileID: 7084468403330880075}
   - component: {fileID: 7126592399962505614}
+  - component: {fileID: 1295608285}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -105554,6 +105891,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062953327831003766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062959255506889055
 GameObject:
   m_ObjectHideFlags: 0
@@ -105566,6 +105916,7 @@ GameObject:
   - component: {fileID: 7095223019583729753}
   - component: {fileID: 7085551986825388285}
   - component: {fileID: 7126568605775039674}
+  - component: {fileID: 1295608317}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -105650,6 +106001,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062959255506889055}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062960270922260111
 GameObject:
   m_ObjectHideFlags: 0
@@ -105886,6 +106250,7 @@ GameObject:
   - component: {fileID: 7095698809879378808}
   - component: {fileID: 7085559697637004052}
   - component: {fileID: 7126356608461490609}
+  - component: {fileID: 1295608273}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -105970,6 +106335,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062964180126324526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062970421759897537
 GameObject:
   m_ObjectHideFlags: 0
@@ -106073,6 +106451,7 @@ GameObject:
   - component: {fileID: 7094625618189484109}
   - component: {fileID: 7084448319886939174}
   - component: {fileID: 7126096375708498615}
+  - component: {fileID: 1295608292}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -106157,6 +106536,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608292
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062984858443304490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062990440513544216
 GameObject:
   m_ObjectHideFlags: 0
@@ -106251,6 +106643,7 @@ GameObject:
   - component: {fileID: 7094733500766816040}
   - component: {fileID: 7084455289748433530}
   - component: {fileID: 7125542085989944590}
+  - component: {fileID: 1295608272}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -106335,6 +106728,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062992084207380020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062992358907876302
 GameObject:
   m_ObjectHideFlags: 0
@@ -106347,6 +106753,7 @@ GameObject:
   - component: {fileID: 7095287705398908325}
   - component: {fileID: 7085134160517679324}
   - component: {fileID: 7125939792533802892}
+  - component: {fileID: 1295608297}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -106431,6 +106838,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062992358907876302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7062999409457357440
 GameObject:
   m_ObjectHideFlags: 0
@@ -106779,6 +107199,7 @@ GameObject:
   - component: {fileID: 7094707460774343139}
   - component: {fileID: 7085128015361020774}
   - component: {fileID: 7126496497976510922}
+  - component: {fileID: 1295608307}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -106863,6 +107284,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063011518741172339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063012129990943893
 GameObject:
   m_ObjectHideFlags: 0
@@ -106875,6 +107309,7 @@ GameObject:
   - component: {fileID: 7095069633157305141}
   - component: {fileID: 7085355557854292233}
   - component: {fileID: 7125837088467893117}
+  - component: {fileID: 1295608335}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -106959,6 +107394,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063012129990943893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063014888670108238
 GameObject:
   m_ObjectHideFlags: 0
@@ -107994,6 +108442,7 @@ GameObject:
   - component: {fileID: 7094733894579916275}
   - component: {fileID: 7085499009532989383}
   - component: {fileID: 7125666040976700951}
+  - component: {fileID: 1295608293}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -108078,6 +108527,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063052688252975768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063055069349642539
 GameObject:
   m_ObjectHideFlags: 0
@@ -108090,6 +108552,7 @@ GameObject:
   - component: {fileID: 7094998431863328841}
   - component: {fileID: 7085433501402164684}
   - component: {fileID: 7126527596799306839}
+  - component: {fileID: 1295608305}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -108174,6 +108637,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063055069349642539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063058870377672709
 GameObject:
   m_ObjectHideFlags: 0
@@ -108186,6 +108662,7 @@ GameObject:
   - component: {fileID: 7095112829196266369}
   - component: {fileID: 7085795503399744856}
   - component: {fileID: 7125576444699762528}
+  - component: {fileID: 1295608281}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -108270,6 +108747,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063058870377672709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063058912758370793
 GameObject:
   m_ObjectHideFlags: 0
@@ -108312,6 +108802,7 @@ GameObject:
   - component: {fileID: 7095641628197479136}
   - component: {fileID: 7085211665013596918}
   - component: {fileID: 7126099338112476210}
+  - component: {fileID: 1295608295}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -108396,6 +108887,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063065315707231106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063067664231112496
 GameObject:
   m_ObjectHideFlags: 0
@@ -108580,6 +109084,7 @@ GameObject:
   - component: {fileID: 7095300868506839135}
   - component: {fileID: 7084934614345510573}
   - component: {fileID: 7126603982177668137}
+  - component: {fileID: 1295608316}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -108664,6 +109169,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063075803682653385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063078125080688881
 GameObject:
   m_ObjectHideFlags: 0
@@ -109657,6 +110175,7 @@ GameObject:
   - component: {fileID: 7095350917659230620}
   - component: {fileID: 7084782725262603466}
   - component: {fileID: 7125539141796215141}
+  - component: {fileID: 1295608324}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -109741,6 +110260,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608324
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063109078971088678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063109574274316986
 GameObject:
   m_ObjectHideFlags: 0
@@ -109753,6 +110285,7 @@ GameObject:
   - component: {fileID: 7095049964817033414}
   - component: {fileID: 7085003614755407866}
   - component: {fileID: 7125947580193903228}
+  - component: {fileID: 1295608280}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -109837,6 +110370,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063109574274316986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063110704682030428
 GameObject:
   m_ObjectHideFlags: 0
@@ -109962,6 +110508,7 @@ GameObject:
   - component: {fileID: 7094785128055332265}
   - component: {fileID: 7085189707982962509}
   - component: {fileID: 7125892328492322558}
+  - component: {fileID: 1295608313}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -110046,6 +110593,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608313
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063114833187787477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063117489822605366
 GameObject:
   m_ObjectHideFlags: 0
@@ -110296,6 +110856,7 @@ GameObject:
   - component: {fileID: 7095661531902449725}
   - component: {fileID: 7084927855703692723}
   - component: {fileID: 7126346444044162741}
+  - component: {fileID: 1295608333}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -110380,6 +110941,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608333
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063125888359385624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063128899196573619
 GameObject:
   m_ObjectHideFlags: 0
@@ -110392,6 +110966,7 @@ GameObject:
   - component: {fileID: 7094943907914230021}
   - component: {fileID: 7085081695992583258}
   - component: {fileID: 7125925466897558328}
+  - component: {fileID: 1295608264}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -110476,6 +111051,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063128899196573619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063128982849348069
 GameObject:
   m_ObjectHideFlags: 0
@@ -110569,6 +111157,7 @@ GameObject:
   - component: {fileID: 7095071746619924876}
   - component: {fileID: 7085434824432395047}
   - component: {fileID: 7126057503744664778}
+  - component: {fileID: 1295608327}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -110653,6 +111242,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063129716655500573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063131028902211097
 GameObject:
   m_ObjectHideFlags: 0
@@ -111106,6 +111708,7 @@ GameObject:
   - component: {fileID: 7094719923712989444}
   - component: {fileID: 7084732469724789457}
   - component: {fileID: 7126287396789172340}
+  - component: {fileID: 1295608266}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -111190,6 +111793,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063139983579091586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063142058193829790
 GameObject:
   m_ObjectHideFlags: 0
@@ -111202,6 +111818,7 @@ GameObject:
   - component: {fileID: 7095103385654992834}
   - component: {fileID: 7084910478401979163}
   - component: {fileID: 7126507914117769674}
+  - component: {fileID: 1295608270}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -111286,6 +111903,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063142058193829790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063143014807552712
 GameObject:
   m_ObjectHideFlags: 0
@@ -111328,6 +111958,7 @@ GameObject:
   - component: {fileID: 7095573752995212773}
   - component: {fileID: 7084958681166186673}
   - component: {fileID: 7126289722207355251}
+  - component: {fileID: 1295608319}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -111412,6 +112043,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063145533326495869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063148385570760219
 GameObject:
   m_ObjectHideFlags: 0
@@ -111484,6 +112128,7 @@ GameObject:
   - component: {fileID: 7094987973921258787}
   - component: {fileID: 7085549969944692099}
   - component: {fileID: 7125585237508854462}
+  - component: {fileID: 1295608265}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -111568,6 +112213,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063156054087727249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063156933261816978
 GameObject:
   m_ObjectHideFlags: 0
@@ -111580,6 +112238,7 @@ GameObject:
   - component: {fileID: 7095523858408910643}
   - component: {fileID: 7085310092303752803}
   - component: {fileID: 7126110767629296554}
+  - component: {fileID: 1295608294}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -111664,6 +112323,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063156933261816978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063157398199052238
 GameObject:
   m_ObjectHideFlags: 0
@@ -111706,6 +112378,7 @@ GameObject:
   - component: {fileID: 7095611445950926335}
   - component: {fileID: 7085403076882218529}
   - component: {fileID: 7126572519947810278}
+  - component: {fileID: 1295608298}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -111790,6 +112463,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063160155504569939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063161762546771817
 GameObject:
   m_ObjectHideFlags: 0
@@ -112010,6 +112696,7 @@ GameObject:
   - component: {fileID: 7094946452846738439}
   - component: {fileID: 7085503901292764509}
   - component: {fileID: 7126004405634617529}
+  - component: {fileID: 1295608322}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -112094,6 +112781,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063168274706682852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063170275913384685
 GameObject:
   m_ObjectHideFlags: 0
@@ -112390,6 +113090,7 @@ GameObject:
   - component: {fileID: 7095068186866494757}
   - component: {fileID: 7085391054002662128}
   - component: {fileID: 7126266200899912230}
+  - component: {fileID: 1295608311}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -112474,6 +113175,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063180284645692720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063180722955473376
 GameObject:
   m_ObjectHideFlags: 0
@@ -112546,6 +113260,7 @@ GameObject:
   - component: {fileID: 7095343728996200008}
   - component: {fileID: 7084877213841764171}
   - component: {fileID: 7126272350707047056}
+  - component: {fileID: 1295608299}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -112630,6 +113345,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063186145777922975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063186804074186405
 GameObject:
   m_ObjectHideFlags: 0
@@ -115897,6 +116625,7 @@ GameObject:
   - component: {fileID: 7095231053962911485}
   - component: {fileID: 7085330353979765404}
   - component: {fileID: 7126254711257844755}
+  - component: {fileID: 1295608342}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -115981,6 +116710,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063198119015635441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063205519862352115
 GameObject:
   m_ObjectHideFlags: 0
@@ -115993,6 +116735,7 @@ GameObject:
   - component: {fileID: 7095081809105603644}
   - component: {fileID: 7085119057983495235}
   - component: {fileID: 7126201241650870351}
+  - component: {fileID: 1295608334}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -116077,6 +116820,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063205519862352115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063209010141593448
 GameObject:
   m_ObjectHideFlags: 0
@@ -116181,6 +116937,7 @@ GameObject:
   - component: {fileID: 7094591117722883565}
   - component: {fileID: 7084745759104112402}
   - component: {fileID: 7126147060381596396}
+  - component: {fileID: 1295608263}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -116265,6 +117022,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063212369686179874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063215848365635748
 GameObject:
   m_ObjectHideFlags: 0
@@ -116456,6 +117226,7 @@ GameObject:
   - component: {fileID: 7094721433063753840}
   - component: {fileID: 7085559883304889163}
   - component: {fileID: 7126106769189822182}
+  - component: {fileID: 1295608341}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -116540,6 +117311,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063221780484595635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063224932152880311
 GameObject:
   m_ObjectHideFlags: 0
@@ -116552,6 +117336,7 @@ GameObject:
   - component: {fileID: 7094612520396898663}
   - component: {fileID: 7084778802820956990}
   - component: {fileID: 7125671616162071146}
+  - component: {fileID: 1295608323}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -116636,6 +117421,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063224932152880311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063226691433522536
 GameObject:
   m_ObjectHideFlags: 0
@@ -117589,6 +118387,7 @@ GameObject:
   - component: {fileID: 7094640447698162553}
   - component: {fileID: 7085203535686541629}
   - component: {fileID: 7125917754264448298}
+  - component: {fileID: 1295608325}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -117673,6 +118472,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063254525900684147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063255296206861778
 GameObject:
   m_ObjectHideFlags: 0
@@ -117746,6 +118558,7 @@ GameObject:
   - component: {fileID: 7094625903716860840}
   - component: {fileID: 7085463248829470789}
   - component: {fileID: 7125916009970667807}
+  - component: {fileID: 1295608309}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -117830,6 +118643,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063260270963271926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063260464248098966
 GameObject:
   m_ObjectHideFlags: 0
@@ -117904,6 +118730,7 @@ GameObject:
   - component: {fileID: 7095500525551258212}
   - component: {fileID: 7084794097117609538}
   - component: {fileID: 7126450845819915908}
+  - component: {fileID: 1295608338}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -117988,6 +118815,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063261801027272096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063265113822109267
 GameObject:
   m_ObjectHideFlags: 0
@@ -118163,6 +119003,7 @@ GameObject:
   - component: {fileID: 7095657905148735777}
   - component: {fileID: 7085014592484655247}
   - component: {fileID: 7125583107286222448}
+  - component: {fileID: 1295608332}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -118247,6 +119088,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063280936707294290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063281727778222581
 GameObject:
   m_ObjectHideFlags: 0
@@ -118259,6 +119113,7 @@ GameObject:
   - component: {fileID: 7094765692788565935}
   - component: {fileID: 7085508064291212139}
   - component: {fileID: 7126275002155401081}
+  - component: {fileID: 1295608288}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -118343,6 +119198,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063281727778222581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063281852379830649
 GameObject:
   m_ObjectHideFlags: 0
@@ -118355,6 +119223,7 @@ GameObject:
   - component: {fileID: 7094629191037409155}
   - component: {fileID: 7085422506291142806}
   - component: {fileID: 7126002914773900647}
+  - component: {fileID: 1295608343}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -118439,6 +119308,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063281852379830649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063296728309317500
 GameObject:
   m_ObjectHideFlags: 0
@@ -118625,6 +119507,7 @@ GameObject:
   - component: {fileID: 7094618874252429301}
   - component: {fileID: 7085227067423743976}
   - component: {fileID: 7126048167022093489}
+  - component: {fileID: 1295608303}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -118709,6 +119592,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063304664253605115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063305273612097334
 GameObject:
   m_ObjectHideFlags: 0
@@ -118721,6 +119617,7 @@ GameObject:
   - component: {fileID: 7095127292393284162}
   - component: {fileID: 7085102943298662566}
   - component: {fileID: 7125883595550147997}
+  - component: {fileID: 1295608283}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -118805,6 +119702,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063305273612097334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063316647626313803
 GameObject:
   m_ObjectHideFlags: 0
@@ -119024,6 +119934,7 @@ GameObject:
   - component: {fileID: 7094985081484011202}
   - component: {fileID: 7085055908670593638}
   - component: {fileID: 7126153706970243441}
+  - component: {fileID: 1295608320}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -119108,6 +120019,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063330064136136305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063331476024674394
 GameObject:
   m_ObjectHideFlags: 0
@@ -119120,6 +120044,7 @@ GameObject:
   - component: {fileID: 7094954296437046964}
   - component: {fileID: 7085320618487471788}
   - component: {fileID: 7125733819630898562}
+  - component: {fileID: 1295608337}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -119204,6 +120129,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063331476024674394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063332872367669457
 GameObject:
   m_ObjectHideFlags: 0
@@ -120022,6 +120960,7 @@ GameObject:
   - component: {fileID: 7094601030665765065}
   - component: {fileID: 7084871383415187026}
   - component: {fileID: 7126633717571209127}
+  - component: {fileID: 1295608275}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -120106,6 +121045,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063364398631394437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063364932276701795
 GameObject:
   m_ObjectHideFlags: 0
@@ -120200,6 +121152,7 @@ GameObject:
   - component: {fileID: 7094760132878528101}
   - component: {fileID: 7085034480458498855}
   - component: {fileID: 7125927264794116739}
+  - component: {fileID: 1295608312}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -120284,6 +121237,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063372913531814415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063377231850663071
 GameObject:
   m_ObjectHideFlags: 0
@@ -120503,6 +121469,7 @@ GameObject:
   - component: {fileID: 7095566600418950703}
   - component: {fileID: 7085157162734071041}
   - component: {fileID: 7125879394050375030}
+  - component: {fileID: 1295608267}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -120587,6 +121554,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063381682584904780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063382998241663719
 GameObject:
   m_ObjectHideFlags: 0
@@ -120740,6 +121720,7 @@ GameObject:
   - component: {fileID: 7095305063462045644}
   - component: {fileID: 7085155109144967544}
   - component: {fileID: 7125562332354073028}
+  - component: {fileID: 1295608271}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -120824,6 +121805,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063392719391425856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063395253225182557
 GameObject:
   m_ObjectHideFlags: 0
@@ -121211,6 +122205,7 @@ GameObject:
   - component: {fileID: 7094672893557804801}
   - component: {fileID: 7085173116936186439}
   - component: {fileID: 7126442834352934120}
+  - component: {fileID: 1295608315}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -121295,6 +122290,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063420035895673826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063421558380878348
 GameObject:
   m_ObjectHideFlags: 0
@@ -122291,6 +123299,7 @@ GameObject:
   - component: {fileID: 7095163863143940281}
   - component: {fileID: 7085135592531029402}
   - component: {fileID: 7125853694764582557}
+  - component: {fileID: 1295608308}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -122375,6 +123384,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063459110014891698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063459330164374581
 GameObject:
   m_ObjectHideFlags: 0
@@ -122529,6 +123551,7 @@ GameObject:
   - component: {fileID: 7094920787989029709}
   - component: {fileID: 7085380888024836255}
   - component: {fileID: 7126261268329427740}
+  - component: {fileID: 1295608331}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -122613,6 +123636,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063477233307061210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063478054127057616
 GameObject:
   m_ObjectHideFlags: 0
@@ -122686,6 +123722,7 @@ GameObject:
   - component: {fileID: 7095598276908426370}
   - component: {fileID: 7084828450676292757}
   - component: {fileID: 7125575210372206512}
+  - component: {fileID: 1295608262}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -122770,6 +123807,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608262
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063484326972969718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063490265964340253
 GameObject:
   m_ObjectHideFlags: 0
@@ -123311,6 +124361,7 @@ GameObject:
   - component: {fileID: 7094871490231867573}
   - component: {fileID: 7084485871607501922}
   - component: {fileID: 7126630826443394576}
+  - component: {fileID: 1295608282}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -123395,6 +124446,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608282
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063498498091773525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063499831953072640
 GameObject:
   m_ObjectHideFlags: 0
@@ -123773,6 +124837,7 @@ GameObject:
   - component: {fileID: 7095173123482448197}
   - component: {fileID: 7085176034457816084}
   - component: {fileID: 7125554272769410079}
+  - component: {fileID: 1295608279}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -123857,6 +124922,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608279
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063510199365871382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063510879531886043
 GameObject:
   m_ObjectHideFlags: 0
@@ -123900,6 +124978,7 @@ GameObject:
   - component: {fileID: 7095376628453506376}
   - component: {fileID: 7085040035878148793}
   - component: {fileID: 7126161861141671213}
+  - component: {fileID: 1295608306}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -123984,6 +125063,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063513691688546453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063515573326969849
 GameObject:
   m_ObjectHideFlags: 0
@@ -124139,6 +125231,7 @@ GameObject:
   - component: {fileID: 7094985275958979909}
   - component: {fileID: 7085460994687729472}
   - component: {fileID: 7126078855664511607}
+  - component: {fileID: 1295608287}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -124223,6 +125316,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063523849586672205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063525033851730641
 GameObject:
   m_ObjectHideFlags: 0
@@ -124347,6 +125453,7 @@ GameObject:
   - component: {fileID: 7095200058042506656}
   - component: {fileID: 7085194966675522267}
   - component: {fileID: 7126303957658105099}
+  - component: {fileID: 1295608321}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -124431,6 +125538,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063527617534944815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063528177107940345
 GameObject:
   m_ObjectHideFlags: 0
@@ -124554,6 +125674,7 @@ GameObject:
   - component: {fileID: 7094907958714097475}
   - component: {fileID: 7085106398639217646}
   - component: {fileID: 7125917657546734079}
+  - component: {fileID: 1295608326}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -124638,6 +125759,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063532414345780659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063533308202061545
 GameObject:
   m_ObjectHideFlags: 0
@@ -125208,6 +126342,7 @@ GameObject:
   - component: {fileID: 7095088606624732997}
   - component: {fileID: 7085840690434034303}
   - component: {fileID: 7126326304921817009}
+  - component: {fileID: 1295608291}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -125292,6 +126427,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063576806077541102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063584125190143903
 GameObject:
   m_ObjectHideFlags: 0
@@ -125446,6 +126594,7 @@ GameObject:
   - component: {fileID: 7094655276169989058}
   - component: {fileID: 7084777407159150602}
   - component: {fileID: 7126066445462838551}
+  - component: {fileID: 1295608286}
   m_Layer: 0
   m_Name: RoadBarier03
   m_TagString: Untagged
@@ -125530,6 +126679,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 21a72670416b69a45b805ec21724ae2c, type: 2}
+--- !u!65 &1295608286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063590294427830124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063591658814940611
 GameObject:
   m_ObjectHideFlags: 0
@@ -125858,6 +127020,7 @@ GameObject:
   - component: {fileID: 7094758856532789018}
   - component: {fileID: 7084821820189064941}
   - component: {fileID: 7125748675787272526}
+  - component: {fileID: 1295608296}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -125942,6 +127105,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063602287396024821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063604393679283926
 GameObject:
   m_ObjectHideFlags: 0
@@ -126495,6 +127671,7 @@ GameObject:
   - component: {fileID: 7094775530681840772}
   - component: {fileID: 7085259913855207074}
   - component: {fileID: 7126055452397493101}
+  - component: {fileID: 1295608289}
   m_Layer: 0
   m_Name: RoadBarier02
   m_TagString: Untagged
@@ -126579,6 +127756,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60e78bebc2de60343a6bcb68ce95bad5, type: 2}
+--- !u!65 &1295608289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063845038323823876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9000008, y: 6.6502266, z: 3.0000007}
+  m_Center: {x: 0.12000274, y: 3.325111, z: 1.5002456}
 --- !u!1 &7063847496119223748
 GameObject:
   m_ObjectHideFlags: 0

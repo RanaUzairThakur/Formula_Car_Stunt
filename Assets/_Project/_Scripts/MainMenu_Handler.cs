@@ -20,12 +20,6 @@ public class MainMenu_Handler : MonoBehaviour
     void Awake()
     {
         inst = this;
-        //PlayerPrefs.SetInt("compare", 24);
-        //PlayerPrefs.SetInt("compare2", 24);
-        //PlayerPrefs.SetInt("compare3", 24);
-        //PlayerPrefs.SetInt("compare4", 24);
-        //PlayerPrefs.SetInt("compare5", 24);
-
     }
 
     void Start()

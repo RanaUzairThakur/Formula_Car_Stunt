@@ -141,7 +141,9 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	public void Onpress_Brake()
 	{
 		brakeinput = true;
-		print("Dir :"+RCCV3.direction);
+		if (RCCV3.goingFalldown)
+			GamePlayManager.inst.Resetvehicle();
+		//print("Dir :"+RCCV3.direction);
 		
 	}
 	public void Onpress_ReleaseBrake()

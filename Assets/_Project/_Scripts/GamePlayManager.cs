@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
@@ -123,14 +122,14 @@ public class GamePlayManager : MonoBehaviour
     {
 
         Application.OpenURL("https://play.google.com/store/apps/developer?id=Hi+Gamez");
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void OnPause()
     {
         RcPanel.SetActive(false);
         PausePanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
@@ -138,18 +137,15 @@ public class GamePlayManager : MonoBehaviour
     {
         RcPanel.SetActive(true);
         PausePanel.SetActive(false);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
         Time.timeScale = 1;
         AudioListener.volume = 1;
     }
-    //private void Update()
-    //{
-    //    print("AudiListener :"+AudioListener.volume);
-    //}
+  
     public void OnRestart()
     {
 
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
         SceneManager.LoadScene("GameplayStunt");
     }
     public void OnCompleteRestart()
@@ -161,7 +157,7 @@ public class GamePlayManager : MonoBehaviour
     public void OnHome()
     {
         isnextClick = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
         SceneManager.LoadScene("MainStunt");
     }
     public void OnNext()
@@ -170,10 +166,10 @@ public class GamePlayManager : MonoBehaviour
         SceneManager.LoadScene("GameplayStunt");
         if (PlayerPrefs.GetInt("level_number") <= 9)
         {
-            PlayerPrefs.SetInt("MNum", PlayerPrefs.GetInt("level_number"));
+            //PlayerPrefs.SetInt("MNum", PlayerPrefs.GetInt("level_number"));
 
         }
-        if (PlayerPrefs.GetInt("mode") == 0 && PlayerPrefs.GetInt("level_number") > 24)
+        if (PlayerPrefs.GetInt("mode") == 0 && PlayerPrefs.GetInt("level_number") > 14)
         {
             //Debug.LogError("00000000");
             PlayerPrefs.SetInt("level_number", 0);
@@ -182,7 +178,7 @@ public class GamePlayManager : MonoBehaviour
             TimeBar.SetActive(true);
             LevelSelection();
         }
-        if (PlayerPrefs.GetInt("mode") == 1 && PlayerPrefs.GetInt("level_number") > 24)
+        if (PlayerPrefs.GetInt("mode") == 1 && PlayerPrefs.GetInt("level_number") > 14)
         {
             //Debug.LogError("11111111");
             PlayerPrefs.SetInt("level_number", 0);
@@ -191,7 +187,7 @@ public class GamePlayManager : MonoBehaviour
             TimeBar.SetActive(true);
             LevelSelection1();
         }
-        if (PlayerPrefs.GetInt("mode") == 2 && PlayerPrefs.GetInt("level_number") > 24)
+        if (PlayerPrefs.GetInt("mode") == 2 && PlayerPrefs.GetInt("level_number") > 14)
         {
             //Debug.LogError("11111111");
             PlayerPrefs.SetInt("level_number", 0);
@@ -200,7 +196,7 @@ public class GamePlayManager : MonoBehaviour
             TimeBar.SetActive(true);
             LevelSelection();
         }
-        if (PlayerPrefs.GetInt("mode") == 3 && PlayerPrefs.GetInt("level_number") > 24)
+        if (PlayerPrefs.GetInt("mode") == 3 && PlayerPrefs.GetInt("level_number") > 14)
         {
             //Debug.LogError("11111111");
             PlayerPrefs.SetInt("level_number", 0);
@@ -213,7 +209,7 @@ public class GamePlayManager : MonoBehaviour
         // PlayerPrefs.SetInt("Carselection", 1);
         CompletePanel.SetActive(false);
         GiftPanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void Complete()
@@ -236,394 +232,149 @@ public class GamePlayManager : MonoBehaviour
             uianim.SetBool("Open", false);
 
         }
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
     }
     public void FirstSkipOn()
     {
         CancelInvoke(nameof(FirstSkipOn));
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
         DemoManager.Instance.SkipButton.SetActive(true);
     }
     //---------------------------------------------------------------------------
 
     //----------------------------------Functions--------------------------------
-
+    public int Num;
     public void LevelSelection()
     {
-        int Num = PlayerPrefs.GetInt("level_number");
+         Num = PlayerPrefs.GetInt("level_number");
+        if (CarrierLevels[Num].GetComponent<Leveldata>())
+        {
+            CarModle[PlayerPrefs.GetInt("MNum", ModleNum)].transform.position = CarrierLevels[Num].GetComponent<Leveldata>().Playerspawnpoint.position;
+            CarModle[PlayerPrefs.GetInt("MNum", ModleNum)].transform.rotation = CarrierLevels[Num].GetComponent<Leveldata>().Playerspawnpoint.rotation;
+        }
+
         if (Num == 0)
         {
             CarrierLevels[0].SetActive(true);
-            //Endpoint[4].SetActive(true);
-            //Endpoint[4].transform.position = new Vector3(5323, 117, 67);
-            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.position = new Vector3 (0, -71, 0);
-            //boundery.transform.rotation = Quaternion.Euler (0, 0, 0);
 
         }
         else if (Num == 1)
         {
             CarrierLevels[1].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(4761.3f, 111.27f, 64);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            ////boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (0, -71, 0);
+
         }
         else if (Num == 2)
         {
             CarrierLevels[2].SetActive(true);
-            //         Endpoint[6].SetActive(true);
-            //         Endpoint[6].transform.position = new Vector3 (1113.7f, -270, -3425.2f);
-            //Endpoint[6].transform.rotation = Quaternion.Euler (-90,-90,90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (0, -54, 161);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(0, -313, -3514);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Num == 3)
         {
             //Boundry2.SetActive(true);
             CarrierLevels[3].SetActive(true);
-            //Endpoint[5].SetActive(true);
-            //Endpoint[5].transform.position = new Vector3 (1598, 211.6f, 1634);
-            //Endpoint[5].transform.rotation = Quaternion.Euler (-90, -180f, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (0, -54, -706);
-            //Boundry2.transform.position = new Vector3(0, 327, 2385);
-            //Boundry2.transform.rotation = Quaternion.Euler(-14.54f, 0, 0);
+
         }
         else if (Num == 4)
         {
             CarrierLevels[4].SetActive(true);
-            // Endpoint[3].SetActive(true);
-            //  Endpoint[3].transform.position = new Vector3 (3664, -5.7f, 313);
-            //Endpoint[3].transform.rotation = Quaternion.Euler (-91, 2.2f, -1.7f);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (0, -84, -706);
-
         }
         else if (Num == 5)
         {
             CarrierLevels[5].SetActive(true);
-            /// Endpoint[1].SetActive(true);
-            //  Endpoint[1].transform.position = new Vector3 (3800, 120.9f, 71);
-            //Endpoint[1].transform.rotation = Quaternion.Euler (-90,0,-90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-3652, -6.4f, -706);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3473, 42, 543);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Num == 6)
         {
             CarrierLevels[6].SetActive(true);
-            //         Endpoint[6].SetActive(true);
-            //         //Endpoint[6].transform.localScale = new Vector3(1, 1, 1);
-            //         Endpoint[6].transform.position = new Vector3 (3581.3f, 165.6f, 63);
-            //Endpoint[6].transform.rotation = Quaternion.Euler (-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-3530, -6.4f, -706);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3601, 37, 543);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
 
         }
         else if (Num == 7)
         {
             CarrierLevels[7].SetActive(true);
-            //         Endpoint[3].SetActive(true);
-            //         Endpoint[3].transform.position = new Vector3 (836, 118.9f, -3806.3f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler (-91,90,0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-1121, -6.4f, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(-1384, 64, -3577);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
         }
         else if (Num == 8)
         {
             CarrierLevels[8].SetActive(true);
-            //         Endpoint[1].SetActive(true);
-            //         Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            //         Endpoint[1].transform.position = new Vector3 (5452, 367, -279);
-            //Endpoint[1].transform.rotation = Quaternion.Euler (-87.857f, -90, -11);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-3166, -17, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3942, 228, -825);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 3);
+
         }
         else if (Num == 9)
         {
             CarrierLevels[9].SetActive(true);
-            //         Endpoint[3].SetActive(true);
-            //         Endpoint[3].transform.position = new Vector3 (5369, 405, 595);
-            //Endpoint[3].transform.rotation = Quaternion.Euler (-90, 81, -90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-3166, -17, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3942, 228, -64);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 3);
+
         }
         else if (Num == 10)
         {
             CarrierLevels[10].SetActive(true);
-            //         Endpoint[0].SetActive(true);
-            //         Endpoint[0].transform.position = new Vector3 (6365, 212, 66.5f);
-            //Endpoint[0].transform.rotation = Quaternion.Euler (-90, 0,0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (-1700, -17, 122);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(5560, 50, -4);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         }
         else if (Num == 11)
         {
             CarrierLevels[11].SetActive(true);
-            //         Endpoint[7].SetActive(true);
-            //         Endpoint[7].transform.position = new Vector3 (10240, 164, 723);
-            //Endpoint[7].transform.rotation = Quaternion.Euler (0, 103.629f, 0);
-            //boundery.transform.position = new Vector3 (736, -17, 297);
-            //boundery.transform.rotation = Quaternion.Euler(0, -60, 0);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(5560, 50, 2290);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 25, 0);
+
         }
         else if (Num == 12)
         {
             CarrierLevels[12].SetActive(true);
-            //         Endpoint[3].SetActive(true);
-            //         Endpoint[3].transform.position = new Vector3 (7099.4f, 52.1f, 4694.7f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler (-90, 0, -22);
-            ////boundery.transform.position = new Vector3 (1046, -17, -383);
-            //boundery.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(7837, -141, 2290);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -115, 0);
+
 
         }
         else if (Num == 13)
         {
             CarrierLevels[13].SetActive(true);
-            //         Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            //         Endpoint[1].SetActive(true);
-            //         Endpoint[1].transform.position = new Vector3 (7548, 20, -1602);
-            //Endpoint[1].transform.rotation = Quaternion.Euler (-90, 0, 295);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (1362, -17, -383);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8513, -32, -1224);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Num == 14)
         {
             CarrierLevels[14].SetActive(true);
-            //         Endpoint[3].SetActive(true);
-            //         Endpoint[3].transform.position = new Vector3 (1980, 102, -6397);
-            //Endpoint[3].transform.rotation = Quaternion.Euler (-90,0,90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (1362, -10, -1124);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(1964, -11, -4196);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 90, 0);
 
         }
         else if (Num == 15)
         {
             CarrierLevels[15].SetActive(true);
-            //         Endpoint[6].SetActive(true);
-            //         Endpoint[6].transform.position = new Vector3 (3579, 257.6f, -1475.1f);
-            //Endpoint[6].transform.rotation = Quaternion.Euler (-77.86f, -252.5f, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3 (1362, -10, 707);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(1160, 47, -2760);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Num == 16)
         {
             CarrierLevels[16].SetActive(true);
-            //Endpoint[5].transform.localScale = new Vector3(60, 60, 60);
-            //Endpoint[4].SetActive(true);
-            //Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
-            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(834, -75, -321);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8025, -91, -1519);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Num == 17)
         {
             CarrierLevels[17].SetActive(true);
-            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.position = new Vector3(-4720, -46, -321);
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(2676, -9, 176);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(9459, 376, -470);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(8296, 3.9f, -3454);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
 
         }
         else if (Num == 18)
         {
             CarrierLevels[18].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
-            //boundery.transform.position = new Vector3(1329.4f, -10, -1034);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(4353, 0, -4752);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(8146, 3.9f, -375);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 70, 0);
         }
         else if (Num == 19)
         {
             CarrierLevels[19].SetActive(true);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            //Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(1329, -10, 123);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8410, 0, -1453);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(14591, 182, -5431);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(16707, 3.9f, -3398);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, -46.78f, 0);
+
         }
         else if (Num == 20)
         {
             CarrierLevels[20].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
-            //Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
-            //boundery.transform.position = new Vector3(838, -10, 5519);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(148, 231, 8523);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -91, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(-18900, 420, -1354);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, -31.83f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(-2273, 143, 10417);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, -117.5f, 0);
+
         }
         else if (Num == 21)
         {
             CarrierLevels[21].SetActive(true);
-            //Endpoint[5].SetActive(true);
-            //Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
-            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(812, -90, 192);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(7965, -13, -602);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         }
         else if (Num == 22)
         {
             CarrierLevels[22].SetActive(true);
-            //Endpoint[7].SetActive(true);
-            //Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
-            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, -19.56f, 0);
-            //boundery.transform.position = new Vector3(812, -90, 192);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3716, -255, 5033);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         }
         else if (Num == 23)
         {
             CarrierLevels[23].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 22.88f, 0);
-            //boundery.transform.position = new Vector3(1363, -19, 538);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8229, -255, -2224);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 27.57f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(7000, -222, -5339);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 17.7f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(-1279, -253, -5715);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 105.5f, 0);
+
         }
         else if (Num == 24)
         {
             CarrierLevels[24].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
-            //boundery.transform.position = new Vector3(0, -55f, 0);
+
         }
 
     }
@@ -634,409 +385,132 @@ public class GamePlayManager : MonoBehaviour
         if (Num == 0)
         {
             MegaLevels[0].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(5346.5f, 92, 67);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //Endpoint[4].SetActive(true);
-            //Endpoint[4].transform.position = new Vector3(5323, 117, 67);
-            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.position = new Vector3(0, -71, 0);
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
+          
 
         }
         else if (Num == 1)
         {
             MegaLevels[1].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(4958.4f, 76, 64);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(0, -71, 0);
+          
         }
         else if (Num == 2)
         {
             MegaLevels[2].SetActive(true);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.position = new Vector3(1081.7f, -301.3f, -3439.93f);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 90, 0);
-            //Endpoint[6].SetActive(true);
-            //Endpoint[6].transform.position = new Vector3(1113.7f, -270, -3425.2f);
-            //Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(0, -54, 161);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(0, -313, -3514);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
+          
         }
         else if (Num == 3)
         {
-            //Boundry2.SetActive(true);
             MegaLevels[3].SetActive(true);
-            //Endpoint[2].SetActive(true);
-            //Endpoint[2].transform.position = new Vector3(1598, 140, 2395);
-            //Endpoint[2].transform.rotation = Quaternion.Euler(0, -90f, 15.76f);
-            //Endpoint[5].SetActive(true);
-            //Endpoint[5].transform.position = new Vector3(1598, 211.6f, 1574.6f);
-            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -180f, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(0, -54, -706);
-            //Boundry2.transform.position = new Vector3(0, 327, 2385);
-            //Boundry2.transform.rotation = Quaternion.Euler(-14.54f, 0, 0);
-
+          
         }
         else if (Num == 4)
         {
             MegaLevels[4].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(3664, -5.7f, 313);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-91, 2.2f, -1.7f);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(0, -84, -706);
-
+        
         }
         else if (Num == 5)
         {
             MegaLevels[5].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(3800, 120.9f, 71);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-3652, -6.4f, -706);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3473, 42, 543);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
+           
         }
         else if (Num == 6)
         {
             MegaLevels[6].SetActive(true);
-            ////Endpoint[2].SetActive(true);
-            ////Endpoint[2].transform.localScale = new Vector3(1, 1, 1);
-            ////Endpoint[2].transform.position = new Vector3(3874, 34.5f, 66);
-            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
-            //Endpoint[6].SetActive(true);
-            //Endpoint[6].transform.position = new Vector3(3581.3f, 165.6f, 63);
-            //Endpoint[6].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-3530, -6.4f, -706);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3601, 37, 543);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-
+          
         }
         else if (Num == 7)
         {
             MegaLevels[7].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(836, 118.9f, -3806.3f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-91, 90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-1121, -6.4f, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(-1384, 64, -3577);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
+         
         }
         else if (Num == 8)
         {
             MegaLevels[8].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            //Endpoint[1].transform.position = new Vector3(5452, 367, -279);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-87.857f, -90, -11);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-3166, -17, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3942, 228, -825);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 3);
-
+          
         }
         else if (Num == 9)
         {
             MegaLevels[9].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(5369, 405, 595);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 81, -90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-3166, -17, -386);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3942, 228, -64);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 3);
+         
         }
         else if (Num == 10)
         {
             MegaLevels[10].SetActive(true);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.position = new Vector3(6365, 212, 66.5f);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(-1700, -17, 122);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(5560, 50, -4);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
+        
         }
         else if (Num == 11)
         {
             MegaLevels[11].SetActive(true);
-            ////Endpoint[2].SetActive(true);
-            ////Endpoint[2].transform.position = new Vector3(10644, -101, 624);
-            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 14, 0);
-            //Endpoint[7].SetActive(true);
-            //Endpoint[7].transform.position = new Vector3(10240, 164, 723);
-            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 103.629f, 0);
-            //boundery.transform.position = new Vector3(736, -17, 297);
-            //boundery.transform.rotation = Quaternion.Euler(0, -60, 0);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(5560, 50, 2290);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 25, 0);
 
         }
         else if (Num == 12)
         {
             MegaLevels[12].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(7099.4f, 52.1f, 4694.7f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -22);
-            //boundery.transform.position = new Vector3(1046, -17, -383);
-            //boundery.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(7837, -141, 2290);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -115, 0);
-
+          
         }
         else if (Num == 13)
         {
             MegaLevels[13].SetActive(true);
-            //Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.position = new Vector3(7548, 20, -1602);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 295);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(1362, -17, -383);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8513, -32, -1224);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
+           
 
         }
         else if (Num == 14)
         {
             MegaLevels[14].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(1980, 102, -6397);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, 90);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(1362, -10, -1124);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(1964, -11, -4196);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 90, 0);
-
+           
         }
         else if (Num == 15)
         {
             MegaLevels[15].SetActive(true);
-            ////Endpoint[2].SetActive(true);
-            ////Endpoint[2].transform.position = new Vector3(2946, -22, -1308);
-            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, -165, 0);
-            //Endpoint[6].SetActive(true);
-            //Endpoint[6].transform.position = new Vector3(3579, 257.6f, -1475.1f);
-            //Endpoint[6].transform.rotation = Quaternion.Euler(-77.86f, -252.5f, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(1362, -10, 707);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(1160, 47, -2760);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
+           
 
         }
         else if (Num == 16)
         {
             MegaLevels[16].SetActive(true);
-            ////Endpoint[1].transform.localScale = new Vector3(60, 60, 60);
-            ////Endpoint[1].SetActive(true);
-            ////Endpoint[1].transform.position = new Vector3(11089, 46, -2078);
-            ////Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, -99);
-            //Endpoint[4].SetActive(true);
-            //Endpoint[4].transform.position = new Vector3(10916.1f, 86, -2115.8f);
-            //Endpoint[4].transform.rotation = Quaternion.Euler(-90, 0, -99);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(834, -75, -321);
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8025, -91, -1519);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
+           
         }
         else if (Num == 17)
         {
             MegaLevels[17].SetActive(true);
-            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.position = new Vector3(7170.4f, -34.5f, -6067.2f);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 0, 100);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.position = new Vector3(-4720, -46, -321);
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(2676, -9, 176);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(9459, 376, -470);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(8296, 3.9f, -3454);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
+           
 
         }
         else if (Num == 18)
         {
             MegaLevels[18].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(25170, 313, 6695);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -21);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
-            //boundery.transform.position = new Vector3(1329.4f, -10, -1034);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(4353, 0, -4752);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(8146, 3.9f, -375);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 70, 0);
+           
         }
         else if (Num == 19)
         {
             MegaLevels[19].SetActive(true);
-            //Endpoint[0].SetActive(true);
-            //Endpoint[0].transform.localScale = new Vector3(40, 40, 40);
-            //Endpoint[0].transform.position = new Vector3(11527, 83.8f, 365);
-            //Endpoint[0].transform.rotation = Quaternion.Euler(-90, 121, 100);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(1329, -10, 123);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8410, 0, -1453);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -24, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(14591, 182, -5431);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 21.3f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(16707, 3.9f, -3398);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, -46.78f, 0);
+           
         }
         else if (Num == 20)
         {
             MegaLevels[20].SetActive(true);
-            //Endpoint[1].SetActive(true);
-            //Endpoint[1].transform.localScale = new Vector3(80, 80, 80);
-            //Endpoint[1].transform.position = new Vector3(-19946, 535, -1516);
-            //Endpoint[1].transform.rotation = Quaternion.Euler(-90, 0, 58);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 90, 0);
-            //boundery.transform.position = new Vector3(838, -10, 5519);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(148, 231, 8523);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, -91, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(-18900, 420, -1354);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, -31.83f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(-2273, 143, 10417);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, -117.5f, 0);
+          
         }
         else if (Num == 21)
         {
             MegaLevels[21].SetActive(true);
-            ////Endpoint[2].SetActive(true);
-            ////Endpoint[2].transform.position = new Vector3(8406, -237, -186.6f);
-            ////Endpoint[2].transform.rotation = Quaternion.Euler(0, 0, 0);
-            //Endpoint[5].SetActive(true);
-            //Endpoint[5].transform.position = new Vector3(7761.3f, 27.8f, -196);
-            //Endpoint[5].transform.rotation = Quaternion.Euler(-90, -90, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //boundery.transform.position = new Vector3(812, -90, 192);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(7965, -13, -602);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 0, 0);
+          
         }
         else if (Num == 22)
         {
             MegaLevels[22].SetActive(true);
-            ////Endpoint[3].SetActive(true);
-            ////Endpoint[3].transform.position = new Vector3(7563, 48.9f, 4758.7f);
-            ////Endpoint[3].transform.rotation = Quaternion.Euler(-90, -7, 0);
-            //Endpoint[7].SetActive(true);
-            //Endpoint[7].transform.position = new Vector3(7794.32f, 48.4f, 4789);
-            //Endpoint[7].transform.rotation = Quaternion.Euler(0, 82, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, -19.56f, 0);
-            //boundery.transform.position = new Vector3(812, -90, 192);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(3716, -255, 5033);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 0, 0);
+          
         }
         else if (Num == 23)
         {
             MegaLevels[23].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(14371, 47, -10281);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 13, 0);
-            //----------------------------------------------------------------------------//
-            //boundery.transform.rotation = Quaternion.Euler(0, 22.88f, 0);
-            //boundery.transform.position = new Vector3(1363, -19, 538);
-            //----------------------------------------------------------------------------//
-            //Boundry2.SetActive(true);
-            //Boundry2.transform.position = new Vector3(8229, -255, -2224);
-            //Boundry2.transform.rotation = Quaternion.Euler(0, 27.57f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry3.SetActive(true);
-            //Boundry3.transform.position = new Vector3(7000, -222, -5339);
-            //Boundry3.transform.rotation = Quaternion.Euler(0, 17.7f, 0);
-            //----------------------------------------------------------------------------//
-            //Boundry4.SetActive(true);
-            //Boundry4.transform.position = new Vector3(-1279, -253, -5715);
-            //Boundry4.transform.rotation = Quaternion.Euler(0, 105.5f, 0);
+          
         }
         else if (Num == 24)
         {
             MegaLevels[24].SetActive(true);
-            //Endpoint[3].SetActive(true);
-            //Endpoint[3].transform.position = new Vector3(7693, 44.1f, 934.9f);
-            //Endpoint[3].transform.rotation = Quaternion.Euler(-90, 0, -158);
-            //boundery.transform.position = new Vector3(0, -55f, 0);
+           
         }
-
     }
 
     //------------------------------------CarSelection------------------------------
@@ -1061,7 +535,7 @@ public class GamePlayManager : MonoBehaviour
             SpecificNum = 0;
             CarCheck();
         }
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
     }
     public void PreviousModleBtn()
     {
@@ -1083,16 +557,16 @@ public class GamePlayManager : MonoBehaviour
             SpecificNum = 9;
             CarCheck();
         }
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void ModleSelctionBtn()
     {
         StartCoroutine(Active_levelsandCar());
-        Invoke(nameof(FirstSkipOn), 5f);
-        RenderSettings.skybox = Skyboxes[PlayerPrefs.GetInt("Weather")];
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
-        SoundsManager._instance.Stop_PlayingMusic();
+       // Invoke(nameof(FirstSkipOn), 5f);
+        RenderSettings.skybox = Skyboxes[/*PlayerPrefs.GetInt("Weather")*/ Num];
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
+        SoundsManager1._instance.Stop_PlayingMusic();
 
     }
 
@@ -1102,16 +576,19 @@ public class GamePlayManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         if (PlayerPrefs.GetInt("mode") == 0)
         {
-            this.gameObject.GetComponent<Level_Time>().enabled = false;
-            TimeBar.SetActive(false);
+           // this.gameObject.GetComponent<Level_Time>().enabled = false;
+          //  TimeBar.SetActive(false);
             LevelSelection();
+            FirebaseHandler.instance.logLevelStarted("_TrainerMode", PlayerPrefs.GetInt("level_number").ToString());
 
         }
         else if (PlayerPrefs.GetInt("mode") == 1)
         {
-            this.gameObject.GetComponent<Level_Time>().enabled = true;
-            TimeBar.SetActive(true);
-            LevelSelection();
+            //  this.gameObject.GetComponent<Level_Time>().enabled = true;
+            //   TimeBar.SetActive(true);
+            //  LevelSelection();
+            LevelSelection1();
+            FirebaseHandler.instance.logLevelStarted("_MasterMode", PlayerPrefs.GetInt("level_number").ToString());
         }
         else if (PlayerPrefs.GetInt("mode") == 2)
         {
@@ -1140,14 +617,14 @@ public class GamePlayManager : MonoBehaviour
         SelectionCamera.SetActive(false);
         addloading.SetActive(false);
         StopCoroutine(Active_levelsandCar());
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void ActiveCar()
     {
-        CarModle[ModleNum].SetActive(true);
+        CarModle[PlayerPrefs.GetInt("MNum", ModleNum)].SetActive(true);
         RCC = RCC_SceneManager.Instance.activePlayerVehicle;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
     }
     public void OneTwoThreeGo()
     {
@@ -1175,7 +652,7 @@ public class GamePlayManager : MonoBehaviour
         Counting_Text[1].SetActive(false);
         Counting_Text[2].SetActive(false);
         StopAllCoroutines();
-        SoundsManager._instance.PlayMusic_Game(Random.Range(0, SoundsManager._instance.gameBG.Length));
+        SoundsManager1._instance.PlayMusic_Game(Random.Range(0, SoundsManager1._instance.gameBG.Length));
         //Header.SetActive(false);
         //Footer.SetActive(false);
 
@@ -1206,7 +683,7 @@ public class GamePlayManager : MonoBehaviour
         Skip.SetActive(false);
         RcPanel.SetActive(true);
         rccam.SetActive(true);
-        SoundsManager._instance.PlayMusic_Game(Random.Range(0,SoundsManager._instance.gameBG.Length));
+        SoundsManager1._instance.PlayMusic_Game(Random.Range(0, SoundsManager1._instance.gameBG.Length));
     }
     public void PreviousCar()
     {
@@ -1268,10 +745,15 @@ public class GamePlayManager : MonoBehaviour
             RCC = RCC_SceneManager.Instance.activePlayerVehicle;
             Debug.LogWarning("Rcc is Null");
         }
+        if (RCC.direction == -1)
+            return;
+
         RCC.nos_IsActive = true;
     }
     public void nos_Down()
     {
+        if (RCC.direction == -1)
+            return;
         //N = false;
         RCC.nos_IsActive = false;
         RCC.Nos_stop();
@@ -1418,7 +900,7 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("car7", 1);
         PlayerPrefs.SetInt("car8", 1);
         PlayerPrefs.SetInt("car9", 1);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
         CarCheck();
     }
@@ -1520,7 +1002,7 @@ public class GamePlayManager : MonoBehaviour
         }
 
         CarCheck();
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     private void textoff()
@@ -1542,7 +1024,7 @@ public class GamePlayManager : MonoBehaviour
     public void CarActiveOnButton(int index)
     {
 
-        for(int k=0; k< carButton.Length; k++)
+        for (int k = 0; k < carButton.Length; k++)
         {
             CarModle[k].SetActive(false);
             CarScpecification[k].SetActive(false);
@@ -1567,12 +1049,12 @@ public class GamePlayManager : MonoBehaviour
     #region Victory
     public void set_StatusVictorPanel()
     {
-        int ran = Random.Range(500,1000);
+        int ran = Random.Range(500, 1000);
         PlayerPrefs.SetInt("cashin", PlayerPrefs.GetInt("cashin") + ran);
         //Star.SetActive(false);
         VictoryPanel.SetActive(false);
         CompletePanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.levelComplete);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.levelComplete);
         //Level_Time.ispause = false;
         Time.timeScale = 0;
     }
@@ -1590,6 +1072,8 @@ public class GamePlayManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("compare", min);
             }
+            FirebaseHandler.instance.logLevelCompleted("_TrainerMode", PlayerPrefs.GetInt("level_number").ToString());
+
         }
 
         if (PlayerPrefs.GetInt("mode") == 1)
@@ -1601,6 +1085,7 @@ public class GamePlayManager : MonoBehaviour
                 PlayerPrefs.SetInt("compare2", min1);
 
             }
+            FirebaseHandler.instance.logLevelCompleted("_MasterMode", PlayerPrefs.GetInt("level_number").ToString());
         }
         if (PlayerPrefs.GetInt("mode") == 2)
         {
@@ -1641,19 +1126,20 @@ public class GamePlayManager : MonoBehaviour
     #region Vehiclestatus
     public void Resetvehicle()
     {
-        RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<PlayerTriggerListener>().set_StatusVehicleReset();
+        if (RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<PlayerTriggerListener>())
+            RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<PlayerTriggerListener>().set_StatusVehicleReset();
     }
     #endregion
 
     #region ButtonListener
-     int i = 0;
+    int i = 0;
     public void set_StatusRadioMusic()
     {
-        SoundsManager._instance.Stop_PlayingMusic();
-        
-        SoundsManager._instance.PlayMusic_Game(i);
+        SoundsManager1._instance.Stop_PlayingMusic();
+
+        SoundsManager1._instance.PlayMusic_Game(i);
         i++;
-        if (i >= SoundsManager._instance.gameBG.Length)
+        if (i >= SoundsManager1._instance.gameBG.Length)
         {
             i = 0;
         }

@@ -13,6 +13,7 @@ public class EffectListener : MonoBehaviour
         {
             if (isgrounded)
                 TyreTrail.SetActive(val);
+           // print("Boost");
         }
         else
             TyreTrail.SetActive(val);

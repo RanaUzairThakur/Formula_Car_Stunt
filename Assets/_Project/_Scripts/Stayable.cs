@@ -32,12 +32,12 @@ public class Stayable : MonoBehaviour
             {
                 if (!check)
                     check = true;
-                Debug.DrawRay(transform.position, Vector3.down, Color.green, dsitance);
-                if (hit.collider.gameObject.CompareTag("GameOver"))
-                    car.goingFalldown = true;
-                else
-                    car.goingFalldown = false;
-                return;
+               // Debug.DrawRay(transform.position, Vector3.down, Color.green, dsitance);
+                //if (hit.collider.gameObject.CompareTag("GameOver"))
+                //    car.goingFalldown = true;
+                //else
+                //    car.goingFalldown = false;
+                //return;
             }
             else
             {
@@ -78,13 +78,10 @@ public class Stayable : MonoBehaviour
     bool IsGrounded()
     {
 
-        foreach (WheelCollider w in WhellCol)
-        {
-            if (w.GetGroundHit(out wheelHit))
-
-                return true;
-        }
-        return false;
+        if (car.isGrounded)
+            return true;
+        else
+            return false;
     }
 
 }

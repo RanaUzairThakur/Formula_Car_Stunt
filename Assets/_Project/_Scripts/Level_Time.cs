@@ -33,14 +33,14 @@ public class Level_Time : MonoBehaviour {
                 StopCoroutine("LoseTime");
                 GCFailScript.Instance.FailPanel.SetActive(true);
                 Time.timeScale = 0;
-                //if (PlayerPrefs.GetInt("mode") == 0)
-                //{
-                //    FirebaseHandler.instance.logLevelStarted("TimeUp_M_T_L_", (PlayerPrefs.GetInt("level_number")).ToString());
-                //}
-                //if (PlayerPrefs.GetInt("mode") == 1)
-                //{
-                //    FirebaseHandler.instance.logLevelStarted("TimeUp_M_C_L_", (PlayerPrefs.GetInt("level_number")).ToString());
-                //}
+                if (PlayerPrefs.GetInt("mode") == 0)
+                {
+                    FirebaseHandler.instance.logLevelStarted("_TrainerMode", (PlayerPrefs.GetInt("level_number")).ToString());
+                }
+                if (PlayerPrefs.GetInt("mode") == 1)
+                {
+                    FirebaseHandler.instance.logLevelStarted("_MasterMode", (PlayerPrefs.GetInt("level_number")).ToString());
+                }
                 //if (PlayerPrefs.GetInt("mode") == 2)
                 //{
                 //    FirebaseHandler.instance.logLevelStarted("TimeUp_M_M_L_", (PlayerPrefs.GetInt("level_number")).ToString());

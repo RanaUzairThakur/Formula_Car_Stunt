@@ -593,7 +593,6 @@ GameObject:
   - component: {fileID: 2699336193938150926}
   - component: {fileID: 2699336193940342991}
   - component: {fileID: 2699336193940342989}
-  - component: {fileID: 5179116435399635721}
   - component: {fileID: 2594917745216270953}
   m_Layer: 0
   m_Name: FormulaCar
@@ -705,57 +704,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5179116435399635721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2699336193940342990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93500084b828b0a47b5bfbc24788e9ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psSimulateOnStart: 1
-  psUpdateMovement: 1
-  psContinueInPath: 0
-  psCurrentBranch: {fileID: 0}
-  psLoopPath: 0
-  psRounds: 1
-  psAdaptToUpcomingNode: 0
-  psOnPathEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  psCurrentNode: {fileID: 0}
-  psCurrentNodePosition: {x: 0, y: 0, z: 0}
-  psUseGravity: 0
-  psRadialType: 0
-  psUseNaturalAngularRotation: 0
-  psCopyPathRotation: 1
-  psLookAt: 0
-  psMinimumNodeDistance: 0.5
-  psRadius: 1.7
-  psLookAtSource: {fileID: 0}
-  psPositionOffset: {x: 0, y: 0, z: 0}
-  psRotationOffset: {x: 0, y: 0, z: 90}
-  psMovementSmooth: 25
-  psRotationSmooth: 9
-  psSpeedTransition: 0.5
-  psTurnTransition: 1.64
-  psDefaultSpeed: 0.5
-  psMaxSpeed: 25
-  psMinSpeed: 1
-  psTurnSwingBias: 32
-  psTurnSwingMaxAngle: 90
-  psCurrentSpeed: 0
-  psCurrentBoost: 0
-  psSpeedBreak: 0.1
-  psCurrentTurn: -1.5
-  psUseAudioEffect: 1
-  psAudioEffect: {fileID: 0}
-  psInternalGlobalSpeed: 0
-  psInternalGlobalTurn: -1.5
 --- !u!65 &2594917745216270953
 BoxCollider:
   m_ObjectHideFlags: 0

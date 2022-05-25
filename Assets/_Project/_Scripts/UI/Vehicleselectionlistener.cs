@@ -14,7 +14,7 @@ public class Vehicleselectionlistener : MonoBehaviour
        
         foreach (GameObject g in Enableaobject)
             g.SetActive(true);
-        startstage.SetActive(false);
+       // startstage.SetActive(false);
         RenderSettings.skybox = skybox;
 
     }
@@ -23,6 +23,6 @@ public class Vehicleselectionlistener : MonoBehaviour
        
         foreach (GameObject g in Disableobject)
             g.SetActive(false);
-        startstage.SetActive(true);
+       // startstage.SetActive(true);
     }
 }

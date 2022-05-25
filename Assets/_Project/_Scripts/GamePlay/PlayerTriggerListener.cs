@@ -20,14 +20,14 @@ public class PlayerTriggerListener : MonoBehaviour
         {
 
             Lastsavepoint = col.gameObject.transform;
-            SoundsManager._instance.PlaySound(SoundsManager._instance.Savepointclip);
+            SoundsManager1._instance.PlaySound(SoundsManager1._instance.Savepointclip);
             col.gameObject.SetActive(false);
            // Debug.Log("Stunt On");
         }
         if (col.gameObject.tag == "Coin")
         {
             Totalcoins++;
-            SoundsManager._instance.PlaySound(SoundsManager._instance.singleCoinsSound);
+            SoundsManager1._instance.PlaySound(SoundsManager1._instance.singleCoinsSound);
             col.gameObject.SetActive(false);
           //  Debug.Log("Stunt On");
         }
@@ -53,6 +53,7 @@ public class PlayerTriggerListener : MonoBehaviour
             this.transform.rotation = Lastsavepoint.rotation;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            this.GetComponent<HandleTyreGrip>().enabled = false;
         }
         else
         {

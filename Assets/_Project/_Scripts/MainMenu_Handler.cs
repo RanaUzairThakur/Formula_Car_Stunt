@@ -24,11 +24,16 @@ public class MainMenu_Handler : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.SetInt("compare", 14);
+        //PlayerPrefs.SetInt("compare2", 14);
+        //PlayerPrefs.SetInt("compare3", 10);
+        //PlayerPrefs.SetInt("compare4", 10);
+        //PlayerPrefs.SetInt("compare5", 10);
 
         Invoke("CrossDelay", 2f);
         Time.timeScale = 1;
         AudioListener.volume = 1;
-        SoundsManager._instance.PlayMusic_Menu();
+        SoundsManager1._instance.PlayMusic_Menu();
         Cashin.text = ("" + PlayerPrefs.GetInt("cashin"));
         modeCash.text = ("" + PlayerPrefs.GetInt("cashin"));
 
@@ -76,6 +81,7 @@ public class MainMenu_Handler : MonoBehaviour
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.GetComponent<Animator>().enabled = true;
         Mode_Button[PlayerPrefs.GetInt("mode")].gameObject.GetComponent<Animator>().enabled = true;
+        Mode_Button[PlayerPrefs.GetInt("mode")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
         //if (PlayerPrefs.GetInt("compare2") == 0)
         //{
@@ -122,7 +128,7 @@ public class MainMenu_Handler : MonoBehaviour
     {
         MainPanel.SetActive(false);
         ModeSelection.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
         //CarrierLevel.SetActive(true);
         //Weather.SetActive(true);
     }
@@ -134,7 +140,7 @@ public class MainMenu_Handler : MonoBehaviour
         CarrierLevel.SetActive(false);
         Weather.SetActive(false);
         City.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
         //StartCoroutine(Onload());
 
@@ -143,7 +149,7 @@ public class MainMenu_Handler : MonoBehaviour
     {
         City.SetActive(false);
         LoadingPanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
 
     }
@@ -173,23 +179,28 @@ public class MainMenu_Handler : MonoBehaviour
         {
             CarrierLevel.SetActive(true);
         }
-        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.buttonPress);
 
     }
-    public void Carrier()
+    public void TrainerMode(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
         if (CarrierLevel)
             CarrierLevel.SetActive(true);
-        PlayerPrefs.SetInt("mode", 0);
+        PlayerPrefs.SetInt("mode", mode);
         int unlok = PlayerPrefs.GetInt("compare");
         for (int k = 0; k <= unlok; k++)
         {
             
             CarrierButtons[k].interactable = true;
             CarrierLock[k].SetActive(false);
-            if (k < unlok)
+            if (k == unlok)
+            {
+                CarrierButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                CarrierButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            }
+           else if (k < unlok)
             {
                 CarrierButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 CarrierButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -198,23 +209,28 @@ public class MainMenu_Handler : MonoBehaviour
         }
         CarrierButtons[PlayerPrefs.GetInt("compare")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         CarrierButtons[PlayerPrefs.GetInt("compare")].gameObject.GetComponent<Animator>().enabled = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
-
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
+        
         print("compare :" + unlok);
     }
-    public void TimeMode()
+    public void MasterMode(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
         if (TimeLevel)
             TimeLevel.SetActive(true);
-        PlayerPrefs.SetInt("mode", 1);
-        int unlok2 = PlayerPrefs.GetInt("compare2");
-        for (int k = 0; k <= unlok2; k++)
+        PlayerPrefs.SetInt("mode", mode);
+        int unlock2 = PlayerPrefs.GetInt("compare2");
+        for (int k = 0; k <= unlock2; k++)
         {
             TimeButtons[k].interactable = true;
             TimeLock[k].SetActive(false);
-            if (k < unlok2)
+            if (k == unlock2)
+            {
+                TimeButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                TimeButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            }
+           else if (k < unlock2)
             {
                 TimeButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 TimeButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -223,22 +239,27 @@ public class MainMenu_Handler : MonoBehaviour
         }
         TimeButtons[PlayerPrefs.GetInt("compare2")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         TimeButtons[PlayerPrefs.GetInt("compare2")].gameObject.GetComponent<Animator>().enabled = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
-        print("compare2 :" + unlok2);
+        print("compare2 :" + unlock2);
     }
-    public void Mega()
+    public void Mega(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
         if (MegaLevel)
             MegaLevel.SetActive(true);
         PlayerPrefs.SetInt("mode", 2);
-        int unlok3 = PlayerPrefs.GetInt("compare3");
-        for (int k = 0; k <= unlok3; k++)
+        int unlock3 = PlayerPrefs.GetInt("compare3");
+        for (int k = 0; k <= unlock3; k++)
         {
             MegaButtons[k].interactable = true;
-            if (k < unlok3)
+            if (k == unlock3)
+            {
+                MegaButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                MegaButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            }
+           else if (k < unlock3)
             {
                 MegaButtons[k].gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 MegaButtons[k].gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -248,11 +269,11 @@ public class MainMenu_Handler : MonoBehaviour
         }
         MegaButtons[PlayerPrefs.GetInt("compare3")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         MegaButtons[PlayerPrefs.GetInt("compare3")].gameObject.GetComponent<Animator>().enabled = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
-        print("compare3 :" + unlok3);
+        print("compare3 :" + unlock3);
     }
-    public void Express()
+    public void Express(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
@@ -273,11 +294,11 @@ public class MainMenu_Handler : MonoBehaviour
         }
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         ExpressButtons[PlayerPrefs.GetInt("compare4")].gameObject.GetComponent<Animator>().enabled = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
         print("compare4 :" + unlok4);
     }
-    public void Highway()
+    public void Highway(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
@@ -298,25 +319,25 @@ public class MainMenu_Handler : MonoBehaviour
         }
         HighwayButtons[PlayerPrefs.GetInt("compare4")].gameObject.transform.GetChild(0).gameObject.SetActive(true);
         HighwayLock[PlayerPrefs.GetInt("compare4")].gameObject.GetComponent<Animator>().enabled = true;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
         print("compare5 :" + unlok5);
     }
-    public void Free()
+    public void Free(int mode)
     {
         if (ModeSelection)
             ModeSelection.SetActive(false);
         if (CarrierLevel)
             CarrierLevel.SetActive(true);
         PlayerPrefs.SetInt("mode", 5);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void OnQuit()
     {
         MainPanel.SetActive(false);
         QuitPanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.buttonPress);
 
     }
 
@@ -324,7 +345,7 @@ public class MainMenu_Handler : MonoBehaviour
     {
 
         Application.Quit();
-        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.buttonPress);
 
     }
     public void OnQuitNo()
@@ -332,13 +353,13 @@ public class MainMenu_Handler : MonoBehaviour
 
         QuitPanel.SetActive(false);
         MainPanel.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.buttonPress);
 
     }
     public void rateUs()
     {
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.formula.car.mega.ramp.racing.game");
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
 
     }
@@ -346,7 +367,7 @@ public class MainMenu_Handler : MonoBehaviour
     {
 
         Application.OpenURL("https://play.google.com/store/apps/developer?id=Hi+Gamez");
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
 
     }
@@ -358,7 +379,7 @@ public class MainMenu_Handler : MonoBehaviour
         CarrierLevel.SetActive(false);
         MegaLevel.SetActive(false);
         Weather.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
 
         //isloading = true;
@@ -372,7 +393,7 @@ public class MainMenu_Handler : MonoBehaviour
         HighwayLevel.SetActive(false);
         ExpressLevel.SetActive(false);
         ModeSelection.SetActive(true);
-        SoundsManager._instance.PlaySound(SoundsManager._instance.buttonPress);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.buttonPress);
 
     }
     public void UnloackLevels()
@@ -398,7 +419,7 @@ public class MainMenu_Handler : MonoBehaviour
     public void SoundOn()
     {
         AudioListener.volume = 1;
-        SoundsManager._instance.PlaySound(SoundsManager._instance.GameUIclicks);
+        SoundsManager1._instance.PlaySound(SoundsManager1._instance.GameUIclicks);
 
     }
     public void SoundOff()

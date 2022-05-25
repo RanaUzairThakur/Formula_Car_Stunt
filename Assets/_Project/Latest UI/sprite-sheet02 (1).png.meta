@@ -16,22 +16,22 @@ TextureImporter:
     second: sprite-sheet02 (1)_3
   - first:
       213: 4282301982990442791
-    second: sprite-sheet02 (1)_4
+    second: STAR
   - first:
       213: -4426275275374966341
     second: victory
   - first:
       213: 8030831954880392279
-    second: No
+    second: innerbgpopup
   - first:
       213: 6880691303013911112
-    second: Buy
+    second: Greenbutton
   - first:
       213: 4884061345736411066
     second: boundary
   - first:
       213: -3092097787114090778
-    second: sprite-sheet02 (1)_9
+    second: yellowButton
   - first:
       213: 6808366934961377097
     second: flare
@@ -173,9 +173,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: 51
+    textureFormat: 52
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -250,11 +250,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet02 (1)_4
+      name: STAR
       rect:
         serializedVersion: 2
         x: 1219
-        y: 1526
+        y: 1524
         width: 169
         height: 151
       alignment: 0
@@ -292,7 +292,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: No
+      name: innerbgpopup
       rect:
         serializedVersion: 2
         x: 1158
@@ -313,7 +313,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buy
+      name: Greenbutton
       rect:
         serializedVersion: 2
         x: 1253
@@ -355,7 +355,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite-sheet02 (1)_9
+      name: yellowButton
       rect:
         serializedVersion: 2
         x: 882

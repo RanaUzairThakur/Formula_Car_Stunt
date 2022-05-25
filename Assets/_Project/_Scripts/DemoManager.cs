@@ -1,4 +1,4 @@
-﻿using PathSystem;
+﻿//using PathSystem;
 using System.Collections;
 using UnityEngine;
 public class DemoManager : MonoBehaviour
@@ -33,10 +33,16 @@ public class DemoManager : MonoBehaviour
     {
 
 
-      
-        Demos[PlayerPrefs.GetInt("level_number")].SetActive(true);
-        Car_List[PlayerPrefs.GetInt("MNum")].SetActive(true);
-        StartCoroutine(FirstDemoWait());
+        if (Demos[PlayerPrefs.GetInt("level_number")])
+        {
+            Demos[PlayerPrefs.GetInt("level_number")].SetActive(true);
+            Car_List[PlayerPrefs.GetInt("MNum")].SetActive(true);
+            StartCoroutine(FirstDemoWait());
+        }
+        else 
+        {
+            Directcounting();
+        }
     }
     //IEnumerator Level8()
     //{
@@ -58,6 +64,7 @@ public class DemoManager : MonoBehaviour
     //}
     IEnumerator FirstDemoWait()
     {
+        SkipButton.SetActive(true);
         yield return new WaitForSeconds(Demos[PlayerPrefs.GetInt("level_number")].GetComponent<DemoTimer>().time);
         SkipButton.SetActive(false);
         DemoTimer.Instance.fade.SetActive(true);
@@ -87,5 +94,16 @@ public class DemoManager : MonoBehaviour
     {
         if (Democars)
             Democars.SetActive(val);
+    }
+
+    void Directcounting()
+    {
+        SkipButton.SetActive(false);
+        GamePlayManager.inst.RcPanel.SetActive(true);
+        GamePlayManager.inst.rccam.SetActive(true);
+        //SoundsManager1._instance.PlayMusic_Game(Random.Range(0, SoundsManager1._instance.ga.));
+        GamePlayManager.inst.CarSelectionPanel.SetActive(false);
+        GamePlayManager.inst.Skip.SetActive(false);
+        GamePlayManager.inst.ActiveCar();
     }
 }

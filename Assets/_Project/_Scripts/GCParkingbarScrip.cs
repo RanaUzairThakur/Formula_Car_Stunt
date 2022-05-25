@@ -34,6 +34,8 @@ public class GCParkingbarScrip: MonoBehaviour {
             RCC_CarControllerV3.instance.skid = true;
             GamePlayManager.inst.Fadescreen.SetActive(true);		
 			GamePlayManager.inst.RcPanel.SetActive (false);
+            shashka.SetActive(true);
+            GamePlayManager.inst.rccam.GetComponent<RCC_Camera>().RemoveTarget();
             Invoke(nameof(Vehicle_withdriver),1.7f);
 		}
 	}
@@ -55,8 +57,8 @@ public class GCParkingbarScrip: MonoBehaviour {
     private void Vehicle_withdriver()
     {
 
-        SoundsManager._instance.PlaySound(SoundsManager._instance.WinAppreciationsound);
-        SoundsManager._instance.Stop_PlayingMusic();
+        //SoundsManager._instance.PlaySound(SoundsManager._instance.WinAppreciationsound);
+        //SoundsManager._instance.Stop_PlayingMusic();
         GamePlayManager.inst.set_CurrentVehiclestatus(false);
         shashka.SetActive(true);
         driver.SetActive(true);

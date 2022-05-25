@@ -14,13 +14,12 @@ public class GCFailScript : MonoBehaviour {
 	{
 		if (Target.tag== "Player") 
 		{
-            SoundsManager._instance.PlaySound(SoundsManager._instance.levelFail);
-            SoundsManager._instance.Stop_PlayingMusic();
-            GamePlayManager.inst.TutorailPanel.SetActive(false);
-             FailPanel.SetActive(true);
-            //RevivePanel.SetActive(true);
-            //RevivePanel.gameObject.GetComponent<ReviveCountDown>().timeLeft = 10f;
-            Time.timeScale=0f;
+            SoundsManager1._instance.PlaySound(SoundsManager1._instance.levelFail);
+            SoundsManager1._instance.Stop_PlayingSound();
+            // GamePlayManager.inst.TutorailPanel.SetActive(false);
+            // FailPanel.SetActive(true);
+            //  Time.timeScale=0f;
+            GamePlayManager.inst.Resetvehicle();
 
         }
 

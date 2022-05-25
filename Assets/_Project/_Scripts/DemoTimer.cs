@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PathSystem;
+//using PathSystem;
 public class DemoTimer : MonoBehaviour
 {
     public static DemoTimer Instance;

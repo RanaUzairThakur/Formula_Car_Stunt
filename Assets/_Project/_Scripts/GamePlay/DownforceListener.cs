@@ -21,22 +21,22 @@ public class DownforceListener : MonoBehaviour
 
             if (this.tag == "DownForceOn")
             {
-                if (col.gameObject.GetComponent<HandleTyreGrip>())
+                if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
                 {
-                    col.gameObject.GetComponent<HandleTyreGrip>().enabled = true;
-                    col.gameObject.GetComponent<HandleTyreGrip>().tireGrip = tyregrip;
-                    col.gameObject.GetComponent<HandleTyreGrip>().downforce = downforce;
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = true;
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
 
                 }
             }
            else if (this.tag == "DownForceOff")
             {
-                if (col.gameObject.GetComponent<HandleTyreGrip>())
+                if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
                 {
-                    col.gameObject.GetComponent<HandleTyreGrip>().enabled = false;
-                    col.gameObject.GetComponent<HandleTyreGrip>().tireGrip = tyregrip;
-                    col.gameObject.GetComponent<HandleTyreGrip>().downforce = downforce;
-                    col.transform.rotation = Quaternion.Euler(0f, col.transform.eulerAngles.y , 0f);
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = false;
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
+                    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
+                   // col.transform.rotation = Quaternion.Euler(0f, col.transform.eulerAngles.y , 0f);
 
                 }
             }

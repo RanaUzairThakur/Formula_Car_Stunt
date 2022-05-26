@@ -1,8 +1,7 @@
 ﻿//using GoogleMobileAds.Api;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System;
 //using GameAnalyticsSDK;
 
 public class VehicleSelectionListner : MonoBehaviour
@@ -20,7 +19,7 @@ public class VehicleSelectionListner : MonoBehaviour
     public GameObject unlockBtn;
     public GameObject unlockAllCarsBtn;
     //public GameObject TryWeapon;
- //   public GameObject unlockPanel;
+    //   public GameObject unlockPanel;
     //public Text vehicleName;
     public Text vehicleCost;
     public Image[] attributeFillImg;
@@ -34,11 +33,11 @@ public class VehicleSelectionListner : MonoBehaviour
     private GameObject vehiclesPrefabs;
     //[HideInInspector]
     private GunSelection_Gun vehiclesData;
-  //  public ConsoliAdsBannerView consoliAdsBannerView = new ConsoliAdsBannerView();
+    //  public ConsoliAdsBannerView consoliAdsBannerView = new ConsoliAdsBannerView();
 
     private void OnEnable()
     {
-       
+
         curVehicleIndex = Toolbox.DB.Prefs.LastSelectedVehicle;
         //Toolbox.GameManager.Add_ActiveUI(this.gameObject);
         FetchVehiclesDataFromResources();
@@ -46,38 +45,39 @@ public class VehicleSelectionListner : MonoBehaviour
         UpdateTxts();
         vehicleSpawnPosition.gameObject.SetActive(true);
 
-        if (Toolbox.DB.Prefs.AreAllGunsUnlocked())
-            UnlockAllCarsBtn(false);
-        else
-            UnlockAllCarsBtn(true);
 
+        UnlockAllVehicle_btnhandling();
         Gunselection.SetActive(true);
         Mainmenu.SetActive(false);
-        
+
 
     }
     private void Start()
     {
-       // Invoke("ShowMegaOffers",1f);
+        // Invoke("ShowMegaOffers",1f);
     }
 
     private void ShowMegaOffers()
     {
-        if (!Toolbox.DB.Prefs.AreAllGunsUnlocked() && !Toolbox.DB.Prefs.MegaOfferPurchased)
+        if (!Toolbox.DB.Prefs.AreAllVehiclesUnlocked() && !Toolbox.DB.Prefs.MegaOfferPurchased)
         {
             Toolbox.UIManager.MegaOffers.SetActive(true);
             //   Toolbox.GameManager.Instantiate_MegaOffer();
         }
     }
 
+    public void UnlockAllVehicle_btnhandling()
+    {
+        if (Toolbox.DB.Prefs.AreAllVehiclesUnlocked())
+            UnlockAllCarsBtn(false);
+        else
+            UnlockAllCarsBtn(true);
+    }
+
     private void OnDisable()
     {
-       
-        vehicleSpawnPosition.gameObject.SetActive(false);
         CancelInvoke();
         StopAllCoroutines();
-        Gunselection.SetActive(false);
-        Mainmenu.SetActive(true);
     }
 
     public void UpdateTxts()
@@ -90,7 +90,8 @@ public class VehicleSelectionListner : MonoBehaviour
         vehiclesPrefabs = Resources.Load<GameObject>(Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_VehicleSelection_Vehicles + curVehicleIndex);
     }
 
-    private void ShowVehicle(int _index) {
+    private void ShowVehicle(int _index)
+    {
 
         if (spawnedVehicleObj)
             Destroy(spawnedVehicleObj);
@@ -109,11 +110,12 @@ public class VehicleSelectionListner : MonoBehaviour
         SetButtonState(Toolbox.DB.Prefs.VehiclesUnlocked[_index]);
     }
 
-    private void SetButtonState(bool _gunUnlocked) {
-        
-       
+    private void SetButtonState(bool _gunUnlocked)
+    {
+
+
         play.gameObject.SetActive(_gunUnlocked);
-       // if Directly showing shop then always keep this button off
+        // if Directly showing shop then always keep this button off
         if (Toolbox.GameManager.GodirectshopfromMenu)
             play.gameObject.SetActive(false);
         // if(Toolbox.GameManager.GoDirectGamePlayAfterCompleteDirectShop1)
@@ -123,12 +125,13 @@ public class VehicleSelectionListner : MonoBehaviour
 
         lockPanel.SetActive(!_gunUnlocked);
         unlockBtn.SetActive(!_gunUnlocked);
-    //    unlockPanel.SetActive(_vehicleUnlocked);
+        //    unlockPanel.SetActive(_vehicleUnlocked);
 
-        vehicleCost.gameObject.SetActive(!_gunUnlocked);        
+        vehicleCost.gameObject.SetActive(!_gunUnlocked);
     }
 
-    public void UnlockAllCarsBtn(bool _val) {
+    public void UnlockAllCarsBtn(bool _val)
+    {
 
         unlockAllCarsBtn.SetActive(_val);
     }
@@ -137,7 +140,7 @@ public class VehicleSelectionListner : MonoBehaviour
 
     public void OnPress_Prev()
     {
-     
+
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPressPreviousGun);
         curVehicleIndex--;
 
@@ -148,13 +151,13 @@ public class VehicleSelectionListner : MonoBehaviour
         FetchVehiclesDataFromResources();
         ShowVehicle(curVehicleIndex);
 
-       
+
 
     }
 
     public void OnPress_Next()
     {
-       
+
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPressNextGun);
         curVehicleIndex++;
 
@@ -187,31 +190,31 @@ public class VehicleSelectionListner : MonoBehaviour
             Toolbox.DB.Prefs.VehiclesUnlocked[curVehicleIndex] = true;
             SetButtonState(true);
         }
-        else {
+        else
+        {
             Toolbox.UIManager.LowCoinUnlockCar_Panel.SetActive(true);
             Toolbox.UIManager.LowCoinUnlockCar_Panel.GetComponent<LowCoinVehicleBuy>().CurVehicle = curVehicleIndex;
-       //   Toolbox.GameManager.Instantiate_LowCoinUnlockCar(curVehicleIndex);
+            //   Toolbox.GameManager.Instantiate_LowCoinUnlockCar(curVehicleIndex);
         }
     }
 
     public void OnPress_UnlockAllVehicle()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_AllGuns();
+        InAppHandler.Instance.Buy_AllVehicles();
     }
 
 
     public void OnPress_Back()
     {
-        //if (this.GetComponentInParent<UIManager>().DirectShowingShop)
-        //    this.GetComponentInParent<UIManager>().DirectShowMain();
-        //else
-            this.GetComponentInParent<UIManager>().ShowPrevUI();
-       //s StartCoroutine(GunSelection(0.5f,false));
+
+        this.GetComponentInParent<UIManager>().ShowPrevUI();
         Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Back");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.BackButtonAnySelectionclick);
-       if ( Toolbox.GameManager.GodirectshopfromMenu )
-            Toolbox.GameManager.GodirectshopfromMenu = false;
+        Gunselection.SetActive(false);
+        Mainmenu.SetActive(true);
+        vehicleSpawnPosition.gameObject.SetActive(false);
+
     }
 
     public void OnPress_Play()
@@ -221,43 +224,43 @@ public class VehicleSelectionListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.PlayButtonGunselectionclick);
         Toolbox.GameManager.FBAnalytic_EventDesign("GunSelection_Press_Play");
         Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Play");
-      //  Invoke("Ads",1.2f);
+        //  Invoke("Ads",1.2f);
         this.GetComponentInParent<UIManager>().ShowNextUI();
     }
-  
+
     public void OnPress_Store()
     {
         Toolbox.GameManager.FBAnalytic_EventDesign("GunSelection_Press_Store");
         Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Store");
         Toolbox.UIManager.Shop_Panel.SetActive(true);
-    //    Toolbox.GameManager.InstantiateUI_Shop();
+        //    Toolbox.GameManager.InstantiateUI_Shop();
     }
 
     public void OnPress_3DView(bool _Val)
     {
         Toolbox.GameManager.FBAnalytic_EventDesign("OnPress_3DView");
         Toolbox.GameManager.Analytics_DesignEvent("OnPress_3DView");
-     //   View3DPanel.SetActive(_Val);
-     //   View2DPanel.SetActive(!_Val);
+        //   View3DPanel.SetActive(_Val);
+        //   View2DPanel.SetActive(!_Val);
     }
 
-    
+
     public void Unlockweapon()
     {
-       // Toolbox.DB.Prefs.Tryweapon = true;
+        // Toolbox.DB.Prefs.Tryweapon = true;
         Toolbox.UIManager.MessagePopup.SetActive(true);
         Toolbox.UIManager.MessagePopup.GetComponent<MessageListner>().UpdateTxt("This Weapon is Unlocked Just for Try, Now you can play the Level with this weapon.", "WEAPON UNLOCK FOR TRY");
-       //// Toolbox.DB.Prefs.WeaponUnlock_Try(Toolbox.DB.Prefs.Tyrweaponindex, true);
-       // curVehicleIndex = Toolbox.DB.Prefs.Tyrweaponindex;
-       // SetButtonState(Toolbox.DB.Prefs.VehiclesUnlocked[Toolbox.DB.Prefs.Tyrweaponindex]);
+        //// Toolbox.DB.Prefs.WeaponUnlock_Try(Toolbox.DB.Prefs.Tyrweaponindex, true);
+        // curVehicleIndex = Toolbox.DB.Prefs.Tyrweaponindex;
+        // SetButtonState(Toolbox.DB.Prefs.VehiclesUnlocked[Toolbox.DB.Prefs.Tyrweaponindex]);
     }
-    private IEnumerator GunSelection(float delay,bool _Val)
+    private IEnumerator GunSelection(float delay, bool _Val)
     {
-        yield return new WaitForSeconds(delay);    
+        yield return new WaitForSeconds(delay);
         vehicleSpawnPosition.gameObject.SetActive(_Val);
-        
-        StopCoroutine(GunSelection(0f,false));
+
+        StopCoroutine(GunSelection(0f, false));
     }
-   
+
     #endregion
 }

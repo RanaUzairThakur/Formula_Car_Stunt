@@ -49,8 +49,8 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
 		button = GetComponent<Button> ();
 		slider = GetComponent<Slider> ();
-		RCCV3rigidbody = RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
-		RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
+		RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
+		RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
 	}
 
 	public void OnPointerDown(PointerEventData eventData){

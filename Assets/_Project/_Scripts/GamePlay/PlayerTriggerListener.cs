@@ -10,6 +10,8 @@ public class PlayerTriggerListener : MonoBehaviour
     {
         if (!tyregrip)
             tyregrip = this.gameObject.GetComponent<HandleTyreGrip>();
+        if (!Lastsavepoint)
+            Lastsavepoint = Toolbox.GameplayController.VehicleSpawnPoint;
     }
     void OnTriggerEnter(Collider col)
     {
@@ -20,28 +22,25 @@ public class PlayerTriggerListener : MonoBehaviour
         {
 
             Lastsavepoint = col.gameObject.transform;
-            SoundsManager1._instance.PlaySound(SoundsManager1._instance.Savepointclip);
+            Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Savepointclip);
             col.gameObject.SetActive(false);
-           // Debug.Log("Stunt On");
         }
         if (col.gameObject.tag == "Coin")
         {
             Totalcoins++;
-            SoundsManager1._instance.PlaySound(SoundsManager1._instance.singleCoinsSound);
+            Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
             col.gameObject.SetActive(false);
-          //  Debug.Log("Stunt On");
         }
-        //if (col.tag == "downforce2")
-        //{
-        //   tyregrip.tireGrip = 2500;
-        //   tyregrip.downforce = 10000;
-        //}
-        //if (col.tag == "downforce3")
-        //{
-        //    tyregrip.tireGrip = 10000;
-        //    tyregrip.downforce = 25000;
-        //}
 
+        if (col.gameObject.tag == "Finish")
+        {
+            Toolbox.GameplayController.finish_Effect();
+        }
+        if (col.gameObject.tag == "GameOver")
+        {
+            Toolbox.GameplayController.Lives -= 1;
+            Toolbox.GameplayController.LevelFail_Delay(3f);
+        }
     }
 
 

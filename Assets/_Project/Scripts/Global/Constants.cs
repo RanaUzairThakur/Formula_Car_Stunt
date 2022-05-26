@@ -42,10 +42,10 @@ public static class Constants{
     
     public const string folderPath_Effects = "Effects/";
     public const string folderPath_Prefabs = "Prefabs/";
-    public const string folderPath_Scriptables_VehicleSelection_Vehicles = "Vehicles/";
+    public const string folderPath_Scriptables_VehicleSelection_Vehicles = "SelectionVehicles/";
     public const string folderPath_Prefabs_PlayerVehicles = "Vehicles/";
     public const string folderPath_Prefabs_Levels_Mode = "Levels_Mode";
-    public const string folderPath_Prefabs_VehicleSelection_Vehicles = "Vehicles/";
+    public const string folderPath_Prefabs_VehicleSelection_Vehicles = "SelectionVehicles/";
     public const string folderPath_DayModeLightingData = "LightingData/Day/";
 
 
@@ -116,7 +116,8 @@ public static class Constants{
     public const int sceneIndex_GameMode4 = 2;
     public const int sceneIndex_GameMode5 = 2;
     public const int sceneIndex_GameMode6 = 2;
-
+    public const string scenename_Gameplay = "Gameplay";
+   
 
     public const int gameModeIndex_Mode1 = 0;
     public const int gameModeIndex_Mode2 = 1;

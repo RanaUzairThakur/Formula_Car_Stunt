@@ -49,10 +49,9 @@ public class SoundsManager : MonoBehaviour {
 	public AudioClip levelFail;
 	public AudioClip letsgo;
 	public AudioClip GetReady;
-	public AudioClip Terroristwin;
+	public AudioClip AudienceAppreciation;
 	public AudioClip singleCoinsSound;
-	public AudioClip[] BossLevelSound;
-	public VoiceOver voiceovers;
+	public AudioClip Savepointclip;
 
 	private void Start()
     {
@@ -94,6 +93,10 @@ public class SoundsManager : MonoBehaviour {
 		soundSource.Stop ();
 	}
 
+	public void Stop_PlayingMusic()
+	{
+		musicSource.Stop();
+	}
 	public void PlayMusic_Menu() {
 
 		musicSource.clip = menuBG;
@@ -106,12 +109,6 @@ public class SoundsManager : MonoBehaviour {
 		musicSource.Play();
 
 	}
-	public void PlayMusic_GameBossLevels()
-	{
-		int ran = Random.Range(0,BossLevelSound.Length);
-		musicSource.clip = BossLevelSound[ran];
-		musicSource.Play();
-	}
 	public void letGo_Sound()
 	{
 		musicSource.clip = letsgo;
@@ -123,11 +120,7 @@ public class SoundsManager : MonoBehaviour {
 		musicSource.clip = GetReady;
 		musicSource.Play();
 	}
-	public void terriostwin_Sound()
-	{
-		musicSource.clip = Terroristwin;
-		musicSource.Play();
-	}
+	
 	
 	public void Set_MusicStatus(bool _val) {
 

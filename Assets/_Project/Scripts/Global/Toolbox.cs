@@ -12,12 +12,10 @@ public class Toolbox : MonoBehaviour {
    // private static AdsManager adsManager;
     private static ObjectiveHandler objectivehandler;
     private static UIManager uimanager;
-    private static RandomPlayerPositionScript playerpos;
     //private static InAppHandler inAppHandler;
     private static AdIconHandler adIconHandler;
     private static GameplayController gameplayController;
     private static HUDListner hudListner ;
-    private static MovePointAssigner_Helli movepointhelli;
     public static GameManager GameManager {
         get { return gameManager; }
     }
@@ -40,10 +38,7 @@ public class Toolbox : MonoBehaviour {
     {
         get { return uimanager; }
     }
-    public static RandomPlayerPositionScript RandomPlayerPositionScript
-    {
-        get { return playerpos; }
-    }
+  
  
     public static AdIconHandler AdIconHandler
     {
@@ -60,10 +55,7 @@ public class Toolbox : MonoBehaviour {
     }
    
    
-    public static MovePointAssigner_Helli MovePointAssigner_Helli
-    {
-        get { return movepointhelli; }
-    }
+    
    
     void Awake()
     {
@@ -90,13 +82,5 @@ public class Toolbox : MonoBehaviour {
     {
         uimanager  = obj;
     }
-    public static void Set_RandomPlayerpos(RandomPlayerPositionScript obj)
-    {
-        playerpos = obj;
-    }
-    
-    public static void Set_MovepointHelli(MovePointAssigner_Helli obj)
-    {
-        movepointhelli = obj;
-    }
+   
 }

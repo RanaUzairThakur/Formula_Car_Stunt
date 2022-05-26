@@ -166,7 +166,7 @@ public class RCC_Camera : MonoBehaviour{
 		if (camerashaking == null && this.gameObject.GetComponent<CameraShake>())
 			camerashaking = this.gameObject.GetComponent<CameraShake>();
 		if (playerCar == null)
-			SetTarget(RCC_SceneManager.Instance.activePlayerVehicle.gameObject);
+			SetTarget(Toolbox.GameplayController.SelectedVehiclePrefab);
 	}
 
 	void RCC_CarControllerV3_OnRCCPlayerCollision (RCC_CarControllerV3 RCC, Collision collision){

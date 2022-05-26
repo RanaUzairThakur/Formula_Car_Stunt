@@ -43,7 +43,7 @@ public class LevelSelectionListner : MonoBehaviour
 
     public void CheckStatus_UnlockallLevels()
     {
-        if (Toolbox.DB.Prefs.Unlockalllevel)
+        if (Toolbox.DB.Prefs.UnlockallLevel)
         {
             UnlockallBtn.SetActive(false);
             InitLevelButtonsState();
@@ -169,7 +169,7 @@ public class LevelSelectionListner : MonoBehaviour
     public void OnPress_UnlockAllLevel()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_AllLevels();
+        InAppHandler.Instance.Buy_AllLevels();
     }
     #endregion
 }

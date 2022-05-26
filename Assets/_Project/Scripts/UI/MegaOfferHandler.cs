@@ -31,7 +31,7 @@ public class MegaOfferHandler : MonoBehaviour
     }
 
     public void OnPress_GotIt() {
-       // InAppHandler.Instance.Buy_MegaOffer();
+       InAppHandler.Instance.Buy_MegaOffer();
      //   OnPress_Close();
     }
 }

@@ -25,25 +25,25 @@ public class Modeshandler : MonoBehaviour
         }
         else 
         {
-                switch (Toolbox.ObjectiveHandler.SelectedLevelData.ModeType)
-                {
-                    case LevelsData.modetype.Random:
-                        i = Random.Range(0, 2);
-                        break;
-                    case LevelsData.modetype.Day:
-                        i = 0;
-                        break;
-                    case LevelsData.modetype.Night:
-                        i = 1;
-                        break;
-                }
-                foreach (GameObject g in Prefabs)
-                {
-                    if (g)
-                        g.SetActive(false);
-                }
-                if (Prefabs[i])
-                    Prefabs[i].SetActive(true);
+                //switch (Toolbox.ObjectiveHandler.SelectedLevelData.ModeType)
+                //{
+                //    case LevelsData.modetype.Random:
+                //        i = Random.Range(0, 2);
+                //        break;
+                //    case LevelsData.modetype.Day:
+                //        i = 0;
+                //        break;
+                //    case LevelsData.modetype.Night:
+                //        i = 1;
+                //        break;
+                //}
+                //foreach (GameObject g in Prefabs)
+                //{
+                //    if (g)
+                //        g.SetActive(false);
+                //}
+                //if (Prefabs[i])
+                //    Prefabs[i].SetActive(true);
         }
 
        

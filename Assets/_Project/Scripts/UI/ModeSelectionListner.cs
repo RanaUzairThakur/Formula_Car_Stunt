@@ -14,7 +14,7 @@ public class ModeSelectionListner : MonoBehaviour
     public List<GameObject> EnableItem;
     public List<GameObject> Hover;
     public List<GameObject> Locked;
-
+    public GameObject UnlockallBtn;
     private void OnEnable()
     {
        
@@ -29,6 +29,7 @@ public class ModeSelectionListner : MonoBehaviour
         //}
         InitmodeButtonsState();
         UpdateTxts();
+        CheckStatus_UnlockallModes();
     }
 
     private void scrollerback()
@@ -66,8 +67,20 @@ public class ModeSelectionListner : MonoBehaviour
             Lock.SetActive(false);
         }
     }
+    public void CheckStatus_UnlockallModes()
+    {
+        if (Toolbox.DB.Prefs.UnlockallModes)
+        {
+            UnlockallBtn.SetActive(false);
+            InitmodeButtonsState();
+        }
+        else
+        {
+            UnlockallBtn.SetActive(true);
+        }
 
-   
+    }
+
 
 
     #region ButtonListners
@@ -231,10 +244,10 @@ public class ModeSelectionListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.BackButtonAnySelectionclick);
         this.GetComponentInParent<UIManager>().ShowPrevUI();
     }
-    public void OnPress_UnlockAllChapter()
+    public void OnPress_UnlockAllModes()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-        //InAppHandler.Instance.Buy_AllChapters();
+        InAppHandler.Instance.Buy_AllModes();
     }
     public void OnPress_ModeLockButton()
     {

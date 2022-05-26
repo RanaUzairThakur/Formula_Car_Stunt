@@ -60,7 +60,7 @@ public class StoreListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent("Store_Press_Pack1");
 
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-        //InAppHandler.Instance.Buy_Coins5000();
+        InAppHandler.Instance.Buy_Coins5000();
     }
 
     public void OnPress_Pack2()
@@ -69,7 +69,7 @@ public class StoreListner : MonoBehaviour
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_Press_Pack2");
         Toolbox.GameManager.Analytics_DesignEvent("Store_Press_Pack2");
 
-        //InAppHandler.Instance.Buy_Coins15000();
+        InAppHandler.Instance.Buy_Coins15000();
     }
 
     public void OnPress_Pack3()
@@ -77,7 +77,7 @@ public class StoreListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
         Toolbox.GameManager.Analytics_DesignEvent("Store_Press_Pack3");
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_Press_Pack3");
-        //InAppHandler.Instance.Buy_Coins20000();
+        InAppHandler.Instance.Buy_Coins20000();
     }
 
     public void OnPress_Pack4()
@@ -86,7 +86,7 @@ public class StoreListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent("Store_Press_Pack4");
 
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_Press_Pack4");
-       // InAppHandler.Instance.Buy_Coins30000();
+        InAppHandler.Instance.Buy_Coins30000();
     }
 
     public void OnPress_Pack5()
@@ -95,7 +95,7 @@ public class StoreListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent("Store_Press_Pack4");
 
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_Press_Pack4");
-    //    InAppHandler.Instance.Buy_Coins40000();
+        InAppHandler.Instance.Buy_Coins40000();
     }
 
     public void OnPress_Removeads()
@@ -104,7 +104,7 @@ public class StoreListner : MonoBehaviour
 
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_Removeads");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       //InAppHandler.Instance.Buy_NoAds();
+        InAppHandler.Instance.Buy_NoAds();
     }
     public void OnPress_UnlockAllChapters()
     {
@@ -112,7 +112,7 @@ public class StoreListner : MonoBehaviour
 
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_UnlockAllChapters");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_AllChapters();
+        //InAppHandler.Instance.Buy_AllChapters();
     }
     public void OnPress_UnlockAllLevels()
     {
@@ -120,14 +120,14 @@ public class StoreListner : MonoBehaviour
 
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_UnlockAllLevels");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_AllLevels();
+        InAppHandler.Instance.Buy_AllLevels();
     }
     public void OnPress_UnlockAllGuns()
     {
         Toolbox.GameManager.Analytics_DesignEvent("Store_UnlockAllGuns");
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_UnlockAllGuns");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-      //  InAppHandler.Instance.Buy_AllGuns();
+        InAppHandler.Instance.Buy_AllVehicles();
 
     }
     public void OnPress_UnlockEveryThing()
@@ -135,14 +135,14 @@ public class StoreListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent("Store_UnlockEveryThing");
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_UnlockEveryThing");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_MegaOffer();
+        InAppHandler.Instance.Buy_MegaOffer();
     }
     public void OnPress_RestorePurchase()
     {
         Toolbox.GameManager.Analytics_DesignEvent("Store_RestorePurchase");
         Toolbox.GameManager.FBAnalytic_EventDesign("Store_RestorePurchase");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.RestorePurchases();
+        InAppHandler.Instance.RestorePurchases();
     }
     #endregion
 }

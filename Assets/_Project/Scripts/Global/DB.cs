@@ -37,7 +37,6 @@ public class Prefs_Data {
     [SerializeField] private string lastSelectedscenename= "";
 
     [SerializeField] private bool mode2Unlocked = false;
-    [SerializeField] private bool noAdsPurchased = false;
     [SerializeField] private bool megaOfferPurchased = false;
 
 
@@ -50,10 +49,13 @@ public class Prefs_Data {
     [SerializeField] private string   dailyRewardTime;
 
     //[SerializeField] private DateTime classicMode_unlockDateTime= DateTime.Now.AddDays(2);
-    [SerializeField] private bool unlockalllevel;
-    [SerializeField] private bool unlockallguns;
-    [SerializeField] private bool unlockallchapter;
+    [SerializeField] private bool noAdsPurchased = false;
+    [SerializeField] private bool unlockallLevel=false;
+    [SerializeField] private bool unlockallVehicles=false;
+    [SerializeField] private bool unlockallModes = false;
+
     [SerializeField] private bool dailyrewardclaimed = false;
+    [SerializeField] private bool purchasingInapp = false;
     //[SerializeField] private bool tutorialshowfirsttime = false;
     private int dynamicDailyRewardItemNumber1 = -1;
 
@@ -159,37 +161,37 @@ public class Prefs_Data {
     {
         if (LastSelectedGameMode == 0)
         {
-            lastSelectedscenename = Constants.gameModeName_Mode1;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode1;
         }
         else if(LastSelectedGameMode == 1 )
         {
-            lastSelectedscenename = Constants.gameModeName_Mode2;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode2;
         }
         else if(LastSelectedGameMode == 2)
         {
-            lastSelectedscenename = Constants.gameModeName_Mode3;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode3;
         }
         else if (LastSelectedGameMode == 3 )
         {
-            lastSelectedscenename = Constants.gameModeName_Mode4;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode4;
         }
         else if (LastSelectedGameMode == 4 )
         {
-            lastSelectedscenename = Constants.gameModeName_Mode5;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode5;
         }
         else if (LastSelectedGameMode == 5)
         {
-            lastSelectedscenename = Constants.gameModeName_Mode6;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode5;
         }
         else
         {
-            lastSelectedscenename = Constants.gameModeName_Mode1;
+            lastSelectedscenename = Constants.scenename_Gameplay;
             return Constants.sceneIndex_GameMode1;
         }
     }
@@ -356,7 +358,7 @@ public class Prefs_Data {
                 GameData[LastSelectedGameMode].LevelUnlocked[i] = false;
         }
     }
-    public bool AreAllGunsUnlocked()
+    public bool AreAllVehiclesUnlocked()
     {
         for (int i = 0; i < vehiclesUnlocked.Length; i++)
         {
@@ -382,29 +384,16 @@ public class Prefs_Data {
                 vehiclesUnlocked[i] = true;
             }
         }
-        unlockallguns = true;
-    }
-    public void  AllChapters_of_Mode_Unlock()
-    {
-        for (int i = 0; i < GameData.Length - 2; i++)
-        {
-            GameData[i].Modeunlocked = true;
-        }
-        unlockallchapter = true;
-        //for (int i = 0; i < Gamemode[lastSelectedGameMode].Gamedata.Length - 2; i++)
-        //{
-        //    Gamemode[lastSelectedGameMode].Gamedata[i].Modeunlocked = true;
-        //}
-        //unlockallchapter = true;
+        unlockallVehicles = true;
     }
 
-    public void AllModeUnlock()
+    public void AllModeUnlocked()
     {
-        for (int i = 0; i < GameData.Length - 2; i++)
+        for (int i = 0; i < GameData.Length; i++)
         {
             GameData[i].Modeunlocked = true;
         }
-        unlockallchapter = true;
+        unlockallModes = true;
         //for (int i = 0; i < Gamemode[lastSelectedGameMode].Gamedata.Length - 2; i++)
         //{
         //    Gamemode[lastSelectedGameMode].Gamedata[i].Modeunlocked = true;
@@ -438,8 +427,7 @@ public class Prefs_Data {
                 }
             }
         }
-        unlockalllevel = true;
-        Mode2Unlocked = true;
+        unlockallLevel = true;
     }
 
     public bool GameAudio { get => gameAudio; set => gameAudio = value; }
@@ -468,18 +456,18 @@ public class Prefs_Data {
     public float MusicVolume { get => musicVolume; set => musicVolume = value; }
     public int DynamicDailyRewardItemNumber1 { get => dynamicDailyRewardItemNumber1; set => dynamicDailyRewardItemNumber1 = value; }
     public bool UserConsent { get => userConsent; set => userConsent = value; }
-    public bool Mode2Unlocked { get => mode2Unlocked; set => mode2Unlocked = value; }
     public int ScheduledNotificationId { get => scheduledNotificationId; set => scheduledNotificationId = value; }
     public int LastLevelStartAnimation { get => lastLevelStartAnimation; set => lastLevelStartAnimation = value; }
     public bool MegaOfferPurchased { get => megaOfferPurchased; set => megaOfferPurchased = value; }
-    public bool Unlockalllevel { get => unlockalllevel; set => unlockalllevel = value; }
-    public bool Unlockallguns { get => unlockallguns; set => unlockallguns = value; }
+    public bool UnlockallLevel { get => unlockallLevel; set => unlockallLevel = value; }
+    public bool UnlockallVehciles { get => unlockallVehicles; set => unlockallVehicles = value; }
     public string LastSelectedscenename { get => lastSelectedscenename; set => lastSelectedscenename = value; }
-    public bool Unlockallchapter { get => unlockallchapter; set => unlockallchapter = value; }
+    public bool UnlockallModes { get => unlockallModes; set => unlockallModes = value; }
    // public GameMode[] Gamemode { get => gamemode; set => gamemode = value; }
     public bool Modesautoscroller { get => modesautoscroller; set => modesautoscroller = value; }
     public string DailyRewardTime { get => dailyRewardTime; set => dailyRewardTime = value; }
     public bool Dailyrewardclaimed { get => dailyrewardclaimed; set => dailyrewardclaimed = value; }
+    public bool PurchasingInapp { get => purchasingInapp; set => purchasingInapp = value; }
 }
 
 [System.Serializable]

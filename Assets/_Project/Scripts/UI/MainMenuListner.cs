@@ -165,7 +165,7 @@ public class MainMenuListner : MonoBehaviour
     public void OnPress_RemoveAds()
     {
         Toolbox.GameManager.FBAnalytic_EventDesign("MainMenu_Press_RemoveAds");
-        //InAppHandler.Instance.Buy_NoAds();
+        InAppHandler.Instance.Buy_NoAds();
     }
 
     public void OnPress_Store()

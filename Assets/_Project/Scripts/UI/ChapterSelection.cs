@@ -66,36 +66,36 @@ public class ChapterSelection : MonoBehaviour
     }
     private void ModeUnlockCheck()
     {
-        if (Toolbox.DB.Prefs.Mode2Unlocked /*|| Toolbox.DB.Prefs.LastSelectedGameMode >0*/)
-            return;
-        if (Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode() >= Constants.mode2UnlockAfterLevels )
-        {
+        //if (Toolbox.DB.Prefs.Mode2Unlocked /*|| Toolbox.DB.Prefs.LastSelectedGameMode >0*/)
+        //    return;
+        //if (Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode() >= Constants.mode2UnlockAfterLevels )
+        //{
            
-            int unlocked = Toolbox.DB.Prefs.Set_ModeUnlockStatus(1);
+        //    int unlocked = Toolbox.DB.Prefs.Set_ModeUnlockStatus(1);
 
           
-            Toolbox.DB.Prefs.GameData[unlocked].Modeunlocked = true;
+        //    Toolbox.DB.Prefs.GameData[unlocked].Modeunlocked = true;
             
-            Toolbox.DB.Prefs.Mode2Unlocked = true;
-            int chapter = unlocked + 1;
-            //ClassicModeOpenTimeTxt.gameObject.SetActive(false);
-            Toolbox.UIManager.MessagePopup.SetActive(true);
-            Toolbox.UIManager.MessagePopup.GetComponent<MessageListner>().UpdateTxt("You have unlocked No " + chapter + " Chapter.", "Congratulations");
-            // Toolbox.GameManager.Instantiate_Message("You have unlocked No " + chapter + " Chapter.", "Congratulations");
-        }
+        //    Toolbox.DB.Prefs.Mode2Unlocked = true;
+        //    int chapter = unlocked + 1;
+        //    //ClassicModeOpenTimeTxt.gameObject.SetActive(false);
+        //    Toolbox.UIManager.MessagePopup.SetActive(true);
+        //    Toolbox.UIManager.MessagePopup.GetComponent<MessageListner>().UpdateTxt("You have unlocked No " + chapter + " Chapter.", "Congratulations");
+        //    // Toolbox.GameManager.Instantiate_Message("You have unlocked No " + chapter + " Chapter.", "Congratulations");
+        //}
     }
 
     public void CheckStatus_UnlockallChapter()
     {
-        if (Toolbox.DB.Prefs.Unlockallchapter)
-        {
-            UnlockallBtn.SetActive(false);
-            InitchapterButtonsState();
-        }
-        else
-        {
-            UnlockallBtn.SetActive(true);
-        }
+        //if (Toolbox.DB.Prefs.Unlockallchapter)
+        //{
+        //    UnlockallBtn.SetActive(false);
+        //    InitchapterButtonsState();
+        //}
+        //else
+        //{
+        //    UnlockallBtn.SetActive(true);
+        //}
         Toolbox.GameManager.Permanent_Log("CheckStatus_UnlockallChapter");
     }
     #region ButtonListners
@@ -128,7 +128,7 @@ public class ChapterSelection : MonoBehaviour
     public void OnPress_UnlockAllChapter()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-       // InAppHandler.Instance.Buy_AllChapters();
+         //InAppHandler.Instance.Buy_AllChapters();
     }
 
     #endregion

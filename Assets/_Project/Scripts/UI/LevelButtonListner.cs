@@ -77,7 +77,7 @@ public class LevelButtonListner : MonoBehaviour
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPresslockedbutton);
         Toolbox.UIManager.ModeLockPopup.SetActive(true);
-        Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("Level is locked.", "LOCKED");
+        Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("This Level is currently locked.Please Play before Previous Level", "LEVEL LOCKED");
      //  Toolbox.GameManager.Instantiate_ModeLockedMessage("Level is locked.", "LOCKED");
     }
 

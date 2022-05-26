@@ -168,7 +168,7 @@ public class DailyRewardListner : MonoBehaviour
             int thirdLockedItemIndex = Constants.Thirddynamicreward; ;
             //print("secondLockedItemIndex :" + thirdLockedItemIndex);
 
-            if ( !Toolbox.DB.Prefs.AreAllGunsUnlocked()  || Toolbox.DB.Prefs.AreAllGunsUnlocked()/*&& lockedItemIndex >= 0*/)
+            if ( !Toolbox.DB.Prefs.AreAllVehiclesUnlocked()  || Toolbox.DB.Prefs.AreAllVehiclesUnlocked()/*&& lockedItemIndex >= 0*/)
             {
                 hasDynamicReward = true;
 

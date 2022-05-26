@@ -34,7 +34,7 @@ public class LowCoinVehicleBuy : MonoBehaviour
 
     public void OnPress_UnlockAll()
     {
-        //InAppHandler.Instance.Buy_AllGuns();
+        InAppHandler.Instance.Buy_AllVehicles();
         Toolbox.UIManager.Shop_Panel.SetActive(true);
         //Toolbox.GameManager.InstantiateUI_Shop();
         OnPress_Close();

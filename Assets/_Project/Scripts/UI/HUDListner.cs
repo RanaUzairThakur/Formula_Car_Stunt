@@ -13,16 +13,18 @@ public class HUDListner : MonoBehaviour
     public GameObject PausePanel;
     public GameObject FailPanel;
     public GameObject CompletePanel;
-    public GameObject SpecialMission_CompletePanel;
     public GameObject RevivePanel;
     public GameObject WatchVideoPanel;
     public GameObject RateUs_Panel;
     public GameObject Mega_OfferPanel;
     public GameObject Loadingpanel;
     public GameObject Message;
+    public GameObject Fadeimage;
     /// <summary>
     /// Other Text 
     /// </summary>
+    /// 
+    public Text LevelText;
     public GameObject Missioncompletetext;
     public GameObject MissionFailtext;
     public GameObject ObjectiveClear;
@@ -30,71 +32,32 @@ public class HUDListner : MonoBehaviour
     public Button pauseBtn;
     public Button skipStartCinematicBtn;
     public GameObject playerControlsPanel;
-    public GameObject PlayerGadgets;
-    public GameObject map;
-    public GameObject headshot;
-    public GameObject HealthInjection;
-    public GameObject AirDrop;
-    public Text EnemyCounter;
     public CanvasGroup canvasGroup;
     //private int time;
-    public GameObject missionStatementPanel;
-    public Text Bodytxt;
-    public GameObject TapTochangePan;
-    public SimpleJoystick joystick;
-    public GameObject WeaponChange;
-    //public ConsoliAdsBannerView consoliAdsBannerView = new ConsoliAdsBannerView();
 
 
 
     private void OnEnable()
     {
-        //if (Toolbox.GameManager)
-        //    Toolbox.GameManager.Add_ActiveUI(this.gameObject);
         Toolbox.Set_HUD(this);
     }
 
 
     private void Start()
     {
-        //if (Toolbox.ObjectiveHandler.SelectedLevelData.StartAnim)
-        //{
-        //    Toolbox.Cutscenemanager.OnPlayCutscene();
-        //    SetStatus_SkipAnimationButton(true);
-        //}
-        //else
-        //{
-        //    //Invoke("Initstatement", 0.5f);
-        //    Invoke("OnPress_OkTutorial", 0.5f);
-        //}
-        //if (Toolbox.DB.Prefs.Speciallevel /*&& Toolbox.DB.Prefs.Gamemode[Toolbox.DB.Prefs.LastSelectedGameMode].Gamedata[Toolbox.DB.Prefs.LastSelectedchapter_of_gamemode].SpecialMissionhave*/)
-        //{
-        //    Toolbox.ObjectiveHandler.specialLevel.SetActive(true);
-        //}
-        //else
-        //{
-        //    if (Toolbox.ObjectiveHandler.SelectedLevelData.StartAnim)
-        //    {
-        //        Toolbox.Cutscenemanager.OnPlayCutscene();
-        //        SetStatus_SkipAnimationButton(true);
-        //    }
-        //    else
-        //    {
-        //        //Invoke("Initstatement", 0.5f);
-        //        Invoke("OnPress_OkTutorial", 0.5f);
-        //    }
-        //}
-        Invoke("OnPress_OkTutorial", 0.5f);
+       
+       // Invoke("OnPress_OkTutorial", 0.5f);
 
     }
 
     private void OnDisable()
     {
-        //Toolbox.GameManager.Remove_ActiveUI(this.gameObject);
     }
 
     private void Awake()
     {
+        
+
         Toolbox.Set_HUD(this);
 
         if (Toolbox.GameManager.Call_ad_after_restart || Toolbox.GameManager.Call_ad_before_gameplay)
@@ -120,32 +83,7 @@ public class HUDListner : MonoBehaviour
 
     }
 
-    //private void Update()
-    //{
-    //    set_statusEnemyCounter();
-    //}
-    public void Initstatement()
-    {
-        //ObjectiveHandler.Instance.init();
-        setstatus_MissionStatement(true);
-    }
-
-    public void setstatus_MissionStatement(bool _val)
-    {
-
-        if (_val)
-        {
-            Bodytxt.text = Toolbox.ObjectiveHandler.GetMissionStatment().ToString();
-            missionStatementPanel.SetActive(_val);
-        }
-        else
-        {
-            missionStatementPanel.SetActive(_val);
-        }
-    }
-
-
-
+  
     public void ShowBanner()
     {
 
@@ -194,11 +132,6 @@ public class HUDListner : MonoBehaviour
         playerControlsPanel.SetActive(_val);
     }
 
-    public void Set_Mapstatus(bool _val)
-    {
-
-        map.SetActive(_val);
-    }
     public void SetStatus_SkipAnimationButton(bool _val)
     {
         if (skipStartCinematicBtn.gameObject)
@@ -210,33 +143,14 @@ public class HUDListner : MonoBehaviour
         PlayerHudCanvas.SetActive(_val);
     }
 
-    public void Set_HeadshotStatus(bool _val)
-    {
-        headshot.SetActive(!_val);
-        headshot.GetComponent<Image>().enabled = _val;
-        headshot.SetActive(_val);
-    }
-    public void set_statusEnemyCounter()
+   
+    public void set_statusLevelCounter()
     {
 
-     //s   EnemyCounter.text = Toolbox.ObjectiveHandler.countKills + "/" + Toolbox.ObjectiveHandler.SelectedLevelData.totalEnemy;
+        LevelText.text = Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString();
 
     }
-    public void Set_statusHealthInjection(bool _val)
-    {
-        if (Toolbox.ObjectiveHandler.SelectedLevelData.ObjectiveType == LevelsData.objectivetype.HealthInjection)
-            HealthInjection.SetActive(_val);
-        else
-            HealthInjection.SetActive(!_val);
-    }
-    public void Set_statusAirDrop(bool _val)
-    {
-        if (Toolbox.ObjectiveHandler.SelectedLevelData.ObjectiveType == LevelsData.objectivetype.AirDrop)
-            AirDrop.SetActive(_val);
-        else
-            AirDrop.SetActive(!_val);
-    }
-
+  
     public void Set_PlayerHealth()
     {
         Time.timeScale = 1.0f;
@@ -244,7 +158,41 @@ public class HUDListner : MonoBehaviour
 
     }
     #region ButtonListners
+    int i = 0;
+    public void set_StatusRadioMusic()
+    {
+        Toolbox.Soundmanager.Stop_PlayingMusic();
 
+        Toolbox.Soundmanager.PlayMusic_Game(i);
+        i++;
+        if (i >= Toolbox.Soundmanager.gameBG.Length)
+        {
+            i = 0;
+        }
+        //Debug.Log(i);
+    }
+    public void setstatus_MobileController(int index)
+    {
+
+        switch (index)
+        {
+
+            case 0:
+                RCC.SetMobileController(RCC_Settings.MobileController.SteeringWheel);
+                break;
+            case 1:
+                RCC.SetMobileController(RCC_Settings.MobileController.Gyro);
+                break;
+            case 2:
+                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                break;
+            default:
+                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                break;
+
+        }
+
+    }
     public void OnPress_Pause()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
@@ -269,19 +217,13 @@ public class HUDListner : MonoBehaviour
         //print("OnPress_OkTutorial");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         //Toolbox.ObjectiveHandler.player.levelLoadFadeObj.GetComponent<LevelLoadFade>().FadeAndLoadLevel(Color.black, 1.5f, true);
-        Set_Mapstatus(true);
         Set_PlayerControls(true);
         Set_PlayerStatus(true);
 
-       
-        SetStatus_SkipAnimationButton(false);
-        setstatus_MissionStatement(false);
-        // pauseBtn.gameObject.SetActive(true);
-        set_statusEnemyCounter();
-        Set_statusHealthInjection(true);
-        Set_statusAirDrop(true);
-        PlayerGadgets.GetComponent<Canvas>().enabled = true;
 
+        SetStatus_SkipAnimationButton(false);
+        // pauseBtn.gameObject.SetActive(true);
+        set_statusLevelCounter();
     }
 
     public void SkipSAnimations()
@@ -294,31 +236,39 @@ public class HUDListner : MonoBehaviour
     {
         PlayerHudCanvas.gameObject.SetActive(_Val);
     }
-    public void HandleJoystick(bool _Val)
-    {
-        joystick.gameObject.SetActive(_Val);
-    }
+  
 
-    public void showMessagePop_Up(string title, string body)
+    public void OnPress_resetButton()
     {
-        Message.SetActive(true);
-        Message.GetComponent<MessageListner>().UpdateTxt(title, body);
+        Toolbox.GameplayController.Resetvehicle();
+    }
+    public void OnPress_nos()
+    {
+        //N = true;
+        
+        if (Toolbox.GameplayController.SelectedVehicleRccv3.direction == -1)
+            return;
+
+        Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = true;
+    }
+    public void OnPress_nosRelease()
+    {
+        if (Toolbox.GameplayController.SelectedVehicleRccv3.direction == -1)
+            return;
+        //N = false;
+        Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = false;
+        Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
     }
     #endregion
 
     #region FadeInout
-    public IEnumerator FadeLoadingScreen(float targetValue, float duration)
+
+    public void setstatus_FadeEffect(bool _val)
     {
-        float startValue = canvasGroup.alpha;
-        float time = 0;
-        Toolbox.GameManager.Permanent_Log("FadeInout");
-        while (time < duration)
-        {
-            canvasGroup.alpha = Mathf.Lerp(startValue, targetValue, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        canvasGroup.alpha = targetValue;
+        Fadeimage.SetActive(_val);
     }
+
+   
     #endregion
+
 }

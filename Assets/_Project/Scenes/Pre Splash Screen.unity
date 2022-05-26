@@ -714,6 +714,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[0].InAppName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[1].InAppName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[2].InAppName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[0].InAppString
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[1].InAppString
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: InAppIds.Array.data[2].InAppString
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
 --- !u!1 &1231878410 stripped
@@ -843,16 +871,17 @@ MonoBehaviour:
     lastSelectedGameMode: 0
     lastSelectedscenename: 
     mode2Unlocked: 0
-    noAdsPurchased: 0
     megaOfferPurchased: 0
     lastSelectedVehicle: 0
     vehiclesUnlocked: 0100000000000000
     dailyRewardDay: 0
     dailyRewardTime: 
-    unlockalllevel: 0
-    unlockallguns: 0
-    unlockallchapter: 0
+    noAdsPurchased: 0
+    unlockallLevel: 0
+    unlockallVehicles: 0
+    unlockallModes: 0
     dailyrewardclaimed: 0
+    purchasingInapp: 0
     scheduledNotificationId: -1
 --- !u!114 &1261394752
 MonoBehaviour:
@@ -903,13 +932,9 @@ MonoBehaviour:
   levelFail: {fileID: 8300000, guid: a1361bc4336e1794494760a64d303a72, type: 3}
   letsgo: {fileID: 0}
   GetReady: {fileID: 0}
-  Terroristwin: {fileID: 8300000, guid: daebb8142a59c824a84ce5ea6adbea36, type: 3}
+  AudienceAppreciation: {fileID: 8300000, guid: daebb8142a59c824a84ce5ea6adbea36, type: 3}
   singleCoinsSound: {fileID: 8300000, guid: 4d0d305917b502446b433f85a9b6fd6a, type: 3}
-  BossLevelSound: []
-  voiceovers:
-    Voice: {fileID: 0}
-    volume: 0
-    source: {fileID: 0}
+  Savepointclip: {fileID: 8300000, guid: cebbf658dc141b145a11956bea31cada, type: 3}
 --- !u!114 &1261394753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,6 +962,67 @@ MonoBehaviour:
   PurchaseLaoding: {fileID: 0}
   PrivacyPolicy: {fileID: 4335042488723656098}
   activeUiObjects: []
+--- !u!1 &1488825064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488825065}
+  - component: {fileID: 1488825066}
+  m_Layer: 0
+  m_Name: Inapp Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488825065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488825064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1488825066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37b4e375da1ffb4eb69941678b6c661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumeableInApps: []
+  nonConsumeableInApps:
+  - inAppName: Removeads
+    inAppId: removeads
+    inAppType: 2
+  - inAppName: UnlockAllLevels
+    inAppId: unlocklevels
+    inAppType: 3
+  - inAppName: UnlockAllModes
+    inAppId: unlockallmodes
+    inAppType: 5
+  - inAppName: UnlockAllVehicles
+    inAppId: unlockallcars
+    inAppType: 4
+  - inAppName: Mega Offer
+    inAppId: unlockeverythings
+    inAppType: 6
+  subscriptionInApps: []
 --- !u!1 &1552732887
 GameObject:
   m_ObjectHideFlags: 0

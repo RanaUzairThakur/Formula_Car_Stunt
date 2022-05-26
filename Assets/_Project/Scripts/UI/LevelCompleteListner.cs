@@ -26,23 +26,19 @@ public class LevelCompleteListner : MonoBehaviour
 
     bool showCoinsAnim = false;
 
-    public Button DoubleReward;
-    public Text doubleRewardCoinsTxt;
+    //public Button DoubleReward;
+    //public Text doubleRewardCoinsTxt;
 
     int coinsReward = 0;
     int coinIncVal = 20;
     bool coinIncremented = false;
 
-   // public ConsoliAdsBannerView consoliAdsBannerView = new ConsoliAdsBannerView();
     private void OnEnable()
     {
-       // Toolbox.GameManager.Add_ActiveUI(this.gameObject);
-       // AdsManager.Instance.ShowMediumBannertopleft(AdSize.MediumRectangle, AdPosition.TopLeft); 
     }
 
     private void OnDisable()
     {
-        //Toolbox.GameManager.Remove_ActiveUI(this.gameObject);
         StopAllCoroutines();
         Time.timeScale = 1;
     }
@@ -105,10 +101,17 @@ public class LevelCompleteListner : MonoBehaviour
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
             yield return new WaitForSeconds(0.0123f);
         }
-        totaldoublecoins = curtotalCoins * 2;
-        doubleRewardCoinsTxt.text = Mathf.RoundToInt(curtotalCoins).ToString() + " x " + "2";
 
-        CR_ShowMegaOffer();
+        if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
+        {
+            panel_3Buttons.SetActive(true);
+        }
+        else
+            panel_3Buttons.SetActive(false);
+        //totaldoublecoins = curtotalCoins * 2;
+        //doubleRewardCoinsTxt.text = Mathf.RoundToInt(curtotalCoins).ToString() + " x " + "2";
+
+        //CR_ShowMegaOffer();
     }
 
     public void RewardPlayer()
@@ -262,26 +265,26 @@ public class LevelCompleteListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "video_2x_Pressed");
         
     }
-   public IEnumerator Double_CoinsAnimation()
-    {
+   //public IEnumerator Double_CoinsAnimation()
+   // {
 
-        yield return new WaitForSeconds(1.0f);
+   //     yield return new WaitForSeconds(1.0f);
 
-        while (curtotalCoins <= totaldoublecoins && curtotalCoins <= totaldoublecoins - coinIncVal)
-        {
-            curtotalCoins += coinIncVal;
-            totalCoinsTxt.text = curtotalCoins.ToString();
-            Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
-            yield return new WaitForSeconds(0.0123f);
-        }
-        coinsReward = totaldoublecoins;
-        RewardPlayer();
-        DoubleReward.interactable = false;
-        //StopCoroutine(Double_CoinsAnimation());
-    }
-    public void Add_Double_Coins()
-    {
-        StartCoroutine(Double_CoinsAnimation());
-    }
+   //     while (curtotalCoins <= totaldoublecoins && curtotalCoins <= totaldoublecoins - coinIncVal)
+   //     {
+   //         curtotalCoins += coinIncVal;
+   //         totalCoinsTxt.text = curtotalCoins.ToString();
+   //         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
+   //         yield return new WaitForSeconds(0.0123f);
+   //     }
+   //     coinsReward = totaldoublecoins;
+   //     RewardPlayer();
+   //     DoubleReward.interactable = false;
+   //     //StopCoroutine(Double_CoinsAnimation());
+   // }
+   // public void Add_Double_Coins()
+   // {
+   //     StartCoroutine(Double_CoinsAnimation());
+   // }
     #endregion
 }

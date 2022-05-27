@@ -11,10 +11,10 @@ public class GameplayController : MonoBehaviour
     //public Material[] skyboxes;
     public GameObject Rcccamera;
     public Transform VehicleSpawnPoint;
-    private LevelsData selecetdLevelData;
     private GameObject selectedVehiclePrefab;
     private RCC_CarControllerV3 selectedVehicleRccv3;
     private LevelHandler levelhandler;
+    private LevelsData selectedLevelData;
 
     private bool levelComplete = false;
     private bool levelFail = false;
@@ -23,11 +23,11 @@ public class GameplayController : MonoBehaviour
     public bool LevelComplete { get => levelComplete; set => levelComplete = value; }
     public bool LevelFail { get => levelFail; set => levelFail = value; }
     public bool IsRevived { get => isRevived; set => isRevived = value; }
-    public LevelsData SelecetdLevelData { get => selecetdLevelData; set => selecetdLevelData = value; }
     public GameObject SelectedVehiclePrefab { get => selectedVehiclePrefab; set => selectedVehiclePrefab = value; }
     public LevelHandler Levelhandler { get => levelhandler; set => levelhandler = value; }
     public RCC_CarControllerV3 SelectedVehicleRccv3 { get => selectedVehicleRccv3; set => selectedVehicleRccv3 = value; }
     public int Lives { get => lives; set => lives = value; }
+    public LevelsData SelectedLevelData { get => selectedLevelData; set => selectedLevelData = value; }
 
     void Awake()
     {
@@ -41,10 +41,14 @@ public class GameplayController : MonoBehaviour
         Toolbox.GameManager.Analytics_ProgressionEvent_Start(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
     }
 
+    
+
+
     public void SpawnVehicle()
     {
-        if (selectedVehiclePrefab)
-        {
+        if (SelectedVehiclePrefab)
+        { 
+            Toolbox.GameManager.Log("SpawnVehicle");
             selectedVehiclePrefab = Instantiate(selectedVehiclePrefab, VehicleSpawnPoint.position, VehicleSpawnPoint.rotation);
             selectedVehicleRccv3 = selectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
           //  Rcccamera.GetComponent<RCC_Camera>().SetTarget(selectedVehiclePrefab);
@@ -55,6 +59,23 @@ public class GameplayController : MonoBehaviour
 
     }
 
+    public void Level_Andcutscenehandling()
+    {
+        if (SelectedLevelData.Hascutscene)
+        {
+            Toolbox.HUDListner.SetStatus_SkipAnimationButton(true);
+            levelhandler.Custcene.SetActive(true);
+        }
+        else
+        {
+            SpawnVehicle();
+        }
+    }
+
+    public void UnloadAssetsFromMemory()
+    {
+        Resources.UnloadAsset(SelectedLevelData);
+    }
     public void finish_Effect()
     {
         HUD_Status(false);
@@ -63,12 +84,13 @@ public class GameplayController : MonoBehaviour
         Levelhandler.Fireworks.SetActive(true);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.AudienceAppreciation);
         Toolbox.Soundmanager.Stop_PlayingMusic();
-        Invoke(nameof(EndEffect_character),1.5f);
+        Invoke(nameof(EndEffect_character),2f);
         StartCoroutine(LevelComplete_Delay(6f));
     }
 
     private void EndEffect_character()
     {
+        SelectedVehiclePrefab.SetActive(false);
         Toolbox.HUDListner.setstatus_FadeEffect(false);
         Rcccamera.SetActive(false);
         Levelhandler.endCamera.SetActive(true);
@@ -81,7 +103,7 @@ public class GameplayController : MonoBehaviour
         Toolbox.HUDListner.handleplayerhud(_val);
         Toolbox.HUDListner.Set_PlayerControls(_val);
         Toolbox.HUDListner.pauseBtn.gameObject.SetActive(_val);
-        Toolbox.HUDListner.gameObject.SetActive(_val);
+       // Toolbox.HUDListner.gameObject.SetActive(_val);
         Toolbox.HUDListner.set_statusLevelCounter();
     }
     public IEnumerator LevelComplete_Delay(float delay)
@@ -114,7 +136,7 @@ public class GameplayController : MonoBehaviour
     }
     public void LevelFail_Delay(float delay)
     {
-        if (Lives > 0)
+        if (Lives >= 0)
         {
             Resetvehicle();
         }
@@ -122,6 +144,7 @@ public class GameplayController : MonoBehaviour
         {
             if (Toolbox.HUDListner.MissionFailtext)
                 Toolbox.HUDListner.MissionFailtext.SetActive(true);
+            HUD_Status(false);
             Invoke("LevelFailHandling", delay);
         }
        
@@ -134,7 +157,9 @@ public class GameplayController : MonoBehaviour
 
         LevelFail = true;
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.levelFail);
-        HUD_Status(false);
+        if (Toolbox.HUDListner.MissionFailtext)
+            Toolbox.HUDListner.MissionFailtext.SetActive(false);
+        //HUD_Status(false);
         Toolbox.HUDListner.FailPanel.SetActive(true);
     }
 
@@ -172,7 +197,10 @@ public class GameplayController : MonoBehaviour
     public void Resetvehicle()
     {
         if (SelectedVehiclePrefab)
+        {
             SelectedVehiclePrefab.GetComponent<PlayerTriggerListener>().set_StatusVehicleReset();
+            Toolbox.HUDListner.Setstatus_Lives();
+        }
     }
     #endregion
 

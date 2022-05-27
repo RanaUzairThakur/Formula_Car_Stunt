@@ -39,10 +39,10 @@ public class ObjectiveHandler : MonoBehaviour
     {
         SelectedLevelData = Resources.Load<LevelsData>(Constants.folderPath_Scriptables + Constants.folderPath_Scriptables_Levels + mode+ "/" + level);
     } 
-    public String GetMissionStatment()
-    {
-        return Missionstatementcontroler.Selectstatement(level);
-    }
+    //public String GetMissionStatment()
+    //{
+    //    return Missionstatementcontroler.Selectstatement(level);
+    //}
    
     public void UnloadAssetsFromMemory()
     {

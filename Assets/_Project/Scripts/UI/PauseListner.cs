@@ -45,7 +45,7 @@ public class PauseListner : MonoBehaviour
 
     public void OnPress_Home()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+ Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Back_to_mainmenu = true;
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_PauseHome_Press");
@@ -58,7 +58,7 @@ public class PauseListner : MonoBehaviour
 
     public void OnPress_Restart()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+ Toolbox.GameplayController.UnloadAssetsFromMemory();
         restartPressed = true;
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_Restart");
@@ -72,7 +72,7 @@ public class PauseListner : MonoBehaviour
 
     public void OnPress_Resume()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+ Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameplayController.HUD_Status(true);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_resume");

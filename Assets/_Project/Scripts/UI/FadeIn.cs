@@ -6,15 +6,14 @@ public class FadeIn : MonoBehaviour
 {
     public float taketime;
     CanvasGroup canvasGroup;
-
+    float time = 0;
     //Start is called before the first frame update
 
-    void Start()
+    void OnEnable()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         FadeEffect();
     }
-
 
     public void FadeEffect()
     {
@@ -24,11 +23,9 @@ public class FadeIn : MonoBehaviour
     public IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {
         float startValue = canvasGroup.alpha;
-        float time = 0;
-        bool fade = false;
-        bool fadein = false;
+  
         //Toolbox.GameManager.Permanent_Log("FadeInout");
-        while (time < duration && !fade)
+        while (time < duration )
         {
             canvasGroup.alpha = Mathf.Lerp(startValue, targetValue, time / duration);
             time += Time.deltaTime;
@@ -36,22 +33,13 @@ public class FadeIn : MonoBehaviour
         }
         // fade = true;
         canvasGroup.alpha = targetValue;
-        StartCoroutine(FadeLoadingScreen(0f, taketime));
+     //   StartCoroutine(FadeLoadingScreen(0f, taketime));
     }
-    public IEnumerator FadeoutLoadingScreen(float targetValue, float duration)
+   
+    private void OnDisable()
     {
-        float startValue = canvasGroup.alpha;
-        float time = 0;
-        bool fade = false;
-        bool fadein = false;
-        //Toolbox.GameManager.Permanent_Log("FadeInout");
-        while (time < duration && !fade)
-        {
-            canvasGroup.alpha = Mathf.Lerp(startValue, targetValue, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        canvasGroup.alpha = targetValue;
-
+        canvasGroup.alpha = 0f;
+        time = 0f;
+        StopAllCoroutines();
     }
 }

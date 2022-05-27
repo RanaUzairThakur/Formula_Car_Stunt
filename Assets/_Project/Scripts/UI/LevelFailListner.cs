@@ -10,7 +10,7 @@ public class LevelFailListner : MonoBehaviour
     private void OnEnable()
     {
         //Toolbox.GameManager.Add_ActiveUI(this.gameObject);
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+ Toolbox.GameplayController.UnloadAssetsFromMemory();
     }
 
     private void OnDisable()

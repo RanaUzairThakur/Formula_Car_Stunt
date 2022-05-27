@@ -24,6 +24,8 @@ public class HUDListner : MonoBehaviour
     /// Other Text 
     /// </summary>
     /// 
+    public Text Speed;
+    public Text totalLivesTxt;
     public Text LevelText;
     public GameObject Missioncompletetext;
     public GameObject MissionFailtext;
@@ -108,23 +110,24 @@ public class HUDListner : MonoBehaviour
         //   timeTxt.text = string.Format("{0:D2}:{1:D2}", min, time - (min * 60));
     }
 
-    public void SetLives(int _val)
+    public void Setstatus_Lives()
     {
-        //   livesTxt.text = _val.ToString();
+       totalLivesTxt.text = Toolbox.GameplayController.Lives.ToString();
+    }
+    public void Setstatus_speed(float speed)
+    {
+        Speed.text = speed.ToString("0");
     }
 
     public void SetTotalLives(int _val)
     {
-        //     totalLivesTxt.text = _val.ToString();
+             totalLivesTxt.text = _val.ToString();
     }
 
     //public float Get_Time() {
 
     //   return time;
     //}
-
-
-
 
     public void Set_PlayerControls(bool _val)
     {
@@ -202,34 +205,22 @@ public class HUDListner : MonoBehaviour
         // Toolbox.GameManager.InstantiateUI_Pause();
     }
 
-    public void OnPress_Injection()
-    {
-        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
-        Time.timeScale = 0.03f;
-        WatchVideoPanel.SetActive(true);
-        WatchVideoPanel.GetComponent<WatchVideoListner>().UpdateTxt("To Get The Health on Watch Video", "Watch Video");
-        // Toolbox.GameManager.Instantiate_WatchVideoMsg("To Get The Health on Watch Video","Watch Video");
-    }
-
+   
 
     public void OnPress_OkTutorial()
     {
         //print("OnPress_OkTutorial");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
-        //Toolbox.ObjectiveHandler.player.levelLoadFadeObj.GetComponent<LevelLoadFade>().FadeAndLoadLevel(Color.black, 1.5f, true);
         Set_PlayerControls(true);
         Set_PlayerStatus(true);
-
-
         SetStatus_SkipAnimationButton(false);
-        // pauseBtn.gameObject.SetActive(true);
         set_statusLevelCounter();
     }
 
     public void SkipSAnimations()
     {
-       
-        OnPress_OkTutorial();
+        Toolbox.CutsceneManager.SkipAnimation();
+       // OnPress_OkTutorial();
     }
 
     public void handleplayerhud(bool _Val)

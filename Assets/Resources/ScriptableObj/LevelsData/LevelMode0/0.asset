@@ -12,32 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425b4ae71f873bd46af0bccda9cd629e, type: 3}
   m_Name: 0
   m_EditorClassIdentifier: 
-  totalEnemy: 2
-  wavedata:
-    wave:
-    - enemyEachWave: 1
-      Activetime: 0
-      EnableItemAfterWave: 0
-    - enemyEachWave: 1
-      Activetime: 0
-      EnableItemAfterWave: 0
-  waveDelaytime: 1
-  Enemytypes:
-  - {fileID: 5472457558624560541, guid: eb8f580e3c102c1469d9ba52fb0d7450, type: 3}
-  EnemyHealth: 180
-  enemyBulletDamage: 2
-  MaxDistanceEnemyspawn: 120
-  MinDistanceEnemyspawn: 30
-  NoSapawnedLastEnemy: 1
-  PlayerHealth: 300
-  playerBulletDamage: 0
-  ObjectiveType: 0
-  Revive: 0
-  StartAnim: 1
-  SlomoBulletKill: 0
-  EnableObjects: 0
-  Bosslevel: 0
-  ExplosionDrumlevel: 0
-  ExplosionGernadelevel: 0
-  PickUpPack: 9
-  ModeType: 0
+  Lives: 3
+  Hascutscene: 1

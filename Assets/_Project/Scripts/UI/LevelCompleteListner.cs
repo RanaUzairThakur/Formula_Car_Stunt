@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
-using System.Collections;
 //using GoogleMobileAds.Api;
 
 public class LevelCompleteListner : MonoBehaviour
@@ -45,7 +44,7 @@ public class LevelCompleteListner : MonoBehaviour
 
     private void Start()
     {
-      
+
 
         Toolbox.GameManager.FBAnalytic_EventLevel_Complete(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Analytics_ProgressionEvent_Complete(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
@@ -73,18 +72,19 @@ public class LevelCompleteListner : MonoBehaviour
         StartCoroutine(CR_CoinsAnimation());
     }
 
-    IEnumerator CR_CoinsAnimation() {
+    IEnumerator CR_CoinsAnimation()
+    {
 
         yield return new WaitForSeconds(1.5f);
 
-        while (curObjBonus <= ObjectiveBonus && curObjBonus <= ObjectiveBonus-coinIncVal)
+        while (curObjBonus <= ObjectiveBonus && curObjBonus <= ObjectiveBonus - coinIncVal)
         {
             curObjBonus += coinIncVal;
             ObjectiveBonusTxt.text = curObjBonus.ToString();
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
             yield return new WaitForSeconds(0.012345f);
         }
-        while (curHSBonus <= HeadshotBonus && curHSBonus <= HeadshotBonus-coinIncVal)
+        while (curHSBonus <= HeadshotBonus && curHSBonus <= HeadshotBonus - coinIncVal)
         {
             curHSBonus += coinIncVal;
             HeadshotBonusTxt.text = curHSBonus.ToString();
@@ -94,7 +94,7 @@ public class LevelCompleteListner : MonoBehaviour
 
         totalCoins = (curObjBonus + curHSBonus);
 
-        while (curtotalCoins <= totalCoins && curtotalCoins <= totalCoins-coinIncVal)
+        while (curtotalCoins <= totalCoins && curtotalCoins <= totalCoins - coinIncVal)
         {
             curtotalCoins += coinIncVal;
             totalCoinsTxt.text = curtotalCoins.ToString();
@@ -122,14 +122,14 @@ public class LevelCompleteListner : MonoBehaviour
 
     private void UnlockNextLevel()
     {
-        
+
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
             return;
 
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
         {
             Toolbox.DB.Prefs.Unlock_NextLevelOfCurrentGameMode();
-        
+
             if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() > 0)
             {
 
@@ -163,7 +163,7 @@ public class LevelCompleteListner : MonoBehaviour
         }
     }
 
-  
+
 
     private void CR_ShowMegaOffer()
     {
@@ -200,12 +200,12 @@ public class LevelCompleteListner : MonoBehaviour
 
     public void OnPress_Home()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Back_to_mainmenu = true;
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "Cmplte_HomePress");
-        Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_"+ "Cmplte_HomePress");
-        Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode (1);
+        Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "Cmplte_HomePress");
+        Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode(1);
         Toolbox.HUDListner.Loadingpanel.SetActive(true);
         Toolbox.GameManager.Load_MenuScene(true);
         this.gameObject.SetActive(false);
@@ -214,10 +214,10 @@ public class LevelCompleteListner : MonoBehaviour
 
     public void OnPress_Next()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
-    //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
+        //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
         Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode(1);
         Toolbox.GameManager.Call_ad_after_restart = true;
         if ((Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode()) % 3 == 0)
@@ -240,15 +240,15 @@ public class LevelCompleteListner : MonoBehaviour
         //    int chapter = unlocked + 1;
         //}
         this.gameObject.SetActive(false);
-       // Destroy(this.gameObject);
+        // Destroy(this.gameObject);
     }
 
     public void OnPress_Restart()
     {
-        Toolbox.ObjectiveHandler.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
-    //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
+        //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
         Toolbox.GameManager.Call_ad_after_restart = true;
         Toolbox.HUDListner.Loadingpanel.SetActive(true);
         Toolbox.GameManager.Load_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex(), 3f);
@@ -263,28 +263,28 @@ public class LevelCompleteListner : MonoBehaviour
         //    FindObjectOfType<AbstractAdsmanager>().ShowRewardedVideo(RewardType.LEVEL_COMPLETE_2XCOINS);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "video_2x_Pressed");
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "video_2x_Pressed");
-        
+
     }
-   //public IEnumerator Double_CoinsAnimation()
-   // {
+    //public IEnumerator Double_CoinsAnimation()
+    // {
 
-   //     yield return new WaitForSeconds(1.0f);
+    //     yield return new WaitForSeconds(1.0f);
 
-   //     while (curtotalCoins <= totaldoublecoins && curtotalCoins <= totaldoublecoins - coinIncVal)
-   //     {
-   //         curtotalCoins += coinIncVal;
-   //         totalCoinsTxt.text = curtotalCoins.ToString();
-   //         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
-   //         yield return new WaitForSeconds(0.0123f);
-   //     }
-   //     coinsReward = totaldoublecoins;
-   //     RewardPlayer();
-   //     DoubleReward.interactable = false;
-   //     //StopCoroutine(Double_CoinsAnimation());
-   // }
-   // public void Add_Double_Coins()
-   // {
-   //     StartCoroutine(Double_CoinsAnimation());
-   // }
+    //     while (curtotalCoins <= totaldoublecoins && curtotalCoins <= totaldoublecoins - coinIncVal)
+    //     {
+    //         curtotalCoins += coinIncVal;
+    //         totalCoinsTxt.text = curtotalCoins.ToString();
+    //         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.singleCoinsSound);
+    //         yield return new WaitForSeconds(0.0123f);
+    //     }
+    //     coinsReward = totaldoublecoins;
+    //     RewardPlayer();
+    //     DoubleReward.interactable = false;
+    //     //StopCoroutine(Double_CoinsAnimation());
+    // }
+    // public void Add_Double_Coins()
+    // {
+    //     StartCoroutine(Double_CoinsAnimation());
+    // }
     #endregion
 }

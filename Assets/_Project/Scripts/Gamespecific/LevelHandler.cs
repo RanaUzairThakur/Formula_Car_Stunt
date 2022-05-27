@@ -8,6 +8,7 @@ public class LevelHandler : MonoBehaviour
     public GameObject Fireworks;
     public GameObject CharacterModel;
     public List<GameObject> Finalvehicleslist;
+    public GameObject Custcene;
 
     //[Tooltip("This is only used in level 1 for tutorial")]
     //public AudioSource audienceAudioSource;
@@ -16,33 +17,37 @@ public class LevelHandler : MonoBehaviour
 
     private void Start()
     {
-        //vehicleSpawnPoint = this.GetComponentInChildren<StartAnimationHandler>().GetSpawnPoint();
-
+        //if (Toolbox.GameplayController.SelecetdLevelData.Hascutscene)
+        //{
+        //    FetchCurrentVehicleData();
+        //    Toolbox.HUDListner.SetStatus_SkipAnimationButton(true);
+        //    Custcene.SetActive(true);
+        //}
+        //else
+        //{  
+        //LevelStartHandling();
+        //}
+        //Invoke(nameof(LevelStartHandling),1f);
         LevelStartHandling();
-        //if(audienceAudioSource)
-        //    Toolbox.GameplayController.Level3DAudioSource = audienceAudioSource;
-        //if (tutorialCam)
-        //    Toolbox.GameplayController.TutorialCamera = tutorialCam;
+
     }
-  
+
 
     public void LevelStartHandling() {
 
-        FetchCurrentLevelData();
-        SpawnVehicle();
+       
         Toolbox.GameplayController.Levelhandler = this;
-        //Toolbox.GameplayController.LevelEndCamera = endCamera;
+        SpawnVehicle();
     }
 
-    private void FetchCurrentLevelData()
-    {
-        Toolbox.GameplayController.SelecetdLevelData = Resources.Load<LevelsData>(Constants.folderPath_Scriptables + Constants.folderPath_Scriptables_Levels + Toolbox.DB.Prefs.LastSelectedGameMode + "/" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
-    }
 
     private void SpawnVehicle()
     {
-        Toolbox.GameplayController.SelectedVehiclePrefab = Resources.LoadAll<GameObject>(Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles)[Toolbox.DB.Prefs.LastSelectedVehicle];
+        print("Path :" + Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles + Toolbox.DB.Prefs.LastSelectedVehicle);
+
+        Toolbox.GameplayController.SelectedVehiclePrefab = Resources.Load<GameObject>(Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles+ Toolbox.DB.Prefs.LastSelectedVehicle);
         Toolbox.GameplayController.VehicleSpawnPoint = vehicleSpawnPoint;
-        Toolbox.GameplayController.SpawnVehicle();
+        //Toolbox.GameplayController.SpawnVehicle();
+        Toolbox.GameplayController.Level_Andcutscenehandling();
     }
 }

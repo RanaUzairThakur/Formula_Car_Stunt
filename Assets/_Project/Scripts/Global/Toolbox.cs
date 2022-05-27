@@ -5,31 +5,35 @@
 [RequireComponent(typeof(DB))]
 //[RequireComponent(typeof(AdsManager))]
 
-public class Toolbox : MonoBehaviour {
+public class Toolbox : MonoBehaviour
+{
     private static GameManager gameManager;
     private static SoundsManager soundManager;
     private static DB db;
-   // private static AdsManager adsManager;
+    // private static AdsManager adsManager;
     private static ObjectiveHandler objectivehandler;
     private static UIManager uimanager;
     //private static InAppHandler inAppHandler;
     private static AdIconHandler adIconHandler;
     private static GameplayController gameplayController;
-    private static HUDListner hudListner ;
-    public static GameManager GameManager {
+    private static HUDListner hudListner;
+    private static Cutscenemanager cutscenemanager;
+    public static GameManager GameManager
+    {
         get { return gameManager; }
     }
 
-    public static SoundsManager Soundmanager {
+    public static SoundsManager Soundmanager
+    {
         get { return soundManager; }
     }
-    
+
     public static DB DB
     {
         get { return db; }
     }
 
-    
+
     public static ObjectiveHandler ObjectiveHandler
     {
         get { return objectivehandler; }
@@ -38,8 +42,8 @@ public class Toolbox : MonoBehaviour {
     {
         get { return uimanager; }
     }
-  
- 
+
+
     public static AdIconHandler AdIconHandler
     {
         get { return adIconHandler; }
@@ -53,10 +57,14 @@ public class Toolbox : MonoBehaviour {
     {
         get { return hudListner; }
     }
-   
-   
-    
-   
+
+    public static Cutscenemanager CutsceneManager
+    {
+        get { return cutscenemanager; }
+    }
+
+
+
     void Awake()
     {
         gameManager = GetComponent<GameManager>();
@@ -66,7 +74,8 @@ public class Toolbox : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    public static void Set_GameplayScript (GameplayController _game) {
+    public static void Set_GameplayScript(GameplayController _game)
+    {
         gameplayController = _game;
     }
 
@@ -80,7 +89,10 @@ public class Toolbox : MonoBehaviour {
     }
     public static void Set_Uimanager(UIManager obj)
     {
-        uimanager  = obj;
+        uimanager = obj;
     }
-   
+    public static void Set_cutscenemanager(Cutscenemanager obj)
+    {
+        cutscenemanager = obj;
+    }
 }

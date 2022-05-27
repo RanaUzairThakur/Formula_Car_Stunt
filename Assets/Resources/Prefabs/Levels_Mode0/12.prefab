@@ -42031,7 +42031,6 @@ GameObject:
   - component: {fileID: 6287235727252086298}
   - component: {fileID: 6287235727252086309}
   - component: {fileID: 6287235727252086308}
-  - component: {fileID: 6287235727252086311}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Finish
@@ -42115,34 +42114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6287235727252086311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6287235727252086305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7131b9ee8960d434f80b51697e45a4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalCam: {fileID: 6287235728002944982}
-  shashka: {fileID: 6287235727589997133}
-  driver: {fileID: 6287235727998773733}
-  CashReward: 0
-  rotating: 0
-  Dummycars:
-  - {fileID: 6287235727601619685}
-  - {fileID: 6287235726916820836}
-  - {fileID: 6287235727508440837}
-  - {fileID: 6287235727562032999}
-  - {fileID: 6287235728565395187}
-  - {fileID: 6287235726696473014}
-  - {fileID: 6287235727210972178}
-  - {fileID: 6287235728182032384}
-  - {fileID: 6287235728273952010}
-  - {fileID: 6287235727185009269}
 --- !u!1 &6287235727252248661
 GameObject:
   m_ObjectHideFlags: 0
@@ -145065,3 +145036,4 @@ MonoBehaviour:
   - {fileID: 6287235728182032384}
   - {fileID: 6287235728273952010}
   - {fileID: 6287235727185009269}
+  Custcene: {fileID: 0}

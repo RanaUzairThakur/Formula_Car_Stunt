@@ -80,17 +80,25 @@ public class GameplayController : MonoBehaviour
     {
         HUD_Status(false);
         SelectedVehiclePrefab.GetComponent<Rigidbody>().drag = 2f;
-        Toolbox.HUDListner.setstatus_FadeEffect(true);
         Levelhandler.Fireworks.SetActive(true);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.AudienceAppreciation);
         Toolbox.Soundmanager.Stop_PlayingMusic();
+        if(Levelhandler.CharacterModel && Levelhandler.Finalvehicleslist.Count>0)
+        {
+        Toolbox.HUDListner.setstatus_FadeEffect(true);
         Invoke(nameof(EndEffect_character),2f);
         StartCoroutine(LevelComplete_Delay(6f));
+        }
+        else
+        {
+            Rcccamera.SetActive(false);
+            Levelhandler.endCamera.SetActive(true);
+            StartCoroutine(LevelComplete_Delay(3f));
+        }
     }
 
     private void EndEffect_character()
     {
-        SelectedVehiclePrefab.SetActive(false);
         Toolbox.HUDListner.setstatus_FadeEffect(false);
         Rcccamera.SetActive(false);
         Levelhandler.endCamera.SetActive(true);

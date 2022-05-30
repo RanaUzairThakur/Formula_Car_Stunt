@@ -5,14 +5,11 @@ using UnityEngine;
 public class CarAutoRotation : MonoBehaviour
 {
     public float TakeOff = 5f;
-    float LowAngle = 250f;
-    float HighAngle = 355f;
     float RotationAngle;
-    float Timecounter;
     RCC_CarControllerV3 Player;
     bool CarRotation, onetime;
     Rigidbody Rb;
-
+    
 
 
     void Start()
@@ -27,9 +24,10 @@ public class CarAutoRotation : MonoBehaviour
         {
             autorotation();
         }
-      
+
     }
- 
+
+
     private void autorotation()
     {
 
@@ -48,9 +46,9 @@ public class CarAutoRotation : MonoBehaviour
         if (col.gameObject.tag == "Jump")
         {
             CarRotation = true;
-          
+
         }
-       
+      
     }
 
 }

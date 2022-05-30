@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Water
            r = GetComponent<Renderer>();
            mat = r.materials[0];
             mat2 = r.materials[1];
-             mat3 = r.materials[2];
+           //  mat3 = r.materials[2];
         }
         void Update()
         {   
@@ -38,10 +38,10 @@ namespace UnityStandardAssets.Water
             Vector2 textureOffset = new Vector2(0, (Time.time * scrollSpeed));
             mat.mainTextureOffset = textureOffset;
             mat2.mainTextureOffset = textureOffset;
-            mat3.mainTextureOffset = textureOffset;
+           // mat3.mainTextureOffset = textureOffset;
             r.materials[0].SetTextureOffset("_DetailAlbedoMap", textureOffset);
             r.materials[1].SetTextureOffset("_DetailAlbedoMap", textureOffset);
-            r.materials[2].SetTextureOffset("_DetailAlbedoMap", textureOffset);
+            //r.materials[2].SetTextureOffset("_DetailAlbedoMap", textureOffset);
 
 
 

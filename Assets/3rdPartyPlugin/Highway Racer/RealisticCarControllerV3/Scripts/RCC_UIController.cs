@@ -49,9 +49,9 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
 		button = GetComponent<Button> ();
 		slider = GetComponent<Slider> ();
-		RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
-		RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
-	}
+        RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
+        RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
+    }
 
 	public void OnPointerDown(PointerEventData eventData){
 		
@@ -116,20 +116,20 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 		
 		if(input > 1f)
 			input = 1f;
-		if (brakeinput && pressing)
-		{
-			if (RCCV3.direction == -1)
-				RCCV3rigidbody.drag = 0.05f;
-			else
-				if(RCCV3rigidbody.drag <2)
-				RCCV3rigidbody.drag +=0.01f ;
-		}
-		if (!brakeinput && brakepress)
-		{
-			RCCV3rigidbody.drag = 0.05f;
-			brakepress = false;
-		}
-	}
+        if (brakeinput && pressing)
+        {
+            if (RCCV3.direction == -1)
+                RCCV3rigidbody.drag = 0.05f;
+            else
+                if (RCCV3rigidbody.drag < 2)
+                RCCV3rigidbody.drag += 0.01f;
+        }
+        if (!brakeinput && brakepress)
+        {
+            RCCV3rigidbody.drag = 0.05f;
+            brakepress = false;
+        }
+    }
 	public void Onpress_Brake()
 	{
 		brakeinput = true;

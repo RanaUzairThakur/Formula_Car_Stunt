@@ -53,6 +53,8 @@ public class PlayerTriggerListener : MonoBehaviour
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             this.GetComponent<HandleTyreGrip>().enabled = false;
+            if (this.GetComponent<AirStabiity>())
+                this.GetComponent<AirStabiity>().stablerotation = false;
         }
         else
         {

@@ -88,20 +88,20 @@ public class HR_ModificationUpgrade : MonoBehaviour {
 				fullyUpgraded = false;
 			}
 			break;
-		case UpgradeClass.NOS:
-			if(applier.isNOSPurchased == true){
-				fullyUpgraded = true;
-			}else{
-				fullyUpgraded = false;
-			}
-			break;
-		case UpgradeClass.Turbo:
-			if(applier.isTurboPurchased == true){
-				fullyUpgraded = true;
-			}else{
-				fullyUpgraded = false;
-			}
-			break;
+		//case UpgradeClass.NOS:
+		//	if(applier.isNOSPurchased == true){
+		//		fullyUpgraded = true;
+		//	}else{
+		//		fullyUpgraded = false;
+		//	}
+		//	break;
+		//case UpgradeClass.Turbo:
+		//	if(applier.isTurboPurchased == true){
+		//		fullyUpgraded = true;
+		//	}else{
+		//		fullyUpgraded = false;
+		//	}
+		//	break;
 			
 		}
 		
@@ -153,18 +153,18 @@ public class HR_ModificationUpgrade : MonoBehaviour {
 					PlayerPrefs.SetInt("Currency", playerCoins - upgradePrice);
 				}
 				break;
-			case UpgradeClass.NOS:
-				if(applier.isNOSPurchased == false){
-					handler.UpgradeNOS();
-					PlayerPrefs.SetInt("Currency", playerCoins - upgradePrice);
-				}
-				break;
-			case UpgradeClass.Turbo:
-				if(applier.isTurboPurchased == false){
-					handler.UpgradeTurbo();
-					PlayerPrefs.SetInt("Currency", playerCoins - upgradePrice);
-				}
-				break;
+			//case UpgradeClass.NOS:
+			//	if(applier.isNOSPurchased == false){
+			//		handler.UpgradeNOS();
+			//		PlayerPrefs.SetInt("Currency", playerCoins - upgradePrice);
+			//	}
+			//	break;
+			//case UpgradeClass.Turbo:
+			//	if(applier.isTurboPurchased == false){
+			//		handler.UpgradeTurbo();
+			//		PlayerPrefs.SetInt("Currency", playerCoins - upgradePrice);
+			//	}
+			//	break;
 
 			}
 

@@ -1,6 +1,6 @@
 ﻿//using GameAnalyticsSDK;
 //using GoogleMobileAds.Api;
-using CnControls;
+//using CnControls;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -36,7 +36,10 @@ public class HUDListner : MonoBehaviour
     public GameObject playerControlsPanel;
     public CanvasGroup canvasGroup;
     //private int time;
-
+    private bool brakeinput;
+	private bool brakepress;
+    private Rigidbody RCCV3rigidbody;
+    private RCC_CarControllerV3 RCCV3;
 
 
     private void OnEnable()
@@ -47,9 +50,25 @@ public class HUDListner : MonoBehaviour
 
     private void Start()
     {
-       
-       // Invoke("OnPress_OkTutorial", 0.5f);
 
+        // Invoke("OnPress_OkTutorial", 0.5f);
+        
+    }
+    void Update()
+    {
+        if (brakeinput/* && pressing*/)
+        {
+            if (RCCV3.direction == -1)
+                RCCV3rigidbody.drag = 0.05f;
+            else
+                if (RCCV3rigidbody.drag < 2)
+                RCCV3rigidbody.drag += 0.01f;
+        }
+        if (!brakeinput && brakepress)
+        {
+            RCCV3rigidbody.drag = 0.05f;
+            brakepress = false;
+        }
     }
 
     private void OnDisable()
@@ -249,6 +268,25 @@ public class HUDListner : MonoBehaviour
         //N = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
+    }
+    public void Onpress_Brake()
+    {
+        if(!RCCV3)
+        {
+            RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
+            RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
+            brakeinput = true;
+            if (RCCV3.goingFalldown)
+                Toolbox.GameplayController.Resetvehicle();
+        }
+        
+        //print("Dir :"+RCCV3.direction);
+
+    }
+    public void Onpress_ReleaseBrake()
+    {
+        brakeinput = false;
+        brakepress = true;
     }
     #endregion
 

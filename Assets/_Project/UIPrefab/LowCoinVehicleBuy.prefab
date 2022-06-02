@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 2042924270886190204}
   - component: {fileID: 2466488459358789458}
   m_Layer: 5
-  m_Name: Unlock All
+  m_Name: Unlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7546027011828355617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -469,8 +469,9 @@ GameObject:
   - component: {fileID: 1132392554328928096}
   - component: {fileID: 4653559413830829968}
   - component: {fileID: 3244776392385102208}
+  - component: {fileID: 1506985781}
   m_Layer: 5
-  m_Name: Unlock
+  m_Name: UnlockAll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -170, y: 33}
+  m_AnchoredPosition: {x: 0, y: 33.6}
   m_SizeDelta: {x: 239, y: 55}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1132392554328928096
@@ -524,8 +525,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6880691303013911112, guid: 369570dee5dabde4c848b52512b81a9e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 4330586257355031630, guid: d247489379bd37f429f075f64d32365a, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -590,6 +591,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1506985781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709966798734436047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectFactor: 0.351
+  m_Width: 0.107
+  m_Rotation: 135
+  m_Softness: 1
+  m_Brightness: 0.601
+  m_Gloss: 0.562
+  m_EffectArea: 0
+  m_Player:
+    play: 1
+    initialPlayDelay: 0
+    duration: 1
+    loop: 1
+    loopDelay: 0
+    updateMode: 0
 --- !u!1 &6484748698792231199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,13 +1055,13 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 015c52a2b65ffb9488949b5495bf6d4d, type: 3}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 50
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0

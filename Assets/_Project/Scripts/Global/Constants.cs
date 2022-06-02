@@ -112,12 +112,13 @@ public static class Constants{
     public const int sceneIndex_Menu = 1;
     public const int sceneIndex_GameMode1 = 2;
     public const int sceneIndex_GameMode2 = 2;
-    public const int sceneIndex_GameMode3 = 2;
+    public const int sceneIndex_GameMode3 = 3;
     public const int sceneIndex_GameMode4 = 2;
     public const int sceneIndex_GameMode5 = 2;
     public const int sceneIndex_GameMode6 = 2;
     public const string scenename_Gameplay = "Gameplay";
-   
+    public const string scenename_HighwayracerGameplay = "HighwayRacer";
+
 
     public const int gameModeIndex_Mode1 = 0;
     public const int gameModeIndex_Mode2 = 1;

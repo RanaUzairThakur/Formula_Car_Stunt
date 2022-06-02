@@ -9,8 +9,8 @@ public class LevelHandler : MonoBehaviour
     public GameObject CharacterModel;
     public List<GameObject> Finalvehicleslist;
     public GameObject Custcene;
-
-    //[Tooltip("This is only used in level 1 for tutorial")]
+    [Tooltip("This is used for skybox")]
+    public Material Skybox;
     //public AudioSource audienceAudioSource;
     //[Tooltip("This is only used in level 1 for tutorial")]
     //public GameObject tutorialCam;
@@ -29,7 +29,7 @@ public class LevelHandler : MonoBehaviour
         //}
         //Invoke(nameof(LevelStartHandling),1f);
         LevelStartHandling();
-
+        RenderSettings.skybox = Skybox;
     }
 
 

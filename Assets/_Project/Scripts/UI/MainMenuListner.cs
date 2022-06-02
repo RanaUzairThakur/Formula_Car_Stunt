@@ -88,8 +88,9 @@ public class MainMenuListner : MonoBehaviour
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.PrivacyPolicyPress);
         Toolbox.GameManager.FBAnalytic_EventDesign("MainMenu_Press_Next");
-        Toolbox.GameManager.loading_Delay(5f);
-        Invoke("Next", 5.01f);
+        this.GetComponentInParent<UIManager>().ShowNextUI();
+        //Toolbox.GameManager.loading_Delay(5f);
+        //Invoke("Next", 5.01f);
     }
 
     private void Next()
@@ -180,7 +181,7 @@ public class MainMenuListner : MonoBehaviour
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPressCompaignMode);
         Toolbox.GameManager.FBAnalytic_EventDesign("MainMenu_Press_Shop");
-        this.GetComponentInParent<UIManager>().DirectShowShop();
+       // this.GetComponentInParent<UIManager>().DirectShowShop();
         Toolbox.GameManager.GodirectshopfromMenu = true;
     }
     public void On_Press_Dailrewards()

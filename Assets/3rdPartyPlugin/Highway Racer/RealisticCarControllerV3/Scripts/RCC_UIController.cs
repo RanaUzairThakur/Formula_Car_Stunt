@@ -41,16 +41,16 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	private float sensitivity{get{return RCCSettings.UIButtonSensitivity;}}
 	private float gravity{get{return RCCSettings.UIButtonGravity;}}
 	public bool pressing;
-	private Rigidbody RCCV3rigidbody;
-	private RCC_CarControllerV3 RCCV3;
-	private bool brakeinput;
-	private bool brakepress;
+	//private Rigidbody RCCV3rigidbody;
+	//private RCC_CarControllerV3 RCCV3;
+	//private bool brakeinput;
+	//private bool brakepress;
 	void Awake(){
 
 		button = GetComponent<Button> ();
 		slider = GetComponent<Slider> ();
-        RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
-        RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
+        //RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
+        //RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
     }
 
 	public void OnPointerDown(PointerEventData eventData){
@@ -116,33 +116,33 @@ public class RCC_UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 		
 		if(input > 1f)
 			input = 1f;
-        if (brakeinput && pressing)
-        {
-            if (RCCV3.direction == -1)
-                RCCV3rigidbody.drag = 0.05f;
-            else
-                if (RCCV3rigidbody.drag < 2)
-                RCCV3rigidbody.drag += 0.01f;
-        }
-        if (!brakeinput && brakepress)
-        {
-            RCCV3rigidbody.drag = 0.05f;
-            brakepress = false;
-        }
+        //if (brakeinput && pressing)
+        //{
+        //    if (RCCV3.direction == -1)
+        //        RCCV3rigidbody.drag = 0.05f;
+        //    else
+        //        if (RCCV3rigidbody.drag < 2)
+        //        RCCV3rigidbody.drag += 0.01f;
+        //}
+        //if (!brakeinput && brakepress)
+        //{
+        //    RCCV3rigidbody.drag = 0.05f;
+        //    brakepress = false;
+        //}
     }
-	public void Onpress_Brake()
-	{
-		brakeinput = true;
-		if (RCCV3.goingFalldown)
-			GamePlayManager.inst.Resetvehicle();
-		//print("Dir :"+RCCV3.direction);
+	//public void Onpress_Brake()
+	//{
+	//	brakeinput = true;
+	//	if (RCCV3.goingFalldown)
+	//		GamePlayManager.inst.Resetvehicle();
+	//	//print("Dir :"+RCCV3.direction);
 
-	}
-	public void Onpress_ReleaseBrake()
-	{
-		brakeinput = false;
-		brakepress = true;
-	}
+	//}
+	//public void Onpress_ReleaseBrake()
+	//{
+	//	brakeinput = false;
+	//	brakepress = true;
+	//}
 	void OnDisable(){
 
 		input = 0f;

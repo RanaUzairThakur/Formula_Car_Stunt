@@ -89,13 +89,13 @@ public class RCC_CustomizerExample : MonoBehaviour {
 		ESP.isOn = RCC_SceneManager.Instance.activePlayerVehicle.ESP;
 		SH.isOn = RCC_SceneManager.Instance.activePlayerVehicle.steeringHelper;
 		counterSteering.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useCounterSteering;
-		NOS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useNOS;
+		///NOS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useNOS;
 		turbo.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useTurbo;
 		exhaustFlame.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useExhaustFlame;
 		revLimiter.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useRevLimiter;
 		transmission.isOn = RCC_Settings.Instance.useAutomaticGear;
 
-		maxSpeed.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString();
+	//	maxSpeed.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString();
 		maxBrake.text = RCC_SceneManager.Instance.activePlayerVehicle.brakeTorque.ToString();
 		maxTorque.text = RCC_SceneManager.Instance.activePlayerVehicle.maxEngineTorque.ToString();
 
@@ -325,7 +325,7 @@ public class RCC_CustomizerExample : MonoBehaviour {
 	public void SetMaximumSpeedByInputField (InputField inputField){
 
 		RCC_Customization.SetMaximumSpeed (RCC_SceneManager.Instance.activePlayerVehicle, StringToFloat(inputField.text, 200f));
-		inputField.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString ();
+		//inputField.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString ();
 
 	}
 

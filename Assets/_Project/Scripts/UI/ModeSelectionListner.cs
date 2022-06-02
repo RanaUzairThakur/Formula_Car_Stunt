@@ -97,44 +97,40 @@ public class ModeSelectionListner : MonoBehaviour
            ModesItem[u].transform.GetComponent<UIShiny>().enabled = false;
         }
         ModesItem[mode].transform.GetComponent<UIShiny>().enabled = true;
+        Toolbox.DB.Prefs.LastSelectedGameMode = mode;
         switch (mode)
         {
             case 0:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_campaignMode");
                 break;
             case 1:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_AssualtRiffleMode");
                 break;
             case 2:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
-                this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_SMGGunMode");
+                Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
                 break;
             case 3:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_PistolGunMode");
                 break;
             case 4:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_MachineGunMode");
                 break;
             case 5:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_ShotGunMode");
                 break;
             case 6:
                 Toolbox.DB.Prefs.LastSelectedGameMode = mode;
                 this.GetComponentInParent<UIManager>().ShowNextUI();
-                Toolbox.GameManager.FBAnalytic_EventDesign("Press_SniperMode");
                 break;
         }
+        //this.GetComponentInParent<UIManager>().ShowNextUI();
+        Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName());
     }
 
     private void Delay_Due_to_Ad()
@@ -151,14 +147,13 @@ public class ModeSelectionListner : MonoBehaviour
     {
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPresslockedbutton);
           //  this.GetComponentInParent<UIManager>().DirectShowingShop = false;
-            Toolbox.GameManager.FBAnalytic_EventDesign("ModeSelection_Press_Sniper");
             Toolbox.UIManager.ModeLockPopup.SetActive(true);
             Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("This mode will be available soon with all the amazing features.", "LOCKED");
             Invoke("Popupsound", 0.3f);
     }
     public void OnPress_StartMission()
     {
-        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.weaponPress);
+        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.FBAnalytic_EventDesign("ModeSelection_Press_Shop");
         switch (Toolbox.DB.Prefs.LastSelectedGameMode)
         {
@@ -247,7 +242,7 @@ public class ModeSelectionListner : MonoBehaviour
     public void OnPress_UnlockAllModes()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
-        InAppHandler.Instance.Buy_AllModes();
+        InAppHandler.Instance.Buy_MegaOffer();
     }
     public void OnPress_ModeLockButton()
     {

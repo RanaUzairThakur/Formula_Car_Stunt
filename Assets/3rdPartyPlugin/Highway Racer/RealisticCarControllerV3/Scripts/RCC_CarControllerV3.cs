@@ -1174,7 +1174,7 @@ public class RCC_CarControllerV3 : RCC_Core
             steerInput = 0f;
             boostInput = 0f;
             handbrakeInput = 0f;
-         //   print("externalController :" + externalController);
+            //   print("externalController :" + externalController);
         }
 
         if (fuelInput <= 0f)
@@ -1851,10 +1851,23 @@ public class RCC_CarControllerV3 : RCC_Core
         {
 
             if (allWheelColliders[i].canPower)
-                if (nos_IsActive)
-                    allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (70f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                if (!HighRracer)
+                {
+                    if (nos_IsActive)
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (70f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    else
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                }
                 else
-                    allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                {
+                    if (nos_IsActive)
+                    {
+                       // print("Torque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (10f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    }
+                    else
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                }
             if (allWheelColliders[i].canSteer)
                 allWheelColliders[i].ApplySteering(steerInput * allWheelColliders[i].steeringMultiplier, steerAngle);
 
@@ -1876,7 +1889,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 appliedBrake = true;
 
                 if (allWheelColliders[i].canBrake)
-                    allWheelColliders[i].ApplyBrakeTorque((brakeInput * brakeTorque) * allWheelColliders[i].brakingMultiplier*10f);
+                    allWheelColliders[i].ApplyBrakeTorque((brakeInput * brakeTorque) * allWheelColliders[i].brakingMultiplier * 10f);
             }
 
             if (ESPAct)
@@ -2369,6 +2382,7 @@ public class RCC_CarControllerV3 : RCC_Core
         //}
         if (!useNOS)
         {
+            print("Nos");
             return;
         }
 
@@ -2382,7 +2396,6 @@ public class RCC_CarControllerV3 : RCC_Core
             blowSound = NewAudioSource(gameObject, "NOS Blow", 1, 10, 1, null, false, false, false);
         }
 
-        // print("Nos");
         if (nos_IsActive)
         {
             SFX.set_statusAirEffect(true, isGrounded);

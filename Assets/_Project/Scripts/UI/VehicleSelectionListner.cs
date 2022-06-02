@@ -209,7 +209,7 @@ public class VehicleSelectionListner : MonoBehaviour
     {
 
         this.GetComponentInParent<UIManager>().ShowPrevUI();
-        Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Back");
+        Toolbox.GameManager.Analytics_DesignEvent("VehicleSelection_Press_Back");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.BackButtonAnySelectionclick);
         Gunselection.SetActive(false);
         Mainmenu.SetActive(true);
@@ -220,18 +220,18 @@ public class VehicleSelectionListner : MonoBehaviour
     public void OnPress_Play()
     {
         Toolbox.DB.Prefs.LastSelectedVehicle = curVehicleIndex;
-        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.letsgo);
+       // Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.letsgo);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.PlayButtonGunselectionclick);
-        Toolbox.GameManager.FBAnalytic_EventDesign("GunSelection_Press_Play");
-        Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Play");
+        Toolbox.GameManager.FBAnalytic_EventDesign("VehicleSelection_Press_Play");
+        Toolbox.GameManager.Analytics_DesignEvent("VehicleSelection_Press_Play");
         //  Invoke("Ads",1.2f);
         this.GetComponentInParent<UIManager>().ShowNextUI();
     }
 
     public void OnPress_Store()
     {
-        Toolbox.GameManager.FBAnalytic_EventDesign("GunSelection_Press_Store");
-        Toolbox.GameManager.Analytics_DesignEvent("GunSelection_Press_Store");
+        Toolbox.GameManager.FBAnalytic_EventDesign("VehicleSelection_Press_Store");
+        Toolbox.GameManager.Analytics_DesignEvent("VehicleSelection_Press_Store");
         Toolbox.UIManager.Shop_Panel.SetActive(true);
         //    Toolbox.GameManager.InstantiateUI_Shop();
     }

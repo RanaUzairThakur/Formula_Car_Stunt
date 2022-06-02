@@ -87,10 +87,10 @@ public class HR_ModHandler : MonoBehaviour {
 			brakeUpgradeLevel.text = currentApplier.brakeLevel.ToString("F0");
 		if(sirenUpgradeLevel)
 			sirenUpgradeLevel.text = currentApplier.isSirenPurchased && currentApplier.attachedFrontSiren.activeSelf ? "ON" : "OFF";
-		if(nosUpgradeLevel)
-			nosUpgradeLevel.text = currentApplier.isNOSPurchased ? "ON" : "OFF";
-		if(turboUpgradeLevel)
-			turboUpgradeLevel.text = currentApplier.isTurboPurchased ? "ON" : "OFF";
+		//if(nosUpgradeLevel)
+		//	nosUpgradeLevel.text = currentApplier.isNOSPurchased ? "ON" : "OFF";
+		//if(turboUpgradeLevel)
+		//	turboUpgradeLevel.text = currentApplier.isTurboPurchased ? "ON" : "OFF";
 
 	}
 
@@ -117,7 +117,7 @@ public class HR_ModHandler : MonoBehaviour {
 	public void ChangeChassisColor (Color color) {
 
 		HR_ModApplier applier = GameObject.FindObjectOfType<HR_ModApplier>();
-		applier.bodyColor = color;
+		//applier.bodyColor = color;
 		applier.UpdateStats();
 
 	}
@@ -167,7 +167,7 @@ public class HR_ModHandler : MonoBehaviour {
 	public void UpgradeNOS(){
 
 		HR_ModApplier applier = GameObject.FindObjectOfType<HR_ModApplier>();
-		applier.isNOSPurchased = true;
+	//	applier.isNOSPurchased = true;
 		applier.UpdateStats();
 
 	}
@@ -175,7 +175,7 @@ public class HR_ModHandler : MonoBehaviour {
 	public void UpgradeTurbo(){
 
 		HR_ModApplier applier = GameObject.FindObjectOfType<HR_ModApplier>();
-		applier.isTurboPurchased = true;
+		//applier.isTurboPurchased = true;
 		applier.UpdateStats();
 
 	}

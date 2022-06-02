@@ -272,21 +272,40 @@ public class HR_PlayerHandler : MonoBehaviour {
 		if (colRelVel.magnitude * cos < HR_HighwayRacerProperties.Instance._minimumCollisionForGameOver && colRelVel.magnitude * cos2 < HR_HighwayRacerProperties.Instance._minimumCollisionForGameOver)
 			return;
 
-		combo = 0;
+        //combo = 0;
 
-		if(col.relativeVelocity.magnitude < HR_HighwayRacerProperties.Instance._minimumCollisionForGameOver || (1 << col.gameObject.layer) != HR_HighwayRacerProperties.Instance.trafficCarsLayer.value)
-			return;
+        //if (col.relativeVelocity.magnitude < HR_HighwayRacerProperties.Instance._minimumCollisionForGameOver || (1 << col.gameObject.layer) != HR_HighwayRacerProperties.Instance.trafficCarsLayer.value)
+        //    return;
 
-		if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb){
-			bombHealth -= col.relativeVelocity.magnitude / 2f;
-			return;
+        //if (HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb)
+        //{
+        //    bombHealth -= col.relativeVelocity.magnitude / 2f;
+        //    return;
+        //}
+
+        //rigid.isKinematic = true;
+        //OnGameOver(1f);
+
+    }
+	void OnTriggerEnter(Collider col)
+	{
+
+
+		if (col.transform.root.gameObject.GetComponent<Rigidbody>() /*&& this.gameObject.GetComponent<RCC_CarControllerV3>().speed>= 80f*/)
+		{
+			col.transform.root.gameObject.GetComponent<HR_TrafficCar>().enabled = false;
+			col.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			col.transform.root.gameObject.GetComponent<Rigidbody>().mass = 10f;
+			col.transform.root.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 100 * rigid.velocity.magnitude, ForceMode.Acceleration);
+			col.transform.root.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100 * rigid.velocity.magnitude, ForceMode.Acceleration);
+			//col.transform.root.gameObject.GetComponent<AudioSource>().Play();
+
+			//print("Name :" + col.transform.root.gameObject.name);
 		}
 
-		rigid.isKinematic = true;
-		OnGameOver(1f);
+
 
 	}
-
 	void CheckStatus(){
 
 		if(!roadPooling || rigid.isKinematic)

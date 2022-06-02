@@ -24,11 +24,11 @@ public class SoundsManager : MonoBehaviour {
 	public AudioClip[] gameBG;
 
 	[Header("Sound Clips")]
-	public AudioClip IntroAnimation;
+	//public AudioClip IntroAnimation;
 	public AudioClip buttonPress;
 	public AudioClip On_PressMoreGameRateus;
 	public AudioClip PrivacyPolicyPress;
-	public AudioClip weaponPress;
+	//public AudioClip weaponPress;
 	public AudioClip Quit;
 	public AudioClip okyesNo;
 	public AudioClip levelpress;
@@ -47,8 +47,8 @@ public class SoundsManager : MonoBehaviour {
 	public AudioClip GameUIclicks;
 	public AudioClip levelComplete;
 	public AudioClip levelFail;
-	public AudioClip letsgo;
-	public AudioClip GetReady;
+	//public AudioClip letsgo;
+	//public AudioClip GetReady;
 	public AudioClip AudienceAppreciation;
 	public AudioClip singleCoinsSound;
 	public AudioClip Savepointclip;
@@ -109,17 +109,17 @@ public class SoundsManager : MonoBehaviour {
 		musicSource.Play();
 
 	}
-	public void letGo_Sound()
-	{
-		musicSource.clip = letsgo;
-		musicSource.Play();
-	}
+	//public void letGo_Sound()
+	//{
+	//	musicSource.clip = letsgo;
+	//	musicSource.Play();
+	//}
 
-	public void getready_Sound()
-	{
-		musicSource.clip = GetReady;
-		musicSource.Play();
-	}
+	//public void getready_Sound()
+	//{
+	//	musicSource.clip = GetReady;
+	//	musicSource.Play();
+	//}
 	
 	
 	public void Set_MusicStatus(bool _val) {

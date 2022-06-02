@@ -171,7 +171,7 @@ public class Prefs_Data {
         }
         else if(LastSelectedGameMode == 2)
         {
-            lastSelectedscenename = Constants.scenename_Gameplay;
+            lastSelectedscenename = Constants.scenename_HighwayracerGameplay;
             return Constants.sceneIndex_GameMode3;
         }
         else if (LastSelectedGameMode == 3 )

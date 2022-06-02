@@ -21,7 +21,7 @@ public class HR_RoadPooling : MonoBehaviour {
 	}
 	
 	public int roadAmountInPool = 10;
-	private float[] roadLength;
+	public float[] roadLength;
 
 	public bool automaticRoadLength = true;
 	public float manualRoadLength = 60f;
@@ -29,7 +29,7 @@ public class HR_RoadPooling : MonoBehaviour {
 	[Header("Use This Layer On Road For Calculating Road Length")] public LayerMask asphaltLayer;
 	
 	[Header("Pooling Road Objects. Select Them While They Are On Your Scene")] public RoadObjects[] roadObjects;
-	internal List<GameObject> roads = new List<GameObject>();
+	public List<GameObject> roads = new List<GameObject>();
 
 	public float roadWidth = 13.5f;
 	private int index = 0;

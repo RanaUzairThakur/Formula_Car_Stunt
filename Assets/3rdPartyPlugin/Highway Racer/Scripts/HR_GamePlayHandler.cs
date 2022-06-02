@@ -165,7 +165,7 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 	void SpawnCar () {
 
-		player = (RCC.SpawnRCC(HR_PlayerCars.Instance.cars[selectedCarIndex].playerCar.GetComponent<RCC_CarControllerV3>(), spawnLocation.position, spawnLocation.rotation, true, false, true)).gameObject;
+		player = (RCC.SpawnRCC(HR_PlayerCars.Instance.cars[/*selectedCarIndex*/Toolbox.DB.Prefs.LastSelectedVehicle].playerCar.GetComponent<RCC_CarControllerV3>(), spawnLocation.position, spawnLocation.rotation, true, false, true)).gameObject;
 		player.transform.position = spawnLocation.transform.position;
 		player.transform.rotation = Quaternion.identity;
 
@@ -206,7 +206,7 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 	public void MainMenu(){
 
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(1);
 
 	}
 

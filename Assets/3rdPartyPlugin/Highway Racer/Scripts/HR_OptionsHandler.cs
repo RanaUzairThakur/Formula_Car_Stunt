@@ -86,5 +86,6 @@ public class HR_OptionsHandler : MonoBehaviour {
 		HR_GamePlayHandler.OnResumed -= OnResumed;
 
 	}
+   
 
 }

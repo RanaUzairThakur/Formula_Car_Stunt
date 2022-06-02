@@ -17,14 +17,14 @@ public class HR_ModApplier : MonoBehaviour {
 	private RCC_CarControllerV3 carController;
 	private Rigidbody rigid;
 
-	internal float maxSpeed = 220f;
+	internal float maxSpeed = 350f;
 	[Range(0f, 10f)]public float highwaySteeringHelper = 4f;
 	[Range(0f, 10f)] public float highwayBrakingHelper = 4f;
 
-	public bool getColor = true;
-	public Color bodyColor;
-	public MeshRenderer bodyRenderer;
-	public int materialIndex;
+	//public bool getColor = true;
+    //public Color bodyColor;
+    //public MeshRenderer bodyRenderer;
+    public int materialIndex;
 
 	internal GameObject selectedWheel;
 	internal int wheelIndex;
@@ -32,8 +32,8 @@ public class HR_ModApplier : MonoBehaviour {
 	internal bool isSirenPurchased = false;
 	internal bool isSirenAttached = false;
 
-	internal bool isNOSPurchased = false;
-	internal bool isTurboPurchased = false;
+	//internal bool isNOSPurchased = false;
+	//internal bool isTurboPurchased = false;
 
 	internal GameObject attachedFrontSiren;
 	internal GameObject attachedRearSiren;
@@ -106,18 +106,18 @@ public class HR_ModApplier : MonoBehaviour {
 			selectedWheel = null;
 		}
 
-		_speedLevel = PlayerPrefs.GetInt(transform.name + "SpeedLevel");
-		_handlingLevel = PlayerPrefs.GetInt(transform.name + "HandlingLevel");
-		_brakeLevel = PlayerPrefs.GetInt(transform.name + "BrakeLevel");
+		//_speedLevel = PlayerPrefs.GetInt(transform.name + "SpeedLevel");
+		//_handlingLevel = PlayerPrefs.GetInt(transform.name + "HandlingLevel");
+		//_brakeLevel = PlayerPrefs.GetInt(transform.name + "BrakeLevel");
 
-		if(getColor)
-			bodyColor = PlayerPrefsX.GetColor(transform.name + "BodyColor", HR_HighwayRacerProperties.Instance._defaultBodyColor);
+		//if(getColor)
+		//	bodyColor = PlayerPrefsX.GetColor(transform.name + "BodyColor", HR_HighwayRacerProperties.Instance._defaultBodyColor);
 		
-		isSirenPurchased = PlayerPrefsX.GetBool(transform.name + "Siren", false);
-		isSirenAttached = PlayerPrefsX.GetBool(transform.name + "SirenAttached", false);
+		//isSirenPurchased = PlayerPrefsX.GetBool(transform.name + "Siren", false);
+		//isSirenAttached = PlayerPrefsX.GetBool(transform.name + "SirenAttached", false);
 
-		isNOSPurchased = PlayerPrefsX.GetBool(transform.name + "NOS", false);
-		isTurboPurchased = PlayerPrefsX.GetBool(transform.name + "Turbo", false);
+		//isNOSPurchased = PlayerPrefsX.GetBool(transform.name + "NOS", false);
+		//isTurboPurchased = PlayerPrefsX.GetBool(transform.name + "Turbo", false);
 
 	}
 
@@ -131,86 +131,88 @@ public class HR_ModApplier : MonoBehaviour {
 
 		}
 
-		UpdateStats();
+	//	UpdateStats();
 		CheckGroundGap ();
 
 	}
 
 	public void UpdateStats (){
 
-		maxSpeed = Mathf.Lerp(defMaxSpeed, maxUpgradeSpeed, _speedLevel / 5f);
+		//maxSpeed = Mathf.Lerp(defMaxSpeed, maxUpgradeSpeed, _speedLevel / 5f);
 		highwaySteeringHelper = Mathf.Lerp(defHandling, maxUpgradeHandling, _handlingLevel / 5f);
 		highwayBrakingHelper = Mathf.Lerp(defMaxBrake, maxUpgradeBrake, _brakeLevel / 5f);
 
-		if(bodyRenderer)
-			bodyRenderer.sharedMaterials[materialIndex].color = bodyColor;
-		else
-			Debug.LogError("Missing Body Renderer On ModApllier Component");
+		//if(bodyRenderer)
+		//	bodyRenderer.sharedMaterials[materialIndex].color = bodyColor;
+		//else
+		//	Debug.LogError("Missing Body Renderer On ModApllier Component");
 
-		if(isSirenPurchased && !attachedFrontSiren){
-			CreateSiren();
-		}
+		//if(isSirenPurchased && !attachedFrontSiren){
+		//	CreateSiren();
+		//}
 
-		if (isNOSPurchased)
-			carController.useNOS = true;
-		else
-			carController.useNOS = false;
+		//if (isNOSPurchased)
+		//	carController.useNOS = true;
+		//else
+		//	carController.useNOS = false;
 
-		if (isTurboPurchased)
-			carController.useTurbo = true;
-		else
-			carController.useTurbo = false;
+		//if (isTurboPurchased)
+		//	carController.useTurbo = true;
+		//else
+		//	carController.useTurbo = false;
 
-		if (selectedWheel) {
+		//if (selectedWheel) {
 
-			ChangeWheels (carController, selectedWheel);
+		//	ChangeWheels (carController, selectedWheel);
 
-			carController.FrontLeftWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
-			carController.FrontRightWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
-			carController.RearLeftWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
-			carController.RearRightWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
+		//	carController.FrontLeftWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
+		//	carController.FrontRightWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
+		//	carController.RearLeftWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
+		//	carController.RearRightWheelCollider.wheelCollider.radius = RCC_GetBounds.MaxBoundsExtent (selectedWheel.transform);
 
-			PlayerPrefs.SetInt (transform.name + "SelectedWheel", wheelIndex);
+		//	PlayerPrefs.SetInt (transform.name + "SelectedWheel", wheelIndex);
 
-		}
+		//}
 
-		PlayerPrefs.SetInt(transform.name + "SpeedLevel", _speedLevel);
-		PlayerPrefs.SetInt(transform.name + "HandlingLevel", _handlingLevel);
-		PlayerPrefs.SetInt(transform.name + "BrakeLevel", _brakeLevel);
+		//PlayerPrefs.SetInt(transform.name + "SpeedLevel", _speedLevel);
+		//PlayerPrefs.SetInt(transform.name + "HandlingLevel", _handlingLevel);
+		//PlayerPrefs.SetInt(transform.name + "BrakeLevel", _brakeLevel);
 
-		PlayerPrefsX.SetColor(transform.name + "BodyColor", bodyColor);
-		PlayerPrefsX.SetBool(transform.name + "Siren", isSirenPurchased);
+		////PlayerPrefsX.SetColor(transform.name + "BodyColor", bodyColor);
+		//PlayerPrefsX.SetBool(transform.name + "Siren", isSirenPurchased);
 
-		PlayerPrefsX.SetBool(transform.name + "NOS", isNOSPurchased);
-		PlayerPrefsX.SetBool(transform.name + "Turbo", isTurboPurchased);
-
-	}
-
-	void Update(){
-
-		if(maxUpgradeSpeed < carController.maxspeed)
-			maxUpgradeSpeed = carController.maxspeed;
-
-		if(maxUpgradeHandling < highwaySteeringHelper)
-			maxUpgradeHandling = highwaySteeringHelper;
-
-		if(maxUpgradeBrake < highwayBrakingHelper)
-			maxUpgradeBrake = highwayBrakingHelper;
-
-		ApplyUpgrades ();
+		//PlayerPrefsX.SetBool(transform.name + "NOS", isNOSPurchased);
+		//PlayerPrefsX.SetBool(transform.name + "Turbo", isTurboPurchased);
 
 	}
 
-	void ApplyUpgrades(){
+    void Update()
+    {
 
-		if (!carController)
-			return;
+        if (maxUpgradeSpeed < carController.maxspeed)
+            maxUpgradeSpeed = carController.maxspeed;
 
-		carController.maxspeed = maxSpeed;
-		carController.steerHelperAngularVelStrength = highwaySteeringHelper / 10f;
-		carController.steerHelperLinearVelStrength = highwaySteeringHelper / 10f;
+        if (maxUpgradeHandling < highwaySteeringHelper)
+            maxUpgradeHandling = highwaySteeringHelper;
 
-	}
+        if (maxUpgradeBrake < highwayBrakingHelper)
+            maxUpgradeBrake = highwayBrakingHelper;
+
+        ApplyUpgrades();
+
+    }
+
+    void ApplyUpgrades()
+    {
+
+        if (!carController)
+            return;
+
+        carController.maxspeed = maxSpeed;
+        carController.steerHelperAngularVelStrength = highwaySteeringHelper / 10f;
+        carController.steerHelperLinearVelStrength = highwaySteeringHelper / 10f;
+
+    }
 
     private void FixedUpdate() {
 

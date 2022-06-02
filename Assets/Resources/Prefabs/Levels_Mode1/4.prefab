@@ -102257,7 +102257,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4373320487276839682}
   - component: {fileID: 4373320487276839684}
-  - component: {fileID: 4373320487276839685}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Finish
@@ -102292,20 +102291,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.84258, y: 0.03017821, z: 1.463551}
   m_Center: {x: -0.2688665, y: 0.0174774, z: -0.2317758}
---- !u!114 &4373320487276839685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4373320487276839683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a63254ba052e240adfd693ed7b5566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalCam: {fileID: 4373320485931217291}
-  Fireworks: {fileID: 4373320485719282994}
 --- !u!1 &4373320487281119955
 GameObject:
   m_ObjectHideFlags: 0
@@ -122491,6 +122476,7 @@ MonoBehaviour:
   CharacterModel: {fileID: 0}
   Finalvehicleslist: []
   Custcene: {fileID: 4280482998373851927}
+  Skybox: {fileID: 2100000, guid: 8c1dd642aab7a57439103c057fdd4743, type: 2}
 --- !u!1 &7433817560609289533
 GameObject:
   m_ObjectHideFlags: 0

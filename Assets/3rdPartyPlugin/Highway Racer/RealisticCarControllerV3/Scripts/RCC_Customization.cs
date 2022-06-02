@@ -676,7 +676,7 @@ public class RCC_Customization : MonoBehaviour {
 		PlayerPrefs.SetFloat(vehicle.transform.name + "_FrontSuspensionsDamper", vehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.damper);
 		PlayerPrefs.SetFloat(vehicle.transform.name + "_RearSuspensionsDamper", vehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.damper);
 
-		PlayerPrefs.SetFloat(vehicle.transform.name + "_MaximumSpeed", vehicle.maxspeed);
+		//PlayerPrefs.SetFloat(vehicle.transform.name + "_MaximumSpeed", vehicle.maxspeed);
 		PlayerPrefs.SetFloat(vehicle.transform.name + "_MaximumBrake", vehicle.brakeTorque);
 		PlayerPrefs.SetFloat(vehicle.transform.name + "_MaximumTorque", vehicle.maxEngineTorque);
 
@@ -708,7 +708,7 @@ public class RCC_Customization : MonoBehaviour {
 		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "_TCS", vehicle.TCS);
 		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "_SH", vehicle.steeringHelper);
 
-		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "NOS", vehicle.useNOS);
+		///RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "NOS", vehicle.useNOS);
 		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "Turbo", vehicle.useTurbo);
 		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "ExhaustFlame", vehicle.useExhaustFlame);
 		RCC_PlayerPrefsX.SetBool(vehicle.transform.name + "RevLimiter", vehicle.useRevLimiter);
@@ -735,7 +735,7 @@ public class RCC_Customization : MonoBehaviour {
 		SetFrontSuspensionsSpringDamper (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_FrontSuspensionsDamper", vehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.damper));
 		SetRearSuspensionsSpringDamper (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_RearSuspensionsDamper", vehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.damper));
 
-		SetMaximumSpeed (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_MaximumSpeed", vehicle.maxspeed));
+		//SetMaximumSpeed (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_MaximumSpeed", vehicle.maxspeed));
 		SetMaximumBrake (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_MaximumBrake", vehicle.brakeTorque));
 		SetMaximumTorque (vehicle, PlayerPrefs.GetFloat(vehicle.transform.name + "_MaximumTorque", vehicle.maxEngineTorque));
 
@@ -767,7 +767,7 @@ public class RCC_Customization : MonoBehaviour {
 		SetTCS (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "_TCS", vehicle.TCS));
 		SetSH (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "_SH", vehicle.steeringHelper));
 
-		SetNOS (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "NOS", vehicle.useNOS));
+		//SetNOS (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "NOS", vehicle.useNOS));
 		SetTurbo (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "Turbo", vehicle.useTurbo));
 		SetUseExhaustFlame (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "ExhaustFlame", vehicle.useExhaustFlame));
 		SetRevLimiter (vehicle, RCC_PlayerPrefsX.GetBool(vehicle.transform.name + "RevLimiter", vehicle.useRevLimiter));
@@ -805,7 +805,7 @@ public class RCC_Customization : MonoBehaviour {
 		SetFrontSuspensionsSpringDamper (vehicle, defaultCar.FrontLeftWheelCollider.wheelCollider.suspensionSpring.damper);
 		SetRearSuspensionsSpringDamper (vehicle, defaultCar.RearLeftWheelCollider.wheelCollider.suspensionSpring.damper);
 
-		SetMaximumSpeed (vehicle, defaultCar.maxspeed);
+		//SetMaximumSpeed (vehicle, defaultCar.maxspeed);
 		SetMaximumBrake (vehicle, defaultCar.brakeTorque);
 		SetMaximumTorque (vehicle, defaultCar.maxEngineTorque);
 
@@ -837,7 +837,7 @@ public class RCC_Customization : MonoBehaviour {
 		SetTCS (vehicle, defaultCar.TCS);
 		SetSH (vehicle, defaultCar.steeringHelper);
 
-		SetNOS (vehicle, defaultCar.useNOS);
+		//SetNOS (vehicle, defaultCar.useNOS);
 		SetTurbo (vehicle, defaultCar.useTurbo);
 		SetUseExhaustFlame (vehicle, defaultCar.useExhaustFlame);
 		SetRevLimiter (vehicle, defaultCar.useRevLimiter);

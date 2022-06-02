@@ -37,27 +37,28 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 
 	private RectTransform bombRect;
 	private Vector2 bombDefPos;
+	private RCC_CarControllerV3 Rccv3;
 
 	void Awake () {
 
-		comboMImage = combo.GetComponentInParent<Image>();
-		comboDefPos = comboMImage.rectTransform.anchoredPosition;
+		//comboMImage = combo.GetComponentInParent<Image>();
+		//comboDefPos = comboMImage.rectTransform.anchoredPosition;
 		highSpeedImage = highSpeed.GetComponentInParent<Image>();
 		highSpeedDefPos = highSpeedImage.rectTransform.anchoredPosition;
-		oppositeDirectionImage = oppositeDirection.GetComponentInParent<Image>();
-		oppositeDirectionDefPos = oppositeDirectionImage.rectTransform.anchoredPosition;
-		timeAttackImage = timeLeft.GetComponentInParent<Image>();
-		bombRect = bombSlider.GetComponent<RectTransform>();
-		bombDefPos = bombRect.anchoredPosition;
+		//oppositeDirectionImage = oppositeDirection.GetComponentInParent<Image>();
+		//oppositeDirectionDefPos = oppositeDirectionImage.rectTransform.anchoredPosition;
+		//timeAttackImage = timeLeft.GetComponentInParent<Image>();
+		//bombRect = bombSlider.GetComponent<RectTransform>();
+		//bombDefPos = bombRect.anchoredPosition;
 
 	}
 
-	void HR_PlayerHandler_OnPlayerSpawned (HR_PlayerHandler _player){
+	void HR_PlayerHandler_OnPlayerSpawned(HR_PlayerHandler _player)
+	{
 
 		player = _player;
-
+		Rccv3 = _player.GetComponent<RCC_CarControllerV3>();
 	}
-
 	void OnEnable(){
 
 		HR_PlayerHandler.OnPlayerSpawned += HR_PlayerHandler_OnPlayerSpawned;
@@ -69,11 +70,11 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 		if(!player)
 			return;
 
-		if(player.combo > 1){
-			comboMImage.rectTransform.anchoredPosition = Vector2.Lerp(comboMImage.rectTransform.anchoredPosition, comboDefPos, Time.deltaTime * 5f);
-		}else{
-			comboMImage.rectTransform.anchoredPosition = Vector2.Lerp(comboMImage.rectTransform.anchoredPosition, new Vector2(comboDefPos.x - 500, comboDefPos.y), Time.deltaTime * 5f);
-		}
+		//if(player.combo > 1){
+		//	comboMImage.rectTransform.anchoredPosition = Vector2.Lerp(comboMImage.rectTransform.anchoredPosition, comboDefPos, Time.deltaTime * 5f);
+		//}else{
+		//	comboMImage.rectTransform.anchoredPosition = Vector2.Lerp(comboMImage.rectTransform.anchoredPosition, new Vector2(comboDefPos.x - 500, comboDefPos.y), Time.deltaTime * 5f);
+		//}
 
 		if(player.highSpeedCurrent > .1f){
 			highSpeedImage.rectTransform.anchoredPosition = Vector2.Lerp(highSpeedImage.rectTransform.anchoredPosition, highSpeedDefPos, Time.deltaTime * 5f);
@@ -81,33 +82,33 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 			highSpeedImage.rectTransform.anchoredPosition = Vector2.Lerp(highSpeedImage.rectTransform.anchoredPosition, new Vector2(highSpeedDefPos.x + 500, highSpeedDefPos.y), Time.deltaTime * 5f);
 		}
 
-		if(player.opposideDirectionCurrent > .1f){
-			oppositeDirectionImage.rectTransform.anchoredPosition = Vector2.Lerp(oppositeDirectionImage.rectTransform.anchoredPosition, oppositeDirectionDefPos, Time.deltaTime * 5f);
-		}else{ 
-			oppositeDirectionImage.rectTransform.anchoredPosition = Vector2.Lerp(oppositeDirectionImage.rectTransform.anchoredPosition, new Vector2(oppositeDirectionDefPos.x - 500, oppositeDirectionDefPos.y), Time.deltaTime * 5f);
-		}
+		//if(player.opposideDirectionCurrent > .1f){
+		//	oppositeDirectionImage.rectTransform.anchoredPosition = Vector2.Lerp(oppositeDirectionImage.rectTransform.anchoredPosition, oppositeDirectionDefPos, Time.deltaTime * 5f);
+		//}else{ 
+		//	oppositeDirectionImage.rectTransform.anchoredPosition = Vector2.Lerp(oppositeDirectionImage.rectTransform.anchoredPosition, new Vector2(oppositeDirectionDefPos.x - 500, oppositeDirectionDefPos.y), Time.deltaTime * 5f);
+		//}
 
-		if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.TimeAttack){
-			if(!timeLeft.gameObject.activeSelf)
-				timeAttackImage.gameObject.SetActive(true);
-		}else{ 
-			if(timeLeft.gameObject.activeSelf)
-				timeAttackImage.gameObject.SetActive(false);
-		}
+		//if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.TimeAttack){
+		//	if(!timeLeft.gameObject.activeSelf)
+		//		timeAttackImage.gameObject.SetActive(true);
+		//}else{ 
+		//	if(timeLeft.gameObject.activeSelf)
+		//		timeAttackImage.gameObject.SetActive(false);
+		//}
 
-		if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb){
-			if(!bombSlider.gameObject.activeSelf)
-				bombSlider.gameObject.SetActive(true);
-		}else{ 
-			if(bombSlider.gameObject.activeSelf)
-				bombSlider.gameObject.SetActive(false);
-		}
+		//if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb){
+		//	if(!bombSlider.gameObject.activeSelf)
+		//		bombSlider.gameObject.SetActive(true);
+		//}else{ 
+		//	if(bombSlider.gameObject.activeSelf)
+		//		bombSlider.gameObject.SetActive(false);
+		//}
 
-		if(player.bombTriggered){
-			bombRect.anchoredPosition = Vector2.Lerp(bombRect.anchoredPosition, bombDefPos, Time.deltaTime * 5f);
-		}else{
-			bombRect.anchoredPosition = Vector2.Lerp(bombRect.anchoredPosition, new Vector2(bombDefPos.x - 500, bombDefPos.y), Time.deltaTime * 5f);
-		}
+		//if(player.bombTriggered){
+		//	bombRect.anchoredPosition = Vector2.Lerp(bombRect.anchoredPosition, bombDefPos, Time.deltaTime * 5f);
+		//}else{
+		//	bombRect.anchoredPosition = Vector2.Lerp(bombRect.anchoredPosition, new Vector2(bombDefPos.x - 500, bombDefPos.y), Time.deltaTime * 5f);
+		//}
 
 	}
 
@@ -120,16 +121,30 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 		speed.text = player.speed.ToString("F0");
 		distance.text = (player.distance).ToString("F2");
 		highSpeed.text = player.highSpeedCurrent.ToString("F1");
-		oppositeDirection.text = player.opposideDirectionCurrent.ToString("F1");
-		timeLeft.text = player.timeLeft.ToString("F1");
-		combo.text = player.combo.ToString();
+		//oppositeDirection.text = player.opposideDirectionCurrent.ToString("F1");
+		//timeLeft.text = player.timeLeft.ToString("F1");
+		//combo.text = player.combo.ToString();
 
-		if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb)
-			bombSlider.value = player.bombHealth / 100f;
+		//if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb)
+		//	bombSlider.value = player.bombHealth / 100f;
 
 	}
-
-	void OnDisable(){
+    #region
+    public void Onpress_Nos()
+    {
+		if (Rccv3.direction == -1)
+			return;
+	     Rccv3.nos_IsActive = true;
+	}
+    public void Onpress_ReleaseNos()
+    {
+		if (Rccv3.direction == -1)
+			return;
+		Rccv3.nos_IsActive = false;
+		Rccv3.Nos_stop();
+	}
+    #endregion
+    void OnDisable(){
 
 		HR_PlayerHandler.OnPlayerSpawned -= HR_PlayerHandler_OnPlayerSpawned;
 

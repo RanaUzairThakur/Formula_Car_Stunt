@@ -10,15 +10,15 @@ public class UIManager : MonoBehaviour
 	private   GameObject curUIObj;
 	//private readonly List<GameObject> uiList = new List<GameObject>();
 	public GameObject [] uiList;
-	//[SerializeField] private bool directShowingShop = false;
-	//[SerializeField] private bool directShowingLevelSelection = false;
-	//public int shopIndex = 3;
-	//public int LevelselectionIndex = 2;
-	//public Text coinsTxt;
- 
+    [SerializeField] private bool directShowingShop = false;
+    //[SerializeField] private bool directShowingLevelSelection = false;
+    public int shopIndex = 3;
+    //public int LevelselectionIndex = 2;
+    //public Text coinsTxt;
 
-	// UI Menus 
-	public GameObject ModeLockPopup;
+
+    // UI Menus 
+    public GameObject ModeLockPopup;
 	public GameObject MessagePopup;
 	public GameObject LowCoinUnlockCar_Panel;
 	public GameObject Quit_Panel;
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 	public GameObject PrivacyPolicy;
 	public GameObject SurePop;
     //public GameObject DailyReward;
-    //public bool DirectShowingShop { get => directShowingShop; set => directShowingShop = value; }
+    public bool DirectShowingShop { get => directShowingShop; set => directShowingShop = value; }
 
     void Awake()
 	{
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
 
 		if (Toolbox.GameManager.DirectShowVehicleSelectionOnMenu)
         {
-            ShowUI(curUiIndex);
+            //ShowUI(curUiIndex);
             DirectShowShopAfterLevelComplete();
             Toolbox.GameManager.DirectShowVehicleSelectionOnMenu = false;
         }
@@ -117,12 +117,13 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
-	public void DirectShowShop() {
+    //public void DirectShowShop()
+    //{
 
-		//DirectShowingShop = true;
-		//ShowUI(shopIndex);
-	}
-	public void DirectShowLevelSelection()
+    //    DirectShowingShop = true;
+    //    ShowUI(shopIndex);
+    //}
+    public void DirectShowLevelSelection()
 	{
 
 		//directShowingLevelSelection = true;
@@ -130,8 +131,8 @@ public class UIManager : MonoBehaviour
 	}
 	public void DirectShowShopAfterLevelComplete()
 	{
-		//DirectShowingShop = true;
-		//ShowUI(shopIndex);
+		DirectShowingShop = true;
+		ShowUI(shopIndex);
 	}
 
 	public void DirectShowMain()

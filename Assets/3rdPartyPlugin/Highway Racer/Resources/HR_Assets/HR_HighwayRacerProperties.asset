@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minimumSpeedForGainScore: 0
   _minimumSpeedForHighSpeed: 0
-  _minimumCollisionForGameOver: 0
+  _minimumCollisionForGameOver: 1000
   _defaultBodyColor: {r: 1, g: 0.5, b: 0, a: 1.5}
   _shakeCamera: 0
   _tiltCamera: 0
@@ -45,12 +45,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b7868565f5e8ddf4b821fa70a0d64575, type: 3}
   - {fileID: 8300000, guid: 62d54c85773304f47a58028d62dbc9e3, type: 3}
   - {fileID: 8300000, guid: 616db33c471f8c04a9cf810a3ff93635, type: 3}
-  buttonClickAudioClip: {fileID: 8300000, guid: 35de1507d8c1d4c409d8032c6b591fe1,
-    type: 3}
+  buttonClickAudioClip: {fileID: 8300000, guid: 35de1507d8c1d4c409d8032c6b591fe1, type: 3}
   nearMissAudioClip: {fileID: 8300000, guid: 5c1339fd4e8962e418fe82a97ab01087, type: 3}
   labelSlideAudioClip: {fileID: 8300000, guid: 5cd5a819d6dec0b4ea15421c1bf57b08, type: 3}
-  countingPointsAudioClip: {fileID: 8300000, guid: bdd05b44c83ffc847a96e8ff8d1f1c6c,
-    type: 3}
+  countingPointsAudioClip: {fileID: 8300000, guid: bdd05b44c83ffc847a96e8ff8d1f1c6c, type: 3}
   bombTimerAudioClip: {fileID: 8300000, guid: 8460f6456256ff643b5da2fabdc6ae1d, type: 3}
   hornClip: {fileID: 8300000, guid: 194cc906333203c4d9673e6850435642, type: 3}
   sirenAudioClip: {fileID: 8300000, guid: b2e843118f443d24698830d1a2ebdfa3, type: 3}

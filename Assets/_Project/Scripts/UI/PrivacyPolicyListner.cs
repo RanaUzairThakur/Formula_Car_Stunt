@@ -29,12 +29,14 @@ public class PrivacyPolicyListner : MonoBehaviour
     {
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_PrivacyLink");
         Application.OpenURL(Constants.link_PrivacyPolicy);
+       
     }
 
     public void OnPress_Yes() {
 
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_Yes");
         Close();
+        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.okyesNo);
     }
 
     public void OnPress_No()
@@ -42,6 +44,7 @@ public class PrivacyPolicyListner : MonoBehaviour
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_No");
         Toolbox.DB.Prefs.UserConsent = false;
         Close();
+        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.okyesNo);
     }
 
     #endregion

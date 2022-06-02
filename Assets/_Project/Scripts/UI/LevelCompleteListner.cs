@@ -220,7 +220,7 @@ public class LevelCompleteListner : MonoBehaviour
         //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
         Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode(1);
         Toolbox.GameManager.Call_ad_after_restart = true;
-        if ((Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode()) % 3 == 0)
+        if ((Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode()) % 4 == 0)
         {
             Toolbox.GameManager.DirectShowVehicleSelectionOnMenu = true;
             Toolbox.HUDListner.Loadingpanel.SetActive(true);

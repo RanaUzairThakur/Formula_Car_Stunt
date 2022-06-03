@@ -132,7 +132,7 @@ public class AdsManager : MonoBehaviour
                     }
                 }
             });
-            LoadMediumRectangle();
+           // LoadMediumRectangle();
             if (ShowDefaultBanner)
                 ShowBanner("Default");
 

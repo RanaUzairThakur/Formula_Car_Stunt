@@ -679,6 +679,10 @@ PrefabInstance:
       value: ca-app-pub-9515731482364926/6198414594
       objectReference: {fileID: 0}
     - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
+      propertyPath: ShowDefaultBanner
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
       propertyPath: RewardedInterstitialID
       value: ca-app-pub-9515731482364926/9773071796
       objectReference: {fileID: 0}
@@ -1452,63 +1456,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &1086863279306825007
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404493, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737893155634404494, guid: f26ce52080e85b84da64105744069bda, type: 3}
-      propertyPath: m_Name
-      value: _RCCSceneManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f26ce52080e85b84da64105744069bda, type: 3}
 --- !u!222 &1132392553263043243
 CanvasRenderer:
   m_ObjectHideFlags: 0

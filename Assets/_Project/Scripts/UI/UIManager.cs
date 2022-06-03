@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using GoogleMobileAds.Api;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,19 +54,36 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-		//Toolbox.AdsManager.Load_RAd(0);
+		ShowBanner();
 	}
-   
+	public void ShowBanner()
+	{
+
+		try
+		{
+			//if (FindObjectOfType<AbstractAdsmanager>())
+			//    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
+			if (FindObjectOfType<AdsManager>())
+				FindObjectOfType<AdsManager>().ShowBanner("Default");
+		}
+
+		catch (Exception e)
+		{
+			//GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
+
+		}
+
+	}
 	//public void refreshstatus()
- //   {
+	//   {
 	//	UpdateTxts();
-		
- //   }
+
+	//   }
 	//public void UpdateTxts()
 	//{
 	//	coinsTxt.text = Toolbox.DB.Prefs.GoldCoins.ToString();
 	//}
-    public void ShowUI(int _index) {
+	public void ShowUI(int _index) {
 
 		if (curUiIndex >= uiList.Length || curUiIndex < 0)
 		{

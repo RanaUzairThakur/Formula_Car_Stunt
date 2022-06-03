@@ -12,7 +12,7 @@ public class MainMenuListner : MonoBehaviour
     public GameObject noAdsButton;
     private void Awake()
     {
-        ShowBannner();
+      //  ShowBannner();
     }
     public void OnEnable()
     {

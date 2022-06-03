@@ -76,7 +76,7 @@ public class PauseListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameplayController.HUD_Status(true);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_resume");
-        Toolbox.HUDListner.ShowBanner();
+        //Toolbox.HUDListner.ShowBanner();
         this.gameObject.SetActive(false);
         AudioListener.volume = 1;
         // Destroy(this.gameObject);

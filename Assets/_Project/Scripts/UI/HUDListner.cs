@@ -112,6 +112,8 @@ public class HUDListner : MonoBehaviour
         {
             //if (FindObjectOfType<AbstractAdsmanager>())
             //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
+            if (FindObjectOfType<AdsManager>())
+                FindObjectOfType<AdsManager>().ShowBanner("Default");
         }
 
         catch (Exception e)

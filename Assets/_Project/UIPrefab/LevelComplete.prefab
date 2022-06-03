@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: -32.95}
+  m_AnchoredPosition: {x: 0, y: -8}
   m_SizeDelta: {x: 480.89, y: 96.64}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &686848037517446933
@@ -66,7 +66,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: db06124a4d79db84d80a3106ffb87878, type: 3}
+    m_Font: {fileID: 12800000, guid: 015c52a2b65ffb9488949b5495bf6d4d, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Completed
+  m_Text: LEVEL COMPLETE
 --- !u!1 &1346147221399235167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1665,7 @@ GameObject:
   - component: {fileID: 8773343225765245085}
   - component: {fileID: 8635531261813017608}
   - component: {fileID: 8037514342992408242}
+  - component: {fileID: 827960751}
   m_Layer: 5
   m_Name: LevelComplete
   m_TagString: Untagged
@@ -1825,6 +1826,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &827960751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517921780377825561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446af27d8f802cc4dba74b6a29eeb0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyAds: 0
 --- !u!1 &5062982228227319543
 GameObject:
   m_ObjectHideFlags: 0

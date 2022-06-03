@@ -4420,6 +4420,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: Onpress_InstantBrake
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
@@ -4427,6 +4439,18 @@ MonoBehaviour:
         - m_Target: {fileID: 383043929}
           m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
           m_MethodName: Onpress_ReleaseBrake
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: Onpress_ReleaseinstantBrake
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

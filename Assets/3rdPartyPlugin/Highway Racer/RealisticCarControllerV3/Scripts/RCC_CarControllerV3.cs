@@ -1093,7 +1093,7 @@ public class RCC_CarControllerV3 : RCC_Core
             if (!externalController)
             {
 
-               // inputs = RCC_InputManager.GetInputs();
+                // inputs = RCC_InputManager.GetInputs();
 
                 if (!automaticGear || semiAutomaticGear)
                 {
@@ -1124,7 +1124,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 else
                 {
                     if (!cutGas)
-                        brakeInput = (direction == 1 ? Mathf.Clamp01(HUDListner.Brake) : Mathf.Clamp01(HUDListner.Brake));
+                        brakeInput = (direction == 1 ? Mathf.Clamp01(HUDListner.Brake) : Mathf.Clamp01(HUDListner.Throtle));
                     else
                         brakeInput = 0f;
                 }
@@ -1190,6 +1190,9 @@ public class RCC_CarControllerV3 : RCC_Core
 
         if (!useNOS || NoS < 5 || throttleInput < .75f)
             boostInput = 0f;
+
+       
+
 
         throttleInput = Mathf.Clamp01(throttleInput);
         brakeInput = Mathf.Clamp01(brakeInput);
@@ -1976,7 +1979,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 {
                     if (nos_IsActive)
                     {
-                       // print("Torque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                        // print("Torque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                         allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (10f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                     }
                     else
@@ -2392,7 +2395,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 direction = 0;
 
         }
-
+        print("brakeInput :" + brakeInput + "Z :" + transform.InverseTransformDirection(rigid.velocity).z + "canGoReverseNow :" + canGoReverseNow + "automaticGear :" + automaticGear + "semiAutomaticGear :" + semiAutomaticGear + "changingGear :" + changingGear + "direction :" + direction);
         changingGear = false;
 
     }

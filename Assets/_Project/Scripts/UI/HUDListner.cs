@@ -52,12 +52,12 @@ public class HUDListner : MonoBehaviour
     //Controls 
     public GameObject Left, right, brake, race;
     public GameObject Steering;
-    //private int time;
-    //   private bool brakeinput;
-    //private bool brakepress;
-    private static Rigidbody RCCV3rigidbody;
-    private static RCC_CarControllerV3 RCCV3;
     private Vector3 orgBrakeButtonPos;
+    //private int time;
+    private bool brakeinput;
+    private bool brakepress;
+    private  Rigidbody RCCV3rigidbody;
+    private  RCC_CarControllerV3 RCCV3;
 
     public bool ShowInput = false;
     public InputValues inputs;
@@ -78,6 +78,15 @@ public class HUDListner : MonoBehaviour
         if (brake)
             orgBrakeButtonPos = brake.transform.position;
         // Invoke("OnPress_OkTutorial", 0.5f);
+
+        //if (!RCCV3)
+        //{
+        //    if (RCC_SceneManager.Instance.activePlayerVehicle)
+        //    {
+        //        RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
+        //        RCCV3rigidbody = RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
+        //    }
+        //}
 
         Throtle = 0f;
         Brake = 0f;
@@ -140,19 +149,15 @@ public class HUDListner : MonoBehaviour
 
     void Update()
     {
-        //if (brakeinput/* && pressing*/)
-        //{
-        //    if (RCCV3.direction == -1)
-        //        RCCV3rigidbody.drag = 0.05f;
-        //    else
-        //        if (RCCV3rigidbody.drag < 2)
-        //        RCCV3rigidbody.drag += 0.01f;
-        //}
-        //if (!brakeinput && brakepress)
-        //{
-        //    RCCV3rigidbody.drag = 0.05f;
-        //    brakepress = false;
-        //}
+
+        if (Brake >0)
+        {
+            if (RCCV3.direction == -1)
+                RCCV3rigidbody.drag = 0.05f;
+            else
+                RCCV3rigidbody.drag = 5f;
+        }
+
         if (RCC_SceneManager.Instance.activePlayerVehicle)
             Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);
         if (ShowInput)
@@ -367,30 +372,34 @@ public class HUDListner : MonoBehaviour
     }
     public static void Onpress_Brake()
     {
-        //if(!RCC_SceneManager.Instance.activePlayerVehicle)
-        //{
-        //     RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
-        //     RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
-        //    if (RCCV3.goingFalldown)
-        //        Toolbox.GameplayController.Resetvehicle();
-        //}
-        if (RCC_SceneManager.Instance.activePlayerVehicle)
-        {
-            RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>().drag = 5f;
-            if (RCC_SceneManager.Instance.activePlayerVehicle.goingFalldown)
-                Toolbox.GameplayController.Resetvehicle();
-        }
+
         Brake = 1f;
-      //  Handbrake = 1f;
     }
     public static void Onpress_ReleaseBrake()
     {
-        if (RCC_SceneManager.Instance.activePlayerVehicle)
-        {
-            RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>().drag = 0.05f;
-        }
         Brake = 0f;
-      //  Handbrake = 0f;
+    }
+    public  void Onpress_InstantBrake()
+    {
+        if (!RCCV3)
+        {
+            if (RCC_SceneManager.Instance)
+            {
+                RCCV3rigidbody = RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
+                RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
+                if (RCCV3.goingFalldown)
+                    Toolbox.GameplayController.Resetvehicle();
+            }
+        }
+
+        //  Handbrake = 1f;
+    }
+    public  void Onpress_ReleaseinstantBrake()
+    {
+        if (RCCV3 && RCCV3rigidbody)
+        {
+            RCCV3rigidbody.drag = 0.05f;
+        }
     }
     #endregion
 

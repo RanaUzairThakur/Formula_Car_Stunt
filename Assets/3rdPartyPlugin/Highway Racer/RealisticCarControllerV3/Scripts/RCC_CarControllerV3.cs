@@ -1973,7 +1973,7 @@ public class RCC_CarControllerV3 : RCC_Core
                     if (nos_IsActive)
                         allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (70f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                     else
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * ((throttleInput*100f))* (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                 }
                 else
                 {
@@ -2395,7 +2395,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 direction = 0;
 
         }
-        print("brakeInput :" + brakeInput + "Z :" + transform.InverseTransformDirection(rigid.velocity).z + "canGoReverseNow :" + canGoReverseNow + "automaticGear :" + automaticGear + "semiAutomaticGear :" + semiAutomaticGear + "changingGear :" + changingGear + "direction :" + direction);
+       // print("brakeInput :" + brakeInput + "Z :" + transform.InverseTransformDirection(rigid.velocity).z + "canGoReverseNow :" + canGoReverseNow + "automaticGear :" + automaticGear + "semiAutomaticGear :" + semiAutomaticGear + "changingGear :" + changingGear + "direction :" + direction);
         changingGear = false;
 
     }

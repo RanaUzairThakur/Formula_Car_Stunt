@@ -2,9 +2,23 @@
 //using GoogleMobileAds.Api;
 //using CnControls;
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
+
+[Serializable]
+public class InputValues
+{
+
+    public float Throtle = 0f;
+    public float Brake = 0f;
+    public float steering = 0f;
+    public float Boostinput = 0f;
+    public float Handbrake = 0f;
+}
+
+
+
 public class HUDListner : MonoBehaviour
 {
     /// <summary>
@@ -35,12 +49,23 @@ public class HUDListner : MonoBehaviour
     public Button skipStartCinematicBtn;
     public GameObject playerControlsPanel;
     public CanvasGroup canvasGroup;
+    //Controls 
+    public GameObject Left, right, brake, race;
+    public GameObject Steering;
     //private int time;
-    private bool brakeinput;
-	private bool brakepress;
-    private Rigidbody RCCV3rigidbody;
-    private RCC_CarControllerV3 RCCV3;
+    //   private bool brakeinput;
+    //private bool brakepress;
+    private static Rigidbody RCCV3rigidbody;
+    private static RCC_CarControllerV3 RCCV3;
+    private Vector3 orgBrakeButtonPos;
 
+    public bool ShowInput = false;
+    public InputValues inputs;
+    public static float Throtle = 0f;
+    public static float Brake = 0f;
+    public static float steering = 0f;
+    public static float Boostinput = 0f;
+    public static float Handbrake = 0f;
 
     private void OnEnable()
     {
@@ -50,34 +75,23 @@ public class HUDListner : MonoBehaviour
 
     private void Start()
     {
-
+        if (brake)
+            orgBrakeButtonPos = brake.transform.position;
         // Invoke("OnPress_OkTutorial", 0.5f);
-        
-    }
-    void Update()
-    {
-        if (brakeinput/* && pressing*/)
-        {
-            if (RCCV3.direction == -1)
-                RCCV3rigidbody.drag = 0.05f;
-            else
-                if (RCCV3rigidbody.drag < 2)
-                RCCV3rigidbody.drag += 0.01f;
-        }
-        if (!brakeinput && brakepress)
-        {
-            RCCV3rigidbody.drag = 0.05f;
-            brakepress = false;
-        }
-    }
 
+        Throtle = 0f;
+        Brake = 0f;
+        steering = 0f;
+        Boostinput = 0f;
+        Handbrake = 0f;
+    }
     private void OnDisable()
     {
     }
 
     private void Awake()
     {
-        
+
 
         Toolbox.Set_HUD(this);
 
@@ -104,7 +118,7 @@ public class HUDListner : MonoBehaviour
 
     }
 
-  
+
     public void ShowBanner()
     {
 
@@ -124,6 +138,34 @@ public class HUDListner : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        //if (brakeinput/* && pressing*/)
+        //{
+        //    if (RCCV3.direction == -1)
+        //        RCCV3rigidbody.drag = 0.05f;
+        //    else
+        //        if (RCCV3rigidbody.drag < 2)
+        //        RCCV3rigidbody.drag += 0.01f;
+        //}
+        //if (!brakeinput && brakepress)
+        //{
+        //    RCCV3rigidbody.drag = 0.05f;
+        //    brakepress = false;
+        //}
+        if (RCC_SceneManager.Instance.activePlayerVehicle)
+            Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);
+        if (ShowInput)
+        {
+            inputs.Throtle = Throtle;
+            inputs.Brake = Brake;
+            inputs.steering = steering;
+            inputs.Boostinput = Boostinput;
+            inputs.Handbrake = Handbrake;
+        }
+
+    }
+
     public void SetTime(int _val)
     {
         //time = _val;
@@ -133,7 +175,7 @@ public class HUDListner : MonoBehaviour
 
     public void Setstatus_Lives()
     {
-       totalLivesTxt.text = Toolbox.GameplayController.Lives.ToString();
+        totalLivesTxt.text = Toolbox.GameplayController.Lives.ToString();
     }
     public void Setstatus_speed(float speed)
     {
@@ -142,7 +184,7 @@ public class HUDListner : MonoBehaviour
 
     public void SetTotalLives(int _val)
     {
-             totalLivesTxt.text = _val.ToString();
+        totalLivesTxt.text = _val.ToString();
     }
 
     //public float Get_Time() {
@@ -167,14 +209,14 @@ public class HUDListner : MonoBehaviour
         PlayerHudCanvas.SetActive(_val);
     }
 
-   
+
     public void set_statusLevelCounter()
     {
 
         LevelText.text = Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString();
 
     }
-  
+
     public void Set_PlayerHealth()
     {
         Time.timeScale = 1.0f;
@@ -203,15 +245,38 @@ public class HUDListner : MonoBehaviour
 
             case 0:
                 RCC.SetMobileController(RCC_Settings.MobileController.SteeringWheel);
+                Steering.SetActive(true);
+                Left.SetActive(false);
+                right.SetActive(false);
+                brake.SetActive(true);
+                race.SetActive(true);
                 break;
             case 1:
                 RCC.SetMobileController(RCC_Settings.MobileController.Gyro);
+                Steering.SetActive(false);
+                Left.SetActive(false);
+                right.SetActive(false);
+                brake.SetActive(true);
+                race.SetActive(true);
+                brake.transform.position = Left.transform.position;
                 break;
             case 2:
                 RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                brake.transform.position = orgBrakeButtonPos;
+                Steering.SetActive(false);
+                Left.SetActive(true);
+                right.SetActive(true);
+                brake.SetActive(true);
+                race.SetActive(true);
                 break;
             default:
                 RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                brake.transform.position = orgBrakeButtonPos;
+                Steering.SetActive(false);
+                Left.SetActive(true);
+                right.SetActive(true);
+                brake.SetActive(true);
+                race.SetActive(true);
                 break;
 
         }
@@ -226,7 +291,7 @@ public class HUDListner : MonoBehaviour
         // Toolbox.GameManager.InstantiateUI_Pause();
     }
 
-   
+
 
     public void OnPress_OkTutorial()
     {
@@ -241,54 +306,91 @@ public class HUDListner : MonoBehaviour
     public void SkipSAnimations()
     {
         Toolbox.CutsceneManager.SkipAnimation();
-       // OnPress_OkTutorial();
+        // OnPress_OkTutorial();
     }
 
     public void handleplayerhud(bool _Val)
     {
         PlayerHudCanvas.gameObject.SetActive(_Val);
     }
-  
+
 
     public void OnPress_resetButton()
     {
         Toolbox.GameplayController.Resetvehicle();
     }
-    public void OnPress_nos()
+
+    public static void onpress_Gas()
+    {
+        Throtle = 1f;
+    }
+    public static void onpress_ReleaseGas()
+    {
+        Throtle = 0f;
+    }
+    public static void onpress_Left()
+    {
+        steering = -1f;
+    }
+    public static void onpress_ReleaseLeft()
+    {
+        steering = 0f;
+    }
+    public static void onpress_Right()
+    {
+        steering = 1f;
+    }
+    public static void onpress_ReleaseRight()
+    {
+        steering = 0f;
+    }
+    public static void OnPress_Nos()
     {
         //N = true;
-        
+
         if (Toolbox.GameplayController.SelectedVehicleRccv3.direction == -1)
             return;
 
         Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = true;
+        Boostinput = 2f;
+        Throtle = 1f;
     }
-    public void OnPress_nosRelease()
+    public static void OnPress_ReleaseNos()
     {
         if (Toolbox.GameplayController.SelectedVehicleRccv3.direction == -1)
             return;
         //N = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
+        Boostinput = 0f;
+        Throtle = 0f;
     }
-    public void Onpress_Brake()
+    public static void Onpress_Brake()
     {
-        if(!RCCV3)
+        //if(!RCC_SceneManager.Instance.activePlayerVehicle)
+        //{
+        //     RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
+        //     RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
+        //    if (RCCV3.goingFalldown)
+        //        Toolbox.GameplayController.Resetvehicle();
+        //}
+        if (RCC_SceneManager.Instance.activePlayerVehicle)
         {
-            RCCV3rigidbody = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<Rigidbody>();
-            RCCV3 = Toolbox.GameplayController.SelectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
-            brakeinput = true;
-            if (RCCV3.goingFalldown)
+            RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>().drag = 5f;
+            if (RCC_SceneManager.Instance.activePlayerVehicle.goingFalldown)
                 Toolbox.GameplayController.Resetvehicle();
         }
-        
-        //print("Dir :"+RCCV3.direction);
-
+        Brake = 1f;
+      //  Handbrake = 1f;
     }
-    public void Onpress_ReleaseBrake()
+    public static void Onpress_ReleaseBrake()
     {
-        brakeinput = false;
-        brakepress = true;
+        if (RCC_SceneManager.Instance.activePlayerVehicle)
+        {
+            RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>().drag = 0.05f;
+        }
+        Brake = 0f;
+      //  Handbrake = 0f;
     }
     #endregion
 
@@ -299,7 +401,7 @@ public class HUDListner : MonoBehaviour
         Fadeimage.SetActive(_val);
     }
 
-   
+
     #endregion
 
 }

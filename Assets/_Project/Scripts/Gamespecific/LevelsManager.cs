@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
-
+//using UnityEngine.Scripting;
 public class LevelsManager : MonoBehaviour
 {
     
 
     private void Start()
     {
+      //  GarbageCollector.GCMode = GarbageCollector.Mode.Disabled;
         LevelStartHandling();
     }
     private void LevelStartHandling()
     {
         LevelDataHandling();
         SpawnLevel();
+
     }
 
     private void SpawnLevel()

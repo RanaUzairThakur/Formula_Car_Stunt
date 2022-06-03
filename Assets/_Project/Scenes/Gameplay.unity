@@ -758,7 +758,6 @@ GameObject:
   - component: {fileID: 266937904}
   - component: {fileID: 266937907}
   - component: {fileID: 266937906}
-  - component: {fileID: 266937905}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -785,18 +784,6 @@ RectTransform:
   m_AnchoredPosition: {x: 64.372314, y: 0.000022888184}
   m_SizeDelta: {x: -128.7446, y: -0.0001}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &266937905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266937903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016f607f1d282974bad180d896f9a1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &266937906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,9 +798,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.29376745, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1167,9 +1154,25 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: LeftRightOff
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_Right
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_ReleaseRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1191,7 +1194,6 @@ GameObject:
   - component: {fileID: 383043936}
   - component: {fileID: 383043935}
   - component: {fileID: 383043934}
-  - component: {fileID: 383043930}
   - component: {fileID: 383043929}
   m_Layer: 5
   m_Name: Hud
@@ -1233,37 +1235,18 @@ MonoBehaviour:
   skipStartCinematicBtn: {fileID: 8653074899278564191}
   playerControlsPanel: {fileID: 75027514}
   canvasGroup: {fileID: 0}
---- !u!114 &383043930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383043928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2088f6ae8891ce94ead8a80325c2fd78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gasButton: {fileID: 572415616}
-  gradualGasButton: {fileID: 0}
-  brakeButton: {fileID: 1211004461}
-  leftButton: {fileID: 487508752}
-  rightButton: {fileID: 371475092}
-  steeringWheel: {fileID: 1913079611}
-  handbrakeButton: {fileID: 1235454693}
-  NOSButton: {fileID: 667212042}
-  NOSButtonSteeringWheel: {fileID: 185915594}
-  gearButton: {fileID: 0}
-  joystick: {fileID: 236397090}
+  Left: {fileID: 487508746}
+  right: {fileID: 371475086}
+  brake: {fileID: 1211004455}
+  race: {fileID: 572415610}
+  Steering: {fileID: 1913079605}
+  ShowInput: 1
   inputs:
-    throttleInput: 0
-    brakeInput: 0
-    steerInput: 0
-    clutchInput: 0
-    handbrakeInput: 0
-    boostInput: 0
-    gearInput: 0
+    Throtle: 0
+    Brake: 0
+    steering: 0
+    Boostinput: 0
+    Handbrake: 0
 --- !u!114 &383043934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,9 +1638,25 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: LeftRightOff
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_Left
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_ReleaseLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1681,6 +1680,7 @@ GameObject:
   - component: {fileID: 572415613}
   - component: {fileID: 572415612}
   - component: {fileID: 572415616}
+  - component: {fileID: 572415617}
   m_Layer: 5
   m_Name: Gas
   m_TagString: Untagged
@@ -1821,6 +1821,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressing: 0
+--- !u!114 &572415617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572415610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_Gas
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 383043929}
+          m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
+          m_MethodName: onpress_ReleaseGas
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &667212036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1927,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 383043929}
           m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
-          m_MethodName: OnPress_nos
+          m_MethodName: OnPress_Nos
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1898,7 +1943,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 383043929}
           m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
-          m_MethodName: OnPress_nosRelease
+          m_MethodName: OnPress_ReleaseNos
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2367,7 +2412,6 @@ GameObject:
   - component: {fileID: 819836739}
   - component: {fileID: 819836741}
   - component: {fileID: 819836740}
-  - component: {fileID: 819836742}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2408,9 +2452,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2436,18 +2480,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819836738}
   m_CullTransparentMesh: 1
---- !u!114 &819836742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819836738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016f607f1d282974bad180d896f9a1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &827960749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +2954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2028634, guid: 9f32ea4a11500b344ae05427bdc21e05, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 11400656, guid: 9f32ea4a11500b344ae05427bdc21e05, type: 3}
       propertyPath: TPSHeight
       value: 9
@@ -2978,23 +3014,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 412168, guid: 9f32ea4a11500b344ae05427bdc21e05, type: 3}
   m_PrefabInstance: {fileID: 920564165}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &920564168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920564166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d5396c7dc303641962960303f85363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 920564167}
-  shakeDuration: 0
-  Shakeeffectstart: 0
-  shakeAmount: 0.04
-  decreaseFactor: 1
 --- !u!1 &941208121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,7 +3365,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 383043929}
           m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
-          m_MethodName: OnPress_nos
+          m_MethodName: OnPress_Nos
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3362,7 +3381,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 383043929}
           m_TargetAssemblyTypeName: HUDListner, Assembly-CSharp
-          m_MethodName: OnPress_nosRelease
+          m_MethodName: OnPress_ReleaseNos
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

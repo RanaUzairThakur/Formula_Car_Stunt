@@ -1093,19 +1093,19 @@ public class RCC_CarControllerV3 : RCC_Core
             if (!externalController)
             {
 
-                inputs = RCC_InputManager.GetInputs();
+               // inputs = RCC_InputManager.GetInputs();
 
                 if (!automaticGear || semiAutomaticGear)
                 {
                     if (!changingGear && !cutGas)
-                        throttleInput = inputs.throttleInput;
+                        throttleInput = HUDListner.Throtle;
                     else
                         throttleInput = 0f;
                 }
                 else
                 {
                     if (!changingGear && !cutGas)
-                        throttleInput = (direction == 1 ? Mathf.Clamp01(inputs.throttleInput) : Mathf.Clamp01(inputs.brakeInput));
+                        throttleInput = (direction == 1 ? Mathf.Clamp01(HUDListner.Throtle) : Mathf.Clamp01(HUDListner.Brake));
                     else
                         throttleInput = 0f;
                 }
@@ -1119,12 +1119,12 @@ public class RCC_CarControllerV3 : RCC_Core
 
                 if (!automaticGear || semiAutomaticGear)
                 {
-                    brakeInput = Mathf.Clamp01(inputs.brakeInput);
+                    brakeInput = Mathf.Clamp01(HUDListner.Brake);
                 }
                 else
                 {
                     if (!cutGas)
-                        brakeInput = (direction == 1 ? Mathf.Clamp01(inputs.brakeInput) : Mathf.Clamp01(inputs.throttleInput));
+                        brakeInput = (direction == 1 ? Mathf.Clamp01(HUDListner.Brake) : Mathf.Clamp01(HUDListner.Brake));
                     else
                         brakeInput = 0f;
                 }
@@ -1137,9 +1137,9 @@ public class RCC_CarControllerV3 : RCC_Core
                 }
 
                 if (useSteeringSensitivity)
-                    steerInput = Mathf.Lerp(steerInput, inputs.steerInput, Time.deltaTime * steeringSmootherFactor);
+                    steerInput = Mathf.Lerp(steerInput, HUDListner.steering, Time.deltaTime * steeringSmootherFactor);
                 else
-                    steerInput = inputs.steerInput;
+                    steerInput = HUDListner.steering;
 
                 //	If counter steering is enabled, override steerInput.
                 if (useSteeringLimiter)
@@ -1155,11 +1155,11 @@ public class RCC_CarControllerV3 : RCC_Core
                     steerInput = (angle / 15f) * direction;
                 }
 
-                boostInput = inputs.boostInput;
-                handbrakeInput = inputs.handbrakeInput;
+                boostInput = HUDListner.Boostinput;
+                handbrakeInput = HUDListner.Handbrake;
 
-                if (!useAutomaticClutch)
-                    clutchInput = inputs.clutchInput;
+                //if (!useAutomaticClutch)
+                //    clutchInput = inputs.clutchInput;
 
                 GetExternalInputs();
 
@@ -1198,6 +1198,120 @@ public class RCC_CarControllerV3 : RCC_Core
         handbrakeInput = Mathf.Clamp01(handbrakeInput);
 
     }
+    //    private void Inputs()
+    //    {
+
+    //        if (canControl)
+    //        {
+
+    //            if (!externalController)
+    //            {
+
+    //                inputs = RCC_InputManager.GetInputs();
+
+    //                if (!automaticGear || semiAutomaticGear)
+    //                {
+    //                    if (!changingGear && !cutGas)
+    //                        throttleInput = inputs.throttleInput;
+    //                    else
+    //                        throttleInput = 0f;
+    //                }
+    //                else
+    //                {
+    //                    if (!changingGear && !cutGas)
+    //                        throttleInput = (direction == 1 ? Mathf.Clamp01(inputs.throttleInput) : Mathf.Clamp01(inputs.brakeInput));
+    //                    else
+    //                        throttleInput = 0f;
+    //                }
+    //                edit by uzair
+
+    //                if (HighRracer)
+    //                {
+    //                    float minGasInput = Mathf.Clamp01(Mathf.Lerp(5f, 0f, speed / 30f));
+    //                    throttleInput += minGasInput;
+    //                }
+
+    //                if (!automaticGear || semiAutomaticGear)
+    //                {
+    //                    brakeInput = Mathf.Clamp01(inputs.brakeInput);
+    //                }
+    //                else
+    //                {
+    //                    if (!cutGas)
+    //                        brakeInput = (direction == 1 ? Mathf.Clamp01(inputs.brakeInput) : Mathf.Clamp01(inputs.throttleInput));
+    //                    else
+    //                        brakeInput = 0f;
+    //                }
+    //                edit by uzair
+
+    //                if (HighRracer)
+    //                {
+    //                    if (speed < 30f)
+    //                        brakeInput = 0f;
+    //                }
+
+    //                if (useSteeringSensitivity)
+    //                    steerInput = Mathf.Lerp(steerInput, inputs.steerInput, Time.deltaTime * steeringSmootherFactor);
+    //                else
+    //                    steerInput = inputs.steerInput;
+
+    //                If counter steering is enabled, override steerInput.
+    //                if (useSteeringLimiter)
+    //                    LimitSteering();
+
+    //                if (useCounterSteering)
+    //                    CounterSteering();
+    //    Edit By uzair
+
+    //                if (HighRracer)
+    //                {
+    //                    float angle = HR_CalculateAngle.CalculateAngle(transform.rotation, Quaternion.identity * Quaternion.AngleAxis(steerInput * steerAngle, Vector3.up));
+    //    steerInput = (angle / 15f) * direction;
+    //                }
+
+    //boostInput = inputs.boostInput;
+    //handbrakeInput = inputs.handbrakeInput;
+
+    //if (!useAutomaticClutch)
+    //    clutchInput = inputs.clutchInput;
+
+    //GetExternalInputs();
+
+    //            }
+
+    //        }
+    //        else if (!externalController)
+    //{
+
+    //    throttleInput = 0f;
+    //    brakeInput = 0f;
+    //    steerInput = 0f;
+    //    boostInput = 0f;
+    //    handbrakeInput = 0f;
+    //    print("externalController :" + externalController);
+    //}
+
+    //if (fuelInput <= 0f)
+    //{
+
+    //    throttleInput = 0f;
+    //    engineRunning = false;
+
+    //}
+
+    //if (changingGear || cutGas)
+    //    throttleInput = 0f;
+
+    //if (!useNOS || NoS < 5 || throttleInput < .75f)
+    //    boostInput = 0f;
+
+    //throttleInput = Mathf.Clamp01(throttleInput);
+    //brakeInput = Mathf.Clamp01(brakeInput);
+    //steerInput = Mathf.Clamp(steerInput, -1f, 1f);
+    //boostInput = Mathf.Clamp01(boostInput);
+    //handbrakeInput = Mathf.Clamp01(handbrakeInput);
+
+    //    }
 
     private void LimitSteering()
     {

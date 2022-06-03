@@ -154,7 +154,7 @@ public class RCC_Camera : MonoBehaviour {
 
     public delegate void onBCGCameraSpawned(GameObject BCGCamera);
     public static event onBCGCameraSpawned OnBCGCameraSpawned;
-    private CameraShake camerashaking;
+    //private CameraShake camerashaking;
     void Awake() {
 
         // Getting Camera.
@@ -176,8 +176,8 @@ public class RCC_Camera : MonoBehaviour {
         //RCC_InputManager.OnLookBack += RCC_InputManager_OnLookBack;
         //RCC_InputManager.OnSlowMotion += RCC_InputManager_OnSlowMotion;
         //shakingcamera
-        if (camerashaking == null && this.gameObject.GetComponent<CameraShake>())
-            camerashaking = this.gameObject.GetComponent<CameraShake>();
+        //if (camerashaking == null && this.gameObject.GetComponent<CameraShake>())
+        //    camerashaking = this.gameObject.GetComponent<CameraShake>();
         if (playerCar == null)
             SetTarget(Toolbox.GameplayController.SelectedVehiclePrefab);
     }
@@ -288,11 +288,11 @@ public class RCC_Camera : MonoBehaviour {
         if (playerCar.nos_IsActive)
         {
             thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 8f);
-            Camerashakeeffect(true);
+            //Camerashakeeffect(true);
         }
         else
         {
-            Camerashakeeffect(false);
+           // Camerashakeeffect(false);
             if (thisCam.fieldOfView >= TPSMaximumFOV)
             {
                 thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 5f);
@@ -932,8 +932,8 @@ public class RCC_Camera : MonoBehaviour {
         //RCC_InputManager.OnSlowMotion -= RCC_InputManager_OnSlowMotion;
 
     }
-    public void Camerashakeeffect(bool val)
-    {
-        camerashaking.Set_statusCamerashake(val);
-    }
+    //public void Camerashakeeffect(bool val)
+    //{
+    //    camerashaking.Set_statusCamerashake(val);
+    //}
 }

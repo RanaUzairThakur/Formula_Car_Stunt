@@ -608,15 +608,15 @@ public class DB : MonoBehaviour {
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKey("escape"))
-        {
-            print("Save_Json_Prefs_escape");
-            Save_Json_Prefs();
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetKey("escape"))
+    //    {
+    //        print("Save_Json_Prefs_escape");
+    //        Save_Json_Prefs();
+    //    }
 
-    }
+    //}
     //public void Save_Binary_Prefs()
     //{
 

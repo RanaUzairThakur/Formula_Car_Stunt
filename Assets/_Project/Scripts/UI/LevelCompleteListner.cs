@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.Scripting;
 //using GoogleMobileAds.Api;
 
 public class LevelCompleteListner : MonoBehaviour
@@ -34,6 +35,8 @@ public class LevelCompleteListner : MonoBehaviour
 
     private void OnEnable()
     {
+        //GarbageCollector.GCMode = GarbageCollector.Mode.Enabled;
+       // System.GC.Collect();
     }
 
     private void OnDisable()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RCC_Settings
   m_EditorClassIdentifier: 
   controllerSelectedIndex: 1
-  behaviorSelectedIndex: 5
+  behaviorSelectedIndex: 6
   overrideBehavior: 1
   overrideFPS: 0
   overrideFixedTimeStep: 1
@@ -246,6 +246,43 @@ MonoBehaviour:
     sidewaysExtremumValue: 1
     sidewaysAsymptoteSlip: 0.05
     sidewaysAsymptoteValue: 1
+  - behaviorName: StuntMode
+    steeringHelper: 1
+    tractionHelper: 1
+    angularDragHelper: 1
+    counterSteering: 0
+    limitSteering: 0
+    ABS: 0
+    ESP: 0
+    TCS: 0
+    applyExternalWheelFrictions: 0
+    applyRelativeTorque: 0
+    highSpeedSteerAngleMinimum: 0
+    highSpeedSteerAngleMaximum: 60
+    highSpeedSteerAngleAtspeedMinimum: 100
+    highSpeedSteerAngleAtspeedMaximum: 350
+    counterSteeringMinimum: 0
+    counterSteeringMaximum: 0
+    steerHelperAngularVelStrengthMinimum: 1
+    steerHelperAngularVelStrengthMaximum: 1
+    steerHelperLinearVelStrengthMinimum: 1
+    steerHelperLinearVelStrengthMaximum: 1
+    tractionHelperStrengthMinimum: 0.25
+    tractionHelperStrengthMaximum: 0.5
+    antiRollFrontHorizontalMinimum: 10000
+    antiRollRearHorizontalMinimum: 10000
+    gearShiftingDelayMaximum: 0.5
+    angularDrag: 0.1
+    angularDragHelperMinimum: 0.25
+    angularDragHelperMaximum: 0.5
+    forwardExtremumSlip: 0.2
+    forwardExtremumValue: 2
+    forwardAsymptoteSlip: 2
+    forwardAsymptoteValue: 2
+    sidewaysExtremumSlip: 0.2
+    sidewaysExtremumValue: 2
+    sidewaysAsymptoteSlip: 2
+    sidewaysAsymptoteValue: 2
   verticalInput: Vertical
   horizontalInput: Horizontal
   mouseXInput: Mouse X

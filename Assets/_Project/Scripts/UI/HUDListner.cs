@@ -366,7 +366,7 @@ public class HUDListner : MonoBehaviour
             return;
         //N = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = false;
-        Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
+       // Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
         Boostinput = 0f;
         Throtle = 0f;
     }

@@ -39,6 +39,10 @@ public class GameplayController : MonoBehaviour
         Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
         Toolbox.GameManager.FBAnalytic_EventLevel_Started(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Analytics_ProgressionEvent_Start(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
+        if (Toolbox.DB.Prefs.LastSelectedGameMode > 1)
+            RCC_Settings.Instance.behaviorSelectedIndex = 5;
+        else
+            RCC_Settings.Instance.behaviorSelectedIndex = 6;
     }
 
     

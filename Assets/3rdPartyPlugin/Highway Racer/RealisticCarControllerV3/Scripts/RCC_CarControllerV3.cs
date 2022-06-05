@@ -1048,15 +1048,12 @@ public class RCC_CarControllerV3 : RCC_Core
         Audio();
         ResetCar();
 
-        if (nos_IsActive)
-        {
-            boostInput = 1.8f;
-            NoS = 6f;
-            throttleInput = 1;
-            //if (currentGear < 4)
-            //    currentGear = 4;
-            //print("Nos_Isactive :");
-        }
+        //if (nos_IsActive)
+        //{
+        //    boostInput = 1.8f;
+        //    NoS = 6f;
+        //    throttleInput = 1;
+        //}
         //    Debug.Log("boostInput :"+ boostInput+ "throttleInput :"+ throttleInput);
         if (skid)
         {
@@ -1188,10 +1185,10 @@ public class RCC_CarControllerV3 : RCC_Core
         if (changingGear || cutGas)
             throttleInput = 0f;
 
-        if (!useNOS || NoS < 5 || throttleInput < .75f)
+        if (!useNOS /*|| NoS < 5 || throttleInput < .75f*/)
             boostInput = 0f;
 
-       
+
 
 
         throttleInput = Mathf.Clamp01(throttleInput);
@@ -1199,6 +1196,8 @@ public class RCC_CarControllerV3 : RCC_Core
         steerInput = Mathf.Clamp(steerInput, -1f, 1f);
         boostInput = Mathf.Clamp01(boostInput);
         handbrakeInput = Mathf.Clamp01(handbrakeInput);
+
+        print("throttleInput :" + throttleInput + "boostInput :" + boostInput);
 
     }
     //    private void Inputs()
@@ -1734,7 +1733,7 @@ public class RCC_CarControllerV3 : RCC_Core
 
         if (RCCSettings.selectedBehaviorType != null && RCCSettings.selectedBehaviorType.applyRelativeTorque)
         {
-
+            // print("start apply");
             // If current selected behavior has apply relative torque enabled, and wheel is grounded, apply it.
             if (isGrounded)
                 rigid.AddRelativeTorque(Vector3.up * (((steerInput * throttleInput) * direction)) * Mathf.Lerp(1.5f, .5f, speed / 100f), ForceMode.Acceleration);
@@ -1970,10 +1969,13 @@ public class RCC_CarControllerV3 : RCC_Core
             if (allWheelColliders[i].canPower)
                 if (!HighRracer)
                 {
-                    if (nos_IsActive)
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (70f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    if (nos_IsActive && boostInput >0)
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (60f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                     else
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * ((throttleInput*100f))* (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    {
+                        // print("Engine T6orque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    }
                 }
                 else
                 {
@@ -2395,7 +2397,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 direction = 0;
 
         }
-       // print("brakeInput :" + brakeInput + "Z :" + transform.InverseTransformDirection(rigid.velocity).z + "canGoReverseNow :" + canGoReverseNow + "automaticGear :" + automaticGear + "semiAutomaticGear :" + semiAutomaticGear + "changingGear :" + changingGear + "direction :" + direction);
+        // print("brakeInput :" + brakeInput + "Z :" + transform.InverseTransformDirection(rigid.velocity).z + "canGoReverseNow :" + canGoReverseNow + "automaticGear :" + automaticGear + "semiAutomaticGear :" + semiAutomaticGear + "changingGear :" + changingGear + "direction :" + direction);
         changingGear = false;
 
     }
@@ -2499,7 +2501,6 @@ public class RCC_CarControllerV3 : RCC_Core
         //}
         if (!useNOS)
         {
-            print("Nos");
             return;
         }
 
@@ -2516,20 +2517,26 @@ public class RCC_CarControllerV3 : RCC_Core
         if (nos_IsActive)
         {
             SFX.set_statusAirEffect(true, isGrounded);
-            if (boostInput > 1.5f && throttleInput >= .8f && NoS > 5)
+            if (!NOSSound.isPlaying)
             {
+                NOSSound.Play();
 
-                //NoS -= NoSConsumption * Time.fixedDeltaTime;
-                ///	GamePlayManager.inst.NosHover.SetActive(false);
-
-                NoSRegenerateTime = 0f;
-
-                if (!NOSSound.isPlaying)
-                {
-                    NOSSound.Play();
-
-                }
             }
+            //if (boostInput > 1.5f && throttleInput >= .8f /*&& NoS > 5*/)
+            //{
+
+            //    //NoS -= NoSConsumption * Time.fixedDeltaTime;
+            //    ///	GamePlayManager.inst.NosHover.SetActive(false);
+
+            //  //  NoSRegenerateTime = 0f;
+
+            //print("Nos");
+            //    if (!NOSSound.isPlaying)
+            //    {
+            //        NOSSound.Play();
+
+            //    }
+            //}
 
         }
         else

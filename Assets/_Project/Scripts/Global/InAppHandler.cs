@@ -594,6 +594,7 @@ public class InAppHandler : MonoBehaviour, IStoreListener
                             // PreferenceManager.SetAdsStatus(1);
                             Toolbox.DB.Prefs.NoAdsPurchased = true;
                             PlayerPrefs.SetInt("NoAdsPurchased", 1);
+                            PlayerPrefManager.Instance.RemoveAds();
                             //if (FindObjectOfType<AbstractAdsmanager>())
                             //    FindObjectOfType<AbstractAdsmanager>().HideBannners();
                             if (FindObjectOfType<MainMenuListner>())

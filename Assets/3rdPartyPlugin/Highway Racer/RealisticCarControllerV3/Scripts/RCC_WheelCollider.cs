@@ -89,11 +89,11 @@ public class RCC_WheelCollider : RCC_Core {
 
 	[Space()]
 	public bool canPower = false;		//	Can this wheel power?
-	[Range(-1f, 1f)]public float powerMultiplier = 1f;
+	[Range(-1f, 100f)]public float powerMultiplier = 4f;
 	public bool canSteer = false;		//	Can this wheel steer?
 	[Range(-1f, 1f)]public float steeringMultiplier = 1f;
 	public bool canBrake = false;		//	Can this wheel brake?
-	[Range(0f, 1f)]public float brakingMultiplier = 1f;
+	[Range(0f, 10000f)]public float brakingMultiplier = 1f;
 	public bool canHandbrake = false;		//	Can this wheel handbrake?
 	[Range(0f, 1f)]public float handbrakeMultiplier = 1f;
 
@@ -224,7 +224,7 @@ public class RCC_WheelCollider : RCC_Core {
 
 				canSteer = true;
 				canBrake = true;
-				brakingMultiplier = 1f;
+				//brakingMultiplier = 1f;
 
 			}
 
@@ -232,7 +232,7 @@ public class RCC_WheelCollider : RCC_Core {
 
 				canHandbrake = true;
 				canBrake = true;
-				brakingMultiplier = .5f;
+				//brakingMultiplier = .5f;
 
 			}
 

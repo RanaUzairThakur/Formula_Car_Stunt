@@ -77,11 +77,11 @@ MonoBehaviour:
   wheelModel: {fileID: 5268149122191954380}
   isGrounded: 0
   canPower: 0
-  powerMultiplier: 1
+  powerMultiplier: 10
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 1
+  brakingMultiplier: 10000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -171,11 +171,11 @@ MonoBehaviour:
   wheelModel: {fileID: 5268149120424050597}
   isGrounded: 0
   canPower: 0
-  powerMultiplier: 1
+  powerMultiplier: 10
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 1
+  brakingMultiplier: 10000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -265,11 +265,11 @@ MonoBehaviour:
   wheelModel: {fileID: 5268149120517055327}
   isGrounded: 0
   canPower: 0
-  powerMultiplier: 1
+  powerMultiplier: 10
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 1
+  brakingMultiplier: 10000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -359,11 +359,11 @@ MonoBehaviour:
   wheelModel: {fileID: 5268149120120635099}
   isGrounded: 0
   canPower: 0
-  powerMultiplier: 1
+  powerMultiplier: 10
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 1
+  brakingMultiplier: 10000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -22893,7 +22893,7 @@ MonoBehaviour:
   antiRollVertical: 0
   downForce: 25
   speed: 0
-  maxspeed: 350
+  maxspeed: 400
   engineTorqueCurve:
     serializedVersion: 2
     m_Curve:
@@ -23153,7 +23153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakeOff: 0.01
-  stablerotation: 0
 --- !u!114 &3659920669625678691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23166,3 +23165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93ae978be185c9478e5540a4b7b3c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stablerotation: 0
+  Targetangle: 0

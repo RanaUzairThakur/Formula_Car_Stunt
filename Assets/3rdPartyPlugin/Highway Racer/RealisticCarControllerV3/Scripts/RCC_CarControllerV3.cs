@@ -1691,6 +1691,7 @@ public class RCC_CarControllerV3 : RCC_Core
         }
 
         poweredWheels = currentPoweredWheels;
+        print("poweredWheels :" + poweredWheels);
 
         Engine();
         EngineSounds();
@@ -1969,13 +1970,17 @@ public class RCC_CarControllerV3 : RCC_Core
             if (allWheelColliders[i].canPower)
                 if (!HighRracer)
                 {
-                    if (nos_IsActive && boostInput >0)
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (60f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+                    if (nos_IsActive)
+                        maxspeed = 500f;
                     else
-                    {
-                        // print("Engine T6orque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-                    }
+                       maxspeed = 400f;
+                    //if (nos_IsActive)
+                    //    allWheelColliders[i].powerMultiplier = 25f;
+                    //else
+                    //    allWheelColliders[i].powerMultiplier = 10f;
+
+                    allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+
                 }
                 else
                 {
@@ -1987,6 +1992,26 @@ public class RCC_CarControllerV3 : RCC_Core
                     else
                         allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
                 }
+            //if (!HighRracer)
+            //{
+            //    if (nos_IsActive && boostInput >0)
+            //        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (60f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //    else
+            //    {
+            //        // print("Engine T6orque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput/*((throttleInput * 100000f))*/ * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //    }
+            //}
+            //else
+            //{
+            //    if (nos_IsActive)
+            //    {
+            //        // print("Torque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (10f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //    }
+            //    else
+            //        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            //}
             if (allWheelColliders[i].canSteer)
                 allWheelColliders[i].ApplySteering(steerInput * allWheelColliders[i].steeringMultiplier, steerAngle);
 

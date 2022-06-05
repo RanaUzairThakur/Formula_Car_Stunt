@@ -21,18 +21,20 @@ public class Nos : MonoBehaviour
             if (this.tag == "Nos")
             {
                 //print("Nos1");
-                if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
-                {
-                    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = true;
-                  //  print("Nos2");
-                }
+                HUDListner.OnPress_Nos();
+                //if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
+                //{
+                //    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = true;
+                //  //  print("Nos2");
+                //}
             }
             else if (this.tag == "Noscut")
             {
-                if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
-                {
-                    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = false;
-                }
+                HUDListner.OnPress_ReleaseNos();
+                //if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
+                //{
+                //    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = false;
+                //}
             }
         }
     }

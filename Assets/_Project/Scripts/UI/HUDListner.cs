@@ -150,13 +150,13 @@ public class HUDListner : MonoBehaviour
     void Update()
     {
 
-        if (Brake >0)
-        {
-            if (RCCV3.direction == -1)
-                RCCV3rigidbody.drag = 0.05f;
-            else
-                RCCV3rigidbody.drag = 5f;
-        }
+        //if (Brake >0)
+        //{
+        //    if (RCCV3.direction == -1)
+        //        RCCV3rigidbody.drag = 0.05f;
+        //    else
+        //        RCCV3rigidbody.drag = 5f;
+        //}
 
         if (RCC_SceneManager.Instance.activePlayerVehicle)
             Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);

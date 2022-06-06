@@ -81,7 +81,7 @@ MonoBehaviour:
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 10000
+  brakingMultiplier: 1000000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -175,7 +175,7 @@ MonoBehaviour:
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 10000
+  brakingMultiplier: 1000000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -269,7 +269,7 @@ MonoBehaviour:
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 10000
+  brakingMultiplier: 1000000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -363,7 +363,7 @@ MonoBehaviour:
   canSteer: 0
   steeringMultiplier: 1
   canBrake: 0
-  brakingMultiplier: 10000
+  brakingMultiplier: 1000000
   canHandbrake: 0
   handbrakeMultiplier: 1
   width: 0.275
@@ -22884,10 +22884,10 @@ MonoBehaviour:
   externalController: 0
   rigid: {fileID: 0}
   COM: {fileID: 5268149121113821354}
-  brakeTorque: 50000
+  brakeTorque: 1e+11
   steerAngle: 20
-  highspeedsteerAngle: 5
-  highspeedsteerAngleAtspeed: 200
+  highspeedsteerAngle: 8
+  highspeedsteerAngleAtspeed: 550
   antiRollFrontHorizontal: 1000
   antiRollRearHorizontal: 1000
   antiRollVertical: 0

@@ -22,6 +22,7 @@ public class Nos : MonoBehaviour
             {
                 //print("Nos1");
                 HUDListner.OnPress_Nos();
+                HUDListner.onpress_Gas();
                 //if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
                 //{
                 //    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = true;
@@ -31,6 +32,7 @@ public class Nos : MonoBehaviour
             else if (this.tag == "Noscut")
             {
                 HUDListner.OnPress_ReleaseNos();
+                HUDListner.onpress_ReleaseGas();
                 //if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
                 //{
                 //    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().nos_IsActive = false;

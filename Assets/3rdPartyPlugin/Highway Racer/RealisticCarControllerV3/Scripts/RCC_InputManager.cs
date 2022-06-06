@@ -16,7 +16,7 @@ using UnityEngine.UI;
 public class RCC_InputManager : MonoBehaviour{
 
 	private static RCC_Inputs inputs = new RCC_Inputs();
-
+	
 	private enum InputState { None, Pressed, Held, Released };
 
 	public static RCC_Inputs GetInputs(){
@@ -25,13 +25,19 @@ public class RCC_InputManager : MonoBehaviour{
 
 		case RCC_Settings.ControllerType.Keyboard:
 
-			inputs.throttleInput = Mathf.Clamp01(Input.GetAxis (RCC_Settings.Instance.verticalInput));
-			inputs.brakeInput = Mathf.Abs(Mathf.Clamp(Input.GetAxis (RCC_Settings.Instance.verticalInput), -1f, 0f));
-			inputs.steerInput = Mathf.Clamp(Input.GetAxis (RCC_Settings.Instance.horizontalInput), -1f, 1f);
-			inputs.handbrakeInput = Mathf.Clamp01(Input.GetKey (RCC_Settings.Instance.handbrakeKB) ? 1f : 0f);
-			inputs.boostInput = Mathf.Clamp01(Input.GetKey (RCC_Settings.Instance.boostKB) ? 1f : 0f);
+				//inputs.throttleInput = Mathf.Clamp01(Input.GetAxis (RCC_Settings.Instance.verticalInput));
+				//inputs.brakeInput = Mathf.Abs(Mathf.Clamp(Input.GetAxis (RCC_Settings.Instance.verticalInput), -1f, 0f));
+				//inputs.steerInput = Mathf.Clamp(Input.GetAxis (RCC_Settings.Instance.horizontalInput), -1f, 1f);
+				//inputs.handbrakeInput = Mathf.Clamp01(Input.GetKey (RCC_Settings.Instance.handbrakeKB) ? 1f : 0f);
+				//inputs.boostInput = Mathf.Clamp01(Input.GetKey (RCC_Settings.Instance.boostKB) ? 1f : 0f);
 
-			break;
+				inputs.throttleInput = Mathf.Clamp01(Input.GetAxis(RCC_Settings.Instance.verticalInput));
+				inputs.brakeInput = Mathf.Abs(Mathf.Clamp(Input.GetAxis(RCC_Settings.Instance.verticalInput), -1f, 0f));
+				inputs.steerInput = Mathf.Clamp(Input.GetAxis(RCC_Settings.Instance.horizontalInput), -1f, 1f);
+				inputs.handbrakeInput = Mathf.Clamp01(Input.GetKey(RCC_Settings.Instance.handbrakeKB) ? 1f : 0f);
+				inputs.boostInput = Mathf.Clamp01(Input.GetKey(RCC_Settings.Instance.boostKB) ? 1f : 0f);
+
+				break;
 
 		case RCC_Settings.ControllerType.XBox360One:
 

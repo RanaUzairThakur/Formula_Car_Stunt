@@ -5,7 +5,7 @@ using UnityEngine;
 public class DownforceListener : MonoBehaviour
 {
     public float tyregrip;
-    public float downforce;
+    public float downforce =250f;
     GameObject player;
     //private bool downforceactive;
     //private float smoothrotation =3f;
@@ -24,39 +24,30 @@ public class DownforceListener : MonoBehaviour
 
             if (this.tag == "DownForceOn")
             {
-                if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
-                {
-                  //  player = col.gameObject.GetComponentInParent<HandleTyreGrip>().gameObject;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = true;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
+                if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
+                    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().downForce = downforce;
+                //if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
+                //{
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = true;
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
 
-                    //col.gameObject.transform.parent.transform.rotation = Quaternion.Euler(col.gameObject.transform.parent.rotation.x, 0, col.gameObject.transform.parent.rotation.z);
-                    // downforceactive = true;
-                }
+
+                    //}
             }
-           else if (this.tag == "DownForceOff")
+            else if (this.tag == "DownForceOff")
             {
-                if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
-                {
-                    // downforceactive = false;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = false;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
-                    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
-                   // col.transform.rotation = Quaternion.Euler(0f, col.transform.eulerAngles.y , 0f);
+                if (col.gameObject.GetComponentInParent<RCC_CarControllerV3>())
+                    col.gameObject.GetComponentInParent<RCC_CarControllerV3>().downForce = downforce;
+                //if (col.gameObject.GetComponentInParent<HandleTyreGrip>())
+                //{
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().enabled = false;
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().tireGrip = tyregrip;
+                //    col.gameObject.GetComponentInParent<HandleTyreGrip>().downforce = downforce;
 
-                }
+                //}
             }
         }
     }
-
-    //private void Update()
-    //{
-    //    if (downforceactive && player)
-    //    {
-    //        Quaternion target = Quaternion.Euler(player.transform.rotation.x, 0f, player.transform.rotation.z);
-    //        player.transform.rotation = Quaternion.Slerp(player.transform.rotation,target,Time.deltaTime*smoothrotation);
-    //    }
-
-    //}
 }
+

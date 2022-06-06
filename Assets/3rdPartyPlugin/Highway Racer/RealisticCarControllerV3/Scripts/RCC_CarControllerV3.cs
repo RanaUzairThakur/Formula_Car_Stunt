@@ -623,7 +623,7 @@ public class RCC_CarControllerV3 : RCC_Core
         brakeSound = NewAudioSource(RCCSettings.audioMixer, gameObject, "Brake Sound AudioSource", 1, 10, 0, brakeClip, true, true, false);
 
         if (useNOS)
-            NOSSound = NewAudioSource(RCCSettings.audioMixer, gameObject, exhaustSoundPosition, "NOS Sound AudioSource", 800, 1500, 1f, NOSClip, true, false, false);
+            NOSSound = NewAudioSource(RCCSettings.audioMixer, gameObject, exhaustSoundPosition, "NOS Sound AudioSource", 400, 800, 1f, NOSClip, true, false, false);
         if (useNOS || useTurbo)
             blowSound = NewAudioSource(RCCSettings.audioMixer, gameObject, exhaustSoundPosition, "NOS Blow", 1f, 10f, .5f, null, false, false, false);
         if (useTurbo)
@@ -1097,14 +1097,22 @@ public class RCC_CarControllerV3 : RCC_Core
                     if (!changingGear && !cutGas)
                         throttleInput = HUDListner.Throtle;
                     else
+                    {
+                        //if (boostInput <= 0)
+                       // print("if is ");
                         throttleInput = 0f;
+                    }
                 }
                 else
                 {
                     if (!changingGear && !cutGas)
                         throttleInput = (direction == 1 ? Mathf.Clamp01(HUDListner.Throtle) : Mathf.Clamp01(HUDListner.Brake));
                     else
-                        throttleInput = 0f;
+                    {
+                        //print("else is 0");
+                        //if (boostInput <= 0)
+                            throttleInput = 0f;
+                    }
                 }
                 //edit by uzair
 
@@ -1174,16 +1182,19 @@ public class RCC_CarControllerV3 : RCC_Core
             //   print("externalController :" + externalController);
         }
 
-        if (fuelInput <= 0f)
+        if (fuelInput <= 0f && boostInput <= 0)
         {
 
             throttleInput = 0f;
             engineRunning = false;
-
+            print("Fuel is 0");
         }
 
-        if (changingGear || cutGas)
+        if ((changingGear || cutGas) && boostInput <= 0)
+        {
             throttleInput = 0f;
+           // print("changingGear or cutGas");
+        }
 
         if (!useNOS /*|| NoS < 5 || throttleInput < .75f*/)
             boostInput = 0f;
@@ -1197,7 +1208,7 @@ public class RCC_CarControllerV3 : RCC_Core
         boostInput = Mathf.Clamp01(boostInput);
         handbrakeInput = Mathf.Clamp01(handbrakeInput);
 
-        print("throttleInput :" + throttleInput + "boostInput :" + boostInput);
+       // print("throttleInput :" + throttleInput + "boostInput :" + boostInput);
 
     }
     //    private void Inputs()
@@ -1388,66 +1399,70 @@ public class RCC_CarControllerV3 : RCC_Core
 
             case RCC_Settings.ControllerType.Keyboard:
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.lowBeamHeadlightsKB))
-                    lowBeamHeadLightsOn = !lowBeamHeadLightsOn;
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.lowBeamHeadlightsKB))
+                //    lowBeamHeadLightsOn = !lowBeamHeadLightsOn;
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.highBeamHeadlightsKB))
-                    highBeamHeadLightsOn = true;
-                else if (RCC_InputManager.GetKeyUp(RCCSettings.highBeamHeadlightsKB))
-                    highBeamHeadLightsOn = false;
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.highBeamHeadlightsKB))
+                //    highBeamHeadLightsOn = true;
+                //else if (RCC_InputManager.GetKeyUp(RCCSettings.highBeamHeadlightsKB))
+                //    highBeamHeadLightsOn = false;
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.startEngineKB))
-                    KillOrStartEngine();
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.startEngineKB))
+                //    KillOrStartEngine();
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.trailerAttachDetach))
-                    DetachTrailer();
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.trailerAttachDetach))
+                //    DetachTrailer();
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.rightIndicatorKB))
-                {
-                    if (indicatorsOn != IndicatorsOn.Right)
-                        indicatorsOn = IndicatorsOn.Right;
-                    else
-                        indicatorsOn = IndicatorsOn.Off;
-                }
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.rightIndicatorKB))
+                //{
+                //    if (indicatorsOn != IndicatorsOn.Right)
+                //        indicatorsOn = IndicatorsOn.Right;
+                //    else
+                //        indicatorsOn = IndicatorsOn.Off;
+                //}
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.leftIndicatorKB))
-                {
-                    if (indicatorsOn != IndicatorsOn.Left)
-                        indicatorsOn = IndicatorsOn.Left;
-                    else
-                        indicatorsOn = IndicatorsOn.Off;
-                }
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.leftIndicatorKB))
+                //{
+                //    if (indicatorsOn != IndicatorsOn.Left)
+                //        indicatorsOn = IndicatorsOn.Left;
+                //    else
+                //        indicatorsOn = IndicatorsOn.Off;
+                //}
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.hazardIndicatorKB))
-                {
-                    if (indicatorsOn != IndicatorsOn.All)
-                    {
-                        indicatorsOn = IndicatorsOn.Off;
-                        indicatorsOn = IndicatorsOn.All;
-                    }
-                    else
-                    {
-                        indicatorsOn = IndicatorsOn.Off;
-                    }
-                }
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.hazardIndicatorKB))
+                //{
+                //    if (indicatorsOn != IndicatorsOn.All)
+                //    {
+                //        indicatorsOn = IndicatorsOn.Off;
+                //        indicatorsOn = IndicatorsOn.All;
+                //    }
+                //    else
+                //    {
+                //        indicatorsOn = IndicatorsOn.Off;
+                //    }
+                //}
 
-                if (RCC_InputManager.GetKeyDown(RCCSettings.NGear))
-                    NGear = true;
+                //if (RCC_InputManager.GetKeyDown(RCCSettings.NGear))
+                //    NGear = true;
 
-                if (RCC_InputManager.GetKeyUp(RCCSettings.NGear))
-                    NGear = false;
+                //if (RCC_InputManager.GetKeyUp(RCCSettings.NGear))
+                //    NGear = false;
 
-                if (!automaticGear)
-                {
+                //if (!automaticGear)
+                //{
 
-                    if (RCC_InputManager.GetKeyDown(RCCSettings.shiftGearUp))
-                        GearShiftUp();
+                //    if (RCC_InputManager.GetKeyDown(RCCSettings.shiftGearUp))
+                //        GearShiftUp();
 
-                    if (RCC_InputManager.GetKeyDown(RCCSettings.shiftGearDown))
-                        GearShiftDown();
+                //    if (RCC_InputManager.GetKeyDown(RCCSettings.shiftGearDown))
+                //        GearShiftDown();
 
-                }
-
+                //}
+                throttleInput = Mathf.Clamp01(Input.GetAxis(RCC_Settings.Instance.verticalInput));
+                brakeInput = Mathf.Abs(Mathf.Clamp(Input.GetAxis(RCC_Settings.Instance.verticalInput), -1f, 0f));
+                steerInput = Mathf.Clamp(Input.GetAxis(RCC_Settings.Instance.horizontalInput), -1f, 1f);
+                handbrakeInput = Mathf.Clamp01(Input.GetKey(RCC_Settings.Instance.handbrakeKB) ? 1f : 0f);
+                boostInput = Mathf.Clamp01(Input.GetKey(RCC_Settings.Instance.boostKB) ? 1f : 0f);
                 break;
 
             case RCC_Settings.ControllerType.XBox360One:
@@ -1687,11 +1702,13 @@ public class RCC_CarControllerV3 : RCC_Core
 
             if (allWheelColliders[i].canPower)
                 currentPoweredWheels++;
-
+            if (direction < 0)
+                allWheelColliders[i].powerMultiplier = 1.5f;
+            else
+                allWheelColliders[i].powerMultiplier = 10f;
         }
 
         poweredWheels = currentPoweredWheels;
-        print("poweredWheels :" + poweredWheels);
 
         Engine();
         EngineSounds();
@@ -1973,7 +1990,7 @@ public class RCC_CarControllerV3 : RCC_Core
                     if (nos_IsActive)
                         maxspeed = 500f;
                     else
-                       maxspeed = 400f;
+                        maxspeed = 400f;
                     //if (nos_IsActive)
                     //    allWheelColliders[i].powerMultiplier = 25f;
                     //else
@@ -2033,7 +2050,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 appliedBrake = true;
 
                 if (allWheelColliders[i].canBrake)
-                    allWheelColliders[i].ApplyBrakeTorque((brakeInput * brakeTorque) * allWheelColliders[i].brakingMultiplier * 10f);
+                    allWheelColliders[i].ApplyBrakeTorque((brakeInput * brakeTorque) * allWheelColliders[i].brakingMultiplier * 100f);
             }
 
             if (ESPAct)
@@ -2531,7 +2548,7 @@ public class RCC_CarControllerV3 : RCC_Core
 
         if (!NOSSound)
         {
-            NOSSound = NewAudioSource(gameObject, "NOS Sound AudioSource", 1000, 2000, 1f, NOSClip, true, false, false);
+            NOSSound = NewAudioSource(gameObject, "NOS Sound AudioSource", 400, 800, 1f, NOSClip, true, false, false);
         }
 
         if (!blowSound)

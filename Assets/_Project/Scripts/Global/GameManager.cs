@@ -392,7 +392,7 @@ public class GameManager : MonoBehaviour
 
     public void Log_Analytic(string str)
     {
-        //   Debug.Log("Analytic | " + str);
+           Debug.Log("Analytic | " + str);
     }
     #endregion
 

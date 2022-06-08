@@ -125,7 +125,7 @@ public class HUDListner : MonoBehaviour
         }
 
         ShowBanner();
-        Set_PlayerControls(false);
+        //Set_PlayerControls(false);
 
     }
 
@@ -186,6 +186,7 @@ public class HUDListner : MonoBehaviour
     }
     public void Setstatus_speed(float speed)
     {
+        if(Speed)
         Speed.text = speed.ToString("0");
     }
 

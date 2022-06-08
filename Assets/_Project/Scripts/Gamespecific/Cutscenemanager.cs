@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Playables;
+﻿using UnityEngine;
 
 public class Cutscenemanager : MonoBehaviour
 {
@@ -16,9 +13,10 @@ public class Cutscenemanager : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke(nameof(FinishCutscene),Completetime);
+        if (Toolbox.GameplayController.SelectedLevelData.Hascutscene)
+            Invoke(nameof(FinishCutscene), Completetime);
     }
-   
+
     public void FinishCutscene()
     {
         FadeEffect();

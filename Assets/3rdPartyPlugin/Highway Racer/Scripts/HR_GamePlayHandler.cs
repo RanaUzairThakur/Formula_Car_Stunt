@@ -168,7 +168,7 @@ public class HR_GamePlayHandler : MonoBehaviour {
 		player = (RCC.SpawnRCC(HR_PlayerCars.Instance.cars[/*selectedCarIndex*/Toolbox.DB.Prefs.LastSelectedVehicle].playerCar.GetComponent<RCC_CarControllerV3>(), spawnLocation.position, spawnLocation.rotation, true, false, true)).gameObject;
 		player.transform.position = spawnLocation.transform.position;
 		player.transform.rotation = Quaternion.identity;
-
+		Toolbox.GameplayController.SelectedVehicleRccv3 = player.GetComponent<RCC_CarControllerV3>();
 		player.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, minimumSpeed / 1.75f);
 
 		if(dayOrNight == DayOrNight.Night || dayOrNight == DayOrNight.Rainy)

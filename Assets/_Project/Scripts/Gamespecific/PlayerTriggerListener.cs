@@ -38,6 +38,7 @@ public class PlayerTriggerListener : MonoBehaviour
         }
         if (col.gameObject.tag == "GameOver")
         {
+            print("Name :"+col.gameObject.name);
             Toolbox.GameplayController.Lives -= 1;
             Toolbox.GameplayController.LevelFail_Delay(3f);
         }
@@ -53,8 +54,9 @@ public class PlayerTriggerListener : MonoBehaviour
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             this.GetComponent<HandleTyreGrip>().enabled = false;
+            HUDListner.OnPress_ReleaseNos();
             if (this.GetComponent<AirStabiity>())
-                this.GetComponent<AirStabiity>().stablerotation = false;
+                this.GetComponent<AirStabiity>().Axis = RotationAxis.None;
         }
         else
         {

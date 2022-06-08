@@ -1099,7 +1099,7 @@ public class RCC_CarControllerV3 : RCC_Core
                     else
                     {
                         //if (boostInput <= 0)
-                       // print("if is ");
+                        // print("if is ");
                         throttleInput = 0f;
                     }
                 }
@@ -1111,7 +1111,7 @@ public class RCC_CarControllerV3 : RCC_Core
                     {
                         //print("else is 0");
                         //if (boostInput <= 0)
-                            throttleInput = 0f;
+                        throttleInput = 0f;
                     }
                 }
                 //edit by uzair
@@ -1193,7 +1193,7 @@ public class RCC_CarControllerV3 : RCC_Core
         if ((changingGear || cutGas) && boostInput <= 0)
         {
             throttleInput = 0f;
-           // print("changingGear or cutGas");
+            // print("changingGear or cutGas");
         }
 
         if (!useNOS /*|| NoS < 5 || throttleInput < .75f*/)
@@ -1208,7 +1208,7 @@ public class RCC_CarControllerV3 : RCC_Core
         boostInput = Mathf.Clamp01(boostInput);
         handbrakeInput = Mathf.Clamp01(handbrakeInput);
 
-       // print("throttleInput :" + throttleInput + "boostInput :" + boostInput);
+        // print("throttleInput :" + throttleInput + "boostInput :" + boostInput);
 
     }
     //    private void Inputs()
@@ -1689,25 +1689,33 @@ public class RCC_CarControllerV3 : RCC_Core
 
         if (gears == null || gears.Length == 0)
         {
-
             print("Gear can not be 0! Recreating gears...");
             InitGears();
-
         }
 
         int currentPoweredWheels = 0;
-
-        for (int i = 0; i < allWheelColliders.Length; i++)
+        if (HighRracer)
         {
-
-            if (allWheelColliders[i].canPower)
-                currentPoweredWheels++;
-            if (direction < 0)
-                allWheelColliders[i].powerMultiplier = 1.5f;
-            else
-                allWheelColliders[i].powerMultiplier = 10f;
+            for (int i = 0; i < allWheelColliders.Length; i++)
+            {
+                if (allWheelColliders[i].canPower)
+                    currentPoweredWheels++;
+                allWheelColliders[i].powerMultiplier = 1f;
+            }
         }
+        else
+        {
+            for (int i = 0; i < allWheelColliders.Length; i++)
+            {
 
+                if (allWheelColliders[i].canPower)
+                    currentPoweredWheels++;
+                if (direction < 0)
+                    allWheelColliders[i].powerMultiplier = 1.5f;
+                else
+                    allWheelColliders[i].powerMultiplier = 10f;
+            }
+        }
         poweredWheels = currentPoweredWheels;
 
         Engine();
@@ -1985,30 +1993,14 @@ public class RCC_CarControllerV3 : RCC_Core
         {
 
             if (allWheelColliders[i].canPower)
-                if (!HighRracer)
-                {
-                    if (nos_IsActive)
-                        maxspeed = 500f;
-                    else
-                        maxspeed = 400f;
-                    //if (nos_IsActive)
-                    //    allWheelColliders[i].powerMultiplier = 25f;
-                    //else
-                    //    allWheelColliders[i].powerMultiplier = 10f;
-
-                    allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-
-                }
+            {
+                if (nos_IsActive)
+                    maxspeed = 290f;
                 else
-                {
-                    if (nos_IsActive)
-                    {
-                        // print("Torque :" + (direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (10f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-                    }
-                    else
-                        allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
-                }
+                    maxspeed = 290f;
+                allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
+            }
+
             //if (!HighRracer)
             //{
             //    if (nos_IsActive && boostInput >0)

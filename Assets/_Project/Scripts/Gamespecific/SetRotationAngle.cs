@@ -13,14 +13,10 @@ public class SetRotationAngle : MonoBehaviour
     {
         
     }
-
     void OnTriggerEnter(Collider col)
     {
-
-
         if (col.gameObject.CompareTag("Player"))
         {
-
             if (this.tag == "AirstableOn")
             {
                if(X)

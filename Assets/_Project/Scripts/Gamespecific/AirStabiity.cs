@@ -3,8 +3,8 @@ using UnityEngine;
 public enum RotationAxis { None, X, Y, Z }
 public class AirStabiity : MonoBehaviour
 {
-    GameObject Player;
-    public bool stablerotation;
+    //GameObject Player;
+    //public bool stablerotation;
     private float smoothrotation = 3f;
     public float Targetangle = 0f;
     public RotationAxis Axis ;
@@ -18,6 +18,9 @@ public class AirStabiity : MonoBehaviour
     //}
     private void Update()
     {
+
+        if (Axis == RotationAxis.None)
+            return;
         // smooth rotation for stability
         if (Axis == RotationAxis.X)
         {
@@ -39,8 +42,6 @@ public class AirStabiity : MonoBehaviour
         //    Quaternion target = Quaternion.Euler(transform.rotation.x, Targetangle, transform.rotation.z);
         //    transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smoothrotation);
         //}
-
-
     }
     //void OnTriggerEnter(Collider col)
     //{

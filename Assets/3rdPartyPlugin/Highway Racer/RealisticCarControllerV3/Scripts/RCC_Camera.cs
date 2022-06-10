@@ -152,6 +152,8 @@ public class RCC_Camera : MonoBehaviour {
 
     public bool lookBack = false;
 
+    // Edit by Uzair 
+    public StuntCameraAngle stuntcameraangle;
     public delegate void onBCGCameraSpawned(GameObject BCGCamera);
     public static event onBCGCameraSpawned OnBCGCameraSpawned;
     //private CameraShake camerashaking;
@@ -239,6 +241,7 @@ public class RCC_Camera : MonoBehaviour {
 
         playerCar = player.GetComponent<RCC_CarControllerV3>();
         GetTarget();
+        
 
     }
 
@@ -284,7 +287,7 @@ public class RCC_Camera : MonoBehaviour {
         playerVelocity = playerCar.transform.InverseTransformDirection(playerRigid.velocity);
 
         // Lerping current field of view to target field of view.
-        //thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 5f);
+        thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 5f);
         if (playerCar.nos_IsActive)
         {
             thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 8f);
@@ -292,7 +295,7 @@ public class RCC_Camera : MonoBehaviour {
         }
         else
         {
-           // Camerashakeeffect(false);
+            // Camerashakeeffect(false);
             if (thisCam.fieldOfView >= TPSMaximumFOV)
             {
                 thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, targetFieldOfView, Time.deltaTime * 5f);
@@ -518,7 +521,7 @@ public class RCC_Camera : MonoBehaviour {
         if (playerCar.nos_IsActive)
         {
             TPSMaximumFOV = 80f;
-            //  thisCam.fieldOfView = Mathf.Lerp(70, 120, Time.deltaTime * 10f);
+            //    thisCam.fieldOfView = Mathf.Lerp(70, 120, Time.deltaTime * 10f);
         }
         else
         {
@@ -569,23 +572,42 @@ public class RCC_Camera : MonoBehaviour {
         Vector3 position = playerCar.transform.position;
         position += (playerCar.transform.rotation * TPSOffset);
 
-        // Rotation at the target
-        Quaternion rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
 
-        // Then offset by distance behind the new angle
-        position += rotation * (-Vector3.forward * (TPSDistance + zoomScroll));
-        position += Vector3.up * TPSHeight;
+        //// Rotation at the target
+        //Quaternion rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
 
-        // Look at the target
-        transform.rotation = rotation * Quaternion.Euler(TPSPitch, 0f, TPSYaw + TPSTiltAngle);
-        transform.position = position;
+        //// Then offset by distance behind the new angle
+        //position += rotation * (-Vector3.forward * (TPSDistance + zoomScroll));
+        //position += Vector3.up * TPSHeight;
 
+        //// Look at the target
+        //transform.rotation = rotation * Quaternion.Euler(TPSPitch, 0f, TPSYaw + TPSTiltAngle);
+        //transform.position = position;
+
+        if (stuntcameraangle != StuntCameraAngle.None)
+        {
+            Quaternion rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y,transform.rotation.z);
+            position += rotation * (-Vector3.forward * (TPSDistance + zoomScroll));
+            position += Vector3.up * TPSHeight;
+            //// Look at the target
+            transform.rotation = rotation /** Quaternion.Euler(TPSPitch, 0f, TPSYaw + TPSTiltAngle)*/;
+            transform.position = position;
+        }
+        else
+        {
+            Quaternion rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
+            position += rotation * (-Vector3.forward * (TPSDistance + zoomScroll));
+            position += Vector3.up * TPSHeight;
+            // Look at the target
+            transform.rotation = rotation * Quaternion.Euler(TPSPitch, 0f, TPSYaw + TPSTiltAngle);
+            transform.position = position;
+        }
+        
         // Collision positions and rotations that affects pivot of the camera.
         if (Time.deltaTime != 0) {
 
             collisionPos = Vector3.Lerp(collisionPos, Vector3.zero, Time.deltaTime * 5f);
             collisionRot = Quaternion.Lerp(collisionRot, Quaternion.identity, Time.deltaTime * 5f);
-
         }
 
         // Lerping position and rotation of the pivot to collision.
@@ -937,3 +959,4 @@ public class RCC_Camera : MonoBehaviour {
     //    camerashaking.Set_statusCamerashake(val);
     //}
 }
+public enum StuntCameraAngle{ None, X, Y, Z }

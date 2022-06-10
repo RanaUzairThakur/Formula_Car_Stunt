@@ -53,7 +53,7 @@ public class PlayerTriggerListener : MonoBehaviour
             this.transform.rotation = Lastsavepoint.rotation;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            this.GetComponent<HandleTyreGrip>().enabled = false;
+             this.GetComponent<RCC_CarControllerV3>().downForce = 15f;
             HUDListner.OnPress_ReleaseNos();
             if (this.GetComponent<AirStabiity>())
                 this.GetComponent<AirStabiity>().Axis = RotationAxis.None;

@@ -149,6 +149,9 @@ public class UIManager : MonoBehaviour
 	public void DirectShowShopAfterLevelComplete()
 	{
 		DirectShowingShop = true;
+		for (int i = 0; i < uiList.Length; i++)
+			uiList[i].SetActive(false);
+
 		ShowUI(shopIndex);
 	}
 

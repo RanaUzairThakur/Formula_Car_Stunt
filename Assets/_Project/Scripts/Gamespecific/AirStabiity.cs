@@ -29,7 +29,7 @@ public class AirStabiity : MonoBehaviour
         }
         else if (Axis == RotationAxis.Y)
         {
-            Quaternion target = Quaternion.Euler(Targetangle, transform.rotation.y, transform.rotation.z);
+            Quaternion target = Quaternion.Euler(transform.rotation.x, Targetangle, transform.rotation.z);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smoothrotation);
         }
         else if (Axis == RotationAxis.Z)

@@ -118,8 +118,8 @@ public class RCC_Camera : MonoBehaviour {
 
     private float xVelocity, yVelocity;
 
-    private Vector3 collisionVector = Vector3.zero;             // Collision vector.
-    private Vector3 collisionPos = Vector3.zero;                    // Collision position.
+    public Vector3 collisionVector = Vector3.zero;             // Collision vector.
+    public Vector3 collisionPos = Vector3.zero;                    // Collision position.
     private Quaternion collisionRot = Quaternion.identity;  // Collision rotation.
 
     private float zoomScroll = 0;
@@ -595,6 +595,7 @@ public class RCC_Camera : MonoBehaviour {
         }
         else
         {
+            
             Quaternion rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
             position += rotation * (-Vector3.forward * (TPSDistance + zoomScroll));
             position += Vector3.up * TPSHeight;
@@ -604,14 +605,14 @@ public class RCC_Camera : MonoBehaviour {
         }
         
         // Collision positions and rotations that affects pivot of the camera.
-        if (Time.deltaTime != 0) {
+        //if (Time.deltaTime != 0) {
 
-            collisionPos = Vector3.Lerp(collisionPos, Vector3.zero, Time.deltaTime * 5f);
-            collisionRot = Quaternion.Lerp(collisionRot, Quaternion.identity, Time.deltaTime * 5f);
-        }
+        //    collisionPos = Vector3.Lerp(collisionPos, Vector3.zero, Time.deltaTime * 5f);
+        //    collisionRot = Quaternion.Lerp(collisionRot, Quaternion.identity, Time.deltaTime * 5f);
+        //}
 
         // Lerping position and rotation of the pivot to collision.
-       // pivot.transform.localPosition = Vector3.Lerp(pivot.transform.localPosition, collisionPos, Time.deltaTime * 10f);
+        //pivot.transform.localPosition = Vector3.Lerp(pivot.transform.localPosition, collisionPos, Time.deltaTime * 10f);
         //pivot.transform.localRotation = Quaternion.Lerp(pivot.transform.localRotation, collisionRot, Time.deltaTime * 10f);
 
         // Lerping targetFieldOfView from TPSMinimumFOV to TPSMaximumFOV related with vehicle speed.
@@ -844,13 +845,15 @@ public class RCC_Camera : MonoBehaviour {
 
                 //the x and z coordinates are pushed away from the wall by hit.normal.
                 //the y coordinate stays the same.
-                Vector3 occludedPosition = new Vector3(wallHit.point.x + wallHit.normal.x * .2f, wallHit.point.y + wallHit.normal.y * .2f, wallHit.point.z + wallHit.normal.z * .2f);
-
+                //Vector3 occludedPosition = new Vector3(wallHit.point.x + wallHit.normal.x * .2f, wallHit.point.y + wallHit.normal.y * .2f, wallHit.point.z + wallHit.normal.z * .2f);
+                 Vector3 occludedPosition = new Vector3(transform.position.x, transform.position.y + (TPSHeight), transform.position.z +(TPSDistance));
+               
                 transform.position = occludedPosition;
 
             }
 
         }
+       
 
     }
 

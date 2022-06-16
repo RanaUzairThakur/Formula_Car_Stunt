@@ -43,12 +43,12 @@ public class VehicleSelectionListner : MonoBehaviour
         FetchVehiclesDataFromResources();
         ShowVehicle(curVehicleIndex);
         UpdateTxts();
-        vehicleSpawnPosition.gameObject.SetActive(true);
+      //  vehicleSpawnPosition.gameObject.SetActive(true);
 
 
         UnlockAllVehicle_btnhandling();
-        Gunselection.SetActive(true);
-        Mainmenu.SetActive(false);
+      //  Gunselection.SetActive(true);
+      //  Mainmenu.SetActive(false);
 
 
     }
@@ -211,9 +211,9 @@ public class VehicleSelectionListner : MonoBehaviour
         this.GetComponentInParent<UIManager>().ShowPrevUI();
         Toolbox.GameManager.Analytics_DesignEvent("VehicleSelection_Press_Back");
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.BackButtonAnySelectionclick);
-        Gunselection.SetActive(false);
-        Mainmenu.SetActive(true);
-        vehicleSpawnPosition.gameObject.SetActive(false);
+        //Gunselection.SetActive(false);
+       // Mainmenu.SetActive(true);
+       // vehicleSpawnPosition.gameObject.SetActive(false);
 
     }
 

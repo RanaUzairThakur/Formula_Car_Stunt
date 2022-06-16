@@ -11,8 +11,8 @@ public class LevelSelectionListner : MonoBehaviour
     //public GameObject PlayButon;
     public GameObject UnlockallBtn;
    
-    private int tileWidth = 230;
-    private int tileSpacing = 40;
+    public int tileWidth = 379;
+    public int tileSpacing = 40;
 
     private void OnEnable()
     {
@@ -60,12 +60,14 @@ public class LevelSelectionListner : MonoBehaviour
 
         bool watchVideoBtnEnabled = false;
         Toolbox.GameManager.Permanent_Log("InitLevelButtonsState");
-        for (int i = 0; i < content.childCount; i++)
+        for (int i = 0; i < Toolbox.DB.Prefs.GameData[Toolbox.DB.Prefs.LastSelectedGameMode].LevelUnlocked.Length/*content.childCount*/; i++)
         {
+            content.GetChild(i).gameObject.SetActive(true);
+
             LevelButtonListner btnListner = content.GetChild(i).GetComponent<LevelButtonListner>();
 
             bool lvlUnlocked = Toolbox.DB.Prefs.Get_LevelUnlockStatusOfCurrentGameMode(i);
-            btnListner.Set_LevleNameTxt((i+1).ToString());
+         
             if (lvlUnlocked)
             {
                 btnListner.Lock_Status(!lvlUnlocked);
@@ -74,7 +76,7 @@ public class LevelSelectionListner : MonoBehaviour
             else
             {
                 btnListner.Lock_Status(!lvlUnlocked);
-                btnListner.buttonObj.SetActive(false);
+               // btnListner.buttonObj.SetActive(false);
             }
 
             // Just for checkingLevel status played or not
@@ -95,15 +97,25 @@ public class LevelSelectionListner : MonoBehaviour
             if (i == Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
             {
                 btnListner.check_OutlineStatus(true);
-                btnListner.Set_LevelstatusTxt("NEW");
+                btnListner.Set_LevelstatusTxt("PLAY",Color.cyan);
+                btnListner.Set_LevleNameTxt((i + 1).ToString(),Color.cyan);
+                btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i),Color.cyan);
             }
             else if (i < Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
             {
-                btnListner.Set_LevelstatusTxt("CLEARED");
+                btnListner.Set_LevelstatusTxt("COMPLETE",Color.green);
+                btnListner.check_OutlineStatus(false);
+                btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.white);
+                btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.white);
+
             }
             else
             {
+                btnListner.Set_LevelstatusTxt("LOCKED",Color.gray);
                 btnListner.check_OutlineStatus(false);
+                btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.grey);
+                btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.grey);
+
             }
         }
     }

@@ -70,6 +70,7 @@ public class HUDListner : MonoBehaviour
     private void OnEnable()
     {
         Toolbox.Set_HUD(this);
+
     }
 
 
@@ -95,6 +96,8 @@ public class HUDListner : MonoBehaviour
         Handbrake = 0f;
         if (Application.isMobilePlatform)
             RCC_Settings.Instance.selectedControllerType = RCC_Settings.ControllerType.Mobile;
+        check_statuscontrols();
+
     }
     private void OnDisable()
     {
@@ -162,7 +165,11 @@ public class HUDListner : MonoBehaviour
 
         if (RCC_SceneManager.Instance.activePlayerVehicle)
             Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);
-        if (ShowInput)
+        if(Toolbox.DB.Prefs.SelectedControltype ==Controls.Gyro)
+            steering = Mathf.Lerp(steering, Input.acceleration.x * RCC_Settings.Instance.gyroSensitivity, Time.deltaTime * 5f);
+
+
+            if (ShowInput)
         {
             inputs.Throtle = Throtle;
             inputs.Brake = Brake;
@@ -245,6 +252,24 @@ public class HUDListner : MonoBehaviour
         }
         //Debug.Log(i);
     }
+    public void check_statuscontrols()
+    {
+        switch (Toolbox.DB.Prefs.SelectedControltype)
+        {
+            case Controls.Touch:
+                setstatus_MobileController(0);
+                break;
+            case Controls.steering:
+                setstatus_MobileController(1);
+                break;
+            case Controls.Gyro:
+                setstatus_MobileController(2);
+                break;
+            default:
+                setstatus_MobileController(0);
+                break;
+        }
+    }
     public void setstatus_MobileController(int index)
     {
 
@@ -252,41 +277,50 @@ public class HUDListner : MonoBehaviour
         {
 
             case 0:
+                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                Toolbox.DB.Prefs.SelectedControltype = Controls.Touch;
+                brake.transform.position = orgBrakeButtonPos;
+                Steering.SetActive(false);
+                Left.SetActive(true);
+                right.SetActive(true);
+                brake.SetActive(true);
+                race.SetActive(true);
+                Toolbox.GameManager.Log("TouchScreen");
+                break;
+
+            case 1:
                 RCC.SetMobileController(RCC_Settings.MobileController.SteeringWheel);
+                Toolbox.DB.Prefs.SelectedControltype = Controls.steering;
+                brake.transform.position = orgBrakeButtonPos;
                 Steering.SetActive(true);
                 Left.SetActive(false);
                 right.SetActive(false);
                 brake.SetActive(true);
                 race.SetActive(true);
+                Toolbox.GameManager.Log("SteeringWheel");
                 break;
-            case 1:
+            case 2:
                 RCC.SetMobileController(RCC_Settings.MobileController.Gyro);
+                Toolbox.DB.Prefs.SelectedControltype = Controls.Gyro;
                 Steering.SetActive(false);
                 Left.SetActive(false);
                 right.SetActive(false);
                 brake.SetActive(true);
                 race.SetActive(true);
                 brake.transform.position = Left.transform.position;
-                break;
-            case 2:
-                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
-                brake.transform.position = orgBrakeButtonPos;
-                Steering.SetActive(false);
-                Left.SetActive(true);
-                right.SetActive(true);
-                brake.SetActive(true);
-                race.SetActive(true);
+                Toolbox.GameManager.Log("Gyro");
                 break;
             default:
-                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
+                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen); 
+                Toolbox.DB.Prefs.SelectedControltype = Controls.Touch;
                 brake.transform.position = orgBrakeButtonPos;
                 Steering.SetActive(false);
                 Left.SetActive(true);
                 right.SetActive(true);
                 brake.SetActive(true);
                 race.SetActive(true);
+                Toolbox.GameManager.Log("DefaultTouchScreen");
                 break;
-
         }
 
     }

@@ -22,16 +22,16 @@ public class LevelCompleteListner : MonoBehaviour
     int ObjectiveBonus = 0;
     int HeadshotBonus = 0;
     int totalCoins = 0;
-    int totaldoublecoins;
+    //int totaldoublecoins;
 
-    bool showCoinsAnim = false;
+    //bool showCoinsAnim = false;
 
     //public Button DoubleReward;
     //public Text doubleRewardCoinsTxt;
 
     int coinsReward = 0;
     int coinIncVal = 20;
-    bool coinIncremented = false;
+    //bool coinIncremented = false;
 
     private void OnEnable()
     {
@@ -78,7 +78,7 @@ public class LevelCompleteListner : MonoBehaviour
     IEnumerator CR_CoinsAnimation()
     {
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
 
         while (curObjBonus <= ObjectiveBonus && curObjBonus <= ObjectiveBonus - coinIncVal)
         {

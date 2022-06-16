@@ -7,10 +7,11 @@ public class LevelButtonListner : MonoBehaviour
 
     public Text levelNoTxt;
     public Text levelStatusTxt;
-    //public Text levelNewStatusTxt;
+    public GameObject Levelselected;
     public GameObject buttonObj;
     //public GameObject watchVideoUnlockBtn;
     public GameObject lockObj;
+    public Text LevelName;
     //public GameObject PlayedState;
     //public GameObject NewLevel;
   //public GameObject[] stars;
@@ -33,24 +34,26 @@ public class LevelButtonListner : MonoBehaviour
         lockObj.SetActive(_val);
     }
 
-    //public void check_LevelState(bool _Val)
-    //{
-    //    PlayedState.SetActive(_Val);
-    //}
-    public void Set_LevleNameTxt(string _val)
+    public void set_LevelName(string _Val,Color clr)
+    {
+        LevelName.text = _Val.ToString();
+        LevelName.color = clr;
+    }
+    public void Set_LevleNameTxt(string _val,Color clr)
     {
         levelNoTxt.text = _val;
-        //levelNewnoTxt.text = _val;
+        levelNoTxt.color = clr;
     }
-    public void Set_LevelstatusTxt(string _val)
+    public void Set_LevelstatusTxt(string _val,Color clr)
     {
         levelStatusTxt.text = _val;
-       
+        levelStatusTxt.color = clr;
     }
 
     public void check_OutlineStatus(bool _val)
     {
         buttonObj.GetComponent<UIShiny>().enabled = _val;
+        Levelselected.SetActive(_val);
     }
 
     //public void Set_NewLevelstatus(bool _Val)

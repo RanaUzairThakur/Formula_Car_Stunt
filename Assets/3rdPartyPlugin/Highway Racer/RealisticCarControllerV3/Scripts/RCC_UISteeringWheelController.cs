@@ -66,7 +66,8 @@ public class RCC_UISteeringWheelController : MonoBehaviour {
 
 		SteeringWheelInit();
 		SteeringWheelControlling();
-		input = GetSteeringWheelInput();
+		//input = GetSteeringWheelInput();
+		HUDListner.steering = GetSteeringWheelInput();
 
 	}
 

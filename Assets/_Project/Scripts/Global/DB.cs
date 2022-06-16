@@ -15,10 +15,10 @@ public class Prefs_Data {
     [SerializeField] private float musicVolume = 0.4f;
 
     [SerializeField] private int goldCoins = 0;
-    [SerializeField] private int highScore = 0;
+    //[SerializeField] private int highScore = 0;
 
-    [SerializeField] private string playerName;
-    [SerializeField] private bool fbLoggedIn = false;
+    //[SerializeField] private string playerName;
+    //[SerializeField] private bool fbLoggedIn = false;
 
     [SerializeField] private bool soundMute = false;
 
@@ -251,6 +251,71 @@ public class Prefs_Data {
                 break;
         }
     }
+    public string Get_CurGameLevelName(int index)
+    {
+
+
+        switch (index)
+        {
+            case 0:
+                return Constants.gameLevel1;
+                break;
+            case 1:
+                return Constants.gameLevel2;
+                break;
+            case 2:
+                return Constants.gameLevel3;
+                break;
+            case 3:
+                return Constants.gameLevel4;
+                break;
+            case 4:
+                return Constants.gameLevel4;
+                break;
+            case 5:
+                return Constants.gameLevel5;
+                break;
+            case 6:
+                return Constants.gameLevel6;
+                break;
+            case 7:
+                return Constants.gameLevel7;
+                break;
+            case 8:
+                return Constants.gameLevel8;
+                break;
+            case 9:
+                return Constants.gameLevel9;
+                break;
+            case 10:
+                return Constants.gameLevel10;
+                break;
+            case 11:
+                return Constants.gameLevel11;
+                break;
+            case 12:
+                return Constants.gameLevel12;
+                break;
+            case 13:
+                return Constants.gameLevel13;
+                break;
+            case 14:
+                return Constants.gameLevel14;
+                break;
+            case 15:
+                return Constants.gameLevel15;
+                break;
+            case 16:
+                return Constants.gameLevel16;
+                break;
+            case 17:
+                return Constants.gameLevel17;
+                break;
+            default:
+                return Constants.gameLevel18;
+                break;
+        }
+    }
     public int Set_ModeUnlockStatus(int mode)
     {
         //for (int i = 0; i < GameData[LastSelectedGameMode].Gamedata.Length; i++)
@@ -438,11 +503,12 @@ public class Prefs_Data {
             //Toolbox.GameManager.UpdateCoinsTxtHandling();
         }  
     }
-    public int HighScore { get => highScore; set => highScore = value; }
+    //public int HighScore { get => highScore; set => highScore = value; }
     public bool FirstRun { get => firstRun; set => firstRun = value; }
     public bool AppRated { get => appRated; set => appRated = value; }
-    public string PlayerName { get => playerName; set => playerName = value; }
-    public bool FbLoggedIn { get => fbLoggedIn; set => fbLoggedIn = value; }
+    public Controls SelectedControltype;
+    //public string PlayerName { get => playerName; set => playerName = value; }
+    //public bool FbLoggedIn { get => fbLoggedIn; set => fbLoggedIn = value; }
     public bool SoundMute { get => soundMute; set => soundMute = value; }
     public GameData[] GameData { get => gamedata; set => gamedata = value; }
     public int LastSelectedVehicle { get => lastSelectedVehicle; set => lastSelectedVehicle = value; }
@@ -506,7 +572,7 @@ public class GameMode
     public GameData[] Gamedata { get => gamedata; set => gamedata = value; }
 }
 
-
+public enum Controls {Touch,steering,Gyro}
 public class DB : MonoBehaviour {
 
     [SerializeField] private Prefs_Data prefs;

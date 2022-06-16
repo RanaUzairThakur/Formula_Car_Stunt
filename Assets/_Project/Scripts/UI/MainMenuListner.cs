@@ -29,6 +29,7 @@ public class MainMenuListner : MonoBehaviour
         //}
        // Invoke("MegaOffer", 1.0f);
         NoAdsButtonHandling();
+        UpdateTxts();
     }
 
     private void OnDisable()
@@ -78,7 +79,10 @@ public class MainMenuListner : MonoBehaviour
         //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
     }
 
-
+     public void UpdateTxts()
+    {
+        coinsTxt.text = Toolbox.DB.Prefs.GoldCoins.ToString();
+    }
 
 
 

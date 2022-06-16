@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
 public class SettingsListner : MonoBehaviour
 {
     public Slider soundSlider;
     public Slider musicSlider;
     public Text versionTxt;
-
+    public List<GameObject> ControlsHover;
     private void OnEnable()
-    {
-       // Toolbox.GameManager.Add_ActiveUI(this.gameObject);
-    }
-
-    private void OnDisable()
-    {
-       // Toolbox.GameManager.Remove_ActiveUI(this.gameObject);
-    }
-
-    private void Start()
     {
         soundSlider.value = Toolbox.Soundmanager.soundSource.volume;
         musicSlider.value = Toolbox.Soundmanager.musicSource.volume;
         versionTxt.text = "V" + Application.version;
+        set_StatusControls();
     }
+
+    //private void OnDisable()
+    //{
+    //}
+
+    //private void Start()
+    //{
+    //}
    
    
     #region ButtonListners
@@ -81,6 +80,58 @@ public class SettingsListner : MonoBehaviour
     //    Destroy(this.gameObject);
     }
 
+    #endregion
+
+    #region Controls 
+      
+    public void set_StatusControls()
+    {
+        foreach (GameObject g in ControlsHover)
+            g.SetActive(false);
+
+        switch (Toolbox.DB.Prefs.SelectedControltype)
+        {
+            case Controls.Touch:
+                ControlsHover[0].SetActive(true);
+                break;
+            case Controls.steering:
+                ControlsHover[1].SetActive(true);
+                break;
+            case Controls.Gyro:
+                ControlsHover[2].SetActive(true);
+                break;
+            default:
+                ControlsHover[0].SetActive(true);
+                break;
+        }
+    }
+    public void touchControls()
+    {
+        Toolbox.DB.Prefs.SelectedControltype = Controls.Touch;
+        foreach (GameObject g in ControlsHover)
+            g.SetActive(false);
+        ControlsHover[0].SetActive(true);
+        if (FindObjectOfType<HUDListner>())
+            FindObjectOfType<HUDListner>().check_statuscontrols();
+    }
+    public void SteeringControls()
+    {
+        Toolbox.DB.Prefs.SelectedControltype = Controls.steering;
+        foreach (GameObject g in ControlsHover)
+            g.SetActive(false);
+        ControlsHover[1].SetActive(true);
+        if (FindObjectOfType<HUDListner>())
+            FindObjectOfType<HUDListner>().check_statuscontrols();
+    }
+    public void JyroControls()
+    {
+        Toolbox.DB.Prefs.SelectedControltype = Controls.Gyro;
+        foreach (GameObject g in ControlsHover)
+            g.SetActive(false);
+        ControlsHover[2].SetActive(true);
+        if (FindObjectOfType<HUDListner>())
+            FindObjectOfType<HUDListner>().check_statuscontrols();
+    }
     #endregion
     public void OnPress_Close()
     {

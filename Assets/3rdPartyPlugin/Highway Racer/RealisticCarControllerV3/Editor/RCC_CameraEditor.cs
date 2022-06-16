@@ -68,6 +68,9 @@ public class RCC_CameraEditor : Editor {
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("TPSCollision"), new GUIContent("TPS Collision", "TPS Collision."), false);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("TPSOffset"), new GUIContent("TPS Offset", "TPS Offset."), false);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("TPSStartRotation"), new GUIContent("TPS Start Rotation", "TPS Start Rotation."), false);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("collisionVector"), new GUIContent("Collision Rotation", "Collision Rotation."), false);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("collisionPos"), new GUIContent("Collision Position", "Collision Position."), false);
+
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("useOcclusion"), new GUIContent("Use Occlusion", "Use Occlusion."), false);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("occlusionLayerMask"), new GUIContent("Occlusion LayerMask", "Occlusion LayerMask."), false);
 

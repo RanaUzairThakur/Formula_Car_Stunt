@@ -60,6 +60,31 @@ public static class Constants{
     public const string gameModeName_Mode5 = "HighwayMode";
     public const string gameModeName_Mode6 = "FreeMode";
 
+    public const string gameLevel1 = "TRAINER EXPERT";
+    public const string gameLevel2 = "TRAINER MASTER";
+    public const string gameLevel3 = "MARVELOUS TRACK";
+    public const string gameLevel4 = "SHARP & NARROW";
+    public const string gameLevel5 = "JUMP & RIDE";
+    public const string gameLevel6 = "INCREDIBALE STUNTS";
+    public const string gameLevel7 = "EXTREME TRACKS";
+    public const string gameLevel8 = "ENDLESS RAMP";
+    public const string gameLevel9 = "MASTER TRACKS";
+    public const string gameLevel10 = "PRO TRACKS";
+    public const string gameLevel11 = "BOOSTER TRACKS";
+    public const string gameLevel12 = "MASTER STUNTS";
+    public const string gameLevel13 = "MEGA TRACKS";
+    public const string gameLevel14 = "MEGA STUNTS";
+    public const string gameLevel15 = "RACING TRACKS";
+    public const string gameLevel16 = "EXPERT TRACKS";
+    public const string gameLevel17 = "ASPHALT TRACKS";
+    public const string gameLevel18 = "RACING LEGENDS";
+    public const string gameLevel19 = "PIPELINE TRACKS";
+    public const string gameLevel20 = "TUNNEL TRACKS";
+
+
+
+
+
     public const string prefsFileName = "data";
     public const string uiCoinEffect = "CoinsEffect";
 

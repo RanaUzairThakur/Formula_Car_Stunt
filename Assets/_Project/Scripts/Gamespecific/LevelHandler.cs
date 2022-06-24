@@ -11,27 +11,42 @@ public class LevelHandler : MonoBehaviour
     public GameObject Custcene;
     [Tooltip("This is used for skybox")]
     public Material Skybox;
+    public List<GameObject> ListofProsOptmization;
     //public AudioSource audienceAudioSource;
     //[Tooltip("This is only used in level 1 for tutorial")]
     //public GameObject tutorialCam;
 
     private void Start()
     {
-        //if (Toolbox.GameplayController.SelecetdLevelData.Hascutscene)
-        //{
-        //    FetchCurrentVehicleData();
-        //    Toolbox.HUDListner.SetStatus_SkipAnimationButton(true);
-        //    Custcene.SetActive(true);
-        //}
-        //else
-        //{  
-        //LevelStartHandling();
-        //}
-        //Invoke(nameof(LevelStartHandling),1f);
+
+
+        Optimization();
         LevelStartHandling();
         RenderSettings.skybox = Skybox;
     }
-
+    private void Optimization()
+    {
+        if(Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+        {
+            foreach (GameObject g in ListofProsOptmization)
+                g.SetActive(false);
+        }
+        else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+        {
+            foreach (GameObject g in ListofProsOptmization)
+                g.SetActive(true);
+        }
+        else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+        {
+            foreach (GameObject g in ListofProsOptmization)
+                g.SetActive(true);
+        }
+        else 
+        {
+            foreach (GameObject g in ListofProsOptmization)
+                g.SetActive(true);
+        }
+    }
 
     public void LevelStartHandling() {
 

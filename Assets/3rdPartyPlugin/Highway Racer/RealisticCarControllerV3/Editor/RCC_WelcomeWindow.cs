@@ -382,7 +382,7 @@ public class RCC_WelcomeWindow : EditorWindow{
 			EditorGUILayout.HelpBox("Found BCG Shared Assets, You can open Enter / Exit demo scenes now.", MessageType.Info);
 
 #if BCG_ENTEREXIT
-			EditorGUILayout.LabelField("BCG Shared Assets Version: " + BCG_EnterExitSettings.BCGVersion, EditorStyles.centeredGreyMiniLabel);
+			//EditorGUILayout.LabelField("BCG Shared Assets Version: " + BCG_EnterExitSettings.BCGVersion, EditorStyles.centeredGreyMiniLabel);
 #endif
 			GUILayout.Space(6);
 

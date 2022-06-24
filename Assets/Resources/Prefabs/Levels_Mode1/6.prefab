@@ -40233,7 +40233,7 @@ GameObject:
   - component: {fileID: 398374716100123115}
   m_Layer: 0
   m_Name: GameOver (3)
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -40309,7 +40309,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398374716100123094}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -53182,7 +53182,7 @@ GameObject:
   - component: {fileID: 398374716165564610}
   m_Layer: 0
   m_Name: GameOver (4)
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -53258,7 +53258,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398374716165564621}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -62910,7 +62910,7 @@ GameObject:
   - component: {fileID: 398374716459198552}
   m_Layer: 0
   m_Name: GameOver (1)
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -62986,7 +62986,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398374716459198555}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -92262,8 +92262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f41698c28ac6154fa932a49b835ae42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tyregrip: 2500
-  downforce: 25000
+  tyregrip: 0
+  downforce: 15
 --- !u!1 &398374716864872242
 GameObject:
   m_ObjectHideFlags: 0
@@ -141016,7 +141016,7 @@ GameObject:
   - component: {fileID: 398374717673642648}
   m_Layer: 0
   m_Name: GameOver (2)
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -141092,7 +141092,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398374717673642651}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

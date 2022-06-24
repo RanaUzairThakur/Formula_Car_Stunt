@@ -3765,7 +3765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7352834988517954738
 Transform:
   m_ObjectHideFlags: 0
@@ -10641,8 +10641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4b271dcaea75941b75cde1f3cb9601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhellCol: []
-  dsitance: 4
+  dsitance: 60
   carModel: {fileID: 7352834989973606099}
 --- !u!1 &7352834990107737287
 GameObject:

@@ -65,10 +65,14 @@ public class GameplayController : MonoBehaviour
 
     public void Level_Andcutscenehandling()
     {
+
+       
         if (SelectedLevelData.Hascutscene)
         {
-            Toolbox.HUDListner.SetStatus_SkipAnimationButton(true);
-            levelhandler.Custcene.SetActive(true);
+
+            Optimization();
+             //Invoke(nameof(Toolbox.CutsceneManager.FinishCutscene), Toolbox.CutsceneManager.Completetime);
+            // levelhandler.Custcene.SetActive(true);
         }
         else
         {
@@ -76,6 +80,29 @@ public class GameplayController : MonoBehaviour
         }
     }
 
+    private void Optimization()
+    {
+        if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+        {
+            levelhandler.Custcene.SetActive(false);
+            SpawnVehicle();
+        }
+        else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+        {
+            levelhandler.Custcene.SetActive(true);
+            Toolbox.CutsceneManager.FinishCutscene();
+        }
+        else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+        {
+            levelhandler.Custcene.SetActive(true);
+            Toolbox.CutsceneManager.FinishCutscene();
+        }
+        else
+        {
+            levelhandler.Custcene.SetActive(true);
+            Toolbox.CutsceneManager.FinishCutscene();
+        }
+    }
     public void UnloadAssetsFromMemory()
     {
         Resources.UnloadAsset(SelectedLevelData);
@@ -116,7 +143,7 @@ public class GameplayController : MonoBehaviour
         Toolbox.HUDListner.Set_PlayerControls(_val);
         Toolbox.HUDListner.pauseBtn.gameObject.SetActive(_val);
        // Toolbox.HUDListner.gameObject.SetActive(_val);
-        Toolbox.HUDListner.set_statusLevelCounter();
+       // Toolbox.HUDListner.set_statusLevelCounter();
     }
     public IEnumerator LevelComplete_Delay(float delay)
     {

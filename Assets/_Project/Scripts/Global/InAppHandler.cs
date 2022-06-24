@@ -50,7 +50,8 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     private IAppleExtensions m_AppleExtensions;
     private IGooglePlayStoreExtensions m_GoogleExtensions;
 
-
+    [HideInInspector]
+    public bool Islowenddevice = false;
     public List<ConsumableInApps> consumeableInApps;
     public List<NonConsumeableInApps> nonConsumeableInApps;
     public List<SubscriptionInApps> subscriptionInApps;
@@ -89,7 +90,7 @@ public class InAppHandler : MonoBehaviour, IStoreListener
             Toolbox.UIManager.MessagePopup.GetComponent<MessageListner>().UpdateTxt("YOUR PURCHASE HAS BEEN VERIFIED AND ITEM(S) HAS BEEN ADDED TO YOUR GAME", "PURCHASE SUCCESSFUL");
             Toolbox.DB.Prefs.PurchasingInapp = false;
         }
-       
+
     }
     public void OnPurchaseFailed()
     {
@@ -115,19 +116,40 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     {
         //Instance = this;
         DontDestroyOnLoad(this.gameObject);
-        if (m_StoreController == null)
+        if (!Toolbox.DB.Prefs.DeviceSpecificationCheck)
+            return;
+        else
         {
-            // Begin to configure our connection to Purchasing
-            if (!Toolbox.GameManager.IsNetworkAvailable())
-                return;
-            else
-                InitializePurchasing();
+            InitializePurchasing();
+            //if (m_StoreController == null)
+            //{
+            //    // Begin to configure our connection to Purchasing
+            //    if (!Toolbox.GameManager.IsNetworkAvailable())
+            //        return;
+            //    else
+            //        InitializePurchasing();
+            //    //Invoke(nameof(InitializePurchasing), 1f);
+            //}
+            //Debug.Log("InitializePurchasing");
         }
-        Debug.Log("InitializePurchasing");
     }
 
     public void InitializePurchasing()
     {
+
+        if (m_StoreController != null)
+            return;
+
+        if (!Toolbox.GameManager.IsNetworkAvailable())
+            return;
+
+        Islowenddevice = Toolbox.DB.Prefs.Is_DeviceConditionBad();
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
         // If we have already connected to Purchasing ...
         if (IsInitialized())
         {
@@ -232,6 +254,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_Coins5000()
     {
         Toolbox.GameManager.Log("Coins 1000 Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             //    Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -251,7 +278,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_Coins15000()
     {
         Toolbox.GameManager.Log("Coins 2000 Pressed");
-
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //    Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -270,6 +301,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_Coins20000()
     {
         Toolbox.GameManager.Log("Coins 5000 Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //   Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -288,6 +324,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_Coins30000()
     {
         Toolbox.GameManager.Log("Coins 30000 Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //    Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -305,6 +346,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_Coins40000()
     {
         Toolbox.GameManager.Log("Coins 400000 Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //    Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -324,6 +370,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_AllVehicles()
     {
         Toolbox.GameManager.Log("Buy all vehicles");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //    Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -342,6 +393,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_AllModes()
     {
         Toolbox.GameManager.Log("Buy all Modes");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //   Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -360,6 +416,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_AllLevels()
     {
         Toolbox.GameManager.Log("Buy all Levels ");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //   Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -379,6 +440,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_NoAds()
     {
         Toolbox.GameManager.Log("No Ads Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //  Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -398,6 +464,11 @@ public class InAppHandler : MonoBehaviour, IStoreListener
     public void Buy_MegaOffer()
     {
         Toolbox.GameManager.Log("Mega Offer Pressed");
+        if (Islowenddevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (!Toolbox.GameManager.IsNetworkAvailable())
         {
             //  Toolbox.GameManager.PurchaseLaoding.GetComponent<PurchaseLoading>().InternetNotAvailabe();
@@ -658,8 +729,8 @@ public class InAppHandler : MonoBehaviour, IStoreListener
                             OnPurchaseComplete();
 
                         }
-                       
-                        
+
+
                     }
 
                     // Or ... a subscription product has been purchased by this user.

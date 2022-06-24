@@ -65,7 +65,7 @@ public class RCC_SceneManager : MonoBehaviour {
 	public List <RCC_CarControllerV3> allVehicles = new List<RCC_CarControllerV3> ();
 
 	#if BCG_ENTEREXIT
-	public BCG_EnterExitPlayer activePlayerCharacter;
+	//public BCG_EnterExitPlayer activePlayerCharacter;
 	#endif
 
 	// Firing an event when main controller changed.
@@ -97,8 +97,8 @@ public class RCC_SceneManager : MonoBehaviour {
 		activePlayerCanvas = GameObject.FindObjectOfType<RCC_UIDashboardDisplay> ();
 
 		#if BCG_ENTEREXIT
-		BCG_EnterExitPlayer.OnBCGPlayerSpawned += BCG_EnterExitPlayer_OnBCGPlayerSpawned;
-		BCG_EnterExitPlayer.OnBCGPlayerDestroyed += BCG_EnterExitPlayer_OnBCGPlayerDestroyed;
+		//BCG_EnterExitPlayer.OnBCGPlayerSpawned += BCG_EnterExitPlayer_OnBCGPlayerSpawned;
+		//BCG_EnterExitPlayer.OnBCGPlayerDestroyed += BCG_EnterExitPlayer_OnBCGPlayerDestroyed;
 		#endif
 
 		// Getting default time scale of the game.
@@ -108,7 +108,7 @@ public class RCC_SceneManager : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 
 		#if ENABLE_VR
-		UnityEngine.XR.XRSettings.enabled = RCC_Settings.Instance.useVR;
+		//UnityEngine.XR.XRSettings.enabled = RCC_Settings.Instance.useVR;
 		#endif
 		
 	}
@@ -153,10 +153,10 @@ public class RCC_SceneManager : MonoBehaviour {
 		if (registerFirstVehicleAsPlayer)
 			RegisterPlayer (RCC);
 
-		#if BCG_ENTEREXIT
-		if (RCC.gameObject.GetComponent<BCG_EnterExitVehicle> ())
-			RCC.gameObject.GetComponent<BCG_EnterExitVehicle> ().correspondingCamera = activePlayerCamera.gameObject;
-		#endif
+		//#if BCG_ENTEREXIT
+		//if (RCC.gameObject.GetComponent<BCG_EnterExitVehicle> ())
+		//	RCC.gameObject.GetComponent<BCG_EnterExitVehicle> ().correspondingCamera = activePlayerCamera.gameObject;
+		//#endif
 
 	}
 
@@ -204,11 +204,11 @@ public class RCC_SceneManager : MonoBehaviour {
 	}
 
 	#if BCG_ENTEREXIT
-	void BCG_EnterExitPlayer_OnBCGPlayerSpawned (BCG_EnterExitPlayer player){
+	//void BCG_EnterExitPlayer_OnBCGPlayerSpawned (BCG_EnterExitPlayer player){
 
-		activePlayerCharacter = player;
+	//	activePlayerCharacter = player;
 
-	}
+	//}
 	#endif
 
 	#endregion
@@ -234,9 +234,9 @@ public class RCC_SceneManager : MonoBehaviour {
 	}
 
 	#if BCG_ENTEREXIT
-	void BCG_EnterExitPlayer_OnBCGPlayerDestroyed (BCG_EnterExitPlayer player){
+	//void BCG_EnterExitPlayer_OnBCGPlayerDestroyed (BCG_EnterExitPlayer player){
 
-	}
+	//}
 	#endif
 
 	#endregion
@@ -546,8 +546,8 @@ public class RCC_SceneManager : MonoBehaviour {
 		RCC_AICarController.OnRCCAIDestroyed -= RCC_AICarController_OnRCCAIDestroyed;
 
 		#if BCG_ENTEREXIT
-		BCG_EnterExitPlayer.OnBCGPlayerSpawned -= BCG_EnterExitPlayer_OnBCGPlayerSpawned;
-		BCG_EnterExitPlayer.OnBCGPlayerDestroyed -= BCG_EnterExitPlayer_OnBCGPlayerDestroyed;
+		//BCG_EnterExitPlayer.OnBCGPlayerSpawned -= BCG_EnterExitPlayer_OnBCGPlayerSpawned;
+		//BCG_EnterExitPlayer.OnBCGPlayerDestroyed -= BCG_EnterExitPlayer_OnBCGPlayerDestroyed;
 		#endif
 
 	}

@@ -72,7 +72,7 @@ public class CommonMethods : MonoBehaviour
 
     public void HUDBUTTONSTATUS_SkipStartAnimation(bool _val)
     {
-        Toolbox.HUDListner.SetStatus_SkipAnimationButton(_val);
+        //Toolbox.HUDListner.SetStatus_SkipAnimationButton(_val);
     }
 
     public void EnableLevelStartAnimation() {

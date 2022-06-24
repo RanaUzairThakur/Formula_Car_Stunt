@@ -182,8 +182,29 @@ public class RCC_Camera : MonoBehaviour {
         //    camerashaking = this.gameObject.GetComponent<CameraShake>();
         if (playerCar == null)
             SetTarget(Toolbox.GameplayController.SelectedVehiclePrefab);
+
+       // Optimization();
     }
 
+    //private void Optimization()
+    //{
+    //    if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+    //    {
+    //        thisCam.farClipPlane = 70f;
+    //    }
+    //    else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+    //    {
+    //        thisCam.farClipPlane = 500f;
+    //    }
+    //    else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+    //    {
+    //        thisCam.farClipPlane = 1000f;
+    //    }
+    //    else
+    //    {
+    //        thisCam.farClipPlane = 1000f;
+    //    }
+    //}
     void RCC_CarControllerV3_OnRCCPlayerCollision(RCC_CarControllerV3 RCC, Collision collision) {
 
         Collision(collision);
@@ -748,7 +769,7 @@ public class RCC_Camera : MonoBehaviour {
         }
 
     }
-
+   
     private void ResetCamera() {
 
         if (fixedCam)

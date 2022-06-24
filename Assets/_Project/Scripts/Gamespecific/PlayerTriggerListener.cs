@@ -23,7 +23,7 @@ public class PlayerTriggerListener : MonoBehaviour
 
             Lastsavepoint = col.gameObject.transform;
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Savepointclip);
-            col.gameObject.SetActive(false);
+            //col.gameObject.SetActive(false);
         }
         if (col.gameObject.tag == "Coin")
         {

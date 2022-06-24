@@ -18,6 +18,7 @@ public class Toolbox : MonoBehaviour
     private static GameplayController gameplayController;
     private static HUDListner hudListner;
     private static Cutscenemanager cutscenemanager;
+    private static RenderSettingsManager rendersettingmanager;
     public static GameManager GameManager
     {
         get { return gameManager; }
@@ -63,6 +64,10 @@ public class Toolbox : MonoBehaviour
         get { return cutscenemanager; }
     }
 
+    public static RenderSettingsManager RenderSettingsManager
+    {
+        get { return rendersettingmanager; }
+    }
 
 
     void Awake()
@@ -94,5 +99,9 @@ public class Toolbox : MonoBehaviour
     public static void Set_cutscenemanager(Cutscenemanager obj)
     {
         cutscenemanager = obj;
+    }
+    public static void set_Rendersettingsmanager(RenderSettingsManager obj)
+    {
+        rendersettingmanager = obj;
     }
 }

@@ -60,6 +60,9 @@ public class AdsManager : MonoBehaviour
     public string RateUsLink;
     public string PrivacyLink;
 
+    //  low end Device 
+    public bool IsLowendDevice=false;
+
     private bool isInitialized;
     private string RewardType;
     private int Reward;
@@ -102,6 +105,22 @@ public class AdsManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
+        if (!Toolbox.DB.Prefs.DeviceSpecificationCheck)
+            return;
+        else
+            Initialization();
+
+    }
+
+    public void Initialization()
+    {
+        IsLowendDevice = Toolbox.DB.Prefs.Is_DeviceConditionBad();
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+        
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             isInitialized = true;
@@ -109,8 +128,8 @@ public class AdsManager : MonoBehaviour
             RequestAndLoadRewardedInterstitialAd();
             MobileAds.SetiOSAppPauseOnBackground(true);
             MobileAds.Initialize(HandleInitCompleteAction);
-            Advertisement.Initialize(UnityAdID, isTestAds);
-            Advertisement.Load(UnityAdID);
+            //Advertisement.Initialize(UnityAdID, isTestAds);
+            //Advertisement.Load(UnityAdID);
             // Initialize the Mobile Ads SDK.
             MobileAds.Initialize((initStatus) =>
             {
@@ -132,17 +151,11 @@ public class AdsManager : MonoBehaviour
                     }
                 }
             });
-           // LoadMediumRectangle();
+            // LoadMediumRectangle();
             if (ShowDefaultBanner)
                 ShowBanner("Default");
-
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
         }
-
-
-
-
     }
     #endregion
 
@@ -163,6 +176,11 @@ public class AdsManager : MonoBehaviour
     #region Banner ADS
     private void RequestBanner(AdSize adSize, AdPosition pos)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         string adUnitId;
 
         if (isTestAds)
@@ -203,11 +221,17 @@ public class AdsManager : MonoBehaviour
 
     void LoadBannerAd(AdSize adSize, AdPosition pos)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         RequestBanner(adSize, pos);
     }
 
     public void DestroyBannerAd()
     {
+        
         if (bannerView != null)
         {
             bannerView.Destroy();
@@ -216,6 +240,11 @@ public class AdsManager : MonoBehaviour
 
     public void ShowBanner(string name)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability != NetworkReachability.NotReachable && (PlayerPrefs.GetInt("RemoveAds") != 1) && isInitialized)
         {
             // %%%%%%%%%%%%%%%%%%%%%%%%%%% Top Banner Ad Position %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,6 +302,11 @@ public class AdsManager : MonoBehaviour
     #region MediumRectangle ADS
     public void ShowMediumRectangle() 
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability != NetworkReachability.NotReachable && (PlayerPrefs.GetInt("RemoveAds") != 1) && isInitialized)
         {
             if (AdsPosition.BottomLeft == NativeAdsPosition)
@@ -302,7 +336,13 @@ public class AdsManager : MonoBehaviour
 
      void LoadMediumRectangle()
     {
-        
+
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
         if (AdsPosition.BottomLeft == NativeAdsPosition)
             LoadMediumRectangleBanner(AdSize.MediumRectangle, AdPosition.BottomLeft);
 
@@ -319,6 +359,12 @@ public class AdsManager : MonoBehaviour
 
     void LoadMediumRectangleBanner(AdSize adSize, AdPosition adPos)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
         string adUnitId;
         if (isTestAds)
          adUnitId = TestMediumRectangleID;
@@ -337,7 +383,13 @@ public class AdsManager : MonoBehaviour
     }
     void ShowMediumBanner(AdSize _size, AdPosition _pos)
     {
-       if (this.bannerViewMediumRectangle != null)
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
+        if (this.bannerViewMediumRectangle != null)
         {
             this.bannerViewMediumRectangle.Show();
 
@@ -372,7 +424,12 @@ public class AdsManager : MonoBehaviour
     #region INTERSTITIAL ADS
 
     private void RequestAndLoadInterstitialAd()
-    { 
+    {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         string adUnitId;
 
         if (isTestAds)
@@ -414,6 +471,12 @@ public class AdsManager : MonoBehaviour
 
     void LoadInterstitialAds()
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             AdRequest request = new AdRequest.Builder().Build();
@@ -425,6 +488,12 @@ public class AdsManager : MonoBehaviour
 
     public void ShowInterstitialAd()
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
+
         if (Application.internetReachability != NetworkReachability.NotReachable && (PlayerPrefs.GetInt("RemoveAds") != 1) && isInitialized)
         {
             if (interstitialAd.IsLoaded())
@@ -433,18 +502,18 @@ public class AdsManager : MonoBehaviour
                 LoadInterstitialAds();
                 return;
             }
-          else if (Advertisement.IsReady())
-            {
-                Advertisement.Show();
-                LoadInterstitialAds();
-                return;
+          //else if (Advertisement.IsReady())
+          //  {
+          //      Advertisement.Show();
+          //      LoadInterstitialAds();
+          //      return;
 
-            }
+          //  }
             else 
             {
                
                 LoadInterstitialAds();
-                Advertisement.Load(UnityAdID);
+               // Advertisement.Load(UnityAdID);
 
             }
         }
@@ -490,6 +559,11 @@ public class AdsManager : MonoBehaviour
 
     private void RequestAndLoadRewardedInterstitialAd()
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
         {
             string adUnitId;
@@ -554,6 +628,11 @@ public class AdsManager : MonoBehaviour
 
     public void ShowRewardedInterstitialAd(int Reward)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
         {
             if (rewardedInterstitialAd != null)
@@ -574,6 +653,11 @@ public class AdsManager : MonoBehaviour
     }
     public void ShowRewardedInterstitialAd(string _RewardType, int _Reward)
     {
+        if (IsLowendDevice)
+        {
+            Toolbox.GameManager.Log("Cheap Device");
+            return;
+        }
         if (Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
         {
             if (rewardedInterstitialAd != null)
@@ -598,99 +682,99 @@ public class AdsManager : MonoBehaviour
     #endregion
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%% UNITY ADS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    #region UNITY ADS
-    public void ShowInterstitialUnityAds()
-    {
-        if (Application.internetReachability != NetworkReachability.NotReachable && (PlayerPrefs.GetInt("RemoveAds") != 1) && isInitialized)
-            if (Advertisement.IsReady())
-            {
-                Advertisement.Show();
-                return;
-            }
-          else if  (interstitialAd.IsLoaded())
-           {
-            interstitialAd.Show();
-            LoadInterstitialAds();
-                return;
-          }
-        else
-          {
-                Advertisement.Load(UnityAdID);
-                LoadInterstitialAds();
-         }
+  //  #region UNITY ADS
+  //  public void ShowInterstitialUnityAds()
+  //  {
+  //      if (Application.internetReachability != NetworkReachability.NotReachable && (PlayerPrefs.GetInt("RemoveAds") != 1) && isInitialized)
+  //          if (Advertisement.IsReady())
+  //          {
+  //              Advertisement.Show();
+  //              return;
+  //          }
+  //        else if  (interstitialAd.IsLoaded())
+  //         {
+  //          interstitialAd.Show();
+  //          LoadInterstitialAds();
+  //              return;
+  //        }
+  //      else
+  //        {
+  //              Advertisement.Load(UnityAdID);
+  //              LoadInterstitialAds();
+  //       }
 
 
-    }
-    public void ShowRewardedUnityAds()
-    {
-        if (Advertisement.IsReady(placementIdRewarded) && Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
-        {
-            if (Advertisement.IsReady(placementIdRewarded))
-            {
-                var options = new ShowOptions { resultCallback = HandleSinglerewardsShowResult };
-                Advertisement.Show(placementIdRewarded, options);
+  //  }
+  //  public void ShowRewardedUnityAds()
+  //  {
+  //      if (Advertisement.IsReady(placementIdRewarded) && Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
+  //      {
+  //          if (Advertisement.IsReady(placementIdRewarded))
+  //          {
+  //              var options = new ShowOptions { resultCallback = HandleSinglerewardsShowResult };
+  //              Advertisement.Show(placementIdRewarded, options);
                
-            }
-        }
-    }
-    // --- Single Rewards Show Result ---
-  private void HandleSinglerewardsShowResult(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Finished:
+  //          }
+  //      }
+  //  }
+  //  // --- Single Rewards Show Result ---
+  //private void HandleSinglerewardsShowResult(ShowResult result)
+  //  {
+  //      switch (result)
+  //      {
+  //          case ShowResult.Finished:
                
-                    Debug.Log("The ad was successfully shown" + Reward);
+  //                  Debug.Log("The ad was successfully shown" + Reward);
 
-                break;
-            case ShowResult.Skipped:
-                Debug.Log("The ad was skipped before reaching the end");
-                break;
+  //              break;
+  //          case ShowResult.Skipped:
+  //              Debug.Log("The ad was skipped before reaching the end");
+  //              break;
 
-            case ShowResult.Failed:
-                Debug.Log("The ad failed to be shown");
-                break;
-        }
-
-
-    }
-
-    public void ShowRewardedUnityAds(string _RewardType, int _Reward)
-    {
-        if (Advertisement.IsReady(placementIdRewarded) && Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
-        {
-            if (Advertisement.IsReady(placementIdRewarded))
-            {
-                var options = new ShowOptions { resultCallback = HandleShowResult };
-                Advertisement.Show(placementIdRewarded, options);
-                RewardType = _RewardType;
-                Reward = _Reward;
-            }
-        }
-    }
-
-    // --- UNITY ADS EVENTS ---
-    private void HandleShowResult(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Finished:
-                if (RewardType == "cash")
-                    Debug.Log("The ad was successfully shown" + Reward);
-
-                break;
-            case ShowResult.Skipped:
-                Debug.Log("The ad was skipped before reaching the end");
-                break;
-
-            case ShowResult.Failed:
-                Debug.Log("The ad failed to be shown");
-                break;
-        }
+  //          case ShowResult.Failed:
+  //              Debug.Log("The ad failed to be shown");
+  //              break;
+  //      }
 
 
-    }
-    #endregion
+  //  }
+
+  //  public void ShowRewardedUnityAds(string _RewardType, int _Reward)
+  //  {
+  //      if (Advertisement.IsReady(placementIdRewarded) && Application.internetReachability != NetworkReachability.NotReachable && isInitialized)
+  //      {
+  //          if (Advertisement.IsReady(placementIdRewarded))
+  //          {
+  //              var options = new ShowOptions { resultCallback = HandleShowResult };
+  //              Advertisement.Show(placementIdRewarded, options);
+  //              RewardType = _RewardType;
+  //              Reward = _Reward;
+  //          }
+  //      }
+  //  }
+
+  //  // --- UNITY ADS EVENTS ---
+  //  private void HandleShowResult(ShowResult result)
+  //  {
+  //      switch (result)
+  //      {
+  //          case ShowResult.Finished:
+  //              if (RewardType == "cash")
+  //                  Debug.Log("The ad was successfully shown" + Reward);
+
+  //              break;
+  //          case ShowResult.Skipped:
+  //              Debug.Log("The ad was skipped before reaching the end");
+  //              break;
+
+  //          case ShowResult.Failed:
+  //              Debug.Log("The ad failed to be shown");
+  //              break;
+  //      }
+
+
+  //  }
+    //#endregion
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%% Links %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     #region Links 

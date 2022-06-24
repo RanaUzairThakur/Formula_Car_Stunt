@@ -27,11 +27,36 @@ public class ModeSelectionListner : MonoBehaviour
         //    LeanTween.moveX(content.GetComponent<RectTransform>(), -4755.472f, 1f).setDelay(1f).setOnComplete(scrollerback);
         //    Toolbox.DB.Prefs.Modesautoscroller = true;
         //}
+
+        Optimization();
         InitmodeButtonsState();
         UpdateTxts();
         CheckStatus_UnlockallModes();
     }
 
+    private void Optimization()
+    {
+        if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+        {
+            for (int i = 0; i < content.transform.childCount; i++)
+            {
+                Toolbox.DB.Prefs.GameData[i].Modeunlocked = false;
+            }
+            Toolbox.DB.Prefs.GameData[2].Modeunlocked = true;
+        }
+        //else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+        //{
+           
+        //}
+        //else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+        //{ 
+
+        //}
+        //else
+        //{
+           
+        //}
+    }
     private void scrollerback()
     {
         //LeanTween.moveX(content.GetComponent<RectTransform>(), 0f, 1f).setDelay(1f);

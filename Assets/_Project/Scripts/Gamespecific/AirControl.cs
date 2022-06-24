@@ -3,7 +3,6 @@
 public class AirControl : MonoBehaviour
 {
 
-    public WheelCollider[] WhellCol;
     WheelHit wheelHit;
     public float dsitance = 4f;
     public GameObject carModel;
@@ -15,46 +14,56 @@ public class AirControl : MonoBehaviour
     private float _y;
     private float _z;
     bool check;
-    // private RaycastHit hit;
+     private RaycastHit hit;
+    private bool isAircontrolTutorialOn=false;
     // public Transform raycastPoint;
     Rigidbody Rb;
+    private HUDListner hud;
     private void Start()
     {
         car = gameObject.GetComponent<RCC_CarControllerV3>();
         Rb = gameObject.GetComponent<Rigidbody>();
+        hud = FindObjectOfType<HUDListner>();
     }
     void FixedUpdate()
     {
         if (!IsGrounded())
         {
-            RaycastHit hit;
+           // RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, dsitance))
             {
                 if (!check)
                     check = true;
-               // Debug.DrawRay(transform.position, Vector3.down, Color.green, dsitance);
-                //if (hit.collider.gameObject.CompareTag("GameOver"))
-                //    car.goingFalldown = true;
-                //else
-                //    car.goingFalldown = false;
-                //return;
+                // Its Just Tutorial for Specific Stunt
+                if (isAircontrolTutorialOn)
+                {
+                    Toolbox.HUDListner.set_StatusAicontrolsTutorial(false);
+                    isAircontrolTutorialOn = false;
+                }
+                // Aircontrols Indicators On ff acrtoding Aircontrols On Off
+                
+                hud.set_StatusAicontrolsIndicators(false);
+                //Debug.DrawRay(transform.position, Vector3.down, Color.green, dsitance);
+                //   print("Hit");
             }
             else
             {
+              //  print("steerInput :"+car.steerInput);
                 var slopeRotation = Quaternion.FromToRotation(transform.up, hit.normal);
                 transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation * transform.rotation, 0.5f * Time.fixedDeltaTime);
-                rotationAmount = car.steerInput * -10f;
+                rotationAmount = car.steerInput * (50f);
                 rotationAmount *= Time.deltaTime;
                 _X = carModel.transform.position.x;
                 _y = carModel.transform.position.y;
                 _z = carModel.transform.position.z;
-                _z += rotationAmount;
+                _X += rotationAmount;
                 carModel.transform.position = new Vector3(_X, _y, _z);
                 if (check)
                 {
                     Rb.angularVelocity = Vector3.zero;
                     check = false;
                 }
+                hud.set_StatusAicontrolsIndicators(true);
             }
         }
     }
@@ -84,4 +93,18 @@ public class AirControl : MonoBehaviour
             return false;
     }
 
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("AircontrolsOn"))
+        {
+            if (!isAircontrolTutorialOn)
+            {
+                Toolbox.HUDListner.set_StatusAicontrolsTutorial(true);
+                Time.timeScale = 0.0f;
+                isAircontrolTutorialOn = true;
+            }
+        }
+
+    }
 }

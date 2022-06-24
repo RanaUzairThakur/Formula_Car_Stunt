@@ -7,9 +7,32 @@ public class EffectListener : MonoBehaviour
     public GameObject TyreTrail;
     public GameObject NeonTyreleft;
     public GameObject NeonTyreRight;
+    //private bool ischeapdevice = false;
+    //private void Awake()
+    //{
+    //    if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+    //    {
+    //        ischeapdevice = true;
+    //    }
+    //    else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+    //    {
+    //        ischeapdevice = false;
+    //    }
+    //    else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+    //    {
+    //        ischeapdevice = false;
+    //    }
+    //    else
+    //    {
+    //        ischeapdevice = false;
+    //    }
+    //}
 
     public void set_statusAirEffect(bool val, bool isgrounded)
     {
+        //if (ischeapdevice)
+        //    return;
+
         nos_AirEffect.SetActive(val);
         Booseffect.SetActive(val);
         if (val)

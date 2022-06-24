@@ -11,15 +11,16 @@ public class Cutscenemanager : MonoBehaviour
         Cutsceneobj.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        if (Toolbox.GameplayController.SelectedLevelData.Hascutscene)
-            Invoke(nameof(FinishCutscene), Completetime);
-    }
+    //private void OnEnable()
+    //{
+    //    if (Toolbox.GameplayController.SelectedLevelData.Hascutscene)
+    //        Invoke(nameof(FinishCutscene), Completetime);
+    //}
 
     public void FinishCutscene()
     {
-        FadeEffect();
+       //FadeEffect();
+        Invoke(nameof(FadeEffect),Completetime);
     }
 
     public void FadeEffect()
@@ -31,7 +32,7 @@ public class Cutscenemanager : MonoBehaviour
 
     public void StartGame()
     {
-        Toolbox.HUDListner.SetStatus_SkipAnimationButton(false);
+       // Toolbox.HUDListner.SetStatus_SkipAnimationButton(false);
         Cutsceneobj.SetActive(false);
         Toolbox.HUDListner.setstatus_FadeEffect(false);
         Toolbox.GameManager.Log("StartGame");
@@ -45,6 +46,6 @@ public class Cutscenemanager : MonoBehaviour
         CancelInvoke(nameof(StartGame));
         Cutsceneobj.SetActive(false);
         Toolbox.GameplayController.SpawnVehicle();
-        Toolbox.HUDListner.SetStatus_SkipAnimationButton(false);
+       // Toolbox.HUDListner.SetStatus_SkipAnimationButton(false);
     }
 }

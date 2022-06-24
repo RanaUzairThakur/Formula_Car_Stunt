@@ -5,7 +5,7 @@ public class PrivacyPolicyListner : MonoBehaviour
 
     private void Start()
     {
-      //  DontDestroyOnLoad(this.gameObject);
+        //  DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnDisable()
@@ -14,13 +14,21 @@ public class PrivacyPolicyListner : MonoBehaviour
     }
     #region ButtonListner
 
-    public void Close() {
-
-        if (!Toolbox.DB.Prefs.UserConsent)
-            Toolbox.GameManager.Load_MenuScene(false,10);
+    public void Close()
+    {
+        if (!Toolbox.DB.Prefs.DeviceSpecificationCheck)
+        {
+            Toolbox.GameManager.Rendersettings.SetActive(true);
+        }
         else
-            Toolbox.GameManager.Load_MenuScene(false, 0);
-        Toolbox.DB.Prefs.UserConsent = true;
+        {
+            if (!Toolbox.DB.Prefs.UserConsent)
+                Toolbox.GameManager.Load_MenuScene(false, 10);
+            else
+                Toolbox.GameManager.Load_MenuScene(false, 0);
+            Toolbox.DB.Prefs.UserConsent = true;
+        }
+
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_Close");
         this.gameObject.SetActive(false);
     }
@@ -29,13 +37,15 @@ public class PrivacyPolicyListner : MonoBehaviour
     {
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_PrivacyLink");
         Application.OpenURL(Constants.link_PrivacyPolicy);
-       
+
     }
 
-    public void OnPress_Yes() {
+    public void OnPress_Yes()
+    {
 
         Toolbox.GameManager.Analytics_DesignEvent("PrivacyPolicy_Press_Yes");
         Close();
+
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.okyesNo);
     }
 

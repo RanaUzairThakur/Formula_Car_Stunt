@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-	public int curUiIndex = 0;
-	bool vehicleSelLoaded = false;
-	private   GameObject curUIObj;
-	//private readonly List<GameObject> uiList = new List<GameObject>();
-	public GameObject [] uiList;
+    public int curUiIndex = 0;
+    bool vehicleSelLoaded = false;
+    private GameObject curUIObj;
+    //private readonly List<GameObject> uiList = new List<GameObject>();
+    public GameObject[] uiList;
     [SerializeField] private bool directShowingShop = false;
     //[SerializeField] private bool directShowingLevelSelection = false;
     public int shopIndex = 3;
@@ -19,30 +17,29 @@ public class UIManager : MonoBehaviour
 
     // UI Menus 
     public GameObject ModeLockPopup;
-	public GameObject MessagePopup;
-	public GameObject LowCoinUnlockCar_Panel;
-	public GameObject Quit_Panel;
-	public GameObject Settings_Panel;
-	public GameObject Gameplay_Loading;
-	public GameObject UIDummy_Loading;
-	public GameObject Shop_Panel;
-	public GameObject MegaOffers;
-	public GameObject PrivacyPolicy;
-	public GameObject SurePop;
+    public GameObject MessagePopup;
+    public GameObject LowCoinUnlockCar_Panel;
+    public GameObject Quit_Panel;
+    public GameObject Settings_Panel;
+    public GameObject Gameplay_Loading;
+    public GameObject UIDummy_Loading;
+    public GameObject Shop_Panel;
+    public GameObject MegaOffers;
+    public GameObject PrivacyPolicy;
+    public GameObject SurePop;
+    public GameObject TD_MainMenu;
+    public GameObject LiveMainmenu;
     //public GameObject DailyReward;
     public bool DirectShowingShop { get => directShowingShop; set => directShowingShop = value; }
 
     void Awake()
-	{
-		Toolbox.Soundmanager.PlayMusic_Menu();
-		Toolbox.Set_Uimanager(this);
-		//InitializeAllUI();
-		curUiIndex = 0;
-		//refreshstatus();
+    {
+        Toolbox.Soundmanager.PlayMusic_Menu();
+        Toolbox.Set_Uimanager(this);
+        curUiIndex = 0;
 
-		if (Toolbox.GameManager.DirectShowVehicleSelectionOnMenu)
+        if (Toolbox.GameManager.DirectShowVehicleSelectionOnMenu)
         {
-            //ShowUI(curUiIndex);
             DirectShowShopAfterLevelComplete();
             Toolbox.GameManager.DirectShowVehicleSelectionOnMenu = false;
         }
@@ -50,89 +47,93 @@ public class UIManager : MonoBehaviour
         {
             ShowUI(curUiIndex);
         }
+        Optimization();
     }
 
     private void Start()
     {
-		ShowBanner();
-	}
-	public void ShowBanner()
-	{
+        ShowBanner();
+    }
+    public void ShowBanner()
+    {
 
-		try
-		{
-			//if (FindObjectOfType<AbstractAdsmanager>())
-			//    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
-			if (FindObjectOfType<AdsManager>())
-				FindObjectOfType<AdsManager>().ShowBanner("Default");
-		}
+        try
+        {
+            //if (FindObjectOfType<AbstractAdsmanager>())
+            //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
+            if (FindObjectOfType<AdsManager>())
+                FindObjectOfType<AdsManager>().ShowBanner("Default");
+        }
 
-		catch (Exception e)
-		{
-			//GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
+        catch (Exception e)
+        {
+            //GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
 
-		}
+        }
 
-	}
-	//public void refreshstatus()
-	//   {
-	//	UpdateTxts();
+    }
+    //public void refreshstatus()
+    //   {
+    //	UpdateTxts();
 
-	//   }
-	//public void UpdateTxts()
-	//{
-	//	coinsTxt.text = Toolbox.DB.Prefs.GoldCoins.ToString();
-	//}
-	public void ShowUI(int _index) {
+    //   }
+    //public void UpdateTxts()
+    //{
+    //	coinsTxt.text = Toolbox.DB.Prefs.GoldCoins.ToString();
+    //}
+    public void ShowUI(int _index)
+    {
 
-		if (curUiIndex >= uiList.Length || curUiIndex < 0)
-		{
-			return;
-		}
-		else
-		{
-			uiList[_index].SetActive(true);
+        if (curUiIndex >= uiList.Length || curUiIndex < 0)
+        {
+            return;
+        }
+        else
+        {
+            uiList[_index].SetActive(true);
 
-			if (curUIObj)
-				curUIObj.SetActive(false);
+            if (curUIObj)
+                curUIObj.SetActive(false);
 
-			curUiIndex = _index;
-			curUIObj = uiList[_index];
-		}
-	}
+            curUiIndex = _index;
+            curUIObj = uiList[_index];
+        }
+    }
 
-	public void ShowPrevUI()
-	{
-		curUiIndex--;
+    public void ShowPrevUI()
+    {
+        curUiIndex--;
 
-		if (curUiIndex < 0)
-		{
-			curUiIndex = 0;
-		}
-		else
-		{
-		//	Toolbox.GameManager.loading_Delay(3f);
-			ShowUI(curUiIndex);
-		}
+        if (curUiIndex < 0)
+        {
+            curUiIndex = 0;
+        }
+        else
+        {
+            //	Toolbox.GameManager.loading_Delay(3f);
+            ShowUI(curUiIndex);
+        }
 
-	}
+    }
 
-	public void ShowNextUI() {
+    public void ShowNextUI()
+    {
 
-		curUiIndex++;
+        curUiIndex++;
 
-		if (curUiIndex >= uiList.Length)
-		{
+        if (curUiIndex >= uiList.Length)
+        {
 
-			Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
-			//Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
-			//Destroy(this.gameObject);
-		}
-		else {
-			
-			ShowUI(curUiIndex);
-		}
-	}
+            Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
+            //Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
+            //Destroy(this.gameObject);
+        }
+        else
+        {
+
+            ShowUI(curUiIndex);
+        }
+    }
 
     //public void DirectShowShop()
     //{
@@ -141,63 +142,89 @@ public class UIManager : MonoBehaviour
     //    ShowUI(shopIndex);
     //}
     public void DirectShowLevelSelection()
-	{
+    {
 
-		//directShowingLevelSelection = true;
-		//ShowUI(LevelselectionIndex);
-	}
-	public void DirectShowShopAfterLevelComplete()
-	{
-		DirectShowingShop = true;
-		for (int i = 0; i < uiList.Length; i++)
-			uiList[i].SetActive(false);
+        //directShowingLevelSelection = true;
+        //ShowUI(LevelselectionIndex);
+    }
+    public void DirectShowShopAfterLevelComplete()
+    {
+        DirectShowingShop = true;
+        for (int i = 0; i < uiList.Length; i++)
+            uiList[i].SetActive(false);
 
-		ShowUI(shopIndex);
-	}
+        ShowUI(shopIndex);
+    }
 
-	public void DirectShowMain()
-	{
-		//Go_BackDirectWeaponShop_To_MainMenu();
-		//DirectShowingShop = false;
-		ShowUI(0);
-	}
+    public void DirectShowMain()
+    {
+        //Go_BackDirectWeaponShop_To_MainMenu();
+        //DirectShowingShop = false;
+        ShowUI(0);
+    }
     //For Button Sounds 
     public void Onclick(AudioClip sound)
     {
         Toolbox.Soundmanager.PlaySound(sound);
     }
-	//public void Go_Chapterselection()
-	//{
-	//	anim.SetBool("ChapterSelection", true);
-	//}
-	//public void Go_Back_From_Chapselection()
-	//{
-	//	anim.SetBool("ChapterSelection", false);
-	//}
-	//public void Go_Levelselection()
-	//{
-	////	anim.SetBool("ChapterSelection", false);
-	//	anim.SetBool("LevelSelection", true);
-	//}
-	//public void Go_BackFromLevelselection()
-	//{
-	//	anim.SetBool("LevelSelection", false);
-	//}
-	//public void Go_GunSelection()
-	//{
-	//	anim.SetBool("WeaponSelection", true);
-	//}
-	//public void Go_BackFromWeaponselection()
-	//{
-	//	//anim.SetBool("LevelSelection", false);
-	//	anim.SetBool("WeaponSelection", false);
-	//}
-	//public void Go_DirectWeaponShop()
-	//{ 
-	//	anim.SetBool("DirectShop", true);
-	//}
-	//public void Go_BackDirectWeaponShop_To_MainMenu()
-	//{
-	//	anim.SetBool("DirectShop", false);
-	//}
+
+    public void Optimization()
+    {
+        if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+        {
+            TD_MainMenu.SetActive(true);
+            LiveMainmenu.SetActive(false);
+        }
+        else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+        {
+            TD_MainMenu.SetActive(false);
+            LiveMainmenu.SetActive(true);
+        }
+        else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+        {
+            TD_MainMenu.SetActive(false);
+            LiveMainmenu.SetActive(true);
+        }
+
+        else
+        {
+            TD_MainMenu.SetActive(false);
+            LiveMainmenu.SetActive(true);
+        }
+
+    }
+    //public void Go_Chapterselection()
+    //{
+    //	anim.SetBool("ChapterSelection", true);
+    //}
+    //public void Go_Back_From_Chapselection()
+    //{
+    //	anim.SetBool("ChapterSelection", false);
+    //}
+    //public void Go_Levelselection()
+    //{
+    ////	anim.SetBool("ChapterSelection", false);
+    //	anim.SetBool("LevelSelection", true);
+    //}
+    //public void Go_BackFromLevelselection()
+    //{
+    //	anim.SetBool("LevelSelection", false);
+    //}
+    //public void Go_GunSelection()
+    //{
+    //	anim.SetBool("WeaponSelection", true);
+    //}
+    //public void Go_BackFromWeaponselection()
+    //{
+    //	//anim.SetBool("LevelSelection", false);
+    //	anim.SetBool("WeaponSelection", false);
+    //}
+    //public void Go_DirectWeaponShop()
+    //{ 
+    //	anim.SetBool("DirectShop", true);
+    //}
+    //public void Go_BackDirectWeaponShop_To_MainMenu()
+    //{
+    //	anim.SetBool("DirectShop", false);
+    //}
 }

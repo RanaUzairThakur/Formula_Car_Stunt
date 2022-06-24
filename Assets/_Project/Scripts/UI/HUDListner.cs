@@ -34,6 +34,10 @@ public class HUDListner : MonoBehaviour
     public GameObject Loadingpanel;
     public GameObject Message;
     public GameObject Fadeimage;
+    public GameObject AircontrolsTutorial;
+    public GameObject AircontrolsLeftIndicator;
+    public GameObject AircontrolsRightIndicator;
+
     /// <summary>
     /// Other Text 
     /// </summary>
@@ -78,16 +82,7 @@ public class HUDListner : MonoBehaviour
     {
         if (brake)
             orgBrakeButtonPos = brake.transform.position;
-        // Invoke("OnPress_OkTutorial", 0.5f);
-
-        //if (!RCCV3)
-        //{
-        //    if (RCC_SceneManager.Instance.activePlayerVehicle)
-        //    {
-        //        RCCV3 = RCC_SceneManager.Instance.activePlayerVehicle;
-        //        RCCV3rigidbody = RCC_SceneManager.Instance.activePlayerVehicle.GetComponent<Rigidbody>();
-        //    }
-        //}
+      
 
         Throtle = 0f;
         Brake = 0f;
@@ -163,7 +158,7 @@ public class HUDListner : MonoBehaviour
         //        RCCV3rigidbody.drag = 5f;
         //}
 
-        if (RCC_SceneManager.Instance.activePlayerVehicle)
+        if (RCC_SceneManager.Instance.activePlayerVehicle && !Toolbox.DB.Prefs.Is_DeviceConditionBad())
             Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);
         if(Toolbox.DB.Prefs.SelectedControltype ==Controls.Gyro)
             steering = Mathf.Lerp(steering, Input.acceleration.x * RCC_Settings.Instance.gyroSensitivity, Time.deltaTime * 5f);
@@ -224,6 +219,17 @@ public class HUDListner : MonoBehaviour
         PlayerHudCanvas.SetActive(_val);
     }
 
+    public void set_StatusAicontrolsTutorial(bool _Val)
+    {
+        AircontrolsTutorial.SetActive(_Val);
+    }
+
+    public void set_StatusAicontrolsIndicators(bool _Val)
+    {
+        AircontrolsLeftIndicator.SetActive(_Val);
+        AircontrolsRightIndicator.SetActive(_Val);
+
+    }
 
     public void set_statusLevelCounter()
     {
@@ -437,6 +443,17 @@ public class HUDListner : MonoBehaviour
         {
             RCCV3rigidbody.drag = 0.05f;
         }
+    }
+
+    public void onpress_LeftAirControls(GameObject obj)
+    {
+        Time.timeScale = 1f;
+        obj.SetActive(false);
+    }
+    public void onpress_RightAirControls(GameObject obj)
+    {
+        Time.timeScale = 1f;
+        obj.SetActive(false);
     }
     #endregion
 

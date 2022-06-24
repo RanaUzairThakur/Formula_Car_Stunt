@@ -61,22 +61,22 @@ public class RCC_Demo : MonoBehaviour {
 
 		#if BCG_ENTEREXIT
 
-		BCG_EnterExitVehicle lastEnterExitVehicle;
-		bool enterExitVehicleFound = false;
+		//BCG_EnterExitVehicle lastEnterExitVehicle;
+		//bool enterExitVehicleFound = false;
 
-		if (lastVehicle) {
+		//if (lastVehicle) {
 
-			lastEnterExitVehicle = lastVehicle.GetComponentInChildren<BCG_EnterExitVehicle> ();
+		//	lastEnterExitVehicle = lastVehicle.GetComponentInChildren<BCG_EnterExitVehicle> ();
 
-			if(lastEnterExitVehicle && lastEnterExitVehicle.driver){
+		//	if(lastEnterExitVehicle && lastEnterExitVehicle.driver){
 
-				enterExitVehicleFound = true;
-				BCG_EnterExitManager.Instance.waitTime = 10f;
-				lastEnterExitVehicle.driver.GetOut();
+		//		enterExitVehicleFound = true;
+		//		BCG_EnterExitManager.Instance.waitTime = 10f;
+		//		lastEnterExitVehicle.driver.GetOut();
 
-			}
+		//	}
 
-		}
+		//}
 
 		#endif
 
@@ -89,26 +89,26 @@ public class RCC_Demo : MonoBehaviour {
 		 
 		#if BCG_ENTEREXIT
 
-		if(enterExitVehicleFound){
+		//if(enterExitVehicleFound){
 
-			lastEnterExitVehicle = null;
+		//	lastEnterExitVehicle = null;
 
-			lastEnterExitVehicle = RCC_SceneManager.Instance.activePlayerVehicle.GetComponentInChildren<BCG_EnterExitVehicle> ();
+		//	lastEnterExitVehicle = RCC_SceneManager.Instance.activePlayerVehicle.GetComponentInChildren<BCG_EnterExitVehicle> ();
 
-			if(!lastEnterExitVehicle){
+		//	if(!lastEnterExitVehicle){
 				
-				lastEnterExitVehicle = RCC_SceneManager.Instance.activePlayerVehicle.gameObject.AddComponent<BCG_EnterExitVehicle> ();
+		//		lastEnterExitVehicle = RCC_SceneManager.Instance.activePlayerVehicle.gameObject.AddComponent<BCG_EnterExitVehicle> ();
 
-			}
+		//	}
 
-			if(BCG_EnterExitManager.Instance.activePlayer && lastEnterExitVehicle && lastEnterExitVehicle.driver == null){
+		//	if(BCG_EnterExitManager.Instance.activePlayer && lastEnterExitVehicle && lastEnterExitVehicle.driver == null){
 				
-				BCG_EnterExitManager.Instance.waitTime = 10f;
-				BCG_EnterExitManager.Instance.activePlayer.GetIn(lastEnterExitVehicle);
+		//		BCG_EnterExitManager.Instance.waitTime = 10f;
+		//		BCG_EnterExitManager.Instance.activePlayer.GetIn(lastEnterExitVehicle);
 
-			}
+		//	}
 
-		}
+		//}
 		
 		#endif
 

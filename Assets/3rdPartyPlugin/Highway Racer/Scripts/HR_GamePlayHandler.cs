@@ -103,7 +103,7 @@ public class HR_GamePlayHandler : MonoBehaviour {
 		gameplayCanvas.enabled = true;
 
 		SpawnCar();
-		StartCoroutine(WaitForGameStart());
+		//StartCoroutine(WaitForGameStart());
 	
 	}
 
@@ -149,6 +149,8 @@ public class HR_GamePlayHandler : MonoBehaviour {
 		yield return new WaitForSeconds(4);
 
 		RCC.SetControl (player.GetComponent<RCC_CarControllerV3> (), true);
+		if (GameObject.FindObjectOfType<HR_CarCamera>())
+			GameObject.FindObjectOfType<HR_CarCamera>().ChangeCamera();
 		gameStarted = true;
 
 	}

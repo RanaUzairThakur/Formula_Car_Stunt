@@ -1,8 +1,8 @@
 ﻿//using GameAnalyticsSDK;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 //using GoogleMobileAds.Api;
 public class LevelSelectionListner : MonoBehaviour
 {
@@ -10,19 +10,20 @@ public class LevelSelectionListner : MonoBehaviour
     public Text coinsTxt;
     //public GameObject PlayButon;
     public GameObject UnlockallBtn;
-   
+
     public int tileWidth = 379;
     public int tileSpacing = 40;
+    public List<Sprite> Levelsthumbnails;
 
     private void OnEnable()
     {
         RefreshView();
-  
+
         content.localPosition = new Vector3(
             -(Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() * tileWidth)
             - (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() * tileSpacing), 0, 0);
 
-       // Bg.SetActive(true);
+        // Bg.SetActive(true);
     }
 
     private void OnDisable()
@@ -30,7 +31,8 @@ public class LevelSelectionListner : MonoBehaviour
 
     }
 
-    public void RefreshView() {
+    public void RefreshView()
+    {
 
         InitLevelButtonsState();
         CheckStatus_UnlockallLevels();
@@ -56,7 +58,8 @@ public class LevelSelectionListner : MonoBehaviour
     }
 
 
-    private void InitLevelButtonsState() {
+    private void InitLevelButtonsState()
+    {
 
         bool watchVideoBtnEnabled = false;
         Toolbox.GameManager.Permanent_Log("InitLevelButtonsState");
@@ -67,17 +70,18 @@ public class LevelSelectionListner : MonoBehaviour
             LevelButtonListner btnListner = content.GetChild(i).GetComponent<LevelButtonListner>();
 
             bool lvlUnlocked = Toolbox.DB.Prefs.Get_LevelUnlockStatusOfCurrentGameMode(i);
-         
-            if (lvlUnlocked)
-            {
-                btnListner.Lock_Status(!lvlUnlocked);
-                btnListner.buttonObj.SetActive(true);
-            }
-            else
-            {
-                btnListner.Lock_Status(!lvlUnlocked);
-               // btnListner.buttonObj.SetActive(false);
-            }
+            btnListner.Lock_Status(!lvlUnlocked);
+            btnListner.buttonObj.GetComponent<Image>().sprite = Levelsthumbnails[Toolbox.DB.Prefs.LastSelectedGameMode];
+            //if (lvlUnlocked)
+            //{
+            //    btnListner.Lock_Status(!lvlUnlocked);
+            //    btnListner.buttonObj.SetActive(true);
+            //}
+            //else
+            //{
+            //    btnListner.Lock_Status(!lvlUnlocked);
+            //   // btnListner.buttonObj.SetActive(false);
+            //}
 
             // Just for checkingLevel status played or not
             //if (i >0)
@@ -94,47 +98,57 @@ public class LevelSelectionListner : MonoBehaviour
             //else
             //    btnListner.WatchVideoUnlock_Status(false);
             //hightlight last selected level
-            if (i == Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
+            if (i == Toolbox.DB.Prefs.GameData[Toolbox.DB.Prefs.LastSelectedGameMode].LastselectedlevelofChapter)
             {
                 btnListner.check_OutlineStatus(true);
-                btnListner.Set_LevelstatusTxt("PLAY",Color.cyan);
-                btnListner.Set_LevleNameTxt((i + 1).ToString(),Color.cyan);
-                btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i),Color.cyan);
+                btnListner.Set_LevelstatusTxt("PLAY", Color.cyan);
+                btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.cyan);
+                btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.cyan);
+                // btnListner.GetComponent<UIAnimatorCore.UIAnimator>().Paused = false;
+                btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = true; ;
             }
-            else if (i < Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
+            else if (i <= Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
             {
-                btnListner.Set_LevelstatusTxt("COMPLETE",Color.green);
+                btnListner.Set_LevelstatusTxt("COMPLETE", Color.green);
                 btnListner.check_OutlineStatus(false);
                 btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.white);
                 btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.white);
-
+                btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = false;
             }
             else
             {
-                btnListner.Set_LevelstatusTxt("LOCKED",Color.gray);
+                btnListner.Set_LevelstatusTxt("LOCKED", Color.gray);
                 btnListner.check_OutlineStatus(false);
                 btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.grey);
                 btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.grey);
-
+                btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = false;
             }
         }
     }
-    
+
     #region ButtonListners
 
-    public void OnPress_LevelButton(GameObject _buttonObj) 
+    public void OnPress_LevelButton(GameObject _buttonObj)
     {
-            this.GetComponentInParent<UIManager>().ShowNextUI();
+        this.GetComponentInParent<UIManager>().ShowNextUI();
 
-        for (int i = 0; i < content.childCount; i++)
+        for (int i = 0; i < Toolbox.DB.Prefs.GameData[Toolbox.DB.Prefs.LastSelectedGameMode].LevelUnlocked.Length/*content.childCount*/; i++)
+        {
+            content.GetChild(i).GetComponent<UIAnimatorCore.UIAnimator>().enabled = false;
+            content.GetChild(i).GetComponent<LevelButtonListner>().check_OutlineStatus(false);
+
+        }
+        for (int i = 0; i < Toolbox.DB.Prefs.GameData[Toolbox.DB.Prefs.LastSelectedGameMode].LevelUnlocked.Length/*content.childCount*/; i++)
+        {
+            if (_buttonObj == content.GetChild(i).gameObject)
             {
-               if (_buttonObj == content.GetChild(i).gameObject) 
-               {
-                  Toolbox.DB.Prefs.Set_LastSelectedLevelOfCurrentGameMode(i);
-                 // PlayButon.SetActive(true);
-                  return;
-               }
+                Toolbox.DB.Prefs.Set_LastSelectedLevelOfCurrentGameMode(i);
+                content.GetChild(i).GetComponent<LevelButtonListner>().check_OutlineStatus(true);
+                content.GetChild(i).GetComponent<UIAnimatorCore.UIAnimator>().enabled = true;
+                // PlayButon.SetActive(true);
+                return;
             }
+        }
     }
     public void OnPress_Play()
     {
@@ -142,12 +156,13 @@ public class LevelSelectionListner : MonoBehaviour
         if (Toolbox.GameManager.Godirectlevelselectionfrommode)
             Toolbox.GameManager.Loading_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex());
         else
-        this.GetComponentInParent<UIManager>().ShowNextUI();
+            this.GetComponentInParent<UIManager>().ShowNextUI();
 
         Toolbox.GameManager.Permanent_Log("LastSelectedLevelOfCurrentGameMode :" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Permanent_Log("LastSelectedGameMode :" + Toolbox.DB.Prefs.LastSelectedGameMode);
     }
-    public void OnPress_Back() {
+    public void OnPress_Back()
+    {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.BackButtonAnySelectionclick);
         if (Toolbox.GameManager.Godirectlevelselectionfrommode)
         {
@@ -175,7 +190,7 @@ public class LevelSelectionListner : MonoBehaviour
     public void OnPress_Shop()
     {
         Toolbox.UIManager.Shop_Panel.SetActive(true);
-    //    Toolbox.GameManager.InstantiateUI_Shop();
+        //    Toolbox.GameManager.InstantiateUI_Shop();
     }
 
     public void OnPress_UnlockAllLevel()

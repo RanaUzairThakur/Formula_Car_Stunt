@@ -191,7 +191,7 @@ public class HR_PropertiesEditor : Editor {
 
 		GUI.color = orgColor;
 
-		EditorGUILayout.LabelField("Highway Racer" + HR_Version.version + "\nCreated by Buğra Özdoğanlar\nBoneCrackerGames", EditorStyles.centeredGreyMiniLabel, GUILayout.MaxHeight(50f));
+		//EditorGUILayout.LabelField("Highway Racer" + HR_Version.version + "\nCreated by Buğra Özdoğanlar\nBoneCrackerGames", EditorStyles.centeredGreyMiniLabel, GUILayout.MaxHeight(50f));
 
 		serializedObject.ApplyModifiedProperties();
 

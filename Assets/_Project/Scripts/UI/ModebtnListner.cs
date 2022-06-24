@@ -29,7 +29,23 @@ public class ModebtnListner : MonoBehaviour
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPresslockedbutton);
         Toolbox.UIManager.ModeLockPopup.SetActive(true);
+        if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
+        {
+            Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("Your device specification is not enough to Play this mode, You need to Upgrade your Device if you want to Play this mode.", "DEVICE UPGRADE");
+        }
+        //else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
+        //{
+
+        //}
+        //else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
+        //{
+
+        //}
+        else
+        {
+
         Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("This chapter is currently locked. Play atleast " + (Constants.mode2UnlockAfterLevels + 1) + " levels of current chapter to unlock the glory of this chapter", "LOCKED");
+        }
     }
 
     public void OnPress_ChapterLock_ComingSoon()

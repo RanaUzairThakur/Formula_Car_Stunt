@@ -56,10 +56,15 @@ public class Prefs_Data {
 
     [SerializeField] private bool dailyrewardclaimed = false;
     [SerializeField] private bool purchasingInapp = false;
+    [SerializeField] private bool deviceSpecificationCheck = false;
+    [SerializeField] private bool isDetectVeryCheapDevice = false;
+    [SerializeField] private bool isDetectLowCheapDevice = false;
+    [SerializeField] private bool isDetectMediumCheapDevice = false;
+
     //[SerializeField] private bool tutorialshowfirsttime = false;
     private int dynamicDailyRewardItemNumber1 = -1;
 
-    [SerializeField] private int scheduledNotificationId = -1;
+    //[SerializeField] private int scheduledNotificationId = -1;
 
 
     public int Get_LastUnlockedLevelofCurrentGameMode()
@@ -495,6 +500,18 @@ public class Prefs_Data {
         unlockallLevel = true;
     }
 
+    public bool Is_DeviceConditionBad()
+    {
+        if (IsDetectVeryCheapDevice)
+            return true;
+        else if (IsDetectLowCheapDevice)
+            return true;
+        else if (IsDetectMediumCheapDevice)
+            return false;
+        else
+            return false;
+    }
+
     public bool GameAudio { get => gameAudio; set => gameAudio = value; }
     public bool GameSound { get => gameSound; set => gameSound = value; }
     public int GoldCoins { get => goldCoins; set { 
@@ -522,7 +539,7 @@ public class Prefs_Data {
     public float MusicVolume { get => musicVolume; set => musicVolume = value; }
     public int DynamicDailyRewardItemNumber1 { get => dynamicDailyRewardItemNumber1; set => dynamicDailyRewardItemNumber1 = value; }
     public bool UserConsent { get => userConsent; set => userConsent = value; }
-    public int ScheduledNotificationId { get => scheduledNotificationId; set => scheduledNotificationId = value; }
+    //public int ScheduledNotificationId { get => scheduledNotificationId; set => scheduledNotificationId = value; }
     public int LastLevelStartAnimation { get => lastLevelStartAnimation; set => lastLevelStartAnimation = value; }
     public bool MegaOfferPurchased { get => megaOfferPurchased; set => megaOfferPurchased = value; }
     public bool UnlockallLevel { get => unlockallLevel; set => unlockallLevel = value; }
@@ -534,6 +551,10 @@ public class Prefs_Data {
     public string DailyRewardTime { get => dailyRewardTime; set => dailyRewardTime = value; }
     public bool Dailyrewardclaimed { get => dailyrewardclaimed; set => dailyrewardclaimed = value; }
     public bool PurchasingInapp { get => purchasingInapp; set => purchasingInapp = value; }
+    public bool DeviceSpecificationCheck { get => deviceSpecificationCheck; set => deviceSpecificationCheck = value; }
+    public bool IsDetectVeryCheapDevice { get => isDetectVeryCheapDevice; set => isDetectVeryCheapDevice = value; }
+    public bool IsDetectLowCheapDevice { get => isDetectLowCheapDevice; set => isDetectLowCheapDevice = value; }
+    public bool IsDetectMediumCheapDevice { get => isDetectMediumCheapDevice; set => isDetectMediumCheapDevice = value; }
 }
 
 [System.Serializable]

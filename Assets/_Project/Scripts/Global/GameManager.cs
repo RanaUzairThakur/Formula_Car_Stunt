@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     //public GameObject RevivePanel;
     //public GameObject WatchVideoPanel;
     //public GameObject ModeLockPopup;
+    public GameObject Rendersettings;
     public GameObject MessagePopup;
     public GameObject PurchaseLaoding;
     public GameObject PrivacyPolicy;

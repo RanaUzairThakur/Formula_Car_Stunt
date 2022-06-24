@@ -149,7 +149,7 @@ public class HR_PlayerCarsEditor : Editor {
 
 		EditorGUILayout.Space();
 
-		EditorGUILayout.LabelField("Highway Racer" + HR_Version.version + "\nCreated by Buğra Özdoğanlar\nBoneCrackerGames", EditorStyles.centeredGreyMiniLabel, GUILayout.MaxHeight(50f));
+		//EditorGUILayout.LabelField("Highway Racer" + HR_Version.version + "\nCreated by Buğra Özdoğanlar\nBoneCrackerGames", EditorStyles.centeredGreyMiniLabel, GUILayout.MaxHeight(50f));
 
 		serializedObject.ApplyModifiedProperties();
 

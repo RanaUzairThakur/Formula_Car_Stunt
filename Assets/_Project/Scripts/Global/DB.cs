@@ -18,10 +18,6 @@ public class Prefs_Data {
     //[SerializeField] private int highScore = 0;
 
     //[SerializeField] private string playerName;
-    //[SerializeField] private bool fbLoggedIn = false;
-
-    [SerializeField] private bool soundMute = false;
-
     [SerializeField] private bool modesautoscroller = false;
     [SerializeField] private bool firstRun = true;
     [SerializeField] private bool megaofferpanelShowed = false;
@@ -61,7 +57,7 @@ public class Prefs_Data {
     [SerializeField] private bool isDetectLowCheapDevice = false;
     [SerializeField] private bool isDetectMediumCheapDevice = false;
 
-    //[SerializeField] private bool tutorialshowfirsttime = false;
+    [SerializeField] private bool tutorialshowfirsttime = false;
     private int dynamicDailyRewardItemNumber1 = -1;
 
     //[SerializeField] private int scheduledNotificationId = -1;
@@ -525,8 +521,6 @@ public class Prefs_Data {
     public bool AppRated { get => appRated; set => appRated = value; }
     public Controls SelectedControltype;
     //public string PlayerName { get => playerName; set => playerName = value; }
-    //public bool FbLoggedIn { get => fbLoggedIn; set => fbLoggedIn = value; }
-    public bool SoundMute { get => soundMute; set => soundMute = value; }
     public GameData[] GameData { get => gamedata; set => gamedata = value; }
     public int LastSelectedVehicle { get => lastSelectedVehicle; set => lastSelectedVehicle = value; }
     public bool[] VehiclesUnlocked { get => vehiclesUnlocked; set => vehiclesUnlocked = value; }
@@ -539,7 +533,6 @@ public class Prefs_Data {
     public float MusicVolume { get => musicVolume; set => musicVolume = value; }
     public int DynamicDailyRewardItemNumber1 { get => dynamicDailyRewardItemNumber1; set => dynamicDailyRewardItemNumber1 = value; }
     public bool UserConsent { get => userConsent; set => userConsent = value; }
-    //public int ScheduledNotificationId { get => scheduledNotificationId; set => scheduledNotificationId = value; }
     public int LastLevelStartAnimation { get => lastLevelStartAnimation; set => lastLevelStartAnimation = value; }
     public bool MegaOfferPurchased { get => megaOfferPurchased; set => megaOfferPurchased = value; }
     public bool UnlockallLevel { get => unlockallLevel; set => unlockallLevel = value; }
@@ -555,6 +548,7 @@ public class Prefs_Data {
     public bool IsDetectVeryCheapDevice { get => isDetectVeryCheapDevice; set => isDetectVeryCheapDevice = value; }
     public bool IsDetectLowCheapDevice { get => isDetectLowCheapDevice; set => isDetectLowCheapDevice = value; }
     public bool IsDetectMediumCheapDevice { get => isDetectMediumCheapDevice; set => isDetectMediumCheapDevice = value; }
+    public bool Tutorialshowfirsttime { get => tutorialshowfirsttime; set => tutorialshowfirsttime = value; }
 }
 
 [System.Serializable]
@@ -622,9 +616,9 @@ public class DB : MonoBehaviour {
 
         try
         {
-            if (PlayerPrefs.GetInt("FirstRun67") == 0)
+            if (PlayerPrefs.GetInt(Application.version) == 0)
             {
-                PlayerPrefs.SetInt("FirstRun67", 1);
+                PlayerPrefs.SetInt(Application.version, 1);
                //Debug.Log("FirstRun67");
                 Save_Json_Prefs();
             }

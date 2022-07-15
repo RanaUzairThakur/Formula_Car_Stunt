@@ -78,7 +78,6 @@ public class RenderSettingsManager : MonoBehaviour
         {
             QualitySettings.masterTextureLimit = (int)textureSizes;
         }
-     
         this.DisableAnisotropicTextureAndVSync();
     }
 

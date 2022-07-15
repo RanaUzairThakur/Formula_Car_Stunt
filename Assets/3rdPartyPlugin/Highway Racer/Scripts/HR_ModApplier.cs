@@ -18,7 +18,7 @@ public class HR_ModApplier : MonoBehaviour {
 	private Rigidbody rigid;
 
 	internal float maxSpeed = 350f;
-	[Range(0f, 10f)]public float highwaySteeringHelper = 4f;
+	[Range(0f, 100f)]public float highwaySteeringHelper = 4f;
 	[Range(0f, 10f)] public float highwayBrakingHelper = 4f;
 
 	//public bool getColor = true;

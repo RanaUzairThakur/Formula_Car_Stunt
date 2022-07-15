@@ -10,6 +10,7 @@ Material:
   m_Name: Nature_1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: RENDERING_FOG RENDERING_RT_SHADOWS RENDERING_TINT _CULL_BACK
+    _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -80,7 +81,7 @@ Material:
     - _Emission: 1.432
     - _GlossMapScale: 1
     - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
     - _NormIntensity: 1
@@ -94,7 +95,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecIntensity: 0.5
     - _SpecPower: 1
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _TintPower: 0
     - _UVSec: 0
@@ -105,7 +106,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorMultiply: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOverride: {r: 0.9058824, g: 0.3019608, b: 0.2784314, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
     - _RimColor: {r: 0.2859559, g: 0.4525156, b: 0.509434, a: 1}
     - _ShadowColor: {r: 0.4602978, g: 0.5377358, b: 0.4033019, a: 1}
     - _SpecColor: {r: 0.9017889, g: 0.990566, b: 0.9860401, a: 1}

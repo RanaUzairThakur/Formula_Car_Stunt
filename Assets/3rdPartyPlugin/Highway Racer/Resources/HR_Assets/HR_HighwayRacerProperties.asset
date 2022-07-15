@@ -16,8 +16,8 @@ MonoBehaviour:
   _minimumSpeedForHighSpeed: 0
   _minimumCollisionForGameOver: 1000
   _defaultBodyColor: {r: 1, g: 0.5, b: 0, a: 1.5}
-  _shakeCamera: 0
-  _tiltCamera: 0
+  _shakeCamera: 1
+  _tiltCamera: 1
   _totalDistanceMoneyMP: 180
   _totalNearMissMoneyMP: 15
   _totalOverspeedMoneyMP: 10
@@ -36,7 +36,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attachableSiren: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 132512, guid: db59fb877595ac74c851785eaa90c91b, type: 3}
   exhaustGas: {fileID: 0}
   mainMenuClips:
   - {fileID: 8300000, guid: 0152a0c4ebcf9324cb8f6ea17a29181e, type: 3}
@@ -54,4 +54,4 @@ MonoBehaviour:
   sirenAudioClip: {fileID: 8300000, guid: b2e843118f443d24698830d1a2ebdfa3, type: 3}
   trafficCarsLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1

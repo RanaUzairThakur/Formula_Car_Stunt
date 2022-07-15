@@ -36,7 +36,11 @@ public class GameplayController : MonoBehaviour
     }
     void Start()
     {
-        Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
+        if (Toolbox.DB.Prefs.LastSelectedGameMode < 2)
+            Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
+        else
+            Toolbox.Soundmanager.Set_MusicVolume(0.25f);
+
         Toolbox.GameManager.FBAnalytic_EventLevel_Started(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Analytics_ProgressionEvent_Start(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         if (Toolbox.DB.Prefs.LastSelectedGameMode > 1)

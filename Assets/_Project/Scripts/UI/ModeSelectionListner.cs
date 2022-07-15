@@ -15,6 +15,8 @@ public class ModeSelectionListner : MonoBehaviour
     public List<GameObject> Hover;
     public List<GameObject> Locked;
     public GameObject UnlockallBtn;
+    public List<GameObject> Tutotialobj;
+    public GameObject TutorialArrow;
     private void OnEnable()
     {
        
@@ -32,8 +34,26 @@ public class ModeSelectionListner : MonoBehaviour
         InitmodeButtonsState();
         UpdateTxts();
         CheckStatus_UnlockallModes();
+        set_StatusTutorial();
     }
 
+    private void set_StatusTutorial()
+    {
+        if (Toolbox.DB.Prefs.Tutorialshowfirsttime)
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = false;
+            TutorialArrow.SetActive(true);
+            UnlockallBtn.SetActive(false);
+        }
+        else
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = true;
+            TutorialArrow.SetActive(false);
+            UnlockallBtn.SetActive(true);
+        }
+    }
     private void Optimization()
     {
         if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
@@ -44,18 +64,7 @@ public class ModeSelectionListner : MonoBehaviour
             }
             Toolbox.DB.Prefs.GameData[2].Modeunlocked = true;
         }
-        //else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
-        //{
-           
-        //}
-        //else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
-        //{ 
-
-        //}
-        //else
-        //{
-           
-        //}
+        
     }
     private void scrollerback()
     {

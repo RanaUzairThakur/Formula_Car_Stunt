@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Coffee.UIEffects;
+
 
 public class LevelButtonListner : MonoBehaviour
 {
@@ -12,9 +12,10 @@ public class LevelButtonListner : MonoBehaviour
     //public GameObject watchVideoUnlockBtn;
     public GameObject lockObj;
     public Text LevelName;
+    public GameObject IndicatorArrow;
     //public GameObject PlayedState;
     //public GameObject NewLevel;
-  //public GameObject[] stars;
+    //public GameObject[] stars;
 
     //public void Stars_Status(bool _val, int _enabledStars)
     //{
@@ -29,22 +30,23 @@ public class LevelButtonListner : MonoBehaviour
     //    }
     //}
 
-    public void Lock_Status(bool _val) {
+    public void Lock_Status(bool _val)
+    {
 
         lockObj.SetActive(_val);
     }
 
-    public void set_LevelName(string _Val,Color clr)
+    public void set_LevelName(string _Val, Color clr)
     {
         LevelName.text = _Val.ToString();
         LevelName.color = clr;
     }
-    public void Set_LevleNameTxt(string _val,Color clr)
+    public void Set_LevleNameTxt(string _val, Color clr)
     {
         levelNoTxt.text = _val;
         levelNoTxt.color = clr;
     }
-    public void Set_LevelstatusTxt(string _val,Color clr)
+    public void Set_LevelstatusTxt(string _val, Color clr)
     {
         levelStatusTxt.text = _val;
         levelStatusTxt.color = clr;
@@ -52,14 +54,17 @@ public class LevelButtonListner : MonoBehaviour
 
     public void check_OutlineStatus(bool _val)
     {
-        buttonObj.GetComponent<UIShiny>().enabled = _val;
+       // buttonObj.GetComponent<>().enabled = _val;
         Levelselected.SetActive(_val);
     }
 
-    //public void Set_NewLevelstatus(bool _Val)
-    //{
-    //    NewLevel.SetActive(_Val);
-    //}
+    public void Set_NewArrow(bool _Val)
+    {
+        if (Toolbox.DB.Prefs.Tutorialshowfirsttime)
+            IndicatorArrow.SetActive(_Val);
+        else
+            IndicatorArrow.SetActive(false);
+    }
 
     //public void WatchVideoUnlock_Status(bool _val) {
 
@@ -81,7 +86,7 @@ public class LevelButtonListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.OnPresslockedbutton);
         Toolbox.UIManager.ModeLockPopup.SetActive(true);
         Toolbox.UIManager.ModeLockPopup.GetComponent<MessageListner>().UpdateTxt("This Level is currently locked.Please Play before Previous Level", "LEVEL LOCKED");
-     //  Toolbox.GameManager.Instantiate_ModeLockedMessage("Level is locked.", "LOCKED");
+        //  Toolbox.GameManager.Instantiate_ModeLockedMessage("Level is locked.", "LOCKED");
     }
 
     #endregion

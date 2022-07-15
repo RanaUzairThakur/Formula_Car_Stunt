@@ -1,5 +1,6 @@
 ﻿//using GoogleMobileAds.Api;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //using GameAnalyticsSDK;
@@ -33,20 +34,20 @@ public class VehicleSelectionListner : MonoBehaviour
     private GameObject vehiclesPrefabs;
     //[HideInInspector]
     private GunSelection_Gun vehiclesData;
-    //  public ConsoliAdsBannerView consoliAdsBannerView = new ConsoliAdsBannerView();
+    public GameObject TutorialArrow;
+    public List<GameObject> Tutotialobj;
 
     private void OnEnable()
     {
 
         curVehicleIndex = Toolbox.DB.Prefs.LastSelectedVehicle;
-        //Toolbox.GameManager.Add_ActiveUI(this.gameObject);
         FetchVehiclesDataFromResources();
         ShowVehicle(curVehicleIndex);
         UpdateTxts();
       //  vehicleSpawnPosition.gameObject.SetActive(true);
-
-
+      
         UnlockAllVehicle_btnhandling();
+        set_StatusTutorial();
       //  Gunselection.SetActive(true);
       //  Mainmenu.SetActive(false);
 
@@ -65,7 +66,23 @@ public class VehicleSelectionListner : MonoBehaviour
             //   Toolbox.GameManager.Instantiate_MegaOffer();
         }
     }
-
+    private void set_StatusTutorial()
+    {
+        if (Toolbox.DB.Prefs.Tutorialshowfirsttime)
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = false;
+            TutorialArrow.SetActive(true);
+            unlockAllCarsBtn.SetActive(false);
+        }
+        else
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = true;
+            TutorialArrow.SetActive(false);
+            unlockAllCarsBtn.SetActive(true);
+        }
+    }
     public void UnlockAllVehicle_btnhandling()
     {
         if (Toolbox.DB.Prefs.AreAllVehiclesUnlocked())

@@ -73,7 +73,7 @@ public class HR_MainMenuHandler : MonoBehaviour {
 
 		Time.timeScale = 1f;
 		AudioListener.volume = 1f;
-		AudioListener.pause = false;
+		//AudioListener.pause = false;
 		Application.targetFrameRate = 60;
 
 		if (HR_HighwayRacerProperties.Instance.mainMenuClips != null && HR_HighwayRacerProperties.Instance.mainMenuClips.Length > 0) {

@@ -60,8 +60,8 @@ public class HUDListner : MonoBehaviour
     //private int time;
     private bool brakeinput;
     private bool brakepress;
-    private  Rigidbody RCCV3rigidbody;
-    private  RCC_CarControllerV3 RCCV3;
+    private Rigidbody RCCV3rigidbody;
+    private RCC_CarControllerV3 RCCV3;
 
     public bool ShowInput = false;
     public InputValues inputs;
@@ -70,6 +70,9 @@ public class HUDListner : MonoBehaviour
     public static float steering = 0f;
     public static float Boostinput = 0f;
     public static float Handbrake = 0f;
+    public static bool onpressleft = false;
+    public static bool onpressright = false;
+
 
     private void OnEnable()
     {
@@ -82,7 +85,7 @@ public class HUDListner : MonoBehaviour
     {
         if (brake)
             orgBrakeButtonPos = brake.transform.position;
-      
+
 
         Throtle = 0f;
         Brake = 0f;
@@ -91,7 +94,10 @@ public class HUDListner : MonoBehaviour
         Handbrake = 0f;
         if (Application.isMobilePlatform)
             RCC_Settings.Instance.selectedControllerType = RCC_Settings.ControllerType.Mobile;
-        check_statuscontrols();
+
+        if (Toolbox.DB.Prefs.LastSelectedGameMode < 2)
+            check_statuscontrols();
+
 
     }
     private void OnDisable()
@@ -136,7 +142,7 @@ public class HUDListner : MonoBehaviour
             //if (FindObjectOfType<AbstractAdsmanager>())
             //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
             if (FindObjectOfType<AdsManager>())
-                FindObjectOfType<AdsManager>().ShowBanner("Default");
+                FindObjectOfType<AdsManager>().ShowBanner("TopRight");
         }
 
         catch (Exception e)
@@ -160,17 +166,24 @@ public class HUDListner : MonoBehaviour
 
         if (RCC_SceneManager.Instance.activePlayerVehicle && !Toolbox.DB.Prefs.Is_DeviceConditionBad())
             Setstatus_speed(RCC_SceneManager.Instance.activePlayerVehicle.speed);
-        if(Toolbox.DB.Prefs.SelectedControltype ==Controls.Gyro)
+        if (Toolbox.DB.Prefs.SelectedControltype == Controls.Gyro)
             steering = Mathf.Lerp(steering, Input.acceleration.x * RCC_Settings.Instance.gyroSensitivity, Time.deltaTime * 5f);
 
 
-            if (ShowInput)
+        if (ShowInput)
         {
             inputs.Throtle = Throtle;
             inputs.Brake = Brake;
             inputs.steering = steering;
             inputs.Boostinput = Boostinput;
             inputs.Handbrake = Handbrake;
+
+            if (onpressleft)
+                steering = -1f;
+            else if (onpressright)
+                steering = 1f;
+            else if (onpressleft && onpressright)
+                steering = 0f;
         }
 
     }
@@ -188,8 +201,8 @@ public class HUDListner : MonoBehaviour
     }
     public void Setstatus_speed(float speed)
     {
-        if(Speed)
-        Speed.text = speed.ToString("0");
+        if (Speed)
+            Speed.text = speed.ToString("0");
     }
 
     public void SetTotalLives(int _val)
@@ -248,7 +261,7 @@ public class HUDListner : MonoBehaviour
     int i = 0;
     public void set_StatusRadioMusic()
     {
-        Toolbox.Soundmanager.Stop_PlayingMusic();
+        // Toolbox.Soundmanager.Stop_PlayingMusic();
 
         Toolbox.Soundmanager.PlayMusic_Game(i);
         i++;
@@ -317,7 +330,7 @@ public class HUDListner : MonoBehaviour
                 Toolbox.GameManager.Log("Gyro");
                 break;
             default:
-                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen); 
+                RCC.SetMobileController(RCC_Settings.MobileController.TouchScreen);
                 Toolbox.DB.Prefs.SelectedControltype = Controls.Touch;
                 brake.transform.position = orgBrakeButtonPos;
                 Steering.SetActive(false);
@@ -379,18 +392,22 @@ public class HUDListner : MonoBehaviour
     public static void onpress_Left()
     {
         steering = -1f;
+        onpressleft = true; ;
     }
     public static void onpress_ReleaseLeft()
     {
         steering = 0f;
+        onpressleft = false;
     }
     public static void onpress_Right()
     {
         steering = 1f;
+        onpressright = true;
     }
     public static void onpress_ReleaseRight()
     {
         steering = 0f;
+        onpressright = false;
     }
     public static void OnPress_Nos()
     {
@@ -409,7 +426,7 @@ public class HUDListner : MonoBehaviour
             return;
         //N = false;
         Toolbox.GameplayController.SelectedVehicleRccv3.nos_IsActive = false;
-       // Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
+        // Toolbox.GameplayController.SelectedVehicleRccv3.Nos_stop();
         Boostinput = 0f;
         Throtle = 0f;
     }
@@ -422,7 +439,7 @@ public class HUDListner : MonoBehaviour
     {
         Brake = 0f;
     }
-    public  void Onpress_InstantBrake()
+    public void Onpress_InstantBrake()
     {
         if (!RCCV3)
         {
@@ -437,7 +454,7 @@ public class HUDListner : MonoBehaviour
 
         //  Handbrake = 1f;
     }
-    public  void Onpress_ReleaseinstantBrake()
+    public void Onpress_ReleaseinstantBrake()
     {
         if (RCCV3 && RCCV3rigidbody)
         {

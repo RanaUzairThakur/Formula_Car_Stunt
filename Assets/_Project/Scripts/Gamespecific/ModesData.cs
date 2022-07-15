@@ -15,10 +15,10 @@ public class ModesData : MonoBehaviour
         switch (modes)
         {
             case Mode.Day:
-                Constants.DayNight = 0;
+                //Constants.DayNight = 0;
                 break;
             case Mode.Night:
-                Constants.DayNight = 1;
+                //Constants.DayNight = 1;
                 break;
         }
         Environment.SetActive(true);

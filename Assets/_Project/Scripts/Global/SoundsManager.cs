@@ -52,7 +52,7 @@ public class SoundsManager : MonoBehaviour {
 	public AudioClip AudienceAppreciation;
 	public AudioClip singleCoinsSound;
 	public AudioClip Savepointclip;
-
+	public AudioClip Pickupnitro;
 	private void Start()
     {
 
@@ -109,6 +109,12 @@ public class SoundsManager : MonoBehaviour {
 		musicSource.Play();
 
 	}
+	public void PlayMusic_Game(AudioClip sound)
+	{ 
+		musicSource.clip = sound;
+		musicSource.Play();
+
+	}
 	//public void letGo_Sound()
 	//{
 	//	musicSource.clip = letsgo;
@@ -120,8 +126,8 @@ public class SoundsManager : MonoBehaviour {
 	//	musicSource.clip = GetReady;
 	//	musicSource.Play();
 	//}
-	
-	
+
+
 	public void Set_MusicStatus(bool _val) {
 
 		if (_val)

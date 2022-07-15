@@ -29,23 +29,23 @@ public class PauseListner : MonoBehaviour
         Toolbox.GameplayController.HUD_Status(false);
         //Toolbox.GameManager.Add_ActiveUI(this.gameObject);
         
-        AudioListener.volume = 0;
+       // AudioListener.volume = 0;
         Time.timeScale = 0;
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1;
+      //  AudioListener.volume = 1;
         //Toolbox.GameManager.Remove_ActiveUI(this.gameObject);
-        if(!restartPressed)
-            AudioListener.volume = 1;
+
     }
 
     #region ButtonListners
 
     public void OnPress_Home()
     {
- Toolbox.GameplayController.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Back_to_mainmenu = true;
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_PauseHome_Press");
@@ -58,7 +58,7 @@ public class PauseListner : MonoBehaviour
 
     public void OnPress_Restart()
     {
- Toolbox.GameplayController.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         restartPressed = true;
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_Restart");
@@ -72,7 +72,7 @@ public class PauseListner : MonoBehaviour
 
     public void OnPress_Resume()
     {
- Toolbox.GameplayController.UnloadAssetsFromMemory();
+        Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameplayController.HUD_Status(true);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_resume");

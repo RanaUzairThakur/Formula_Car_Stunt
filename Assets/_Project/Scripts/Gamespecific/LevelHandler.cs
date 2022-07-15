@@ -12,7 +12,7 @@ public class LevelHandler : MonoBehaviour
     [Tooltip("This is used for skybox")]
     public Material Skybox;
     public List<GameObject> ListofProsOptmization;
-    //public AudioSource audienceAudioSource;
+    public AudioClip Soundsforspecificlevel;
     //[Tooltip("This is only used in level 1 for tutorial")]
     //public GameObject tutorialCam;
 
@@ -20,7 +20,7 @@ public class LevelHandler : MonoBehaviour
     {
 
 
-        Optimization();
+       // Optimization();
         LevelStartHandling();
         RenderSettings.skybox = Skybox;
     }
@@ -52,6 +52,8 @@ public class LevelHandler : MonoBehaviour
 
        
         Toolbox.GameplayController.Levelhandler = this;
+        if(Soundsforspecificlevel)
+            Toolbox.Soundmanager.PlayMusic_Game(Soundsforspecificlevel);
         SpawnVehicle();
     }
 

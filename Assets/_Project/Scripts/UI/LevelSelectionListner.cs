@@ -11,9 +11,10 @@ public class LevelSelectionListner : MonoBehaviour
     //public GameObject PlayButon;
     public GameObject UnlockallBtn;
 
-    public int tileWidth = 379;
-    public int tileSpacing = 40;
+    public int tileWidth = 446;
+    public int tileSpacing = 23;
     public List<Sprite> Levelsthumbnails;
+    public List<GameObject> Tutotialobj;
 
     private void OnEnable()
     {
@@ -26,10 +27,9 @@ public class LevelSelectionListner : MonoBehaviour
         // Bg.SetActive(true);
     }
 
-    private void OnDisable()
-    {
+  
 
-    }
+
 
     public void RefreshView()
     {
@@ -37,12 +37,27 @@ public class LevelSelectionListner : MonoBehaviour
         InitLevelButtonsState();
         CheckStatus_UnlockallLevels();
         UpdateTxts();
+        set_StatusTutorial();
     }
     public void UpdateTxts()
     {
         coinsTxt.text = Toolbox.DB.Prefs.GoldCoins.ToString();
     }
-
+    private void set_StatusTutorial()
+    {
+        if (Toolbox.DB.Prefs.Tutorialshowfirsttime)
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = false;
+            UnlockallBtn.SetActive(false);
+        }
+        else
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = true;
+            UnlockallBtn.SetActive(true);
+        }
+    }
     public void CheckStatus_UnlockallLevels()
     {
         if (Toolbox.DB.Prefs.UnlockallLevel)
@@ -104,6 +119,7 @@ public class LevelSelectionListner : MonoBehaviour
                 btnListner.Set_LevelstatusTxt("PLAY", Color.cyan);
                 btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.cyan);
                 btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.cyan);
+                btnListner.Set_NewArrow(true);
                 // btnListner.GetComponent<UIAnimatorCore.UIAnimator>().Paused = false;
                 btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = true; ;
             }
@@ -114,6 +130,7 @@ public class LevelSelectionListner : MonoBehaviour
                 btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.white);
                 btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.white);
                 btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = false;
+                btnListner.Set_NewArrow(false);
             }
             else
             {
@@ -122,6 +139,7 @@ public class LevelSelectionListner : MonoBehaviour
                 btnListner.Set_LevleNameTxt((i + 1).ToString(), Color.grey);
                 btnListner.set_LevelName(Toolbox.DB.Prefs.Get_CurGameLevelName(i), Color.grey);
                 btnListner.GetComponent<UIAnimatorCore.UIAnimator>().enabled = false;
+                btnListner.Set_NewArrow(false);
             }
         }
     }

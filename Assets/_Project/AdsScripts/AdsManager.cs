@@ -153,7 +153,7 @@ public class AdsManager : MonoBehaviour
             });
             // LoadMediumRectangle();
             if (ShowDefaultBanner)
-                ShowBanner("Default");
+                ShowBanner("TopRight");
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
     }
@@ -259,6 +259,7 @@ public class AdsManager : MonoBehaviour
             else if (name == "TopRight")
             {
                 LoadBannerAd(AdSize.Banner, AdPosition.TopRight);
+                Toolbox.GameManager.Log("LoadBannerAd TopRight");
             }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%% Bottom Banner Ad Position %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             else if (name == "BottomLeft")

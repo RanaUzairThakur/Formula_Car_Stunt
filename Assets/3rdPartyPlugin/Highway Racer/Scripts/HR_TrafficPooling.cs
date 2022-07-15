@@ -41,7 +41,7 @@ public class HR_TrafficPooling : MonoBehaviour {
 		public int frequence = 1;
 	}
 	
-	private List<HR_TrafficCar> _trafficCars = new List<HR_TrafficCar>();
+	public List<HR_TrafficCar> _trafficCars = new List<HR_TrafficCar>();
 
 	void Start () {
 

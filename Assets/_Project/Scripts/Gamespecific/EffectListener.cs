@@ -53,4 +53,16 @@ public class EffectListener : MonoBehaviour
 
         }
     }
+
+    public void set_colorStatus(Color _color)
+    {
+        NeonTyreleft.gameObject.GetComponent<MeshRenderer>().material.color = _color;
+        NeonTyreleft.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material.color = _color;
+        NeonTyreRight.gameObject.GetComponent<MeshRenderer>().material.color = _color;
+        NeonTyreRight.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material.color = _color;
+        for (int i = 0; i < TyreTrail.transform.childCount; i++)
+        {
+            TyreTrail.transform.GetChild(i).GetComponent<TrailRenderer>().material.color = _color;
+        }
+    }
 }

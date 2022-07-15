@@ -67,7 +67,7 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 		Time.timeScale = 1f;
 		AudioListener.volume = 0f;
-		AudioListener.pause = false;
+		//AudioListener.pause = false;
 
 		if (HR_HighwayRacerProperties.Instance.gameplayClips != null && HR_HighwayRacerProperties.Instance.gameplayClips.Length > 0) {
 			gameplaySoundtrack = HR_CreateAudioSource.NewAudioSource (gameObject, "GamePlay Soundtrack", 0f, 0f, .35f, HR_HighwayRacerProperties.Instance.gameplayClips [UnityEngine.Random.Range (0, HR_HighwayRacerProperties.Instance.gameplayClips.Length)], true, true, false);
@@ -119,40 +119,35 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 	void HR_PlayerHandler_OnPlayerSpawned (HR_PlayerHandler player){
 
-		gameStarted = false;
-		RCC.SetControl (player.GetComponent<RCC_CarControllerV3>(), false);
-		StartCoroutine (WaitForGameStart ());
-		
+		//gameStarted = false;
+		gameStarted = true;
+		RCC.SetControl (player.GetComponent<RCC_CarControllerV3>(), true);
+		//if (GameObject.FindObjectOfType<HR_CarCamera>())
+		//	GameObject.FindObjectOfType<HR_CarCamera>().ChangeCamera();
+		//	StartCoroutine (WaitForGameStart ());
+
 	}
 
 	void HR_PlayerHandler_OnNearMiss (HR_PlayerHandler player, int score, HR_DynamicScoreDisplayer.Side side){
 		
-
-
 	}
 
 	void HR_PlayerHandler_OnPlayerDied (HR_PlayerHandler player){
-
 		StartCoroutine (OnGameOver (1f));
-		
 	}
 
 	void SceneManager_sceneLoaded (Scene arg0, LoadSceneMode arg1){
-
 		Time.timeScale = 1;
-		AudioListener.pause = false;
-		
+		//AudioListener.pause = false;	
 	}
 
 	IEnumerator WaitForGameStart(){
 
 		yield return new WaitForSeconds(4);
-
 		RCC.SetControl (player.GetComponent<RCC_CarControllerV3> (), true);
-		if (GameObject.FindObjectOfType<HR_CarCamera>())
-			GameObject.FindObjectOfType<HR_CarCamera>().ChangeCamera();
+		//if (GameObject.FindObjectOfType<HR_CarCamera>())
+		//	GameObject.FindObjectOfType<HR_CarCamera>().ChangeCamera();
 		gameStarted = true;
-
 	}
 
 	void Update(){
@@ -167,9 +162,10 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 	void SpawnCar () {
 
-		player = (RCC.SpawnRCC(HR_PlayerCars.Instance.cars[/*selectedCarIndex*/Toolbox.DB.Prefs.LastSelectedVehicle].playerCar.GetComponent<RCC_CarControllerV3>(), spawnLocation.position, spawnLocation.rotation, true, false, true)).gameObject;
+		player = (RCC.SpawnRCC(HR_PlayerCars.Instance.cars[selectedCarIndex/*Toolbox.DB.Prefs.LastSelectedVehicle*/].playerCar.GetComponent<RCC_CarControllerV3>(), spawnLocation.position, spawnLocation.rotation, true, true, true)).gameObject;
 		player.transform.position = spawnLocation.transform.position;
 		player.transform.rotation = Quaternion.identity;
+		Toolbox.GameplayController.SelectedVehiclePrefab = player;
 		Toolbox.GameplayController.SelectedVehicleRccv3 = player.GetComponent<RCC_CarControllerV3>();
 		player.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, minimumSpeed / 1.75f);
 
@@ -222,10 +218,16 @@ public class HR_GamePlayHandler : MonoBehaviour {
 
 		paused = !paused;
 
-		if(paused)
-			OnPaused ();
+		if (paused)
+		{
+			OnPaused();
+			AudioListener.volume = 0f;
+		}
 		else
-			OnResumed ();
+		{
+			OnResumed();
+			AudioListener.volume = 1f;
+		}
 
 	}
 

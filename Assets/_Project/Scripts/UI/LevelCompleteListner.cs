@@ -36,7 +36,7 @@ public class LevelCompleteListner : MonoBehaviour
     private void OnEnable()
     {
         //GarbageCollector.GCMode = GarbageCollector.Mode.Enabled;
-       // System.GC.Collect();
+        // System.GC.Collect();
     }
 
     private void OnDisable()
@@ -110,7 +110,15 @@ public class LevelCompleteListner : MonoBehaviour
             panel_3Buttons.SetActive(true);
         }
         else
-            panel_3Buttons.SetActive(false);
+        {
+            if (Toolbox.DB.Prefs.LastSelectedGameMode < Toolbox.DB.Prefs.GameData.Length)
+            {
+                Toolbox.HUDListner.Message.SetActive(true);
+                Toolbox.HUDListner.Message.GetComponent<MessageListner>().UpdateTxt(Toolbox.DB.Prefs.Get_CurGameModeName(Toolbox.DB.Prefs.LastSelectedGameMode) + " levels has been completed.Press on Next Button you can continue Next Mode Levels.", "Congratulations");
+               // Toolbox.DB.Prefs.LastSelectedGameMode += 1;
+            }
+            panel_3Buttons.SetActive(true);
+        }
         //totaldoublecoins = curtotalCoins * 2;
         //doubleRewardCoinsTxt.text = Mathf.RoundToInt(curtotalCoins).ToString() + " x " + "2";
 
@@ -129,13 +137,16 @@ public class LevelCompleteListner : MonoBehaviour
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode())
             return;
 
+        // Just for Tutorial Removing 
+        if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() >= Constants.TutorialFinishLevel)
+            Toolbox.DB.Prefs.Tutorialshowfirsttime = false;
+
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
         {
             Toolbox.DB.Prefs.Unlock_NextLevelOfCurrentGameMode();
 
             if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() > 0)
             {
-
                 //try
                 //{
 
@@ -161,9 +172,11 @@ public class LevelCompleteListner : MonoBehaviour
         }
         else
         {
-            panel_2Buttons.SetActive(true);
-            panel_3Buttons.SetActive(false);
+            panel_2Buttons.SetActive(false);
+            panel_3Buttons.SetActive(true);
         }
+        
+       
     }
 
 
@@ -186,9 +199,6 @@ public class LevelCompleteListner : MonoBehaviour
         {
             //if(FindObjectOfType<AbstractAdsmanager>())
             //    FindObjectOfType<AbstractAdsmanager>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.BottomLeft);
-
-            //if (AdsManager.Instance)
-            //    AdsManager.Instance.ShowMediumBanner(GoogleMobileAds.Api.AdPosition.BottomLeft);
         }
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
         {
@@ -220,20 +230,36 @@ public class LevelCompleteListner : MonoBehaviour
         Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
-        //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
-        Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode(1);
+        Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Next_Pressed");
         Toolbox.GameManager.Call_ad_after_restart = true;
-        if ((Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode()) % 4 == 0)
+
+
+
+        if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
         {
-            Toolbox.GameManager.DirectShowVehicleSelectionOnMenu = true;
-            Toolbox.HUDListner.Loadingpanel.SetActive(true);
-            Toolbox.GameManager.Load_MenuScene(true);
+           Toolbox.DB.Prefs.Change_LastSelectedLevelOfCurrentGameMode(1);
         }
         else
         {
-            Toolbox.HUDListner.Loadingpanel.SetActive(true);
-            Toolbox.GameManager.Load_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex(), 3f);
+            if (Toolbox.DB.Prefs.LastSelectedGameMode < Toolbox.DB.Prefs.GameData.Length)
+            {
+                Toolbox.DB.Prefs.LastSelectedGameMode += 1;
+            }
         }
+
+        Toolbox.HUDListner.Loadingpanel.SetActive(true);
+        Toolbox.GameManager.Load_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex(), 3f);
+        //if ((Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode()) % 4 == 0)
+        //{
+        //    Toolbox.GameManager.DirectShowVehicleSelectionOnMenu = true;
+        //    Toolbox.HUDListner.Loadingpanel.SetActive(true);
+        //    Toolbox.GameManager.Load_MenuScene(true);
+        //}
+        //else
+        //{
+        //    Toolbox.HUDListner.Loadingpanel.SetActive(true);
+        //    Toolbox.GameManager.Load_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex(), 3f);
+        //}
         //if(Toolbox.DB.Prefs.Get_LastUnlockedLevelofCurrentGameMode() >= Constants.mode2UnlockAfterLevels && Toolbox.DB.Prefs.LastSelectedGameMode == 0 && !Toolbox.DB.Prefs.Mode2Unlocked)
         //{
         //    Toolbox.DB.Prefs.Mode2Unlocked = true;
@@ -251,7 +277,7 @@ public class LevelCompleteListner : MonoBehaviour
         Toolbox.GameplayController.UnloadAssetsFromMemory();
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameManager.Analytics_DesignEvent(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
-        //    Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
+        Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_" + "LevelComplete_Restart_Pressed");
         Toolbox.GameManager.Call_ad_after_restart = true;
         Toolbox.HUDListner.Loadingpanel.SetActive(true);
         Toolbox.GameManager.Load_GameScene(true, Toolbox.DB.Prefs.Get_LastSelectedGameModeSceneIndex(), 3f);

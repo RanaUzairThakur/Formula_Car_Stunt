@@ -346,8 +346,8 @@ public class RCC_CarControllerV3 : RCC_Core
     [Range(.05f, 1f)] public float TCSStrength = 1f;
     [Range(.05f, .5f)] public float ESPThreshold = .5f;
     [Range(.05f, 1f)] public float ESPStrength = .25f;
-    [Range(0f, 1f)] public float steerHelperLinearVelStrength = .1f;
-    [Range(0f, 1f)] public float steerHelperAngularVelStrength = .1f;
+    [Range(0f, 10f)] public float steerHelperLinearVelStrength = .1f;
+    [Range(0f, 10f)] public float steerHelperAngularVelStrength = .1f;
     [Range(0f, 1f)] public float tractionHelperStrength = .1f;
     [Range(0f, 1f)] public float angularDragHelperStrength = .1f;
 
@@ -410,6 +410,7 @@ public class RCC_CarControllerV3 : RCC_Core
 
     #region
     private bool HighRracer = false;
+    private HR_PlayerHandler hr_PlayerHandler;
     #endregion
 
     void Awake()
@@ -484,7 +485,10 @@ public class RCC_CarControllerV3 : RCC_Core
         if (GetComponent<EffectListener>() && !SFX)
             SFX = GetComponent<EffectListener>();
         if (GetComponent<HR_PlayerHandler>())
+        {
             HighRracer = GetComponent<HR_PlayerHandler>();
+            hr_PlayerHandler = GetComponent<HR_PlayerHandler>();
+        }
 
     }
     void OnEnable()
@@ -1118,8 +1122,9 @@ public class RCC_CarControllerV3 : RCC_Core
 
                 if (HighRracer)
                 {
-                    float minGasInput = Mathf.Clamp01(Mathf.Lerp(5f, 0f, speed / 30f));
+                    float minGasInput = Mathf.Clamp01(Mathf.Lerp(5f, 0f, speed / hr_PlayerHandler.GasInputfactor /*60f*/));
                     throttleInput += minGasInput;
+                    //  print("throttleInput :"+ throttleInput);
                 }
 
                 if (!automaticGear || semiAutomaticGear)
@@ -1157,7 +1162,7 @@ public class RCC_CarControllerV3 : RCC_Core
                 if (HighRracer)
                 {
                     float angle = HR_CalculateAngle.CalculateAngle(transform.rotation, Quaternion.identity * Quaternion.AngleAxis(steerInput * steerAngle, Vector3.up));
-                    steerInput = (angle / 15f) * direction;
+                    steerInput = (angle / hr_PlayerHandler.steeringfactor/*15f*/) * direction;
                 }
 
                 boostInput = HUDListner.Boostinput;
@@ -1700,7 +1705,7 @@ public class RCC_CarControllerV3 : RCC_Core
             {
                 if (allWheelColliders[i].canPower)
                     currentPoweredWheels++;
-                allWheelColliders[i].powerMultiplier = 1f;
+                allWheelColliders[i].powerMultiplier = hr_PlayerHandler.Powermultiplier/*1f*/;
             }
         }
         else
@@ -1994,10 +1999,17 @@ public class RCC_CarControllerV3 : RCC_Core
 
             if (allWheelColliders[i].canPower)
             {
-                if (nos_IsActive)
-                    maxspeed = 290f;
+                if (!HighRracer)
+                {
+                    if (nos_IsActive)
+                        maxspeed = 290f;
+                    else
+                        maxspeed = 290f;
+                }
                 else
-                    maxspeed = 290f;
+                {
+                    maxspeed = 300f;
+                }
                 allWheelColliders[i].ApplyMotorTorque((direction * allWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
             }
 
@@ -2553,6 +2565,8 @@ public class RCC_CarControllerV3 : RCC_Core
             SFX.set_statusAirEffect(true, isGrounded);
             if (!NOSSound.isPlaying)
             {
+                if (HighRracer)
+                    NOSSound.volume = 0.15f;
                 NOSSound.Play();
 
             }

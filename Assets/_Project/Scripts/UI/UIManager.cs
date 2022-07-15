@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
             //if (FindObjectOfType<AbstractAdsmanager>())
             //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
             if (FindObjectOfType<AdsManager>())
-                FindObjectOfType<AdsManager>().ShowBanner("Default");
+                FindObjectOfType<AdsManager>().ShowBanner("TopRight");
         }
 
         catch (Exception e)

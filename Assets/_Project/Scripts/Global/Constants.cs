@@ -123,10 +123,8 @@ public static class Constants{
 
     #region GamePlay
 
-    public static bool Headshot = false;
-    public static bool slomoBulletTime =false;
-    public static int DayNight = 0;
-    public static int MovePointcounter = 0;
+    public const int TutorialFinishLevel = 4;
+         
     //public static bool tryweapon = false;
     //public static int tryweaponindex = 0;
     #endregion

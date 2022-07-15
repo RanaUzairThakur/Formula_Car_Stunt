@@ -42,6 +42,12 @@ public class PlayerTriggerListener : MonoBehaviour
             Toolbox.GameplayController.Lives -= 1;
             Toolbox.GameplayController.LevelFail_Delay(3f);
         }
+        if (col.gameObject.tag == "RB")
+        {
+
+            col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //col.gameObject.SetActive(false);
+        }
     }
 
 

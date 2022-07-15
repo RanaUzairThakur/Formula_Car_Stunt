@@ -34,11 +34,11 @@ public class HR_BarrierCollisionProtector : MonoBehaviour {
 		
 	}
 
-	void OnDrawGizmos(){
+	//void OnDrawGizmos(){
 
-		Gizmos.color = new Color(1f, .5f, 0f, .75f);
-		Gizmos.DrawCube(transform.position, GetComponent<BoxCollider> ().size);
+	//	Gizmos.color = new Color(1f, .5f, 0f, .75f);
+	//	Gizmos.DrawCube(transform.position, GetComponent<BoxCollider> ().size);
 
-	}
+	//}
 
 }

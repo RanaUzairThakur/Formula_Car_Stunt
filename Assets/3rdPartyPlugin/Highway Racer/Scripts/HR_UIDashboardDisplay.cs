@@ -23,6 +23,10 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 	public Text highSpeed;
 	public Text oppositeDirection;
 	public Slider bombSlider;
+	public Image Nitro;
+	public Text pickupname;
+	public Text Magnet;
+	public GameObject brakeleft, brakeright;
 
 	private Image comboMImage;
 	private Vector2 comboDefPos;
@@ -120,30 +124,39 @@ public class HR_UIDashboardDisplay : MonoBehaviour {
 		score.text = player.score.ToString("F0");
 		speed.text = player.speed.ToString("F0");
 		distance.text = (player.distance).ToString("F2");
-		highSpeed.text = player.highSpeedCurrent.ToString("F1");
-		//oppositeDirection.text = player.opposideDirectionCurrent.ToString("F1");
-		//timeLeft.text = player.timeLeft.ToString("F1");
-		//combo.text = player.combo.ToString();
+        highSpeed.text = player.highSpeedCurrent.ToString("F1");
+		Nitro.fillAmount = player.Currentnitro;
+		Magnet.text = player.Magnet.ToString("F1");
+        //oppositeDirection.text = player.opposideDirectionCurrent.ToString("F1");
+        //timeLeft.text = player.timeLeft.ToString("F1");
+        //combo.text = player.combo.ToString();
 
-		//if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb)
-		//	bombSlider.value = player.bombHealth / 100f;
+        //if(HR_GamePlayHandler.Instance.mode == HR_GamePlayHandler.Mode.Bomb)
+        //	bombSlider.value = player.bombHealth / 100f;
 
+    }
+	//   #region
+	//   public void Onpress_Nos()
+	//   {
+	//	if (Rccv3.direction == -1)
+	//		return;
+	//     Rccv3.nos_IsActive = true;
+	//}
+	//   public void Onpress_ReleaseNos()
+	//   {
+	//	if (Rccv3.direction == -1)
+	//		return;
+	//	Rccv3.nos_IsActive = false;
+	//	Rccv3.Nos_stop();
+	//}
+	//   #endregion
+
+
+	public void set_StatusBrakecontrols(bool _Val)
+	{
+		brakeleft.SetActive(_Val);
+		brakeleft.SetActive(_Val);
 	}
-    #region
-    public void Onpress_Nos()
-    {
-		if (Rccv3.direction == -1)
-			return;
-	     Rccv3.nos_IsActive = true;
-	}
-    public void Onpress_ReleaseNos()
-    {
-		if (Rccv3.direction == -1)
-			return;
-		Rccv3.nos_IsActive = false;
-		Rccv3.Nos_stop();
-	}
-    #endregion
     void OnDisable(){
 
 		HR_PlayerHandler.OnPlayerSpawned -= HR_PlayerHandler_OnPlayerSpawned;

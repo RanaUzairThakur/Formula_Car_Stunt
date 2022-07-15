@@ -141,7 +141,7 @@ public class HR_TrafficCar : MonoBehaviour {
 	void Start(){
 
 		InvokeRepeating("SpeedUp", 4f, 4f);
-		InvokeRepeating("ChangeLines", Random.Range(15, 45), Random.Range(15, 45));
+		InvokeRepeating("ChangeLines", Random.Range(10, 20), Random.Range(10, 20));
 
 		for (int i = 0; i < headLights.Length; i++) {
 
@@ -366,6 +366,7 @@ public class HR_TrafficCar : MonoBehaviour {
 	void SpeedUp(){
 
 		distance = 50f;
+		maximumSpeed = Random.Range(80,100);
 
 	}
 

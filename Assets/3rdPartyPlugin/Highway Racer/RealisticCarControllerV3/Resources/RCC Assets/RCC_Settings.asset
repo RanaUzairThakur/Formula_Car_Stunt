@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RCC_Settings
   m_EditorClassIdentifier: 
   controllerSelectedIndex: 1
-  behaviorSelectedIndex: 6
+  behaviorSelectedIndex: 5
   overrideBehavior: 1
   overrideFPS: 0
   overrideFixedTimeStep: 1
@@ -213,17 +213,17 @@ MonoBehaviour:
     steeringHelper: 1
     tractionHelper: 1
     angularDragHelper: 0
-    counterSteering: 0
+    counterSteering: 1
     limitSteering: 1
     ABS: 0
     ESP: 0
     TCS: 0
     applyExternalWheelFrictions: 0
     applyRelativeTorque: 0
-    highSpeedSteerAngleMinimum: 12
-    highSpeedSteerAngleMaximum: 12
-    highSpeedSteerAngleAtspeedMinimum: 160
-    highSpeedSteerAngleAtspeedMaximum: 160
+    highSpeedSteerAngleMinimum: 10
+    highSpeedSteerAngleMaximum: 10
+    highSpeedSteerAngleAtspeedMinimum: 5
+    highSpeedSteerAngleAtspeedMaximum: 5
     counterSteeringMinimum: 0
     counterSteeringMaximum: 0
     steerHelperAngularVelStrengthMinimum: 0.1

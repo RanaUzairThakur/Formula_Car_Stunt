@@ -73,22 +73,22 @@ public class HR_GameOverPanel : MonoBehaviour {
 
 		content.SetActive (true);
 
-		totalScore.text = Mathf.Floor(player.score).ToString("F0");
-		totalDistance.text = (player.distance).ToString("F2");
-		totalNearMiss.text = (player.nearMisses).ToString("F0");
-		totalOverspeed.text = (player.highSpeedTotal).ToString("F1");
-		totalOppositeDirection.text = (player.opposideDirectionTotal).ToString("F1");
+		//totalScore.text = Mathf.Floor(player.score).ToString("F0");
+		//totalDistance.text = (player.distance).ToString("F2");
+		//totalNearMiss.text = (player.nearMisses).ToString("F0");
+		//totalOverspeed.text = (player.highSpeedTotal).ToString("F1");
+		//totalOppositeDirection.text = (player.opposideDirectionTotal).ToString("F1");
 
-		totalDistanceMoney.text = Mathf.Floor(player.distance * totalDistanceMoneyMP).ToString("F0");
-		totalNearMissMoney.text = Mathf.Floor(player.nearMisses * totalNearMissMoneyMP).ToString("F0");
-		totalOverspeedMoney.text = Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP).ToString("F0");
-		totalOppositeDirectionMoney.text = Mathf.Floor(player.opposideDirectionTotal * totalOppositeDirectionMP).ToString("F0");
+		//totalDistanceMoney.text = Mathf.Floor(player.distance * totalDistanceMoneyMP).ToString("F0");
+		//totalNearMissMoney.text = Mathf.Floor(player.nearMisses * totalNearMissMoneyMP).ToString("F0");
+		//totalOverspeedMoney.text = Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP).ToString("F0");
+		//totalOppositeDirectionMoney.text = Mathf.Floor(player.opposideDirectionTotal * totalOppositeDirectionMP).ToString("F0");
 
-		totalMoney.text = (Mathf.Floor(player.distance * totalDistanceMoneyMP) + (player.nearMisses * totalNearMissMoneyMP) + Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP) + Mathf.Floor(player.opposideDirectionTotal * totalOppositeDirectionMP)).ToString("F0");
-		PlayerPrefs.SetInt("Currency", PlayerPrefs.GetInt("Currency", 0) + Mathf.FloorToInt(Mathf.Floor(player.distance * totalDistanceMoneyMP) + (player.nearMisses * totalNearMissMoneyMP) + Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP)));
+		//totalMoney.text = (Mathf.Floor(player.distance * totalDistanceMoneyMP) + (player.nearMisses * totalNearMissMoneyMP) + Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP) + Mathf.Floor(player.opposideDirectionTotal * totalOppositeDirectionMP)).ToString("F0");
+		//PlayerPrefs.SetInt("Currency", PlayerPrefs.GetInt("Currency", 0) + Mathf.FloorToInt(Mathf.Floor(player.distance * totalDistanceMoneyMP) + (player.nearMisses * totalNearMissMoneyMP) + Mathf.Floor(player.highSpeedTotal * totalOverspeedMoneyMP)));
 
-		gameObject.BroadcastMessage("Animate");
-		gameObject.BroadcastMessage("GetNumber");
+		//gameObject.BroadcastMessage("Animate");
+		//gameObject.BroadcastMessage("GetNumber");
 
 	}
 

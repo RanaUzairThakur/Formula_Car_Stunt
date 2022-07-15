@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 //using GameAnalyticsSDK;
 
 public class MainMenuListner : MonoBehaviour
@@ -10,6 +11,9 @@ public class MainMenuListner : MonoBehaviour
     //public RectTransform bannerAd;
     //public RectTransform IconAd;
     public GameObject noAdsButton;
+    public GameObject TutorialArrow;
+    public List<GameObject> Tutotialobj;
+    
     private void Awake()
     {
       //  ShowBannner();
@@ -27,14 +31,13 @@ public class MainMenuListner : MonoBehaviour
         //{
         //    Invoke("MegaOffer", 1.0f);
         //}
-       // Invoke("MegaOffer", 1.0f);
+        // Invoke("MegaOffer", 1.0f);
+        set_StatusTutorial();
         NoAdsButtonHandling();
         UpdateTxts();
     }
 
-    private void OnDisable()
-    {
-    }
+   
 
     private void Start()
     {
@@ -56,6 +59,21 @@ public class MainMenuListner : MonoBehaviour
 
     }
 
+    private void set_StatusTutorial()
+    {
+        if (Toolbox.DB.Prefs.Tutorialshowfirsttime)
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = false;
+            TutorialArrow.SetActive(true);
+        }
+        else
+        {
+            foreach (GameObject g in Tutotialobj)
+                g.GetComponent<Button>().interactable = true;
+            TutorialArrow.SetActive(false);
+        }
+    }
     private void MegaOffer()
     {
         if (!Toolbox.GameManager.FirstShowMegaOffer && !Toolbox.DB.Prefs.MegaOfferPurchased)

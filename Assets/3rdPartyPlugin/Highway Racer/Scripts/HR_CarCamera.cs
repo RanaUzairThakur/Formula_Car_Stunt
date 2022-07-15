@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class HR_CarCamera : MonoBehaviour
 {
-
+    public static HR_CarCamera Instance;
     public CameraMode cameraMode;
     public enum CameraMode { Top, TPS, FPS }
 
@@ -28,11 +28,11 @@ public class HR_CarCamera : MonoBehaviour
 
     // The target we are following
     public Transform playerCar;
-    private Rigidbody playerRigid;
-    private RCC_CarControllerV3 Rccv3player;
+    public Rigidbody playerRigid;
+    public RCC_CarControllerV3 Rccv3player;
     public bool gameover = false;
 
-    private Camera cam;
+    public Camera cam;
     private Vector3 targetPosition = new Vector3(0, 0, 50);
     private Vector3 pastFollowerPosition, pastTargetPosition;
 
@@ -52,13 +52,17 @@ public class HR_CarCamera : MonoBehaviour
 
     public GameObject mirrors;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
 
-        cam = GetComponent<Camera>();
+       // cam = GetComponent<Camera>();
 
-        transform.position = new Vector3(2f, 1f, 55f);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, -40f, 0f));
+        //transform.position = new Vector3(2f, 1f, 55f);
+        //transform.rotation = Quaternion.Euler(new Vector3(0f, -40f, 0f));
 
         if (GetComponent<AudioListener>())
             Destroy(GetComponent<AudioListener>());
@@ -77,6 +81,13 @@ public class HR_CarCamera : MonoBehaviour
 
     }
 
+    public void TargetNull()
+    {
+        playerCar = null;
+        playerRigid = null;
+        Rccv3player = null;
+        gameover = true;
+    }
     void OnPlayerSpawned(HR_PlayerHandler player)
     {
 
@@ -86,8 +97,8 @@ public class HR_CarCamera : MonoBehaviour
         tpsCam = player.GetComponentInChildren<RCC_WheelCamera>();
         Rccv3player = player.GetComponent<RCC_CarControllerV3>();
 
-        if (GameObject.Find("Mirrors"))
-            mirrors = GameObject.Find("Mirrors").gameObject;
+        //if (GameObject.Find("Mirrors"))
+        //    mirrors = GameObject.Find("Mirrors").gameObject;
 
     }
 
@@ -112,21 +123,21 @@ public class HR_CarCamera : MonoBehaviour
         if (playerRigid != playerCar.GetComponent<Rigidbody>())
             playerRigid = playerCar.GetComponent<Rigidbody>();
 
-        if (!cam)
-            cam = GetComponent<Camera>();
+        //if (!cam)
+        //    cam = GetComponent<Camera>();
 
-        if (!playerCar || !playerRigid || Time.timeSinceLevelLoad < 1.5f)
-        {
-            transform.position += Quaternion.identity * Vector3.forward * (Time.deltaTime * 3f);
-        }
-        else if (playerCar && playerRigid)
+        //if (!playerCar || !playerRigid || Time.timeSinceLevelLoad < 1.5f)
+        //{
+        //    transform.position += Quaternion.identity * Vector3.forward * (Time.deltaTime * 3f);
+        //}
+        /*else*/ if (playerCar && playerRigid)
         {
 
             //targetPosition = playerCar.position;
             //cam.fieldOfView = Mathf.Lerp (cam.fieldOfView, targetFieldOfView, Time.deltaTime * 3f);
             if (Rccv3player)
             {
-                if (Rccv3player.nos_IsActive)
+                if (HUDListner.Boostinput >1)
                 {
                     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFieldOfView, Time.deltaTime * 8f);
                     //Camerashakeeffect(true);
@@ -152,12 +163,6 @@ public class HR_CarCamera : MonoBehaviour
                 switch (cameraMode)
                 {
 
-                    case CameraMode.Top:
-                        TOP();
-                        if (mirrors)
-                            mirrors.SetActive(false);
-                        break;
-
                     case CameraMode.TPS:
                         if (tpsCam)
                         {
@@ -169,6 +174,12 @@ public class HR_CarCamera : MonoBehaviour
                             ChangeCamera();
                         }
                         break;
+                    case CameraMode.Top:
+                        TOP();
+                        if (mirrors)
+                            mirrors.SetActive(false);
+                        break;
+
 
                     case CameraMode.FPS:
                         if (hoodCam)
@@ -225,13 +236,13 @@ public class HR_CarCamera : MonoBehaviour
 
     }
 
-    void Update()
-    {
+    //void Update()
+    //{
 
-        if (Input.GetKeyDown(RCC_Settings.Instance.changeCameraKB))
-            ChangeCamera();
+    //    if (Input.GetKeyDown(RCC_Settings.Instance.changeCameraKB))
+    //        ChangeCamera();
 
-    }
+    //}
 
     public void ChangeCamera()
     {
@@ -245,6 +256,15 @@ public class HR_CarCamera : MonoBehaviour
 
     void TOP()
     {
+
+        if (HUDListner.Boostinput >1)
+        {
+            topFOV = 55f;
+        }
+        else
+        {
+            topFOV = 48f;
+        }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotation, 0f, 0f), Time.deltaTime * 2f);
 
@@ -329,17 +349,13 @@ public class HR_CarCamera : MonoBehaviour
 
         if (!playerRigid)
             return;
-
         speed = Mathf.Lerp(speed, (playerRigid.velocity.magnitude * 3.6f), Time.deltaTime * 1.5f);
-
     }
 
     void OnDisable()
     {
-
         HR_PlayerHandler.OnPlayerSpawned -= OnPlayerSpawned;
         HR_PlayerHandler.OnPlayerDied -= OnPlayerCrashed;
-
     }
 
 }

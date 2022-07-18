@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4450208715428597}
   - component: {fileID: 33233434526286986}
   - component: {fileID: 23159641955891309}
-  - component: {fileID: 64926332636964737}
+  - component: {fileID: 2358377198913263520}
   m_Layer: 0
   m_Name: SAMRTrack-17 (1)
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1508977928391517}
   m_LocalRotation: {x: -0.61070526, y: -0.10225618, z: 0.36313224, w: 0.6962167}
   m_LocalPosition: {x: -279.4176, y: -236.8197, z: 1716.556}
-  m_LocalScale: {x: 500.0004, y: 100.0002, z: 100.0002}
+  m_LocalScale: {x: 500.00034, y: 100.000175, z: 100.00018}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,8 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8edadd7045d94e243b0dc08ff906d206, type: 2}
-  - {fileID: 2100000, guid: 8ccce22e1b09d3d4fb4ef47210ec576b, type: 2}
-  - {fileID: 2100000, guid: 1571b0b357c92d24fbe9f6c6546dc32e, type: 2}
+  - {fileID: 2100000, guid: 5e7e900b2a3dca34aa2e3eda27291be3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64926332636964737
+--- !u!64 &2358377198913263520
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,4 +96,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 44ac9ebee4cfbbb4da3362af03f8662c, type: 2}
+  m_Mesh: {fileID: -4713724695689704988, guid: e9776ee4f9212d84a8ee94e7002deef9, type: 3}

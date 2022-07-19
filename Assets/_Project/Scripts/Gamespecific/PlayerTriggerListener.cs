@@ -48,6 +48,12 @@ public class PlayerTriggerListener : MonoBehaviour
             col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             //col.gameObject.SetActive(false);
         }
+        if (col.gameObject.tag == "Stalag")
+        {
+
+            col.gameObject.GetComponentInChildren<Animator>().enabled = true;
+            //col.gameObject.SetActive(false);
+        }
     }
 
 

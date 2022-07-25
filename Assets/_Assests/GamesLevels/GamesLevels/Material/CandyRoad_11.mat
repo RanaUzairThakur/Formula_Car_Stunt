@@ -10,9 +10,9 @@ Material:
   m_Name: CandyRoad_11
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: RENDERING_FOG RENDERING_RIM RENDERING_RT_SHADOWS RENDERING_SPEC
-    _CULL_BACK _EMISSION
-  m_LightmapFlags: 0
-  m_EnableInstancingVariants: 1
+    _CULL_BACK _EMISSION _GLOSSYREFLECTIONS_OFF
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -37,12 +37,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 0d40119212505ec4681a0290952f2d63, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: da87c22b5467bdb498a9cc9470a7c503, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0d40119212505ec4681a0290952f2d63, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: da87c22b5467bdb498a9cc9470a7c503, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -71,7 +71,7 @@ Material:
     - _Gloss: 0.723
     - _GlossMapScale: 1
     - _Glossiness: 1
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _HeightFactor: -1
     - _Metallic: 0
     - _Mode: 0
@@ -100,7 +100,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+    - _EmissionColor: {r: 0.31132078, g: 0.27167144, b: 0.27167144, a: 1}
     - _RimColor: {r: 1, g: 0.8534628, b: 0, a: 1}
     - _ShadowColor: {r: 0.1114974, g: 0.4235294, b: 0.01568627, a: 1}
     - _SparkleColor: {r: 0.9733331, g: 1, b: 0, a: 1}

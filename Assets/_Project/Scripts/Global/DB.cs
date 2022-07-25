@@ -15,6 +15,7 @@ public class Prefs_Data {
     [SerializeField] private float musicVolume = 0.4f;
 
     [SerializeField] private int goldCoins = 0;
+    [SerializeField] private GameData[] gamedata;
     //[SerializeField] private int highScore = 0;
 
     //[SerializeField] private string playerName;
@@ -26,7 +27,6 @@ public class Prefs_Data {
 
     [SerializeField] private int lastLevelStartAnimation = 0;
 
-    [SerializeField] private GameData[] gamedata;
     //[SerializeField] private GameMode[] gamemode;
 
     [SerializeField] private int lastSelectedGameMode = 0;
@@ -521,7 +521,6 @@ public class Prefs_Data {
     public bool AppRated { get => appRated; set => appRated = value; }
     public Controls SelectedControltype;
     //public string PlayerName { get => playerName; set => playerName = value; }
-    public GameData[] GameData { get => gamedata; set => gamedata = value; }
     public int LastSelectedVehicle { get => lastSelectedVehicle; set => lastSelectedVehicle = value; }
     public bool[] VehiclesUnlocked { get => vehiclesUnlocked; set => vehiclesUnlocked = value; }
     public int LastSelectedGameMode { get => lastSelectedGameMode; set => lastSelectedGameMode = value; }
@@ -549,6 +548,7 @@ public class Prefs_Data {
     public bool IsDetectLowCheapDevice { get => isDetectLowCheapDevice; set => isDetectLowCheapDevice = value; }
     public bool IsDetectMediumCheapDevice { get => isDetectMediumCheapDevice; set => isDetectMediumCheapDevice = value; }
     public bool Tutorialshowfirsttime { get => tutorialshowfirsttime; set => tutorialshowfirsttime = value; }
+    public GameData[] GameData { get => gamedata; set => gamedata = value; }
 }
 
 [System.Serializable]

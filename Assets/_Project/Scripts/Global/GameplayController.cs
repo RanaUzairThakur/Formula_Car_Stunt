@@ -33,6 +33,9 @@ public class GameplayController : MonoBehaviour
     {
         Toolbox.Set_GameplayScript(this);
         Time.timeScale = 1;
+        LevelFail = false;
+        LevelComplete = false;
+        IsRevived = false;
     }
     void Start()
     {
@@ -49,20 +52,20 @@ public class GameplayController : MonoBehaviour
             RCC_Settings.Instance.behaviorSelectedIndex = 6;
     }
 
-    
+
 
 
     public void SpawnVehicle()
     {
         if (SelectedVehiclePrefab)
-        { 
+        {
             Toolbox.GameManager.Log("SpawnVehicle");
             selectedVehiclePrefab = Instantiate(selectedVehiclePrefab, VehicleSpawnPoint.position, VehicleSpawnPoint.rotation);
             selectedVehicleRccv3 = selectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
-          //  Rcccamera.GetComponent<RCC_Camera>().SetTarget(selectedVehiclePrefab);
+            //  Rcccamera.GetComponent<RCC_Camera>().SetTarget(selectedVehiclePrefab);
             Rcccamera.SetActive(true);
             HUD_Status(true);
-            
+
         }
 
     }
@@ -70,12 +73,12 @@ public class GameplayController : MonoBehaviour
     public void Level_Andcutscenehandling()
     {
 
-       
+
         if (SelectedLevelData.Hascutscene)
         {
 
             Optimization();
-             //Invoke(nameof(Toolbox.CutsceneManager.FinishCutscene), Toolbox.CutsceneManager.Completetime);
+            //Invoke(nameof(Toolbox.CutsceneManager.FinishCutscene), Toolbox.CutsceneManager.Completetime);
             // levelhandler.Custcene.SetActive(true);
         }
         else
@@ -88,23 +91,38 @@ public class GameplayController : MonoBehaviour
     {
         if (Toolbox.DB.Prefs.IsDetectVeryCheapDevice)
         {
-            levelhandler.Custcene.SetActive(false);
+            foreach (GameObject g in levelhandler.Custcene)
+                g.SetActive(false);
             SpawnVehicle();
         }
         else if (Toolbox.DB.Prefs.IsDetectLowCheapDevice)
         {
-            levelhandler.Custcene.SetActive(true);
-            Toolbox.CutsceneManager.FinishCutscene();
+            // levelhandler.Custcene.SetActive(true);
+            selectcutscene();
+            //Toolbox.CutsceneManager.FinishCutscene();
         }
         else if (Toolbox.DB.Prefs.IsDetectMediumCheapDevice)
         {
-            levelhandler.Custcene.SetActive(true);
-            Toolbox.CutsceneManager.FinishCutscene();
+            // levelhandler.Custcene.SetActive(true);
+            selectcutscene();
+            //Toolbox.CutsceneManager.FinishCutscene();
         }
         else
         {
-            levelhandler.Custcene.SetActive(true);
+            // levelhandler.Custcene.SetActive(true);
+            selectcutscene();
+            // Toolbox.CutsceneManager.FinishCutscene();
+        }
+    }
+
+    private void selectcutscene()
+    {
+        int ran = Random.Range(0, levelhandler.Custcene.Count);
+        if (levelhandler.Custcene[ran])
+        {
+            levelhandler.Custcene[ran].SetActive(true);
             Toolbox.CutsceneManager.FinishCutscene();
+            //print("select cutscene :" + ran);
         }
     }
     public void UnloadAssetsFromMemory()
@@ -118,11 +136,11 @@ public class GameplayController : MonoBehaviour
         Levelhandler.Fireworks.SetActive(true);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.AudienceAppreciation);
         Toolbox.Soundmanager.Stop_PlayingMusic();
-        if(Levelhandler.CharacterModel && Levelhandler.Finalvehicleslist.Count>0)
+        if (Levelhandler.CharacterModel && Levelhandler.Finalvehicleslist.Count > 0)
         {
-        Toolbox.HUDListner.setstatus_FadeEffect(true);
-        Invoke(nameof(EndEffect_character),2f);
-        StartCoroutine(LevelComplete_Delay(6f));
+            Toolbox.HUDListner.setstatus_FadeEffect(true);
+            Invoke(nameof(EndEffect_character), 2f);
+            StartCoroutine(LevelComplete_Delay(6f));
         }
         else
         {
@@ -146,8 +164,8 @@ public class GameplayController : MonoBehaviour
         Toolbox.HUDListner.handleplayerhud(_val);
         Toolbox.HUDListner.Set_PlayerControls(_val);
         Toolbox.HUDListner.pauseBtn.gameObject.SetActive(_val);
-       // Toolbox.HUDListner.gameObject.SetActive(_val);
-       // Toolbox.HUDListner.set_statusLevelCounter();
+        // Toolbox.HUDListner.gameObject.SetActive(_val);
+        // Toolbox.HUDListner.set_statusLevelCounter();
     }
     public IEnumerator LevelComplete_Delay(float delay)
     {
@@ -165,20 +183,22 @@ public class GameplayController : MonoBehaviour
         LevelComplete = true;
 
         //HUD_Status(false);
-        if ((!Toolbox.DB.Prefs.AppRated && Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() == 2) || (!Toolbox.DB.Prefs.AppRated && Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() == 5))
-        {
-            Toolbox.HUDListner.RateUs_Panel.SetActive(true);
-            // Toolbox.GameManager.InstantiateUI_RateUs();
-        }
+        //if ((!Toolbox.DB.Prefs.AppRated && Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() == 2) || (!Toolbox.DB.Prefs.AppRated && Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() == 5))
+        //{
+        //    Toolbox.HUDListner.RateUs_Panel.SetActive(true);
+        //}
 
-        else
-        {
-            Toolbox.HUDListner.CompletePanel.SetActive(true);
-            // Toolbox.GameManager.InstantiateUI_LevelComplete();
-        }
+        //else
+        //{
+        //    Toolbox.HUDListner.CompletePanel.SetActive(true);
+        //}
+          Toolbox.HUDListner.CompletePanel.SetActive(true);
+
     }
     public void LevelFail_Delay(float delay)
     {
+        if (LevelFail)
+            return;
         if (Lives >= 0)
         {
             Resetvehicle();
@@ -190,11 +210,11 @@ public class GameplayController : MonoBehaviour
             HUD_Status(false);
             Invoke("LevelFailHandling", delay);
         }
-       
+
     }
     public void LevelFailHandling()
     {
-        
+
         if (LevelComplete || LevelFail)
             return;
 

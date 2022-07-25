@@ -8,7 +8,7 @@ public class Cutscenemanager : MonoBehaviour
     void Awake()
     {
         Toolbox.Set_cutscenemanager(this);
-        Cutsceneobj.SetActive(false);
+        //Cutsceneobj.SetActive(false);
     }
 
     //private void OnEnable()

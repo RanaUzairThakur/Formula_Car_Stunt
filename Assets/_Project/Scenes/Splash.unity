@@ -1413,29 +1413,23 @@ MonoBehaviour:
     soundVolume: 1
     musicVolume: 0.4
     goldCoins: 0
-    modesautoscroller: 0
-    firstRun: 1
-    megaofferpanelShowed: 0
-    appRated: 0
-    userConsent: 0
-    lastLevelStartAnimation: 0
     gamedata:
     - Name: TrainerMode
-      levelUnlocked: 0100000000000000000000000000000000000000
-      levelstar: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      levelUnlocked: 010000000000000000000000000000000000000000000000000000000000
+      levelstar: 
       lastselectedlevelofchapter: 0
       modeunlocked: 1
     - Name: MasterMode
-      levelUnlocked: 0101010101000000000000000000000000000000
-      levelstar: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      levelUnlocked: 010000000000000000000000000000
+      levelstar: 
       lastselectedlevelofchapter: 0
       modeunlocked: 1
     - Name: EndlessMode
-      levelUnlocked: 010000000000000000000000000000
-      levelstar: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      levelUnlocked: 
+      levelstar: 
       lastselectedlevelofchapter: 0
       modeunlocked: 1
-    - Name: MultiplayerMode
+    - Name: MultiplierMode
       levelUnlocked: 
       levelstar: 
       lastselectedlevelofchapter: 0
@@ -1450,6 +1444,12 @@ MonoBehaviour:
       levelstar: 
       lastselectedlevelofchapter: 0
       modeunlocked: 1
+    modesautoscroller: 0
+    firstRun: 1
+    megaofferpanelShowed: 1
+    appRated: 0
+    userConsent: 0
+    lastLevelStartAnimation: 0
     lastSelectedGameMode: 0
     lastSelectedscenename: 
     mode2Unlocked: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
     unlockallLevel: 0
     unlockallVehicles: 0
     unlockallModes: 0
-    dailyrewardclaimed: 0
+    dailyrewardclaimed: 1
     purchasingInapp: 0
     deviceSpecificationCheck: 0
     isDetectVeryCheapDevice: 0

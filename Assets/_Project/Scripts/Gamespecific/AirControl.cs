@@ -66,6 +66,11 @@ public class AirControl : MonoBehaviour
                 hud.set_StatusAicontrolsIndicators(true);
             }
         }
+        else
+        {
+            hud.set_StatusAicontrolsIndicators(false);
+        }
+        
     }
     public void In()
     {

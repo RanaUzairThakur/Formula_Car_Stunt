@@ -32,7 +32,7 @@ public class ModesData : MonoBehaviour
         {
             RenderSettings.skybox = skyboxes;
         }
-        catch (System.Exception ex)
+        catch (System.Exception Exception)
         {
 
             RenderSettings.skybox = skyboxes;

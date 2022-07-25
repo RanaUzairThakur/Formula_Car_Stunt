@@ -92,6 +92,8 @@ public class HUDListner : MonoBehaviour
         steering = 0f;
         Boostinput = 0f;
         Handbrake = 0f;
+        onpressleft = false;
+        onpressright = false;
         if (Application.isMobilePlatform)
             RCC_Settings.Instance.selectedControllerType = RCC_Settings.ControllerType.Mobile;
 

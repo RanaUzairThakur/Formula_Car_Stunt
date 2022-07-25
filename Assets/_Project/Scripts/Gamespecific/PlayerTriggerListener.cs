@@ -38,7 +38,7 @@ public class PlayerTriggerListener : MonoBehaviour
         }
         if (col.gameObject.tag == "GameOver")
         {
-            print("Name :"+col.gameObject.name);
+            //print("Name :"+col.gameObject.name);
             Toolbox.GameplayController.Lives -= 1;
             Toolbox.GameplayController.LevelFail_Delay(3f);
         }

@@ -12,15 +12,15 @@ public class MetalBarrel : MonoBehaviour {
 	public bool BreakByClick = true;
 	public bool DestroyAfterTime = true; //if true, then chunks will be destroyed after time.
 	public float time = 5; //time before chunks will be destroyed from the scene.
-	public GameObject ExpLight;
-	public GameObject FireFX;
+	//public GameObject ExpLight;
+	//public GameObject FireFX;
 	public bool AutoDestroy = true; //if true, then object will be automatically break after after "AutoDestTime" since game start.
 	public float AutoDestTime = 2; //Auto destruction time (counts from game start).
 
 	void Start () {
 		if(AutoDestroy){
 			Invoke("Crushing", AutoDestTime);
-		FireFX.SetActive(true);
+		//FireFX.SetActive(true);
 		}
 		if(GetComponent<AudioSource>()){
 			GetComponent<AudioSource>().pitch = Random.Range (1, 1.3f);
@@ -58,7 +58,7 @@ public class MetalBarrel : MonoBehaviour {
 
 	void Crushing(){
 		CancelInvoke(nameof(Crushing));
-		FireFX.SetActive(false);
+		//FireFX.SetActive(false);
 		GetComponent<Renderer>().enabled = false;
 		GetComponent<Collider>().enabled = false;
 		GetComponent<Rigidbody>().isKinematic = true;

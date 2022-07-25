@@ -21,8 +21,11 @@ public class ObstaclesActivator : MonoBehaviour
     {
         foreach (GameObject g in Obstacles)
         {
-            if (g.GetComponent<Rigidbody>())
-                g.GetComponent<Rigidbody>().isKinematic = false;
+            if (g)
+            {
+                if (g.GetComponent<Rigidbody>())
+                    g.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
     }
 }

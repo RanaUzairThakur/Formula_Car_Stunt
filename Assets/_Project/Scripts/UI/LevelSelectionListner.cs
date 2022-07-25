@@ -8,7 +8,7 @@ public class LevelSelectionListner : MonoBehaviour
 {
     public Transform content;
     public Text coinsTxt;
-    //public GameObject PlayButon;
+    public GameObject PlayButon;
     public GameObject UnlockallBtn;
 
     public int tileWidth = 446;
@@ -163,7 +163,7 @@ public class LevelSelectionListner : MonoBehaviour
                 Toolbox.DB.Prefs.Set_LastSelectedLevelOfCurrentGameMode(i);
                 content.GetChild(i).GetComponent<LevelButtonListner>().check_OutlineStatus(true);
                 content.GetChild(i).GetComponent<UIAnimatorCore.UIAnimator>().enabled = true;
-                // PlayButon.SetActive(true);
+                PlayButon.SetActive(true);
                 return;
             }
         }

@@ -31,14 +31,10 @@ public class TutorialListner : MonoBehaviour
         {
         //    Toolbox.GameplayController.Level3DAudioSource.enabled = false;
         //    Toolbox.GameplayController.TutorialCamera.SetActive(true);
-
             Toolbox.Soundmanager.Set_MusicVolume((Toolbox.Soundmanager.musicSource.volume - 0.5f));
-
             curIndex = 0;
             ShowStep(curIndex);
         }
-
-
     }
 
     public void ShowStep(int _index) {
@@ -48,16 +44,13 @@ public class TutorialListner : MonoBehaviour
             End();
             return;
         }
-
         steps[_index].SetActive(true);
         descriptionHeadingTxt.text = stepDescriptionHeadingVal[_index];
         descriptionBodyTxt.text = stepDescriptionBodyVal[_index];
-
         Toolbox.Soundmanager.PlaySoundAfterStop(stepVoiceover[_index]);
     }
 
     public void OnPress_Okay() {
-
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
         Toolbox.GameManager.FBAnalytic_EventDesign("Tutorial_Press_Okay");
         Toolbox.GameManager.Analytics_DesignEvent("Tutorial_Press_Okay");

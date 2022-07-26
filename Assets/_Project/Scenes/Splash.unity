@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1261394749}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &53914095
 AudioSource:
@@ -1378,8 +1378,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 53914094}
   - {fileID: 1904447397}
+  - {fileID: 53914094}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1518,7 +1518,22 @@ MonoBehaviour:
   AudienceAppreciation: {fileID: 8300000, guid: daebb8142a59c824a84ce5ea6adbea36, type: 3}
   singleCoinsSound: {fileID: 8300000, guid: 4d0d305917b502446b433f85a9b6fd6a, type: 3}
   Savepointclip: {fileID: 8300000, guid: cebbf658dc141b145a11956bea31cada, type: 3}
-  Pickupnitro: {fileID: 0}
+  Pickupnitro: {fileID: 8300000, guid: 2b77981e82f64c648980420ecd8b8f40, type: 3}
+  Stuntvoiceovers:
+  - {fileID: 8300000, guid: ff5a815fc01812b438c602bb66bd1c4f, type: 3}
+  - {fileID: 8300000, guid: 850be62bb09363c4687136cca04539cf, type: 3}
+  - {fileID: 8300000, guid: 23253db69cfd0e84d996d2c45cf3a88d, type: 3}
+  - {fileID: 8300000, guid: e027f2400fc589341b5c7cf5b7de2072, type: 3}
+  - {fileID: 8300000, guid: 29fa6117ab7e50f48b4400c0ff98e32e, type: 3}
+  - {fileID: 8300000, guid: 4e16ff8ee90602747972c5fedf0d70b2, type: 3}
+  - {fileID: 8300000, guid: 73f99b30ee44d5b4387733e3b67b20ff, type: 3}
+  Countingvoiceovers:
+  - {fileID: 8300000, guid: 5f9f0d49980609547a8b5d9e252f987b, type: 3}
+  - {fileID: 8300000, guid: 23348fa1d3c905e4298170045b36152f, type: 3}
+  - {fileID: 8300000, guid: 4ba3bc2d14650774887dc3eda127e497, type: 3}
+  - {fileID: 8300000, guid: 99afe233291ced24eb20355c98533751, type: 3}
+  StartEngineVoiceOver: {fileID: 8300000, guid: 52372f72213645e40b829a0a62c100e8, type: 3}
+  StartEngine: {fileID: 8300000, guid: 0138c82456364194f9db9ba68bf10579, type: 3}
 --- !u!114 &1261394753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,7 +2024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1261394749}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1904447398
 AudioSource:

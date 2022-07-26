@@ -45,6 +45,7 @@ public class HUDListner : MonoBehaviour
     public Text Speed;
     public Text totalLivesTxt;
     public Text LevelText;
+    public Text Stunttypename;
     public GameObject Missioncompletetext;
     public GameObject MissionFailtext;
     public GameObject ObjectiveClear;
@@ -251,6 +252,12 @@ public class HUDListner : MonoBehaviour
 
         LevelText.text = Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString();
 
+    }
+    public void set_StatusStunt(bool _status, string _val)
+    {
+        Stunttypename.text = _val.ToString();
+        Stunttypename.transform.parent.gameObject.SetActive(false);
+        Stunttypename.transform.parent.gameObject.SetActive(_status);
     }
 
     public void Set_PlayerHealth()

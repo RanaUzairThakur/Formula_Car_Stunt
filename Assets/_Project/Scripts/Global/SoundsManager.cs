@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class VoiceOver 
@@ -53,6 +54,12 @@ public class SoundsManager : MonoBehaviour {
 	public AudioClip singleCoinsSound;
 	public AudioClip Savepointclip;
 	public AudioClip Pickupnitro;
+	public List<AudioClip> Stuntvoiceovers;
+	public List<AudioClip> Countingvoiceovers;
+
+	public AudioClip StartEngineVoiceOver;
+	public AudioClip StartEngine;
+
 	private void Start()
     {
 
@@ -67,13 +74,14 @@ public class SoundsManager : MonoBehaviour {
 
     public void Pause(){
 
-		this.soundSource.Pause ();
+		//this.soundSource.Pause ();
 		this.musicSource.Pause();
 	}
 
 	public void UnPause(){
 
-		this.soundSource.UnPause ();
+		//this.soundSource.UnPause ();
+		print("unpause");
 		this.musicSource.UnPause();
 
 	}

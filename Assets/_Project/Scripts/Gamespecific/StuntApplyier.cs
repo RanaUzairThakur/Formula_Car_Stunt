@@ -9,6 +9,7 @@ public class StuntApplyier : MonoBehaviour
     public bool Y = false;
     public bool Z = false;
     public float speed = 300f;
+    private bool jump = false;
     //int ran = 0;
     // Start is called before the first frame update
     void Start()
@@ -20,34 +21,41 @@ public class StuntApplyier : MonoBehaviour
     {
 
 
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") /*&& !jump*/)
         {
 
             if (this.tag == "stuntrotation")
             {
-                //ran = Random.Range(0,3);
-                //if (ran ==0 )
-                //    col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation,StuntRotationAxis.X,speed);
-                //else if (ran == 1)
-                //    col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation, StuntRotationAxis.Y,speed);
-                //else if (ran == 2)
-                //    col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation, StuntRotationAxis.Z,speed);
-
+                //jump = true;
                 if (X)
+                {
                     col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation, StuntRotationAxis.X, speed);
+                    Toolbox.HUDListner.set_StatusStunt(true,"Flat spin stunt");
+                }
                 else if (Y)
+                {
                     col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation, StuntRotationAxis.Y, speed);
+                    Toolbox.HUDListner.set_StatusStunt(true, "Flat spin stunt");
+                }
                 else if (Z)
+                {
                     col.gameObject.GetComponentInParent<CarstuntHandler>().Set_Statustantrotation(transform.rotation, StuntRotationAxis.Z, speed);
-            }
-            //else if (this.gameObject.tag == "Airstableoff")
-            //{
-            //    X = Y = Z = false;
-            //    col.gameObject.GetComponentInParent<AirStabiity>().Set_StatusrotationAngle(0, RotationAxis.None);
+                    Toolbox.HUDListner.set_StatusStunt(true, "Barrel spin stunt");
+                }
 
-            //}
+                Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Stuntvoiceovers[Random.Range(0, Toolbox.Soundmanager.Stuntvoiceovers.Count)]);
+                Toolbox.Soundmanager.Pause();
+                Invoke(nameof(UnpauseMusic), 1f);
+            }
+           
         }
 
+    }
+   
+    private void UnpauseMusic()
+    {
+        Toolbox.Soundmanager.UnPause();
+        CancelInvoke(nameof(UnpauseMusic));
     }
 
 }

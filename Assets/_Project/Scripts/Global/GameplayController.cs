@@ -39,10 +39,16 @@ public class GameplayController : MonoBehaviour
     }
     void Start()
     {
-        if (Toolbox.DB.Prefs.LastSelectedGameMode < 2)
-            Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
-        else
+        //if (Toolbox.DB.Prefs.LastSelectedGameMode < 2)
+        //    Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
+        //else
+        //    Toolbox.Soundmanager.Set_MusicVolume(0.25f);
+
+        if (Toolbox.DB.Prefs.LastSelectedGameMode > 2)
             Toolbox.Soundmanager.Set_MusicVolume(0.25f);
+        else
+            Toolbox.Soundmanager.Stop_PlayingMusic();
+
 
         Toolbox.GameManager.FBAnalytic_EventLevel_Started(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Analytics_ProgressionEvent_Start(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
@@ -62,14 +68,32 @@ public class GameplayController : MonoBehaviour
             Toolbox.GameManager.Log("SpawnVehicle");
             selectedVehiclePrefab = Instantiate(selectedVehiclePrefab, VehicleSpawnPoint.position, VehicleSpawnPoint.rotation);
             selectedVehicleRccv3 = selectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
-            //  Rcccamera.GetComponent<RCC_Camera>().SetTarget(selectedVehiclePrefab);
-            Rcccamera.SetActive(true);
-            HUD_Status(true);
-
+            Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.StartEngineVoiceOver);
+            Invoke(nameof(Startenginesound),2f);
+            Toolbox.Soundmanager.Stop_PlayingMusic();
+            //Invoke(nameof(GamePlaysoundPlay), 5.5f);
+            if (selectedVehiclePrefab.GetComponent<EffectListener>())
+                selectedVehiclePrefab.GetComponent<EffectListener>().Startcountdown();
+            else
+            { 
+              HUD_Status(true);
+            }
+              Rcccamera.SetActive(true);
         }
 
     }
 
+    private void Startenginesound()
+    {
+        Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.StartEngine);
+        selectedVehicleRccv3.StartEngine(true);
+        CancelInvoke(nameof(Startenginesound));
+    }
+    private void GamePlaysoundPlay()
+    {
+        Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
+        CancelInvoke(nameof(GamePlaysoundPlay));
+    }
     public void Level_Andcutscenehandling()
     {
 
@@ -192,7 +216,7 @@ public class GameplayController : MonoBehaviour
         //{
         //    Toolbox.HUDListner.CompletePanel.SetActive(true);
         //}
-          Toolbox.HUDListner.CompletePanel.SetActive(true);
+        Toolbox.HUDListner.CompletePanel.SetActive(true);
 
     }
     public void LevelFail_Delay(float delay)

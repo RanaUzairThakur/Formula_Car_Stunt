@@ -1192,7 +1192,7 @@ public class RCC_CarControllerV3 : RCC_Core
 
             throttleInput = 0f;
             engineRunning = false;
-            print("Fuel is 0");
+          //  print("Fuel is 0");
         }
 
         if ((changingGear || cutGas) && boostInput <= 0)

@@ -23,6 +23,7 @@ public class PlayerTriggerListener : MonoBehaviour
 
             Lastsavepoint = col.gameObject.transform;
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Savepointclip);
+            Toolbox.HUDListner.set_StatusStunt(true,"CHECKPOINT");
             //col.gameObject.SetActive(false);
         }
         if (col.gameObject.tag == "Coin")

@@ -10,6 +10,7 @@ public class StuntApplyier : MonoBehaviour
     public bool Z = false;
     public float speed = 300f;
     private bool jump = false;
+    public bool stuntcameraenable = false;
     //int ran = 0;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,11 @@ public class StuntApplyier : MonoBehaviour
                     Toolbox.HUDListner.set_StatusStunt(true, "Barrel spin stunt");
                 }
 
-                Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Stuntvoiceovers[Random.Range(0, Toolbox.Soundmanager.Stuntvoiceovers.Count)]);
+                if (stuntcameraenable)
+                    if (Toolbox.GameplayController.stuntcamera)
+                        Toolbox.GameplayController.stuntcamera.set_StatusStunt();
+
+                    Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Stuntvoiceovers[Random.Range(0, Toolbox.Soundmanager.Stuntvoiceovers.Count)]);
                 Toolbox.Soundmanager.Pause();
                 Invoke(nameof(UnpauseMusic), 1f);
             }

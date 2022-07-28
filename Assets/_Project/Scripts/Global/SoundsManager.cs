@@ -81,7 +81,7 @@ public class SoundsManager : MonoBehaviour {
 	public void UnPause(){
 
 		//this.soundSource.UnPause ();
-		print("unpause");
+		//print("unpause");
 		this.musicSource.UnPause();
 
 	}

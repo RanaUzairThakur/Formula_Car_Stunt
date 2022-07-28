@@ -48,16 +48,25 @@ public class VehicleSelectionListner : MonoBehaviour
       
         UnlockAllVehicle_btnhandling();
         set_StatusTutorial();
-      //  Gunselection.SetActive(true);
-      //  Mainmenu.SetActive(false);
-
-
     }
     private void Start()
     {
         // Invoke("ShowMegaOffers",1f);
     }
 
+    private void Update()
+    {
+        LerpStats();
+    }
+    private void LerpStats()
+    {
+        //Normal Stats
+        if (attributeFillImg[0]) attributeFillImg[0].fillAmount = Mathf.Lerp(attributeFillImg[0].fillAmount, vehiclesData.TopSpeed, Time.deltaTime * 3.0f);
+
+        if (attributeFillImg[1]) attributeFillImg[1].fillAmount = Mathf.Lerp(attributeFillImg[1].fillAmount, vehiclesData.Acceleration, Time.deltaTime * 3.0f);
+        
+        if (attributeFillImg[2]) attributeFillImg[2].fillAmount = Mathf.Lerp(attributeFillImg[2].fillAmount, vehiclesData.Handling, Time.deltaTime * 3.0f);
+    }
     private void ShowMegaOffers()
     {
         if (!Toolbox.DB.Prefs.AreAllVehiclesUnlocked() && !Toolbox.DB.Prefs.MegaOfferPurchased)
@@ -120,9 +129,9 @@ public class VehicleSelectionListner : MonoBehaviour
         //vehicleName.text = vehiclesData.name.ToString();
         vehicleCost.text = vehiclesData.cost.ToString();
 
-        attributeFillImg[0].fillAmount = vehiclesData.TopSpeed;
-        attributeFillImg[2].fillAmount = vehiclesData.Acceleration;
-        attributeFillImg[2].fillAmount = vehiclesData.Handling;
+        //attributeFillImg[0].fillAmount = vehiclesData.TopSpeed;
+        //attributeFillImg[2].fillAmount = vehiclesData.Acceleration;
+        //attributeFillImg[2].fillAmount = vehiclesData.Handling;
         //BarHover[_index].SetActive(true);
         SetButtonState(Toolbox.DB.Prefs.VehiclesUnlocked[_index]);
     }
@@ -205,6 +214,7 @@ public class VehicleSelectionListner : MonoBehaviour
         {
             Toolbox.DB.Prefs.GoldCoins -= vehiclesData.cost;
             Toolbox.DB.Prefs.VehiclesUnlocked[curVehicleIndex] = true;
+            UpdateTxts();
             SetButtonState(true);
         }
         else

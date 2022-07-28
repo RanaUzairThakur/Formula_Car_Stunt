@@ -10,16 +10,20 @@ public class GameplayController : MonoBehaviour
 
     //public Material[] skyboxes;
     public GameObject Rcccamera;
+    public StuntCameraHandler stuntcamera;
     public Transform VehicleSpawnPoint;
     private GameObject selectedVehiclePrefab;
     private RCC_CarControllerV3 selectedVehicleRccv3;
+    private EffectListener effectsfx;
     private LevelHandler levelhandler;
     private LevelsData selectedLevelData;
 
     private bool levelComplete = false;
     private bool levelFail = false;
     private bool isRevived = false;
+    private bool isFinish = false;
     private int lives = 3;
+
     public bool LevelComplete { get => levelComplete; set => levelComplete = value; }
     public bool LevelFail { get => levelFail; set => levelFail = value; }
     public bool IsRevived { get => isRevived; set => isRevived = value; }
@@ -28,6 +32,8 @@ public class GameplayController : MonoBehaviour
     public RCC_CarControllerV3 SelectedVehicleRccv3 { get => selectedVehicleRccv3; set => selectedVehicleRccv3 = value; }
     public int Lives { get => lives; set => lives = value; }
     public LevelsData SelectedLevelData { get => selectedLevelData; set => selectedLevelData = value; }
+    public bool IsFinish { get => isFinish; set => isFinish = value; }
+    public EffectListener Effectsfx { get => effectsfx; set => effectsfx = value; }
 
     void Awake()
     {
@@ -36,6 +42,7 @@ public class GameplayController : MonoBehaviour
         LevelFail = false;
         LevelComplete = false;
         IsRevived = false;
+        IsFinish = false;
     }
     void Start()
     {
@@ -68,26 +75,38 @@ public class GameplayController : MonoBehaviour
             Toolbox.GameManager.Log("SpawnVehicle");
             selectedVehiclePrefab = Instantiate(selectedVehiclePrefab, VehicleSpawnPoint.position, VehicleSpawnPoint.rotation);
             selectedVehicleRccv3 = selectedVehiclePrefab.GetComponent<RCC_CarControllerV3>();
+            Effectsfx = selectedVehiclePrefab.GetComponent<EffectListener>();
             Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.StartEngineVoiceOver);
-            Invoke(nameof(Startenginesound),2f);
+            Toolbox.HUDListner.set_statusEnginebutton(true);
+           // Invoke(nameof(Startenginesound),2f);
             Toolbox.Soundmanager.Stop_PlayingMusic();
+            // HUD_Status(true);
+            // Rcccamera.SetActive(true);
             //Invoke(nameof(GamePlaysoundPlay), 5.5f);
-            if (selectedVehiclePrefab.GetComponent<EffectListener>())
-                selectedVehiclePrefab.GetComponent<EffectListener>().Startcountdown();
-            else
-            { 
-              HUD_Status(true);
-            }
-              Rcccamera.SetActive(true);
+            //if (selectedVehiclePrefab.GetComponent<EffectListener>())
+            //    selectedVehiclePrefab.GetComponent<EffectListener>().Startcountdown();
+            //else
+            //{
+            //    HUD_Status(true);
+            //}
+            Rcccamera.SetActive(true);
         }
 
     }
 
-    private void Startenginesound()
+    public void Startenginesound()
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.StartEngine);
         selectedVehicleRccv3.StartEngine(true);
-        CancelInvoke(nameof(Startenginesound));
+        Toolbox.HUDListner.set_statusEnginebutton(false);
+        if (selectedVehiclePrefab.GetComponent<EffectListener>())
+            selectedVehiclePrefab.GetComponent<EffectListener>().Startcountdown();
+        else
+        {
+            HUD_Status(true);
+            Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
+        }
+        //CancelInvoke(nameof(Startenginesound));
     }
     private void GamePlaysoundPlay()
     {
@@ -172,6 +191,7 @@ public class GameplayController : MonoBehaviour
             Levelhandler.endCamera.SetActive(true);
             StartCoroutine(LevelComplete_Delay(3f));
         }
+        IsFinish = true;
     }
 
     private void EndEffect_character()

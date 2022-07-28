@@ -10,12 +10,16 @@ public class LerpColor : MonoBehaviour
     public float time = 1;
     Text t;
     Material m;
+    Image Img;
     void Start()
     {
         if (isText)
             t = GetComponent<Text>();
         else
+        {
             m = GetComponent<MeshRenderer>().material;
+            Img = GetComponent<Image>();
+        }
     }
 
     void Update()
@@ -25,5 +29,6 @@ public class LerpColor : MonoBehaviour
             t.color = lerpedColor;
         else
             m.color = lerpedColor;
+           // m.color = lerpedColor;
     }
 }

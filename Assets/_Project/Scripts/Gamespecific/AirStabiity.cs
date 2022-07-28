@@ -5,7 +5,7 @@ public class AirStabiity : MonoBehaviour
 {
     //GameObject Player;
     //public bool stablerotation;
-    private float smoothrotation = 3f;
+    public float smoothrotation = 3f;
     public float Targetangle = 0f;
     public RotationAxis Axis ;
 

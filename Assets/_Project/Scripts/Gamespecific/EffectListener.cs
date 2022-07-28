@@ -9,6 +9,7 @@ public class EffectListener : MonoBehaviour
     public GameObject NeonTyreRight;
     public List<GameObject> Countingobj;
     public List<GameObject> CountingCameras;
+    public List<Transform> stuntcamerapoint;
     //private bool ischeapdevice = false;
     //private void Awake()
     //{
@@ -74,8 +75,8 @@ public class EffectListener : MonoBehaviour
 
     public void Startcountdown()
     {
-        Invoke(nameof(count_One),4f);
-        Toolbox.GameplayController.Rcccamera.SetActive(false);
+        Invoke(nameof(count_One),1.5f);
+        //count_One();
 
     }
     public void count_One()
@@ -88,6 +89,7 @@ public class EffectListener : MonoBehaviour
         {
             c.SetActive(false);
         }
+        Toolbox.GameplayController.Rcccamera.SetActive(false);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Countingvoiceovers[0]);
         Countingobj[0].SetActive(true);
         CountingCameras[0].SetActive(true);
@@ -141,6 +143,7 @@ public class EffectListener : MonoBehaviour
         Toolbox.GameplayController.Rcccamera.transform.position = CountingCameras[2].transform.position;
         Toolbox.GameplayController.Rcccamera.transform.position = CountingCameras[2].transform.position;
 
+        Toolbox.Soundmanager.PlayMusic_Game(Random.Range(0, Toolbox.Soundmanager.gameBG.Length));
         Toolbox.GameplayController.Rcccamera.SetActive(true);
         Toolbox.GameplayController.HUD_Status(true);
         Invoke(nameof(Go_off),2f);

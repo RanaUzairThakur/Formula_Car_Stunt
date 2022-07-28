@@ -639,6 +639,9 @@ public class RCC_Camera : MonoBehaviour {
         // Lerping targetFieldOfView from TPSMinimumFOV to TPSMaximumFOV related with vehicle speed.
         targetFieldOfView = Mathf.Lerp(TPSMinimumFOV, TPSMaximumFOV, Mathf.Abs(playerSpeed) / 150f);
 
+
+
+
         if (useOcclusion)
             OccludeRay(playerCar.transform.position);
 

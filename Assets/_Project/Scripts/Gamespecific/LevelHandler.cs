@@ -61,7 +61,7 @@ public class LevelHandler : MonoBehaviour
 
     private void SpawnVehicle()
     {
-        print("Path :" + Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles + Toolbox.DB.Prefs.LastSelectedVehicle);
+     //   print("Path :" + Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles + Toolbox.DB.Prefs.LastSelectedVehicle);
 
         Toolbox.GameplayController.SelectedVehiclePrefab = Resources.Load<GameObject>(Constants.folderPath_Prefabs + Constants.folderPath_Prefabs_PlayerVehicles + Toolbox.DB.Prefs.LastSelectedVehicle);
         Toolbox.GameplayController.VehicleSpawnPoint = vehicleSpawnPoint;

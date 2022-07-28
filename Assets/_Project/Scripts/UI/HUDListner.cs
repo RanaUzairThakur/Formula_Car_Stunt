@@ -34,6 +34,7 @@ public class HUDListner : MonoBehaviour
     public GameObject Loadingpanel;
     public GameObject Message;
     public GameObject Fadeimage;
+    public GameObject Startengine;
     public GameObject AircontrolsTutorial;
     public GameObject AircontrolsLeftIndicator;
     public GameObject AircontrolsRightIndicator;
@@ -213,6 +214,10 @@ public class HUDListner : MonoBehaviour
         totalLivesTxt.text = _val.ToString();
     }
 
+    public void set_statusEnginebutton(bool _Val)
+    {
+        Startengine.SetActive(_Val);
+    }
     //public float Get_Time() {
 
     //   return time;

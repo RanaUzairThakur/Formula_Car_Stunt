@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,9 +10,8 @@ namespace GoogleMobileAds.Editor
 
         private const string MobileAdsSettingsResDir = "Assets/GoogleMobileAds/Resources";
 
-        private const string MobileAdsSettingsFile = "GoogleMobileAdsSettings";
-
-        private const string MobileAdsSettingsFileExtension = ".asset";
+        private const string MobileAdsSettingsFile =
+            "Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset";
 
         private static GoogleMobileAdsSettings instance;
 
@@ -28,45 +26,68 @@ namespace GoogleMobileAds.Editor
 
         public string GoogleMobileAdsAndroidAppId
         {
-            get { return Instance.adMobAndroidAppId; }
+            get
+            {
+                return Instance.adMobAndroidAppId;
+            }
 
-            set { Instance.adMobAndroidAppId = value; }
+            set
+            {
+                Instance.adMobAndroidAppId = value;
+            }
         }
 
         public string GoogleMobileAdsIOSAppId
         {
-            get { return Instance.adMobIOSAppId; }
+            get
+            {
+                return Instance.adMobIOSAppId;
+            }
 
-            set { Instance.adMobIOSAppId = value; }
+            set
+            {
+                Instance.adMobIOSAppId = value;
+            }
         }
 
         public bool DelayAppMeasurementInit
         {
-            get { return Instance.delayAppMeasurementInit; }
+            get
+            {
+                return Instance.delayAppMeasurementInit;
+            }
 
-            set { Instance.delayAppMeasurementInit = value; }
+            set
+            {
+                Instance.delayAppMeasurementInit = value;
+            }
         }
 
         public static GoogleMobileAdsSettings Instance
         {
             get
             {
-                if (instance != null)
+                if (instance == null)
                 {
-                    return instance;
+                    if (!AssetDatabase.IsValidFolder(MobileAdsSettingsDir))
+                    {
+                        AssetDatabase.CreateFolder("Assets", "GoogleMobileAds");
+                    }
+
+                    if (!AssetDatabase.IsValidFolder(MobileAdsSettingsResDir))
+                    {
+                        AssetDatabase.CreateFolder(MobileAdsSettingsDir, "Resources");
+                    }
+
+                    instance = (GoogleMobileAdsSettings) AssetDatabase.LoadAssetAtPath(
+                        MobileAdsSettingsFile, typeof(GoogleMobileAdsSettings));
+
+                    if (instance == null)
+                    {
+                        instance = ScriptableObject.CreateInstance<GoogleMobileAdsSettings>();
+                        AssetDatabase.CreateAsset(instance, MobileAdsSettingsFile);
+                    }
                 }
-
-                instance = Resources.Load<GoogleMobileAdsSettings>(MobileAdsSettingsFile);
-
-                Directory.CreateDirectory(MobileAdsSettingsResDir);
-
-                instance = ScriptableObject.CreateInstance<GoogleMobileAdsSettings>();
-
-                string assetPath = Path.Combine(MobileAdsSettingsResDir, MobileAdsSettingsFile);
-                string assetPathWithExtension = Path.ChangeExtension(
-                                                        assetPath, MobileAdsSettingsFileExtension);
-                AssetDatabase.CreateAsset(instance, assetPathWithExtension);
-
                 return instance;
             }
         }

@@ -21,14 +21,14 @@ namespace GoogleMobileAds.Editor
 
             GoogleMobileAdsSettings.Instance.GoogleMobileAdsAndroidAppId =
                     EditorGUILayout.TextField("Android", "ca-app-pub-9515731482364926~6216970168"
-                           /* GoogleMobileAdsSettings.Instance.GoogleMobileAdsAndroidAppId*/);
+                            /*GoogleMobileAdsSettings.Instance.GoogleMobileAdsAndroidAppId*/);
 
             GoogleMobileAdsSettings.Instance.GoogleMobileAdsIOSAppId =
                     EditorGUILayout.TextField("iOS",
                             GoogleMobileAdsSettings.Instance.GoogleMobileAdsIOSAppId);
 
             EditorGUILayout.HelpBox(
-                    "Google Mobile  Ads App ID will look similar to this sample ID: ca-app-pub-3940256099942544~3347511713",
+                    "Google Mobile  Ads App ID will look similar to this sample ID: ca-app-pub-9515731482364926~6216970168",
                     MessageType.Info);
 
             EditorGUI.indentLevel--;

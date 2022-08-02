@@ -54,35 +54,42 @@ public class PlayerPrefManager : MonoBehaviour {
 	}
     public void RemoveAds()
     {
-		if (AdsManager.Instance)
+		if (FindObjectOfType<MediationHandler>())
 		{
-			AdsManager.Instance.HideBannerAd();
-			AdsManager.Instance.HideMediumRectangleAd();
+
+			FindObjectOfType<MediationHandler>().HideMediumBannerEvent();
+			FindObjectOfType<MediationHandler>().HideSmallBannerEvent();
+
 		}
-		PlayerPrefs.SetInt("RemoveAds", 1);
-    }
-	public void unlocklevels()
-	{
-        PlayerPrefs.SetInt("compare", 24);
-    }
-    public void unlockplayers()
-	{
-        PlayerPrefs.SetInt("MNum", 9);
-    }
-    public void MegaPack()
-    {
-        PlayerPrefs.SetInt("MNum", 9);
-        PlayerPrefs.SetInt("compare", 24);
+		//if (AdsManager.Instance)
+  //      {
+  //          AdsManager.Instance.HideBannerAd();
+  //          AdsManager.Instance.HideMediumRectangleAd();
+  //      }
         PlayerPrefs.SetInt("RemoveAds", 1);
     }
-    public bool IsAdsRemoved()
-    {
+	//public void unlocklevels()
+	//{
+ //       PlayerPrefs.SetInt("compare", 24);
+ //   }
+ //   public void unlockplayers()
+	//{
+ //       PlayerPrefs.SetInt("MNum", 9);
+ //   }
+ //   public void MegaPack()
+ //   {
+ //       PlayerPrefs.SetInt("MNum", 9);
+ //       PlayerPrefs.SetInt("compare", 24);
+ //       PlayerPrefs.SetInt("RemoveAds", 1);
+ //   }
+ //   public bool IsAdsRemoved()
+ //   {
 
-        if (PlayerPrefs.GetInt("RemoveAds") == 0)
-            return false;
-        else
-            return true;
-    }
+ //       if (PlayerPrefs.GetInt("RemoveAds") == 0)
+ //           return false;
+ //       else
+ //           return true;
+ //   }
 
   
 

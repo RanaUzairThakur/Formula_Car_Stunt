@@ -1224,117 +1224,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
---- !u!1001 &1231878409
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: BannerID
-      value: ca-app-pub-9515731482364926/7081321668
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InterstitalID
-      value: ca-app-pub-9515731482364926/3399235132
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: MediumRectangleID
-      value: ca-app-pub-9515731482364926/6198414594
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: ShowDefaultBanner
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748258893877697, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: RewardedInterstitialID
-      value: ca-app-pub-9515731482364926/9773071796
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079728, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_Name
-      value: AdsManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149748259001079733, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[0].InAppName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[1].InAppName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[2].InAppName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[0].InAppString
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[1].InAppString
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-      propertyPath: InAppIds.Array.data[2].InAppString
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5825474802903415128, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
---- !u!1 &1231878410 stripped
+--- !u!1 &1231878410
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1149748259001079728, guid: 346765a7c8ab389439acb17fde5bb19d, type: 3}
-  m_PrefabInstance: {fileID: 1231878409}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231878414}
+  - component: {fileID: 1231878413}
+  - component: {fileID: 1231878412}
+  - component: {fileID: 1231878411}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &1231878411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,6 +1255,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b453309793fb74992305d9d2133685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1231878412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231878410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab13840810568e43983b47a3fe347a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1231878413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231878410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0df279d1f96024f9d5ab93a1cff062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTestAds: 1
+  rewardedInterstitialLoaded: 0
+  AndroidAdmob_ID:
+    ADMOB_APP_ID: ca-app-pub-9515731482364926~6216970168
+    ADMOB_INTERTITIAL_AD_ID_HIGH_ECPM: ca-app-pub-9515731482364926/3399235132
+    ADMOB_INTERTITIAL_AD_ID_MEDIUM_ECPM: ca-app-pub-9515731482364926/3399235132
+    ADMOB_INTERTITIAL_AD_ID_LOW_ECPM: ca-app-pub-9515731482364926/3399235132
+    ADMOB_BANNER_AD_ID_HIGH__ECPM: ca-app-pub-9515731482364926/7081321668
+    ADMOB_BANNER_AD_ID_MEDIUM__ECPM: ca-app-pub-9515731482364926/7081321668
+    ADMOB_BANNER_AD_ID_LOW__ECPM: ca-app-pub-9515731482364926/7081321668
+    ADMOB_MEDIUMBANNER_AD_ID_HIGH__ECPM: ca-app-pub-9515731482364926/6198414594
+    ADMOB_MEDIUMBANNER_AD_ID_MEDIUM__ECPM: ca-app-pub-9515731482364926/6198414594
+    ADMOB_MEDIUMBANNER_AD_ID_LOW__ECPM: ca-app-pub-9515731482364926/6198414594
+    ADMOB_REWARDED_AD_ID_High_ECPM: ca-app-pub-9515731482364926/9773071796
+    ADMOB_REWARDED_AD_ID_Medium_ECPM: ca-app-pub-9515731482364926/9773071796
+    ADMOB_REWARDED_AD_ID_Low_ECPM: ca-app-pub-9515731482364926/9773071796
+  IosAndroid_ID:
+    ADMOB_APP_ID: 
+    ADMOB_INTERTITIAL_AD_ID_HIGH_ECPM: 
+    ADMOB_INTERTITIAL_AD_ID_MEDIUM_ECPM: 
+    ADMOB_INTERTITIAL_AD_ID_LOW_ECPM: 
+    ADMOB_BANNER_AD_ID_HIGH__ECPM: 
+    ADMOB_BANNER_AD_ID_MEDIUM__ECPM: 
+    ADMOB_BANNER_AD_ID_LOW__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_HIGH__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_MEDIUM__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_LOW__ECPM: 
+    ADMOB_REWARDED_AD_ID_High_ECPM: 
+    ADMOB_REWARDED_AD_ID_Medium_ECPM: 
+    ADMOB_REWARDED_AD_ID_Low_ECPM: 
+  TestAdmob_ID:
+    ADMOB_APP_ID: 
+    ADMOB_INTERTITIAL_AD_ID_HIGH_ECPM: ca-app-pub-3940256099942544/1033173712
+    ADMOB_INTERTITIAL_AD_ID_MEDIUM_ECPM: ca-app-pub-3940256099942544/1033173712
+    ADMOB_INTERTITIAL_AD_ID_LOW_ECPM: ca-app-pub-3940256099942544/1033173712
+    ADMOB_BANNER_AD_ID_HIGH__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_BANNER_AD_ID_MEDIUM__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_BANNER_AD_ID_LOW__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_MEDIUMBANNER_AD_ID_HIGH__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_MEDIUMBANNER_AD_ID_MEDIUM__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_MEDIUMBANNER_AD_ID_LOW__ECPM: ca-app-pub-3940256099942544/6300978111
+    ADMOB_REWARDED_AD_ID_High_ECPM: ca-app-pub-3940256099942544/5224354917
+    ADMOB_REWARDED_AD_ID_Medium_ECPM: ca-app-pub-3940256099942544/5224354917
+    ADMOB_REWARDED_AD_ID_Low_ECPM: ca-app-pub-3940256099942544/5224354917
+  ADMOB_ID:
+    ADMOB_APP_ID: 
+    ADMOB_INTERTITIAL_AD_ID_HIGH_ECPM: 
+    ADMOB_INTERTITIAL_AD_ID_MEDIUM_ECPM: 
+    ADMOB_INTERTITIAL_AD_ID_LOW_ECPM: 
+    ADMOB_BANNER_AD_ID_HIGH__ECPM: 
+    ADMOB_BANNER_AD_ID_MEDIUM__ECPM: 
+    ADMOB_BANNER_AD_ID_LOW__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_HIGH__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_MEDIUM__ECPM: 
+    ADMOB_MEDIUMBANNER_AD_ID_LOW__ECPM: 
+    ADMOB_REWARDED_AD_ID_High_ECPM: 
+    ADMOB_REWARDED_AD_ID_Medium_ECPM: 
+    ADMOB_REWARDED_AD_ID_Low_ECPM: 
+  firstTime: 0
+--- !u!4 &1231878414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231878410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261394748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bb372855619314d818d4c91dce7dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldbegaInitialize: 0
+  shouldbegaInitialize: 1
   levelsPlayed: 0
   showMegaOfferOnComplete: 0
   showMegaOffer: 0

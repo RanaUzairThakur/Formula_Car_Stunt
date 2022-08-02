@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using GameAnalyticsSDK;
 //using GameAnalyticsSDK;
 
 public class MainMenuListner : MonoBehaviour
@@ -46,14 +47,14 @@ public class MainMenuListner : MonoBehaviour
 
             try
             {
-                //if (FindObjectOfType<AbstractAdsmanager>())
-                //    FindObjectOfType<AbstractAdsmanager>().ShowInterstitial();
+                if (FindObjectOfType<MediationHandler>())
+                    FindObjectOfType<MediationHandler>().ShowInterstitial();
+                   Toolbox.GameManager.Back_to_mainmenu = false;
             }
-
             catch (Exception e)
             {
-                // GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
-                Toolbox.GameManager.Back_to_mainmenu = false;
+                GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Instance Not Found!");
+               //  Toolbox.GameManager.Back_to_mainmenu = false;
             }
         }
 
@@ -152,15 +153,7 @@ public class MainMenuListner : MonoBehaviour
 
     public void OnPress_Quit()
     {
-        //try {
-        //    if (FindObjectOfType<AdsManager>())
-        //        FindObjectOfType<AdsManager>().ShowInterstitial();
-        //}
-
-        //catch (Exception e)
-        //{
-        //    GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
-        //}
+        
         Toolbox.UIManager.Quit_Panel.SetActive(true);
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.Quit);
 

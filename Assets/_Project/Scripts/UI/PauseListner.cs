@@ -17,8 +17,12 @@ public class PauseListner : MonoBehaviour
         {
             //if (AdsManager.Instance)
             //    AdsManager.Instance.ShowMediumBanner(GoogleMobileAds.Api.AdPosition.BottomLeft);
-            //if (FindObjectOfType<AbstractAdsmanager>())
-            //    FindObjectOfType<AbstractAdsmanager>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.BottomLeft);
+            if (FindObjectOfType<MediationHandler>())
+            {
+                FindObjectOfType<MediationHandler>().hideSmallBanner();
+                FindObjectOfType<MediationHandler>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.TopLeft);
+                FindObjectOfType<MediationHandler>().LoadInterstitial();
+            }
         }
 
         catch (Exception e)
@@ -76,7 +80,7 @@ public class PauseListner : MonoBehaviour
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.GameUIclicks);
         Toolbox.GameplayController.HUD_Status(true);
         Toolbox.GameManager.FBAnalytic_EventDesign(Toolbox.GameManager.Get_CurGameModeName() + "_" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode().ToString() + "_Pause_resume");
-        //Toolbox.HUDListner.ShowBanner();
+        Toolbox.HUDListner.ShowBanner();
         this.gameObject.SetActive(false);
         AudioListener.volume = 1;
         // Destroy(this.gameObject);

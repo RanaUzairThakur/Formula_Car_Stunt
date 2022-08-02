@@ -863,16 +863,15 @@ GameObject:
   - component: {fileID: 3978177474555307003}
   - component: {fileID: 1843117226384028711}
   - component: {fileID: 7119900416932062848}
-  - component: {fileID: 6656646627924302606}
-  - component: {fileID: 182102552601800368}
   - component: {fileID: 182102552601800369}
+  - component: {fileID: 182102552601800368}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8865233517828868472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1001,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067607e36a71adf49a7c6531dc899049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6656646627924302606
+--- !u!114 &182102552601800369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1010,10 +1009,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6838678206174688675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446af27d8f802cc4dba74b6a29eeb0c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d3dc3c7834bb461cbaa44d45c0dcf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyAds: 0
+  m_delay:
+    m_type: 1
+    m_offsettingEnabled: 0
+    m_from: 0
+    m_to: 0
+    m_masterValues: []
+    m_numTargets: 1
+  m_duration:
+    m_type: 1
+    m_offsettingEnabled: 0
+    m_from: 0.5
+    m_to: 0.5
+    m_masterValues:
+    - 0.5
+    m_numTargets: 1
+  m_easing: 0
+  m_audioClipDatas: []
+  m_numTargets: 1
+  m_waitForPreviousComplete: 0
+  m_grabbedInitialDefaultStateData: 1
+  m_inspectorToggleState: 1
+  m_masterScales:
+  - {x: 1, y: 1, z: 1}
+  m_targetTransforms:
+  - {fileID: 6423683612834736369}
 --- !u!114 &182102552601800368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,43 +1123,6 @@ MonoBehaviour:
   m_playLoopAnimInfinitely: 1
   m_numLoopIterations: 0
   m_showExtraSettings: 0
---- !u!114 &182102552601800369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6838678206174688675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3dc3c7834bb461cbaa44d45c0dcf85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_delay:
-    m_type: 1
-    m_offsettingEnabled: 0
-    m_from: 0
-    m_to: 0
-    m_masterValues: []
-    m_numTargets: 1
-  m_duration:
-    m_type: 1
-    m_offsettingEnabled: 0
-    m_from: 0.5
-    m_to: 0.5
-    m_masterValues:
-    - 0.5
-    m_numTargets: 1
-  m_easing: 0
-  m_audioClipDatas: []
-  m_numTargets: 1
-  m_waitForPreviousComplete: 0
-  m_grabbedInitialDefaultStateData: 1
-  m_inspectorToggleState: 1
-  m_masterScales:
-  - {x: 1, y: 1, z: 1}
-  m_targetTransforms:
-  - {fileID: 6423683612834736369}
 --- !u!1 &8579825854559202874
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,11 @@ public class MessageListner : MonoBehaviour
             }
             Toolbox.GameManager.Reviveplayer = false;
         }
+        if(Toolbox.GameplayController.LevelComplete)
+        {
+            if (FindObjectOfType<LevelCompleteListner>())
+                FindObjectOfType<LevelCompleteListner>().Ads();
+        }
         //    Destroy(this.gameObject);
     }
 

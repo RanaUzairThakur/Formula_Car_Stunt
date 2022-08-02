@@ -167,6 +167,7 @@ public class LevelSelectionListner : MonoBehaviour
                 return;
             }
         }
+        loadAds();
     }
     public void OnPress_Play()
     {
@@ -178,6 +179,7 @@ public class LevelSelectionListner : MonoBehaviour
 
         Toolbox.GameManager.Permanent_Log("LastSelectedLevelOfCurrentGameMode :" + Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Permanent_Log("LastSelectedGameMode :" + Toolbox.DB.Prefs.LastSelectedGameMode);
+        loadAds();
     }
     public void OnPress_Back()
     {
@@ -215,6 +217,20 @@ public class LevelSelectionListner : MonoBehaviour
     {
         Toolbox.Soundmanager.PlaySound(Toolbox.Soundmanager.buttonPress);
         InAppHandler.Instance.Buy_AllLevels();
+    }
+
+    private void loadAds()
+    {
+        try
+        {
+            if (FindObjectOfType<MediationHandler>())
+                FindObjectOfType<MediationHandler>().LoadInterstitial();
+        }
+
+        catch (Exception e)
+        {
+            //GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Not Found!");
+        }
     }
     #endregion
 }

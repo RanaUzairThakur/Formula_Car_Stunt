@@ -47,14 +47,14 @@ public class ReviveListner : MonoBehaviour
         this.gameObject.SetActive(false);
         try
         {
-            if (FindObjectOfType<AdsManager>())
-            {
-                //if (FindObjectOfType<AbstractAdsmanager>())
-                //    FindObjectOfType<AbstractAdsmanager>().ShowRewardedVideo(RewardType.REVIVEREWARD);
+            //if (FindObjectOfType<AdsManager>())
+            //{
+            //    //if (FindObjectOfType<AbstractAdsmanager>())
+            //    //    FindObjectOfType<AbstractAdsmanager>().ShowRewardedVideo(RewardType.REVIVEREWARD);
                
-                //else
-                //    OnPress_Close();
-            }
+            //    //else
+            //    //    OnPress_Close();
+            //}
         }
         catch (Exception e)
         {

@@ -38,7 +38,7 @@ public class StuntCameraHandler : MonoBehaviour
             Pivot.position = Vector3.Lerp(Pivot.position, TargetPoint.position, Time.deltaTime * smoothrotation);
             if (Pivot.transform.position.x <= TargetPoint.position.x + offsetPosition.x && !stay)
             {
-                print("Reach At Target");
+              // print("Reach At Target");
                 stay = true;
             }
             if (stay)
@@ -64,7 +64,7 @@ public class StuntCameraHandler : MonoBehaviour
               
                 if (Pivot.transform.position.x <= InitialPoint.position.x + offsetPosition.x && !stay)
                 {
-                    print("Reach At Initial");
+                   // print("Reach At Initial");
                     if (!Toolbox.GameplayController.IsFinish)
                         Toolbox.GameplayController.HUD_Status(true);
                     Reversestuntcam = false;
@@ -75,7 +75,7 @@ public class StuntCameraHandler : MonoBehaviour
             {
                 if (Pivot.transform.position.x + offsetPosition.x >= InitialPoint.position.x && !stay)
                 {
-                    print("Reach At Initial");
+                   // print("Reach At Initial");
                     if (!Toolbox.GameplayController.IsFinish)
                         Toolbox.GameplayController.HUD_Status(true);
                     Reversestuntcam = false;

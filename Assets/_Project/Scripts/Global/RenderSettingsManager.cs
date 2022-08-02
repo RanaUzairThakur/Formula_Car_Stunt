@@ -259,8 +259,8 @@ public class RenderSettingsManager : MonoBehaviour
     }
     private void OptimizeGameplay_MediumcheapDevice()
     {
-        if (FindObjectOfType<AdsManager>())
-            FindObjectOfType<AdsManager>().Initialization();
+        //if (FindObjectOfType<AdsManager>())
+        //    FindObjectOfType<AdsManager>().Initialization();
         if (FindObjectOfType<InAppHandler>())
             FindObjectOfType<InAppHandler>().InitializePurchasing();
         if (!Toolbox.DB.Prefs.UserConsent)

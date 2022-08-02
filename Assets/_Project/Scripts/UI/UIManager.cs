@@ -59,10 +59,11 @@ public class UIManager : MonoBehaviour
 
         try
         {
-            //if (FindObjectOfType<AbstractAdsmanager>())
-            //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
-            if (FindObjectOfType<AdsManager>())
-                FindObjectOfType<AdsManager>().ShowBanner("TopRight");
+            if (FindObjectOfType<MediationHandler>())
+                FindObjectOfType<MediationHandler>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.TopRight);
+            //if (FindObjectOfType<AdsManager>())
+            //    FindObjectOfType<AdsManager>().ShowBanner("TopRight");
+
         }
 
         catch (Exception e)

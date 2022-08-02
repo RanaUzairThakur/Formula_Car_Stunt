@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using GameAnalyticsSDK;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.Scripting;
@@ -48,6 +50,19 @@ public class LevelCompleteListner : MonoBehaviour
     private void Start()
     {
 
+
+        //try
+        //{
+        //    if (FindObjectOfType<MediationHandler>())
+        //    {
+        //        FindObjectOfType<MediationHandler>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.TopLeft);
+        //        FindObjectOfType<MediationHandler>().LoadInterstitial();
+        //    }
+        //}
+        //catch (Exception e)
+        //{
+        //    GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Instance Not Found!");
+        //}
 
         Toolbox.GameManager.FBAnalytic_EventLevel_Complete(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
         Toolbox.GameManager.Analytics_ProgressionEvent_Complete(Toolbox.GameManager.Get_CurGameModeName(), Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode());
@@ -108,6 +123,7 @@ public class LevelCompleteListner : MonoBehaviour
         if (Toolbox.DB.Prefs.Get_LastSelectedLevelOfCurrentGameMode() < (Toolbox.DB.Prefs.Get_LengthOfLevelsOfCurrentGameMode() - 1))
         {
             panel_3Buttons.SetActive(true);
+            Ads();
         }
         else
         {
@@ -115,7 +131,7 @@ public class LevelCompleteListner : MonoBehaviour
             {
                 Toolbox.HUDListner.Message.SetActive(true);
                 Toolbox.HUDListner.Message.GetComponent<MessageListner>().UpdateTxt(Toolbox.DB.Prefs.Get_CurGameModeName(Toolbox.DB.Prefs.LastSelectedGameMode) + " levels has been completed.Press on Next Button you can continue Next Mode Levels.", "Congratulations");
-               // Toolbox.DB.Prefs.LastSelectedGameMode += 1;
+                // Toolbox.DB.Prefs.LastSelectedGameMode += 1;
             }
             panel_3Buttons.SetActive(true);
         }
@@ -179,7 +195,22 @@ public class LevelCompleteListner : MonoBehaviour
        
     }
 
-
+    public void Ads()
+    {
+        try
+        {
+            if (FindObjectOfType<MediationHandler>())
+            {
+                FindObjectOfType<MediationHandler>().hideSmallBanner();
+                FindObjectOfType<MediationHandler>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.TopLeft);
+                FindObjectOfType<MediationHandler>().LoadInterstitial();
+            }
+        }
+        catch (Exception e)
+        {
+            GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Instance Not Found!");
+        }
+    }
 
     private void CR_ShowMegaOffer()
     {

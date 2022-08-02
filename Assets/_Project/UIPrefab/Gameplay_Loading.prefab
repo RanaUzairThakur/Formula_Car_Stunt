@@ -94,17 +94,15 @@ GameObject:
   - component: {fileID: 2327180818968391935}
   - component: {fileID: 2327180818968391906}
   - component: {fileID: 2327180818968391920}
-  - component: {fileID: 2327180818968391934}
   - component: {fileID: 2327180818968391931}
   - component: {fileID: 2327180818968391928}
-  - component: {fileID: 1197326720}
   m_Layer: 5
   m_Name: Gameplay_Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2327180818968391909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -224,18 +222,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2327180818968391934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2327180818968391912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0994ee9dfb3d434fa0d6fc8a388db24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &2327180818968391931
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -263,19 +249,6 @@ MonoBehaviour:
   sceneToLoad: 
   Fillbar: {fileID: 2327180818968391929}
   canvasGroup: {fileID: 2327180818968391931}
---- !u!114 &1197326720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2327180818968391912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446af27d8f802cc4dba74b6a29eeb0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyAds: 0
 --- !u!1 &2327180818968391913
 GameObject:
   m_ObjectHideFlags: 0

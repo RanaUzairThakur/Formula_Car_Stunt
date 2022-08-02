@@ -15680,8 +15680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523ff94fb045eb24a8865ef595a5d8ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BannerPosition: 0
-  DestroyAds: 0
 --- !u!114 &573927395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17267,7 +17265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 164842352c0faa84aba29e29b7928969, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c60d503e83d07a4da594642d112c304, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23899,6 +23897,10 @@ PrefabInstance:
     - target: {fileID: 4517921780377825561, guid: 312a576f1ecc16141a6229ad82dad4c7, type: 3}
       propertyPath: m_Name
       value: DummyLoading
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517921780377825561, guid: 312a576f1ecc16141a6229ad82dad4c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312a576f1ecc16141a6229ad82dad4c7, type: 3}
@@ -34515,6 +34517,10 @@ PrefabInstance:
     - target: {fileID: 2327180818968391912, guid: 0e03e77914bd66a4882016f31f147956, type: 3}
       propertyPath: m_Name
       value: Gameplay_Loading
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327180818968391912, guid: 0e03e77914bd66a4882016f31f147956, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e03e77914bd66a4882016f31f147956, type: 3}
@@ -45316,7 +45322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7320609ecab0b548aa0d8322d9532a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c60d503e83d07a4da594642d112c304, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

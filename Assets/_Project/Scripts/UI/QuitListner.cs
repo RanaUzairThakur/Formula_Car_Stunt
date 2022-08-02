@@ -1,4 +1,6 @@
 ﻿//using GoogleMobileAds.Api;
+using GameAnalyticsSDK;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +11,31 @@ public class QuitListner : MonoBehaviour
 
     private void OnEnable()
     {
-       
-       // Toolbox.GameManager.Add_ActiveUI(this.gameObject);
+
+        try
+        {
+            if (FindObjectOfType<MediationHandler>())
+                FindObjectOfType<MediationHandler>().ShowInterstitial();
+        }
+
+        catch (Exception e)
+        {
+            GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Not Found!");
+        }
     }
 
     private void OnDisable()
     {
-       // Toolbox.GameManager.Remove_ActiveUI(this.gameObject);
+        try
+        {
+            if (FindObjectOfType<MediationHandler>())
+                FindObjectOfType<MediationHandler>().LoadInterstitial();
+        }
+
+        catch (Exception e)
+        {
+            GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Not Found!");
+        }
     }
     #region Button Listner
 

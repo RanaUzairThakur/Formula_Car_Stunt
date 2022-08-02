@@ -31,9 +31,13 @@ public class LevelFailListner : MonoBehaviour
     {
         try
         {
-           
-            //if (FindObjectOfType<AbstractAdsmanager>())
-            //    FindObjectOfType<AbstractAdsmanager>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.BottomLeft);
+
+            if (FindObjectOfType<MediationHandler>())
+            {
+                FindObjectOfType<MediationHandler>().hideSmallBanner();
+                FindObjectOfType<MediationHandler>().ShowMediumBanner(GoogleMobileAds.Api.AdPosition.TopLeft);
+                FindObjectOfType<MediationHandler>().LoadInterstitial();
+            }
         }
 
         catch (Exception e)

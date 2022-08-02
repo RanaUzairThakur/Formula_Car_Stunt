@@ -1,6 +1,7 @@
 ﻿//using GameAnalyticsSDK;
 //using GoogleMobileAds.Api;
 //using CnControls;
+using GameAnalyticsSDK;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -118,17 +119,17 @@ public class HUDListner : MonoBehaviour
         {
             Toolbox.GameManager.Call_ad_after_restart = false;
             Toolbox.GameManager.Call_ad_before_gameplay = false;
-            //try
-            //{
-            //    if (FindObjectOfType<AbstractAdsmanager>())
-            //        FindObjectOfType<AbstractAdsmanager>().ShowInterstitial();
-            //}
-            //catch(Exception  e)
-            //{
-            //    //GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "AdsManager Instance Not Found!");
+            try
+            {
+                if (FindObjectOfType<MediationHandler>())
+                    FindObjectOfType<MediationHandler>().ShowInterstitial();
+            }
+            catch (Exception e)
+            {
+                GameAnalytics.NewErrorEvent(GAErrorSeverity.Info, "MediationHandler Not Found!");
 
 
-            //}
+            }
 
         }
 
@@ -143,10 +144,10 @@ public class HUDListner : MonoBehaviour
 
         try
         {
-            //if (FindObjectOfType<AbstractAdsmanager>())
-            //    FindObjectOfType<AbstractAdsmanager>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.Top);
-            if (FindObjectOfType<AdsManager>())
-                FindObjectOfType<AdsManager>().ShowBanner("TopRight");
+            if (FindObjectOfType<MediationHandler>())
+                FindObjectOfType<MediationHandler>().ShowSmallBanner(GoogleMobileAds.Api.AdPosition.TopRight);
+            //if (FindObjectOfType<AdsManager>())
+            //    FindObjectOfType<AdsManager>().ShowBanner("TopRight");
         }
 
         catch (Exception e)
